@@ -465,6 +465,13 @@ check_restrains = {
 	_physicallyRestrained = ((animationState player) ==  "civillying01");
 	_logicallyRestrained = [player, "restrained"] call player_get_bool;
 	
+    if (([_player, "restrained"] call player_get_bool) or ([_player, "isstunned"] call player_get_bool)) exitWith {
+        if(vehicle player != player) then {
+            player action ["Eject", vehicle _unit];
+            hint "You are restained! Entering a vehicle is rule breaking."; // Quick Fix, todo figure out how to stop player from entering.
+        };
+    };
+    
 	if (_logicallyRestrained && not(_physicallyRestrained)) then {
 		format['%1 switchMove "civillying01";', player] call broadcast;
 	}
