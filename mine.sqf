@@ -124,8 +124,8 @@ if (_item == "JackHammer") then {
 		hammerdur = hammerdur - (floor (random 2));
 		
 		if(hammerdur <= 0) exitWith {
-			player groupchat "The Jack Hammer broke"; 
-			[player, "Jack Hammer", -1] call INV_AddInventoryItem; 
+			player groupchat "The JackHammer broke"; 
+			[player, "JackHammer", -1] call INV_AddInventoryItem; 
 			hammerdur=100;
 		};
 		
@@ -143,8 +143,8 @@ if (_item == "JackHammer") then {
 		hammerdur = hammerdur - (floor (random 2));
 		
 		if (hammerdur <= 0) exitWith {
-			player groupchat "The Jack Hammer broke"; 
-			[player, "Jack Hammer", -1] call INV_AddInventoryItem; 
+			player groupchat "The JackHammer broke"; 
+			[player, "JackHammer", -1] call INV_AddInventoryItem; 
 			hammerdur=100;
 		};
 		
@@ -159,8 +159,8 @@ if (_item == "JackHammer") then {
 		_amount = round (random _max);
 		hammerdur = hammerdur - (floor (random 2));
 		if (hammerdur <= 0) exitWith {
-			player groupchat "The Jack Hammer broke"; 
-			[player, "Jack Hammer", -1] call INV_AddInventoryItem; 
+			player groupchat "The JackHammer broke"; 
+			[player, "JackHammer", -1] call INV_AddInventoryItem; 
 			hammerdur=100;
 		};
 		

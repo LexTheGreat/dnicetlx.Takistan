@@ -14,6 +14,7 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
+	"76561198101924418", // Addition for testing. (REMOVE BEFORE PUBLISH)
 	"245049094", // Fyodor
 	"247857670", //lilpwn
 	"76561198134427407" // Ja
@@ -83,6 +84,7 @@ isStaff = (isAdminDev || isSnAdmin || isAdmin || isMod || isDeveloper);
 
 // Whitelisting
 pmcwhitelist = [
+	"76561198101924418", // Addition for testing. (REMOVE BEFORE PUBLISH)
 //"92792966",
 "169460806", //TLXGOD
 "245049094", // Fyodor
@@ -114,8 +116,8 @@ if(isNil "insblacklist") then {
 };
 pmcblacklist = [];
 
-isdon = ((_uid in donators1) || (_uid in donators2) || (_uid in donators3) || (_uid in donators4) || (_uid in donatorsVIP));
-isvip = ((_uid in donatorsVIP));
+isdon = ((_uid in donators1) || (_uid in donators2) || (_uid in donators3) || (_uid in donators4) || (_uid in donatorsVIP) || (isDeveloper)); // Addition for testing, REMOVE BEFORE PUBLISH
+isvip = ((_uid in donatorsVIP) or (isDeveloper)); // Addition for testing, REMOVE BEFORE PUBLISH
 ispmc = ((_uid in pmcwhitelist) or (isStaff) or (isdon));
 
 _side = playerSide;
