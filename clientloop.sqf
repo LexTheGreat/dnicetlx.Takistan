@@ -468,7 +468,7 @@ check_restrains = {
     if (([_player, "restrained"] call player_get_bool) or ([_player, "isstunned"] call player_get_bool)) exitWith {
         if(vehicle player != player) then {
             player action ["Eject", vehicle _unit];
-            hint "You are restained! Entering a vehicle is rule breaking."; // Quick Fix, todo figure out how to stop player from entering.
+            hint "You are restained! Entering a vehicle is rule breaking."; // Quick Fix, todo stop player from entering vech. No way known as of now with out locking.
         };
     };
     
