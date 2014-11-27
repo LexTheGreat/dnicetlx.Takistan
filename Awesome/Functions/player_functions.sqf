@@ -84,6 +84,19 @@ player_set_dead = {
 	[_player, format["isdead_%1", _side], _dead] call player_set_bool;
 };
 
+player_set_terrorist = {
+    if(ister) exitWith { };
+    
+    ister = true;
+    [player, "Terrorist", 100000] call player_update_warrants;
+    MessageText = format["%1 declared Terror", name player];
+	scode = format ['titleText ["%1", "PLAIN"];', MessageText];
+	player setVehicleInit scode;
+	processInitCommands;
+	clearVehicleInit player;
+	scode = nil;
+};
+
 player_side_prefix = {
 	private["_side"];
 	_side = _this select 0;

@@ -821,6 +821,7 @@ track_death = {
 	
 	if (_killer_side == "Cop"||_killer_side == "Opfor") then {
 		[_victim] call player_reset_warrants;
+        ister = false;
 	};
 	
 	private["_armed_str"];
