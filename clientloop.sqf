@@ -540,6 +540,15 @@ _donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 	};
 };
 
+mayor_unarmer = {
+	if(!isMayor) exitWith { };
+	_wArray = weapons player;
+	if (count _wArray > 0) then {
+		removeAllWeapons player;
+		player groupChat "You may not carry weapons as the president!!! You have been unarmed";
+	};
+};
+
 player_onGlobal = compile preprocessFile "addons\player_onGlobal.sqf";
 
 check_global_voice = {
@@ -575,6 +584,7 @@ client_loop = {
 		call check_restrains;
 		call check_global_voice;
 		call check_donator_items;
+		call mayor_unarmer;
 		if(!isciv) then {
 			call check_checkpoints;
 		};

@@ -1010,6 +1010,19 @@ respawn_retribution = {
 	if (isNil "player_unfair_killed" ) exitWith{};
 	if (typeName player_unfair_killed != "BOOL") exitWith{};
 	if (not(player_unfair_killed)) exitWith {};
+	if (isMayor) exitWith {
+	isMayor = false;
+	MayorNumber = -1;
+	PublicVariable "MayorNumber";
+		format ["
+		(INV_ItemTypeArray select 0) set [2, 5];
+		(INV_ItemTypeArray select 1) set [2, 5];
+		(INV_ItemTypeArray select 2) set [2, 5];
+		(INV_ItemTypeArray select 3) set [2, 5];
+		bank_tax = 5;
+		hint ""The President has been assassinated!!! Tax rates reset to 5 percent."";
+	"] call broadcast;
+	};
 	
 	player_unfair_killed = false;
 	["open"] call retributions_main;
