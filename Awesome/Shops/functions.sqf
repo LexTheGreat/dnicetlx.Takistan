@@ -708,6 +708,9 @@ shop_buy_item_validate_data = {
 		["The item you have selected to buy cannot be put in hands automatically", _quiet] call shop_set_status_message; nil
 	};
 	
+    if(_totalDue_str == "$NotANumber") exitWith {
+        ["$NotANumber Glitch, please rejoin the server.", _quiet] call shop_set_status_message; nil
+    };
 
 	_data set [shop_buy_item_total_due, _total_price];
 	_data set [shop_buy_item_sales_tax, _sales_tax];
