@@ -138,6 +138,7 @@ compare_array = {
 	if (isNil "_b") exitWith { false };
 	if (typeName _a != "ARRAY") exitWith {false};
 	if (typeName _b != "ARRAY") exitWith {false};
+	
 	if (count _a != count _b) exitWith {false};
 	
 	private["_i"];
@@ -468,10 +469,10 @@ check_restrains = {
     if (([_player, "restrained"] call player_get_bool) or ([_player, "isstunned"] call player_get_bool)) exitWith {
         if(vehicle player != player) then {
             player action ["Eject", vehicle _unit];
-            hint "You are restained! Entering a vehicle is rule breaking."; // Quick Fix, todo stop player from entering vech. No way known as of now with out locking.
+            hint "You are restrained! Entering a vehicle is rule breaking."; // Quick Fix, todo stop player from entering vech. No way known as of now with out locking.
         };
     };
-    
+	
 	if (_logicallyRestrained && not(_physicallyRestrained)) then {
 		format['%1 switchMove "civillying01";', player] call broadcast;
 	}

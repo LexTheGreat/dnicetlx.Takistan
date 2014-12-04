@@ -138,11 +138,10 @@ player createDiaryRecord ["credits",
 "Staff and TS3",
 "
 Admin: [TLX] D-Nice<br/>
-There are currently no other staff members. Anyone trying to impersonate one will be banned from the server. If anyone does seemingly act or say they are an admin, mod or any other type of staff member, please e-mail me or leave me a message on TS, I will check the logs and ban them promptly.<br/>
 TS3 Info;<br/>
-Address: TLX.ts3dns.com<br/>
-Mission build: 0.8<br/>
-Current version developed by: [TLX] D-Nice<br/>
+Address: On right hand side :)<br/>
+Mission build: 1.0<br/>
+Current version developed by: [TLX] D-Nice, [TLX] Lex_The_Great<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
 ]

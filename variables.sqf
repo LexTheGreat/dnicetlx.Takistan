@@ -58,9 +58,8 @@ buybi                   = false;
 //========robbing variables===========
 stolenfromtime          = 600;
 stolenfromtimeractive   = false;  // dont change
-//====================================
+//=======Declare Terror Variable======
 ister                   = false;
-
 //========AWESOME===========
 
 stunshots              = 0;

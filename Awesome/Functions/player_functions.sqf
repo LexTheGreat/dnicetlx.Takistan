@@ -88,8 +88,8 @@ player_set_terrorist = {
     if(ister) exitWith { };
     
     ister = true;
-    [player, "Terrorist", 100000] call player_update_warrants;
-    MessageText = format["%1 declared Terror", name player];
+    [player, "Terrorist", 200000] call player_update_warrants;
+    MessageText = format["%1 has declared Terror", name player];
 	scode = format ['titleText ["%1", "PLAIN"];', MessageText];
 	player setVehicleInit scode;
 	processInitCommands;
@@ -353,6 +353,9 @@ player_reset_warrants = {
 	[_player, false] call player_set_wanted;
 	[_player, 0] call player_set_bounty;
 	[_player, []] call player_set_reason;
+	if (isciv && ister) then {
+		ister = false;
+	};
 };
 
 player_armed = {
