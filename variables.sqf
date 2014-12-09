@@ -357,7 +357,7 @@ MayorExtraPay            = 50000;
 
 private["_i"];
 _i = 0;
-while { _i < (count civstringarray) } do {
+while { _i < (count playerstringarray) } do {
 	WahlArray = WahlArray + [ [] ];
 	_i = _i + 1;
 };
