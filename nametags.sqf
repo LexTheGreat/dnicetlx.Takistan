@@ -224,7 +224,6 @@ name_3d_tags_draw = {
 			not(INV_shortcuts)  || [_player] call player_civilian ||
 			not(alive _player) || visibleMap) exitWith {};
 		
-		if (true) then {
 			private["_control"];
 			_control = name_3d_controls select _i;
 			
@@ -276,7 +275,6 @@ name_3d_tags_draw = {
 			_control ctrlSetPosition _pos2D;
 			_control ctrlCommit 0;	
 			_i = _i + 1;
-		};
 	} forEach name_tags_side_units;
 	
 	//hide the unused markers

@@ -1424,10 +1424,10 @@ INV_AllItemsArray = [
 //["factory",					["Item", 		"misc"],["Land_A_GeneralStore_01a", "Factory"],					[180000, 1000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_factory",localize "STRS_inv_item_factory_info", [] ],
 //["officebuilding",			["Item", 		"misc"],["Land_A_Office01", "Office Building"],					[150000, 1000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_officebuilding",localize "STRS_inv_item_officebuilding_info", [] ],
 ["barrack",					["Item", 		"misc"],["Land_Barrack2", "Barrack"],							[35000, 10000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
-["Hedgehog_EP1",				["Item", 		"misc"],["Hedgehog_EP1", "Hedgehog"],							[3500, 10000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
+["Hedgehog_EP1",				["Item", 		"misc"],["Hedgehog_EP1", "Hedgehog"],							[3500, 1000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
 ["Sign_Checkpoint_US_EP1",	["Item", 		"misc"],["Sign_Checkpoint_US_EP1", "Checkpoint sign"],			[350, 100],			[3, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
-["Land_CamoNetVar_NATO_EP1",	["Item", 		"misc"],["Land_CamoNetVar_NATO_EP1", "Camo-Net"],				[3500, 10000],		[10, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
-["Land_ladderEP1",			["Item", 		"misc"],["Land_ladderEP1", "Breaching ladder"],					[3500, 10000],		[0, "bomb", "sobr_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
+["Land_CamoNetVar_NATO_EP1",	["Item", 		"misc"],["Land_CamoNetVar_NATO_EP1", "Camo-Net"],				[3500, 1000],		[10, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
+["Land_ladderEP1",			["Item", 		"misc"],["Land_ladderEP1", "Breaching ladder"],					[3500, 1000],		[0, "bomb", "sobr_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
 ["Land_Campfire_burning",		["Item", 		"misc"],["Land_Campfire_burning", "Campfire"],					[500, 50],				[10, "", "","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
 //["Fort_Barricade_EP1",		["Item", 		"misc"],["Fort_Barricade_EP1", "Road barricade"],				[5000, 0],			[60, "bomb", "","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_barrack",localize "STRS_inv_item_barrack_info", [] ],
 //["smallhouse",				["Item", 		"misc"],["Land_sara_domek_zluty", "Small House2"],				[65000, 1000],		[20, "", "patrol_training","",""], [true, true, true,false,"createobject.sqf"],localize "STRS_inv_item_smallhouse",localize "STRS_inv_item_smallhouse_info", [] ],
@@ -1499,13 +1499,13 @@ INV_AllItemsArray = [
 //["Donut",						["Item", 		"food"],["Donut", "Donut"],										[1000, 1000],		[0.5, "","","",""], [true, true, true,false,"food.sqf"],localize "STRS_inv_item_Bread",localize "STRS_inv_item_nahrung_info", [] ],
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Drink
-["beer",						["Item", 		"drink"],["beer", "Lager"],										[120, 120],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_beer",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["beer2",						["Item", 		"drink"],["beer2", "Bitter"],									[170, 170],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_beer",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["vodka",						["Item", 		"drink"],["vodka", "Vodka"],									[180, 180],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_vodka",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["smirnoff",					["Item", 		"drink"],["smirnoff", "Smirnoff ICE"],							[130, 130],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_smirnoff",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["wiskey",						["Item", 		"drink"],["wiskey", "Wiskey"],									[200, 200],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wiskey",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["wine",						["Item", 		"drink"],["wine", "White Wine"],								[250, 250],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wine",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
-["wine2",						["Item", 		"drink"],["wine2", "Red Wine"],									[270, 270],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wine",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["beer",						["Item", 		"drink"],["beer", "Lager"],										[120, 20],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_beer",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["beer2",						["Item", 		"drink"],["beer2", "Bitter"],									[170, 70],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_beer",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["vodka",						["Item", 		"drink"],["vodka", "Vodka"],									[180, 80],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_vodka",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["smirnoff",					["Item", 		"drink"],["smirnoff", "Smirnoff ICE"],							[130, 30],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_smirnoff",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["wiskey",						["Item", 		"drink"],["wiskey", "Wiskey"],									[200, 100],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wiskey",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["wine",						["Item", 		"drink"],["wine", "White Wine"],								[250, 150],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wine",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
+["wine2",						["Item", 		"drink"],["wine2", "Red Wine"],									[270, 170],			[0.5, "","","",""], [true, true, true,false,"alkeffekt.sqf"],localize "STRS_inv_item_wine",localize "STRS_inv_item_alkohol_info", [["quellwasser", 1], ["hopfen", 1]] ],
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Resource
 ["sand", 						["Item", 		"ressource"],["sand", "Sand"],									[600, 360],			[1, "","","",""],[true,true,true, false, "useresource.sqf"], localize "STRS_inv_item_sand", localize "STRS_inv_item_sand_info", []],
@@ -1540,7 +1540,7 @@ INV_AllItemsArray = [
 ["marijuana",					["Item", 		"drug"],["marijuana", "Marijuana"],								[500000, 30500],		[0.5, "","","",""], [true, true, true,true,"drugs.sqf"],localize "STRS_inv_item_marijuana",localize "STRS_inv_item_drogen_info", [["Unprocessed_Marijuana", 10]]],
 ["cocaine",						["Item", 		"drug"],["cocaine", "Cocaine"],									[80000, 40000],		[0.5, "","","",""], [true, true, true,true,"drugs.sqf"],localize "STRS_inv_item_cocaine",localize "STRS_inv_item_drogen_info", [["Unprocessed_Cocaine", 10]]],
 ["lsd", 						["Item", 		"drug"],["lsd", "LSD"],											[75000, 35000],		[0.5, "","","",""],[true,true,true, true, "drugs.sqf"], localize "STRS_inv_item_lsd",localize "STRS_inv_item_drogen_info", [["Unprocessed_LSD", 10]]],
-["glue", 						["Item", 		"drug"],["glue", "Glue-All"],									[2500, 8500],		[0.5, "","","",""],[true,true,true, true, "drugs.sqf"], localize "STRS_inv_item_glue",localize "STRS_inv_item_drogen_info", [] ],
+["glue", 						["Item", 		"drug"],["glue", "Glue-All"],									[2500, 850],		[0.5, "","","",""],[true,true,true, true, "drugs.sqf"], localize "STRS_inv_item_glue",localize "STRS_inv_item_drogen_info", [] ],
 ["heroin", 						["Item", 		"drug"],["heroin", "Heroin"],									[60000, 32000],		[0.5, "","","",""],[true,true,true, true, "drugs.sqf"], localize "STRS_inv_item_heroin",localize "STRS_inv_item_drogen_info", [["Unprocessed_Heroin", 10]]],
 //["MarijuanaSeed",				["Item", 		"drug"],["Marijuana Seed", "Marijuana Seed"],[100, 100], [0.5, "","","",""], [true, true, true,true,"drugplant.sqf"],localize "STRS_inv_item_mariseed",localize "STRS_inv_item_seed_info", [["marijuana_Plant", 10]]],
 //["DrugShed",					["Item", 		"drug"],["Drug-Shed", "Drug-Shed"],[75000, 75000], [25, "","","",""], [true, true, true,true,""],localize "STRS_inv_item_drugshed",localize "STRS_inv_item_shed_info", [["marijuana_Plant", 10]]],
@@ -1553,7 +1553,7 @@ INV_AllItemsArray = [
 ["EPlatinumring",				["Item", 		"Ring"],["Expensive Platinum Ring", "Expensive Platinum Ring"],	[32000, 9500],		[1, "","","",""], [true, true, true, false,"nouse.sqf"],"Expensive Platinum Ring","Sell at the Jewelry store", [["Platinum", 10],["Rubies", 10]]]
 ];
 
-
+   
 // Create an Array of Everything
 
 private ["_n"];

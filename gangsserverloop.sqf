@@ -8,18 +8,19 @@ player_get_player_by_name = {
 
 	{
 		private["_exit"];
-
-		_exit = if (true) then {
-			private["_cplayer", "_cname", "_cplayer_variable"];
-			_cplayer_variable = _x;
-			_cplayer = missionNamespace getVariable _cplayer_variable;
-			if (isNil "_cplayer") exitWith {false};
-			_cname = name _cplayer;
-			if (_cname == _name) exitWith {
-				_player = _cplayer;
-				true
-			};
+		
+        _exit = false;
+        
+		private["_cplayer", "_cname", "_cplayer_variable"];
+		_cplayer_variable = _x;
+		_cplayer = missionNamespace getVariable _cplayer_variable;
+		if (isNil "_cplayer") exitWith {false};
+		_cname = name _cplayer;
+		if (_cname == _name) exitWith {
+			_player = _cplayer;
+			_exit = true;
 		};
+        
 		if (_exit) exitWith {};    
 	} foreach playerstringarray;
 	_player

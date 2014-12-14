@@ -77,8 +77,7 @@ DialogPlayerList = {
 		_player_variable_name = playerstringarray select _c;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		
-		if (true) then {
-			if(!isNil "_player_variable") then {
+		if(!isNil "_player_variable") then {
 			if (not([_player_variable] call player_exists)) exitWith {};
 			private["_is_civ", "_is_cop", "_is_ins", "_is_opf"];
 			_is_civ = [_player_variable] call player_civilian;
@@ -99,7 +98,6 @@ DialogPlayerList = {
 			if (_player_variable == player) then {
 				_my_index = _index;
 			};
-		};
 		};
 		_c = _c + 1;
 	};

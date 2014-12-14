@@ -436,7 +436,7 @@ vehicle_set_modifications = {
 	if (typeName _item != "STRING") exitWith {};
 	if (typeName _silent != "BOOL") exitWith {};
 	_vehicle setVariable ["item_name", _item, true];
-	
+    
 	switch (_item) do {
 		case "blank": { };
 		/* Octavia_ill, Octavia_PMC, Octavia_UN, Octavia_Cop, Octavia_Civ */
@@ -1131,20 +1131,18 @@ vehicle_build_string_array = {
 	_vehicles_string_array = [];
 	
 	{
-		if (true) then {
-			private["_vehicle"];
-			_vehicle = _x;
-			if (isNil "_vehicle") exitWith {};
-			if (typeName _vehicle != "OBJECT") exitWith{};
-			if (isNull _vehicle) exitWith {};
-			if (not(alive _vehicle)) exitWith {};
-			private["_vehicle_name"];
-			_vehicle_name = vehicleVarName _vehicle;
-			if (isNil "_vehicle_name") exitWith{};
-			if (typeName "_vehicle_name" != "STRING") exitWith{};
-			
-			_vehicles_string_array = _vehicles_string_array + [_vehicle_name];
-		};
+		private["_vehicle"];
+		_vehicle = _x;
+		if (isNil "_vehicle") exitWith {};
+		if (typeName _vehicle != "OBJECT") exitWith{};
+		if (isNull _vehicle) exitWith {};
+		if (not(alive _vehicle)) exitWith {};
+		private["_vehicle_name"];
+		_vehicle_name = vehicleVarName _vehicle;
+		if (isNil "_vehicle_name") exitWith{};
+		if (typeName "_vehicle_name" != "STRING") exitWith{};
+		
+		_vehicles_string_array = _vehicles_string_array + [_vehicle_name];
 	} foreach _vehicles;
 	
 	_vehicles_string_array

@@ -741,7 +741,7 @@ shop_sell_item_validate_data = {
 	if (not(_quiet)) then {
 		call shop_reset_sell_labels;
 	};
-	
+
 	if ((call shop_is_busy)) exitWith {
 		[format["Shop is currently busy, please wait"], _quiet] call shop_set_status_message; nil;
 	};
@@ -757,8 +757,6 @@ shop_sell_item_validate_data = {
 	_max_stock = [_item, _shop_id] call INV_GetMaxStock;
 	_isOilBarrel = (_item == "OilBarrel");
 	
-
-	
 	_type = _infos call INV_GetItemType;
 	_limitedStock = (_max_stock != -1);
 	_isItem = (_type == "Item");
@@ -772,7 +770,7 @@ shop_sell_item_validate_data = {
 	_weapons = (weapons player);
 	_magazines = (magazines player);
 	_vehicles = [player] call vehicle_list;
-	
+
 	_weapon_count = if (_isWeapon) then { ({_x == _class} count _weapons ) } else { 0 };
 	_weapon_count = if (isNil "_weapon_count") then { 0 } else { _weapon_count };
 	
@@ -780,11 +778,11 @@ shop_sell_item_validate_data = {
 	_magazine_count = if (isNil "_magazine_count") then { 0 } else { _magazine_count };
 	_item_count = if (_isItem) then { ([player, _item] call INV_GetItemAmount) } else { 0 };
 	_item_count = if (isNil "_item_count") then { 0 } else { _item_count };
-	_vehicle_count = if (_isVehicle) then { ({ (typeOf _x == _class) } count _vehicles) } else { 0 };
+	_vehicle_count = if (_isVehicle) then { { _x getVariable "item_name" == _item } count _vehicles } else { 0 };
 	_vehicle_count = if (isNil "_vehicle_count") then { 0 } else { _vehicle_count };
-	_vehicle_alive_count = if (_vehicle_count > 0) then { ({((typeOf _x == _class) && (alive _x))} count _vehicles) } else { 0 }; 
+	_vehicle_alive_count = if (_vehicle_count > 0) then { ({ _x getVariable "item_name" == _item && alive _x} count _vehicles) } else { 0 }; 
 	_vehicle_alive_count = if (isNil "_vehicle_alive_count") then { 0 } else { _vehicle_alive_count };
-	_vehicle_near_count = if (_vehicle_alive_count > 0)  then { ({((typeOf _x == _class) && (alive _x) && ((_x distance _logic) < 50))} count _vehicles) } else { 0 }; 
+	_vehicle_near_count = if (_vehicle_alive_count > 0)  then { ({ _x getVariable "item_name" == _item && (alive _x) && (_x distance _logic) < 50} count _vehicles) } else { 0 }; 
 	_vehicle_near_count = if (isNil "_vehicle_near_count") then { 0 } else { _vehicle_near_count };
 	_hasBackpack = if (_isBackpack) then { _class == typeOf(unitBackpack player); } else { false };
 		
@@ -874,9 +872,11 @@ shop_sell_item_validate_data = {
 	if(_isVehicle && _vehicle_count == 0) exitWith {
 		["You do not own any vehicles of the selected type to sell", _quiet] call shop_set_status_message; nil
 	};
+    
 	if (_isVehicle && _vehicle_alive_count == 0) exitWith {
 		["You do not own any vehicles of the selected type that are alive", _quiet] call shop_set_status_message; nil
 	};
+    
 	if (_isVehicle && _vehicle_near_count == 0) exitWith {
 		["You do not own any vehicles of the selected type that are near this shop", _quiet] call shop_set_status_message; nil
 	};
@@ -900,6 +900,10 @@ shop_sell_item_validate_data = {
 	if (_isIllegal && (iscop or isopf)) exitWith {
 		 ["The selected item is illegal, you are not allowed to sell it", _quiet]  call shop_set_status_message; nil
 	};
+    
+    if(_totalReturn_str == "$NotANumber") exitWith {
+        ["$NotANumber Glitch, please rejoin the server.", _quiet] call shop_set_status_message; nil
+    };
 	
 	_data set [shop_sell_item_total_return, _total_price];
 	_data set [shop_sell_item_sales_tax, _sales_tax];
@@ -912,7 +916,7 @@ shop_sell_item_validate_data = {
 	_data set [shop_sell_item_amount, _amount];
 	_data set [shop_sell_item_class, _class];
 	_data set [shop_sell_item_kind, _kind];
-	
+
 	_data
 };
 
@@ -1184,7 +1188,7 @@ shop_get_vehicles_by_class = {
 	
 	_class = _this select 0;
 	_distance = _this select 1;
-	
+    
 	if (isNil "_class") exitWith { [] };
 	if (typeName _class != "STRING") exitWith { [] };
 	if (isNil "_distance") exitWith { [] };
@@ -1197,13 +1201,10 @@ shop_get_vehicles_by_class = {
 
 	{
 		_vehicle = _x;
-		if (true) then {
-			if (isNil "_vehicle") exitWith {};
-			if (not(alive(_vehicle))) exitWith {};
-			if ((player distance _vehicle) > _distance) exitWith {};
-			if (typeOf _vehicle != _class) exitWith {};
-			_vehicles = _vehicles + [_vehicle];
-		};
+		if (isNil "_vehicle") exitWith {};
+		if (not(alive(_vehicle))) exitWith {};
+		if (typeOf _vehicle != _class) exitWith {};
+		_vehicles = _vehicles + [_vehicle];
 	} foreach _vehicle_list;
 	
 	_vehicles
@@ -1476,21 +1477,19 @@ shop_drug_search = {
 	};
 	
 	{
-		if (true) then {
-			private["_data", "_player", "_profit", "_uid"];
-			_data = _x;
-			_uid = _data select shop_drug_list_player_uid;
-			_profit = _data select shop_drug_list_profit;
-			_player =  [_uid] call player_lookup_uid;
-			if (isNil "_player") exitWith {};
-			
-			player groupChat format["This civilian bought $%1 worth of drugs from %2-%3!", strM(_profit), _player, (name _player)];
-			
-			[_player, "(drug-trafficking)", _profit] call player_update_warrants;
-			private["_message"];
-			_message = format["%1-%2 is wanted for trafficking $%3 worth of drugs!", _player, (name _player), strM(_profit)];
-			format['titleText [toString(%1), "PLAIN"];', toArray(_message)] call broadcast;
-		};
+		private["_data", "_player", "_profit", "_uid"];
+		_data = _x;
+		_uid = _data select shop_drug_list_player_uid;
+		_profit = _data select shop_drug_list_profit;
+		_player =  [_uid] call player_lookup_uid;
+		if (isNil "_player") exitWith {};
+		
+		player groupChat format["This civilian bought $%1 worth of drugs from %2-%3!", strM(_profit), _player, (name _player)];
+		
+		[_player, "(drug-trafficking)", _profit] call player_update_warrants;
+		private["_message"];
+		_message = format["%1-%2 is wanted for trafficking $%3 worth of drugs!", _player, (name _player), strM(_profit)];
+		format['titleText [toString(%1), "PLAIN"];', toArray(_message)] call broadcast;
 	} foreach _list;
 	
 	_list = [];
