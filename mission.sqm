@@ -118,7 +118,7 @@ class Mission
 	randomSeed=4402856;
 	class Intel
 	{
-		briefingName="Takistan Life Xtreme 1.0 by D-Nice";
+		briefingName="Takistan Life Xtreme 1.1 by D-Nice";
 		briefingDescription="Taki Mafucking XTREMEEEEE";
 		resistanceWest=0;
 		startWeather=0;

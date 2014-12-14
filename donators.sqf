@@ -19,7 +19,6 @@ donators1 	  = [
 					"76561198071463315", //Lontra Atomica
 					"76561198084473560",//death terrorist/grille
 					"76561198069905879", //Swift
-					"76561198153761197", //FalconLover
 					"76561198097975603", //Nightshade
 					"76561198043681651", //Mez
 					"76561198152562567", // XxNickxX
@@ -41,7 +40,6 @@ donators1 	  = [
 					"76561198135961670", //kalashnikov
 					"76561198139401322", //Asadullah
 					"76561198101357588", //preznixon
-					"76561198092417819", //Scorches
 					"76561198090128310", //ForFkSake
 					"76561198115442699", //ItsRafi
 					"76561198087009530", //blackfire13Daryl
@@ -54,7 +52,6 @@ donators1 	  = [
 					"76561198047199328", //Zeds dead baby
 					"76561198022516829", //Abu Jasem
 					"76561198074236542", //Walker
-					"76561198152269779", //Turtle-_-Island
 					"76561198086547444", //FriarTuck
 					"76561198162164745", //CHRONICxKNIGHT
 					"76561198062792993", //Pat-tar
@@ -62,6 +59,15 @@ donators1 	  = [
 					"76561198056676644", //hellman4
 					"76561198114788756", //Fluskies
 					"76561198121446470", //SIR
+					"76561198152442647", //IIBARRICADEII
+					"76561198147080989", //travis00
+					"76561198055871342", //Sgt Brown
+					"76561198057784032", //Hodor
+					"76561198135298995", //Muhammad Ahmed
+					"76561198055608411", //Nova
+					"76561198083884755", //Nick
+					"76561198093915329", //Niko
+					"76561198069165434", //Rengum Val Gold
 					"76561198144636471" //Sw!tch $15
 		    ];
 
@@ -70,7 +76,6 @@ donators1 	  = [
 // Donated $25
 donators2 	  = [
 					"76561198124725504", //KillaCali3
-					"76561198093831210",//Turtles
 					"76561198062863149",//Spencer (donated by wade)
 					"76561198054194000", //S. Wade //add as mod
 					"76561198064255265",//DaveHoboMofo
@@ -84,7 +89,6 @@ donators2 	  = [
 					"76561198011846083", //TheArtOfBalance
 					"76561198077387199", //Billyjeanismydad
 					"76561198003510822", //ShangorPanetta
-					"76561198135899866", //bakedpotato
 					"76561197978480837", //knarf84
 					"76561198143315314", //Token
 					"76561197993946192", //danile666
@@ -111,7 +115,7 @@ donators2 	  = [
 					"76561198058459273", //Bashir Zayz
 					"76561198153831221", //rhotis
 					"76561198148463580", //dillan225
-					"76561198154029585", //CandyMan
+					"76561198166236290", //CandyMan
 					"76561198079217419", //Jonathanbucy
 					"76561198063890424", //Brendan Donahue
 					"76561198139855195", //Murphy
@@ -124,6 +128,10 @@ donators2 	  = [
 					"76561198083087001", //DizzyOreo
 					"76561198050430232", //HardLike
 					"76561198101924418", //Lex_Dev
+					"76561197984064803", //BeardedDeath Tim gib
+					"76561198092417819", //Scorches
+					"76561198102125657", //Edward UnknowingFrk Martinz
+					"76561198153761197", //FalconLover
 					"76561198114549420" //RageCometz
 			];
 
@@ -146,6 +154,9 @@ donators3  	  = [
 				"76561198071964800", //GavinTankGaming
 				"76561198133658655", //Roqe
 				"76561198158227283", //Gnome
+				"76561198103350780", //Ryguy
+				"76561198054899491", //Progaming/CyanCod_Player
+				"76561198135899866", //bakedpotato
 				"76561198098170503" //King Akbur	
 			];
 
@@ -153,7 +164,6 @@ donators3  	  = [
 
 // Donated $75
 donators4  	  = [
-				"76561198141964948", //Dreams
 				"76561198045721518" //Burty
 
 ];
@@ -181,6 +191,10 @@ donatorsVIP     = [
 				"76561198081926401", //UKKarma
 				"76561198000426604", //Boozehammer
 				"76561198132373007", //FBI
+				"76561198141964948", //Dreams zach
+				"76561198152269779", //Turtle-_-Island
+				"76561198093831210",//Turtles
+				"76561198005220301", //XxUnturendMasterxX
 				"76561198134427407"//Ja
 				//76561198100072934 NESKOVICH
 
