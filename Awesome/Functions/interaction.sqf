@@ -1601,7 +1601,7 @@ interact_recruit_ai_receive = {
 	
 	private["_unit_name"];
 	_unit_name = format["%1_Troop_%2_%3", str(_player), (count (units (group _player))), round(time)];
-
+	xorE=true;
 	_unit setVehicleInit format[
 	'
 		this setVehicleVarName "%1";

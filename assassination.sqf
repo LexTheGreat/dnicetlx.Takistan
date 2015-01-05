@@ -56,7 +56,8 @@ if (_art == "getajob_assassin") then {
 	//[format["%1 (%2, %3, %4) - assasination: group created %5",  round(time), player, (name player), (getPlayerUID player), _group]] call l4a;
 
 	VIPtarget = _group createUnit ["Functionary1_EP1", _pos, [], _radius, "FORM"];
-	VIPtarget setvehicleinit 'VIPtarget = this;this setVehicleVarName "VIPtarget";';
+	xorE=true;
+	VIPtarget setvehicleinit 'liafu = true;VIPtarget = this;this setVehicleVarName "VIPtarget";';
 	//give vip weapon and clips
 	VIPtarget addweapon "M9";
 	VIPtarget addmagazine "15Rnd_9x19_M9";
@@ -68,7 +69,8 @@ if (_art == "getajob_assassin") then {
 
 	//creating body guards
 	VIPbodyguard1 = _group createUnit ["Functionary2_EP1", _pos, [], _radius, "FORM"];
-	VIPbodyguard1 setvehicleinit 'VIPbodyguard1 = this;this setVehicleVarName "VIPbodyguard1";';
+	xorE=true;
+	VIPbodyguard1 setvehicleinit 'liafu = true;VIPbodyguard1 = this;this setVehicleVarName "VIPbodyguard1";';
 	VIPbodyguard1 addweapon "m9";
 	VIPbodyguard1 addmagazine "15Rnd_9x19_M9";
 	VIPbodyguard1 addmagazine "15Rnd_9x19_M9";
@@ -76,7 +78,8 @@ if (_art == "getajob_assassin") then {
 	VIPbodyguard1 addmagazine "15Rnd_9x19_M9";
 
 	VIPbodyguard2 = _group createUnit ["Functionary2_EP1", _pos, [], _radius, "FORM"];
-	VIPbodyguard2 setvehicleinit 'VIPbodyguard2 = this;this setVehicleVarName "VIPbodyguard2";';
+	xorE=true;
+	VIPbodyguard2 setvehicleinit 'liafu = true;VIPbodyguard2 = this;this setVehicleVarName "VIPbodyguard2";';
 	VIPbodyguard2 addweapon "m9";
 	VIPbodyguard2 addmagazine "15Rnd_9x19_M9";
 	VIPbodyguard2 addmagazine "15Rnd_9x19_M9";
@@ -87,8 +90,10 @@ if (_art == "getajob_assassin") then {
 
 	// make viptargets car
 	assveh = createVehicle ["VolhaLimo_TK_CIV_EP1", _pos, [] , 3, "NONE"];
+	xorE=true;
 	assveh setVehicleInit
 	"
+		liafu = true;
 		assveh = this;
 		this setVehicleVarName ""assveh"";
 		this setVehicleLock ""locked"";

@@ -25,7 +25,7 @@ if (_art == "use") then {
 	_obj setdir getdir player;
 	_obj setpos _pos;
 	_time = round time;
-	call compile format['_obj setvehicleinit "this setvehiclevarname ""%1%2%3""; %1%2%3 = this"; processinitcommands', player, _class, _time];
+	call compile format['xorE=true; _obj setvehicleinit "this setvehiclevarname ""%1%2%3""; %1%2%3 = this; liafu = true;"; processinitcommands', player, _class, _time];
 
 	(format ["if (local server) then {publicarbeiterarctionarray = publicarbeiterarctionarray + [ [%1%2%3, %1] ];};", player, _class, _time]) call broadcast;
 

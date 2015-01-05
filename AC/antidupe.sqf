@@ -27,8 +27,8 @@ while {true} do
 // bank difference(editable) 
 			if  (_difference > 2000000) then 
 			{
-				if(_oldBank > 800000) then {
-					format['diag_log [%1,%2,%3,%4,%5];', _dupeid, _duper, _side, _don, _difference] call broadcast;
+				if(_oldBank > 100000) then {
+					["DUPING LOGGER", _dupeid, _duper, _side, _don, _difference] call fn_LogToServer;
 					//execVM "AC\punish.sqf";					
 				};
 			};

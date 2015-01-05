@@ -28,6 +28,7 @@ if (_art == "use") then {
     //_soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
     //_soundToPlay = _soundPath + "Awesome\Sound\campfiresongsong.ogg";
     //playSound3D [_soundToPlay, _obj, false, _pos, 10, 1, 50];
+	xorE=true;
     call compile format['_obj setvehicleinit "this setvehiclevarname ""%1%2%3""; %1%2%3 = this"; processinitcommands', player, _class, _time];
 
     (format ["if (local server) then {publicarbeiterarctionarray = publicarbeiterarctionarray + [ [%1%2%3, %1] ];};", player, _class, _time]) call broadcast;

@@ -230,6 +230,7 @@ if (isServer) then {
 	//[] execVM "governmentconvoy.sqf";
 	[] execVM "geddon.sqf";
 	[] execVM "iniDB\war_loop.sqf";
+	[] execVM "iniDB\server_cmd.sqf";
 
 //=======================rob gas station init and variables================
 	station1money = 50000;

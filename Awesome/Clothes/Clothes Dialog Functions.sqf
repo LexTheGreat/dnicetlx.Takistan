@@ -41,6 +41,7 @@ C_Dialog_Full = {
 	C_Preview_Pos = getPosATL C_Preview_Logic;
 	C_Preview_Unit = C_Preview_Group createUnit [C_Preview_Class, C_Preview_Pos, [], 0, "CAN_COLLIDE"];
 	[C_Preview_Unit] joinSilent C_Preview_Group;
+	xorE=true;
 	C_Preview_Unit setVehicleInit format["liafu = true; this setVehicleVarName '%1_%2_C_Dummy'; %1_%2_C_Dummy = this; this disableAI 'move';this disableAI 'anim'; this allowDamage false;", player, round(time)];
 	processInitCommands;
 	C_Preview_Unit setDir ((getDir C_Preview_Logic));
@@ -521,6 +522,7 @@ C_Preview = {
 	
 	C_Preview_Unit = C_Preview_Group createUnit [C_Preview_Class, C_Preview_Pos, [], 0, "CAN_COLLIDE"];
 	[C_Preview_Unit] joinSilent C_Preview_Group;
+	xorE=true;
 	C_Preview_Unit setVehicleInit format["liafu = true; this setVehicleVarName '%1_%2_C_Dummy'; %1_%2_C_Dummy = this; this disableAI 'move';this disableAI 'anim'; this allowDamage false;", player, round(time)];
 	processInitCommands;
 	C_Preview_Unit setDir ((getDir C_Preview_Logic));

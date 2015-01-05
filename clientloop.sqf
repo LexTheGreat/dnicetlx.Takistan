@@ -467,7 +467,7 @@ check_restrains = {
 	_logicallyRestrained = [player, "restrained"] call player_get_bool;
 	
     if (([player, "restrained"] call player_get_bool) or ([player, "isstunned"] call player_get_bool)) then {
-        if(vehicle player != player) exitwith {
+        if(vehicle player != player) exitWith {
             player action ["Eject", vehicle player];
             hint "You are restrained! Entering a vehicle is rule breaking."; // Quick Fix, todo stop player from entering vech. No way known as of now with out locking.
         };
@@ -544,7 +544,9 @@ _donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 mayor_unarmer = {
 	if(!isMayor) exitWith { };
 	_wArray = weapons player;
-	if (count _wArray > 0) then {
+	_iArray = items player;
+
+	if ((count _wArray) - (count _iArray) > 0) then {
 		removeAllWeapons player;
 		player groupChat "You may not carry weapons as the president!!! You have been unarmed";
 	};
@@ -571,6 +573,7 @@ client_loop = {
 		call check_money;
 		call check_bank;
 		call check_actions;
+		
 		call check_factory_actions;
 		call check_inventory;
 		call cop_stun_gun_modify;

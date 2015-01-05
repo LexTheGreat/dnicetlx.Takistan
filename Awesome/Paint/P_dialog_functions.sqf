@@ -20,6 +20,7 @@ P_Dialog_Full = {
 	liafu = true;
 	
 	P_Preview_Unit = P_Preview_Class createVehicleLocal (P_Preview_Pos);
+	xorE=true;
 	P_Preview_Unit setVehicleInit format["liafu = true; this setVehicleVarName '%1_CP_Dummy'; %1_CP_Dummy = this; this lock true; this allowDamage false;", player];
 	processInitCommands;
 	P_Preview_Unit setDir P_Preview_Dir;
@@ -405,6 +406,7 @@ P_buy = {
 		for [{_c = 0}, {_c < (count P_T_P) }, {_c=_c+1}] do {
 			_x = P_T_P select _c;
 			if ( (typeName _x) == "STRING" ) then {
+				xorE=true;
 				(vehicle player) setVehicleInit format["liafu = true; this setObjectTexture %1", [_c, _x]];
 				processInitCommands;
 			};
@@ -433,6 +435,7 @@ P_r_buy = {
 	
 	_n = 0;
 	{
+		xorE=true;
 		(vehicle player) setVehicleInit format["liafu = true; this setObjectTexture %1", [_n, _x]];
 		processInitCommands;
 		_n = _n + 1;

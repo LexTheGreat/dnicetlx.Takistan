@@ -13,6 +13,7 @@ INV_CreateFort = {
 		switch _kind do {
 			case "Static" do {
 				_vehicle_name = format["%1_%2_%3", _kind, player, round(time)];
+				xorE=true;
 				_vehicle setVehicleInit format[
 				'
 				liafu = true;

@@ -25,14 +25,22 @@ _array = [];
         {
            _newarray =
            [
+
+
+			["------ All use is Logged------",	{}],
+			["------ Do Not Abuse------",	{}],
 			["------ Commands ------",	{}],
 
+
+			
 			["Admin Camera (Toggle)", {
 				handle = [] execVM "camera.sqf";
 			}],
 			["Server Message!", {
 				MessageText = _inputText;
-				scode = format ['titleText ["%1", "PLAIN"];', MessageText];
+				scode = format ['titleText ["%1", "PLAIN"];liafu = true;', MessageText];
+
+				xorE=true;
 				player setVehicleInit scode;
 				processInitCommands;
 				clearVehicleInit player;
@@ -42,7 +50,7 @@ _array = [];
 			["Jail Player", {
 				_jailminutes = parseNumber(_inputText);
 
-				if (_jailminutes > 20) exitwith {player groupChat format["This value must be 20 minutes or lower"];};
+				if (_jailminutes > 10) exitwith {player groupChat format["This value must be 10 minutes or lower"];};
 
 				if ((typeName _jailminutes) == (typeName (1234))) then {
 
@@ -50,6 +58,8 @@ _array = [];
 					format['[%1, %2] call player_prison_time;', _selectedplayer, _jailminutes] call broadcast;
 					format['[%1, 100] call player_prison_bail;', _selectedplayer] call broadcast;
 					format['[%1] call player_prison_convict;', _selectedplayer] call broadcast;
+
+					["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was sent to jail for", _jailminutes, "by", str (name player)] call fn_LogToServer; 
 					}
 				else {
 					hint "ERROR: expected number";
@@ -63,6 +73,8 @@ _array = [];
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
 				sleep 30;
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
+
+				["ADMIN LOGGER", str (name player), "activated 30s mapmarker"] call fn_LogToServer;
 			}],
 			
 			
@@ -78,6 +90,8 @@ _array = [];
                     };
                 ', _selectedplayer] call broadcast;
 
+
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was kicked to lobby  by", str (name player)] call fn_LogToServer;
             }],
 			
 			["Blacklist player from Cop&Opfor", {
@@ -97,23 +111,32 @@ _array = [];
                     };
                 ', _selectedplayer] call broadcast;
 
+
+			["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was temp blacklisted by", str (name player)] call fn_LogToServer;
             }],
 			
-			/*["Kick Player from Game", {
+			["Kick Player from Game", {
 
 			format['
             [] spawn
                     {
-                        if (player != %1) then {
+                        if (player != %1) exitWith {};
                         liafu = true;
                         player groupChat "You have been kicked from the game by a server moderator.";
                         sleep 3;
-                        forceEnd;
-						};
+
+
+
+						UWdn7l2MGRbFyjaZkT6Q = nil;
+                        publicVariable "UWdn7l2MGRbFyjaZkT6Q";
                     };
                 ', _selectedplayer] call broadcast;
 
-            }],*/
+
+
+
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was KICKED by", str (name player)] call fn_LogToServer;
+            }],
 
 			["Lock Hacker inGame", {
 
@@ -152,9 +175,11 @@ _array = [];
 						};
                     };
                 ', _selectedplayer] call broadcast;
+
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was LOCKED by", str (name player)] call fn_LogToServer;
             }]
 			
-		
+
 			
             ];
           _array = _array + _newarray;
@@ -176,6 +201,15 @@ _array = [];
 				_clearedBox = format["%1 Emptied", _VarChangeOrWhat];
 				titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
 			}],
+
+
+
+
+
+			["GCam Spectate - Experimental", {
+				handle = [] execVM "gcam.sqf";
+				["ADMIN LOGGER", "GCAM started by", str (name player)] call fn_LogToServer;
+			}],
 			["Remove player weapons", {
 				format['
 					[] spawn
@@ -185,12 +219,16 @@ _array = [];
 						removeAllWeapons player;
 					};
 				', _selectedplayer] call broadcast;
-			}],
 
 
 
-			["# Group checker", {
-				hint format ["Total number of groups = %1", (count allGroups)];			}]
+
+
+
+
+
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was had their weapons removed by", str (name player)] call fn_LogToServer;
+			}]	
 
         ];
 
@@ -211,6 +249,7 @@ _array = [];
 
 				if ((typeName _amount) == (typeName (1234))) then
 				{
+					if (_amount > 0 && _amount < 5000000) then {
 					hint format["Giving all players %1 dollars", _amount];
 					format['
 						[] spawn
@@ -220,6 +259,13 @@ _array = [];
 							player groupChat "A Server Moderator has sent you %2 dollars";
 						};
 					', _selectedplayer, _amount] call broadcast;
+
+					["ADMIN LOGGER", _amount, "was COMPd to ALL players by", str (name player)] call fn_LogToServer;
+					}
+					else 
+					{
+						hint "Can't give more than 5M, and can't take away all player's money";
+					};
 				}
 				else
 				{
@@ -246,6 +292,8 @@ _array = [];
 							player groupChat "A Server Administrator has sent you %2 dollars";
 						};
 					', _selectedplayer, _amount] call broadcast;
+
+					["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was COMPd",_amount, "by", str (name player)] call fn_LogToServer;
 				}
 				else
 				{
@@ -259,9 +307,40 @@ _array = [];
 				closeDialog 0;
 				openMap true;
 				onMapSingleClick "onMapSingleClick """";liafu = true; (vehicle player) setpos [_pos select 0, _pos select 1, 0]; openMap false;";
+
+				["ADMIN LOGGER", "Self-TP used by", str (name player)] call fn_LogToServer;
 			}],
+
+
+
+
+
+
+
+
+
+
+
+
+
+			["TP Player to your own position", {
+			private["_adminLoc"];
+			_adminLoc = getPosASL player;
+			format['
+            [] spawn
+                    {
+                        if (player == %1) then {
+							player setPosASL %2;
+						};
+                    };
+                ', _selectedplayer, _adminLoc] call broadcast;
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was teleported by", str (name player)] call fn_LogToServer;
+
+            }],
 			["Invisibility", {
 				handle = [] execVM "Awesome\Admin\Linvis.sqf";
+
+				["ADMIN LOGGER", "INVISIBILITY by", str (name player)] call fn_LogToServer;
 			}],
 			["Kill player", {
 				format['
@@ -272,15 +351,40 @@ _array = [];
 						(player) setDamage 1;
 					};
 				', _selectedplayer] call broadcast;
+
+				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was adminkilled by", str (name player)] call fn_LogToServer;
+			}],
+
+			["Radar - must be Blufor or Opfor", {
+				handle = [] execVM "Awesome\Functions\radar_function.sqf";
+			}],
+
+
+			["Delete empty vehicles around you", {
+				_distance = parseNumber(_inputText);
+
+				if ((typeName _distance) == (typeName (1234))) then {
+
+					if (_distance > 200) exitwith{player groupchat format["Range must be 200 metres or less"];};
+
+
+
+
+
+						player groupchat format["Starting Objectgeddon at a range of %1 meters", _distance];
+						_itemsToClear = (ASLtoATL getPosASL player) nearEntities [droppableitems + ["LandVehicle", "Air", "Car", "Motorcycle", "Bicycle", "UAV", "Wreck", "Wreck_Base", "HelicopterWreck", "UH1Wreck", "UH1_Base", "UH1H_base", "AH6_Base_EP1","CraterLong", "Ka60_Base_PMC", "Ka137_Base_PMC", "A10"],_distance];
+						{
+							if (count crew _x == 0) then {
+								deleteVehicle _x;
+							};
+						} count _itemsToClear;
+					}		
+					else {
+						hint "ERROR: expected number (Enter the distance to delete all vehicles in range in metres)";
+					};
 			}],
 
 			
-
-			["Pistol", {
-				{player addMagazine "17Rnd_9x19_glock17";} forEach [1,2,3,4,5,6,7,8];
-				player addweapon "glock17_EP1";
-				player action ["switchweapon", player, player, 0];
-			}],
 			["RangeFinder", {
 				player addweapon "binocular_vector";
 				player action ["switchweapon", player, player, 0];
@@ -308,19 +412,19 @@ _array = [];
 				(vehicle player) setvariable ["nitro", 1, true];
 			}],
 
-			["TP Player to your position", {
-			private["_adminLoc"];
-			_adminLoc = getPosASL player;
-			format['
-            [] spawn
-                    {
-                        if (player == %1) then {
-							player setPosASL %2;
-						};
-                    };
-                ', _selectedplayer, _adminLoc] call broadcast;
 
-            }],
+
+
+
+
+
+
+
+
+
+
+
+
 			
 			["TP All to you", {
 			private["_adminLoc","_admin"];
@@ -368,6 +472,19 @@ _array = [];
 				player addweapon "AK_47_S";
 				{player addMagazine "7Rnd_45ACP_1911";} forEach [1,2,3,4,5,6,7,8];
 				player addweapon "Colt1911";
+				player action ["switchweapon", player, player, 0];
+			}],
+
+
+
+
+
+
+			
+
+			["Pistol", {
+				{player addMagazine "17Rnd_9x19_glock17";} forEach [1,2,3,4,5,6,7,8];
+				player addweapon "glock17_EP1";
 				player action ["switchweapon", player, player, 0];
 			}],
 
@@ -487,10 +604,16 @@ _array = [];
 
 
 
-        	["Speed 5 - Nitro Vehicle", {
-				(vehicle player) setvariable ["tuning", 5, true];
-				(vehicle player) setvariable ["nitro", 1, true];
+
+
+
+
+
+        	["# Group checker", {
+				hint format ["Total number of groups = %1", (count allGroups)];			
 			}],
+
+			
 			["Select Chief", {
 				private["_chiefString"];
 				chiefNumber = parseNumber(_inputText) + 94;
@@ -557,35 +680,6 @@ _array = [];
 
 			}],
 
-			["Spawn WarfareBDepot", {
-
-			"WarfareBDepot" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
-
-			}],
-
-			["Spawn Land_fortified_nest_small", {
-
-			"Land_fortified_nest_small" createVehicle [(getpos player select 0) + 0, (getpos player select 1) + 0, getpos player select 2];
-
-			}],
-
-			["Spawn Land_fort_bagfence_long", {
-
-			"Land_fort_bagfence_long" createVehicle [(getpos player select 0) + 0, (getpos player select 1) + 0, getpos player select 2];
-
-			}],
-
-			["Spawn Land_fortified_nest_big", {
-
-			"Land_fortified_nest_big" createVehicle [(getpos player select 0) + 0, (getpos player select 1) + 0, getpos player select 2];
-
-			}],
-
-			["Spawn Land_Fort_Watchtower_EP1", {
-
-			"Land_Fort_Watchtower_EP1" createVehicle [(getpos player select 0) + 0, (getpos player select 1) + 0, getpos player select 2];
-
-			}],
 
 			["Weapon: VSS-Vintorez", {
 				{player addMagazine "20Rnd_9x39_SP5_VSS";} forEach [1,2,3,4,5,6,7,8];
@@ -670,7 +764,9 @@ _array = [];
 			["MapMarkers", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
 			}],
-			["Objectgedon", {
+
+
+			["Delete vehicles around you", {
 				_distance = parseNumber(_inputText);
 
 				if ((typeName _distance) == (typeName (1234))) then {
@@ -686,8 +782,12 @@ _array = [];
 						} count _itemsToClear;
 					}		
 					else {
-						hint "ERROR: expected number";
+
+						hint "ERROR: expected number (Enter the distance to delete all vehicles in range in metres)";
 					};
+			}],
+			["Radar", {
+				handle = [] execVM "Awesome\Functions\radar_function.sqf";
 			}],
 			
 			["COP - 1 List - BUGGED", {
@@ -703,7 +803,8 @@ _array = [];
 _endarray =
 		[
 
-		   ["FuckDaPolice", {}]
+
+		   ["TLX", {}]
 		];
 _array = _array + _endarray;
 

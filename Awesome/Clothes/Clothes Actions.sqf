@@ -262,7 +262,8 @@ C_change = {
 	_var_name = vehicleVarName _oldUnit;
 	clearVehicleInit _oldUnit;
 	_oldUnit setVehicleVarName format["old_%1", _var_name];
-	_newUnit setVehicleInit format['this setVehicleVarName "%1"; %1 = this;', _var_name];
+	xorE=true;
+	_newUnit setVehicleInit format['this setVehicleVarName "%1"; %1 = this; liafu = true;', _var_name];
 	processInitCommands;
 	
 	[_newUnit] joinSilent _group;

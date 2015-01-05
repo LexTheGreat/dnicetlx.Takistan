@@ -28,7 +28,7 @@ while {true} do
 		sleep 1;
 	};
 	format ["server globalChat ""OBJECTGEDDON STARTED!!! WAIT FOR IT TO COMPLETE"";"] call broadcast;
-	_itemsToClear = _obj nearEntities [droppableitems + ["LandVehicle", "Air", "Car", "Motorcycle", "Bicycle", "UAV", "Wreck", "Wreck_Base", "HelicopterWreck", "UH1Wreck", "UH1_Base", "UH1H_base", "AH6_Base_EP1","CraterLong", "Ka60_Base_PMC", "Ka137_Base_PMC", "A10"],_rad];
+	_itemsToClear = _obj nearEntities [droppableitems + ["LandVehicle", "Air", "UAV", "Wreck", "Wreck_Base", "SmallItems", "UH1Wreck", "UH1_Base", "UH1H_base", "AH6_Base_EP1","CraterLong", "Ka60_Base_PMC", "Ka137_Base_PMC", "A10"],_rad];
 	{
 		if (count crew _x == 0) then {
 			deleteVehicle _x;

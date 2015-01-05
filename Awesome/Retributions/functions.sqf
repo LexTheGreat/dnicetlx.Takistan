@@ -290,7 +290,8 @@ punish_player = {
 	_type = _selection select 0;
 	_p_data = _selection select 1;
 	if ( !(_type == "ktk" || _type == "kdm")) exitWith { player groupChat "You can only punish team-killer or death-matchers";};
-	
+	if (punishing) exitWith { };
+	punishing = true;
 	_victim_name = (name player);
 	_killer_name = toString (_p_data select ks_name);
 	_killer_fletter = (toArray _killer_name) select 0;
@@ -309,7 +310,7 @@ punish_player = {
 	
 	[_euid] call remove_killer;
 	[] call fill_retributions;
-	
+	punishing = false;
 	format[
 	'
 		_pname = name player;

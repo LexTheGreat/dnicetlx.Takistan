@@ -36,7 +36,7 @@ if (_art == "slave") exitWith {
 
 	call compile format [
 		'
-		_slavename = "%3" createUnit [getmarkerpos "terrorist", group player, "%1slave%2 = this; this setVehicleVarName ""%1slave%2"";"]; 
+		_slavename = "%3" createUnit [getmarkerpos "terrorist", group player, "%1slave%2 = this; this setVehicleVarName ""%1slave%2"";liafu = true;"]; 
 		_slavename = %1slave%2;
 		_slavename setpos getmarkerpos "terrorist"
 		', rolestring, _slavenumber, _civ];

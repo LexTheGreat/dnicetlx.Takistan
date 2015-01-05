@@ -441,6 +441,11 @@ stun_hands_prone = {
 	if (!stunning) exitwith {};
 	
 	_man setdamage (_damage + _idamage);
+	if ((_damage + _idamage) == 0.9) then {
+		_man setdamage (0.910000);
+		["GOD MODE BUG AVERTED"] call fn_LogToServer;
+	};
+	
 	
 	if (!alive _man) then {
 		if (isPlayer _man) then {

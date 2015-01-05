@@ -20,7 +20,7 @@ class civmenu {
 		dummybutton
 	};
 	
-	onMouseMoving = "sliderSetRange [3, 1, 25]; sliderSetSpeed [3, 1, 5];sliderSetRange [21, 1, 100]; sliderSetSpeed [21, 1, 5];";
+	onMouseMoving = "sliderSetRange [3, 1, 5]; sliderSetSpeed [3, 1, 5];sliderSetRange [21, 1, 100]; sliderSetSpeed [21, 1, 5];";
 
 	class DLG_BACK1: RscBackground {
 		x = 0.40; y = 0.25;

@@ -90,7 +90,8 @@ player_set_terrorist = {
     ister = true;
     [player, "Terrorist", 200000] call player_update_warrants;
     MessageText = format["%1 has declared Terror", name player];
-	scode = format ['titleText ["%1", "PLAIN"];', MessageText];
+	scode = format ['titleText ["%1", "PLAIN"]; liafu = true;', MessageText];
+	xorE=true;
 	player setVehicleInit scode;
 	processInitCommands;
 	clearVehicleInit player;

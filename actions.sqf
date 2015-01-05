@@ -273,6 +273,7 @@ action121 = _role addaction ["Declare War against North", "Awesome\Functions\war
 action122 = _role addaction ["Sign ceasefire with North", "noscript.sqf",'warstatusopf = false;publicVariableServer "warstatusopf";',1, false, true, "", "warstatus && warstatusopf && rolenumber == 77"];
 action123 = _role addaction ["Sign ceasefire with TLA", "noscript.sqf",'warstatuscop = false;publicVariableServer "warstatuscop";',1, false, true, "", "warstatus && warstatuscop && ischief"];
 action124 = _role addaction ["Declare/Lift Martial Law in Rasman", "Awesome\Functions\war_functions.sqf", ["start_martial"],1, false, true, "", "ischief && player distance copbank < 20"];
+action125 = _role addaction ["Activate Radar", "Awesome\Functions\radar_function.sqf", [], 1, false, true, "", "(!radarActive && rolenumber == 78 && player distance atm5 < 20)||(!radarActive && rolenumber == 96 && player distance copbank < 20)"];
 //[copbank, ["Access PMC White List", "maindialogs.sqf", ["pmc_whitelist"], 0, false, true, "", "true"]] call add_new_action;
 [player] call holster_add_actions;
 A_running = false;
