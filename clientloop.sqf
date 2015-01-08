@@ -466,13 +466,6 @@ check_restrains = {
 	_physicallyRestrained = ((animationState player) ==  "civillying01");
 	_logicallyRestrained = [player, "restrained"] call player_get_bool;
 	
-    if (([player, "restrained"] call player_get_bool) or ([player, "isstunned"] call player_get_bool)) then {
-        if(vehicle player != player) exitWith {
-            player action ["Eject", vehicle player];
-            hint "You are restrained! Entering a vehicle is rule breaking."; // Quick Fix, todo stop player from entering vech. No way known as of now with out locking.
-        };
-    };
-	
 	if (_logicallyRestrained && not(_physicallyRestrained)) then {
 		format['%1 switchMove "civillying01";', player] call broadcast;
 	}
@@ -486,6 +479,9 @@ check_restrains = {
 			[player, "restrained", false] call player_set_bool;
 			player groupChat format["You have managed to unrestrain yourself!"];
 		};
+		if(vehicle player != player) then { // Eject restrained players
+	            player action ["Eject", vehicle player];
+	        };
 	};};};
 };
 
