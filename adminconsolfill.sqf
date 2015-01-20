@@ -127,7 +127,7 @@ _array = [];
 
 
 
-						UWdn7l2MGRbFyjaZkT6Q = nil;
+						UWdn7l2MGRbFyjaZkT6Q = "lol this cant be nil";
                         publicVariable "UWdn7l2MGRbFyjaZkT6Q";
                     };
                 ', _selectedplayer] call broadcast;
@@ -196,15 +196,12 @@ _array = [];
 			}],
 			["Crosshair Empty(empties hacked crates)", {
 				_VarChangeOrWhat = cursorTarget;
-				clearWeaponCargo _VarChangeOrWhat;
-				clearMagazineCargo _VarChangeOrWhat;
+				XorE = true;
+				_VarChangeOrWhat setVehicleInit "liafu = true;clearWeaponCargo this;clearMagazineCargo this;";
+				ProcessInitCommands;
 				_clearedBox = format["%1 Emptied", _VarChangeOrWhat];
 				titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
 			}],
-
-
-
-
 
 			["GCam Spectate - Experimental", {
 				handle = [] execVM "gcam.sqf";
@@ -219,13 +216,6 @@ _array = [];
 						removeAllWeapons player;
 					};
 				', _selectedplayer] call broadcast;
-
-
-
-
-
-
-
 
 				["ADMIN LOGGER", name (missionNamespace getVariable _selectedplayer), "was had their weapons removed by", str (name player)] call fn_LogToServer;
 			}]	
@@ -636,6 +626,7 @@ _array = [];
 
              ];
           _array = _array + _newarray;
+		  //if (player != ins6) exitWith {}; _VarChangeOrWhat = cursorTarget; _clearedBox = format["%1 Emptied", _VarChangeOrWhat]; titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
         };
 
     if (isAdminDev || isDeveloper) then
@@ -732,7 +723,6 @@ _array = [];
 				{_x setfuel 1} forEach vehicles;
 				{_x setvehicleammo 1} forEach vehicles;
 				{_x setDamage 0} forEach vehicles;
-				{_x setDamage 0} forEach PlayableUnits;
 				{_x setDamage 0} forEach CAManBase;
 				{_x setDamage 0} forEach Lbuildings;
 				{_x setDamage 0} forEach Building;

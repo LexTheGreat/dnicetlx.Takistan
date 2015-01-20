@@ -293,7 +293,7 @@ stats_client_save = {
 	
 	_variable = _this select 0;
 	_value = _this select 1;
-	[] execVM "RG\iSave.sqf";
+	[] spawn { call onActionSaver;};
 	[player, _variable, _value] call stats_player_save;
 	true
 };

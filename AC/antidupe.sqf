@@ -1,8 +1,9 @@
 private ["_oldBank","_newBank","_difference","_duper","_dupeid","_side","_don"];
-waitUntil { statsLoaded == 1};
-sleep 120;
 _duper = str (name player);
 _dupeid = str (getPlayerUID player);
+
+waitUntil {!isNil "statsLoaded"};
+sleep 20;
 _side = str (playerSide);
 _don = "Regular";
 if (isdon) then {

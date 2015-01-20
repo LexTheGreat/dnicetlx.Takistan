@@ -58,4 +58,4 @@ if (_action == "bekommen") then {
 		format ["if (player == %1) then {[player, ""%2"", %3] call INV_AddInventoryItem;};", _player, _item, _quantity] call broadcast;
 	};
 };
-[] execVM "RG\iSave.sqf";
+[] spawn { call onActionSaver;};

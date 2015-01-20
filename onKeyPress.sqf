@@ -436,6 +436,11 @@ keyboard_cop_speed_gun_handler = {
 	true
 };
 
+keyboard_gear_button_handler = {
+	[] spawn { call onActionSaver;};
+	true
+};
+
 keyboard_overlapping_actions = ["LeanLeft", "LeanLeftToggle", "LeanRight",  "LeanRightToggle"];
 keyboard_overlapping_keys = [];
 {
@@ -486,6 +491,12 @@ KeyUp_handler = {
 		case DIK_TAB: {
 			_handled = [] call keyboard_tlr_keys_handler;
 		};
+		case DIK_ESCAPE: {
+			_handled = [] call keyboard_gear_button_handler;
+		};
+		case DIK_G: {
+			_handled = [] call keyboard_gear_button_handler;
+		};
 		case DIK_T: {
 			_handled = [] call keyboard_trunk_handler;
 		};
@@ -496,7 +507,6 @@ KeyUp_handler = {
 		case DIK_GRAVE: {
 			_handled = [] call keyboard_cop_menu_handler;
 		};
-
 		case DIK_1: {
 			_handled = [] call keyboard_main_dialog_handler;
 		};

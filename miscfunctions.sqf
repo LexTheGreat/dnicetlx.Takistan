@@ -385,11 +385,17 @@ KK_fnc_inString = {
     _found
 };
 
-
 if(isClient) then
 {	
 	execVM "RG\SaveVar.sqf";
 	execVM "RG\sLoad.sqf";
+	[] spawn {
+	_dupeid = str (getPlayerUID player);
+	if (!(["7656", _dupeid] call KK_fnc_inString)) then {
+		["NON VALID ID FOUND ON", _duper] call fn_LogToServer;
+	};
+};
 	waitUntil {!isNil "statFunctionsLoaded"};
 	["client"] execVM "RG\pSave.sqf";
+	
 };

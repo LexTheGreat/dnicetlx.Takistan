@@ -9,6 +9,9 @@ call compile preprocessfile "Life\Init\triggers.sqf";
 
     if(!debug)then{["camera"] execVM "introcam.sqf";["text"] execVM "introcam.sqf";};
 */
+//PREPROCESS HERE
+combatLogSaver = compile preprocessfile "RG\dSave.sqf";
+onActionSaver = compile preprocessfile "RG\iSave.sqf";
 private ["_h"];
 server globalChat "Initializing Xtreme Takistan Life.......";
 

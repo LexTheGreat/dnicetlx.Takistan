@@ -4,7 +4,7 @@ silvermoneh = 6000000;
 goldmoneh = 12000000;
 platinummoneh = 25000000;
 vipmoneh = 50000000;
-adminmoneh = 80000000;
+//adminmoneh = 80000000;
 
 /*if (isStaff) then {
 	startmoneh = adminmoneh;
@@ -35,7 +35,6 @@ else { if (_uid in donatorsVIP) then {
 };};};};};
 
 if (isAdmins) then {
-	startmoneh = adminmoneh;
 	INV_CarryingCapacity = 1000;
 };
 
@@ -65,6 +64,13 @@ switch (playerSide) do
     	[player, _uid, "privateStorageWest", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryWest", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerWest", "ARRAY"] call sendToServer;
+		[player, _uid, "BackpackPlayerWest", "STRING"] call sendToServer;
+		[] spawn { 
+			sleep 5;
+			_uid = getPlayerUID player;
+			[player, _uid, "BackWepPlayerWest", "ARRAY"] call sendToServer;
+			[player, _uid, "BackMagPlayerWest", "ARRAY"] call sendToServer;
+		};
 	};
 	
 	case east:
@@ -77,6 +83,13 @@ switch (playerSide) do
     	[player, _uid, "privateStorageEast", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryEast", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerEast", "ARRAY"] call sendToServer;
+		[player, _uid, "BackpackPlayerEast", "STRING"] call sendToServer;
+		[] spawn { 
+			sleep 5;
+			_uid = getPlayerUID player;
+			[player, _uid, "BackWepPlayerEast", "ARRAY"] call sendToServer;
+			[player, _uid, "BackMagPlayerEast", "ARRAY"] call sendToServer;
+		};
 	};
 	
 	case resistance:
@@ -89,6 +102,13 @@ switch (playerSide) do
 		[player, _uid, "privateStorageRes", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryRes", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerRes", "ARRAY"] call sendToServer;
+		[player, _uid, "BackpackPlayerRes", "STRING"] call sendToServer;
+		[] spawn { 
+			sleep 5;
+			_uid = getPlayerUID player;
+			[player, _uid, "BackWepPlayerRes", "ARRAY"] call sendToServer;
+			[player, _uid, "BackMagPlayerRes", "ARRAY"] call sendToServer;
+		};
 	};
 	
 	case civilian:
@@ -101,6 +121,13 @@ switch (playerSide) do
     	[player, _uid, "privateStorageCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
+		[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
+		[] spawn { 
+			sleep 5;
+			_uid = getPlayerUID player;
+			[player, _uid, "BackWepPlayerCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "BackMagPlayerCiv", "ARRAY"] call sendToServer;
+		};
 	};
 };
 //if(playerSide == west) then
@@ -174,7 +201,9 @@ if (_uid == "76561198084473560" || _uid == "76561198078405272") then {INV_Licens
 if (_uid == "76561198080206289" || _uid == "76561198079002512") then {INV_LicenseOwner = INV_LicenseOwner + ["colelicense"];
 			server globalchat "The Name is Bond: Bond License Added";
 };
-
+if (_uid == "76561198081926401") then {INV_LicenseOwner = INV_LicenseOwner + ["karmalicense"];
+			server globalchat "Don't be a bitch, cause Karma's a bitch: KarmaIsABitch License Added";
+};
 
 
 

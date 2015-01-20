@@ -18,5 +18,4 @@ _uid = getplayerUID player;
 _now = date;
 _
 ["_connectionhistory", date, "WeaponsPlayerWest", weapons player] call fn_SaveToServer;
-dnice antihack, include random num for title, given by server
 */

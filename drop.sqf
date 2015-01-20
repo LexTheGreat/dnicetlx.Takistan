@@ -37,4 +37,4 @@ if (_item call INV_GetItemDropable) then {
 else {
 	player groupChat localize "STRS_inv_inventar_ablege_verbot";
 };
-[] execVM "RG\iSave.sqf";
+[] spawn { call onActionSaver;};

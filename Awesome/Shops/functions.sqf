@@ -1241,7 +1241,7 @@ shop_sell_gear = {
 		};};};
 		_i = _i - 1;
 	};
-	[] execVM "RG\iSave.sqf";
+	[] spawn { call onActionSaver;};
 	
 	player groupChat format["You sold %1 %2 for $%3", _amount, _item_name, strM(_total_return)];	
 };
@@ -1269,7 +1269,7 @@ shop_buy_item = {
 	call shop_play_animation;
 	[player, _item, _amount, ([player] call player_inventory_name)] call INV_CreateItem;
 	player groupChat format["You bought %1 %2 for $%3", _amount, _item_name, strM(_total_due)];
-	[] execVM "RG\iSave.sqf";
+	[] spawn { call onActionSaver;};
 };
 
 
@@ -1299,7 +1299,7 @@ shop_buy_gear_item = {
 	};
 	
 	[_class, _amount, _crate, _in_hands] spawn _function;
-	[] execVM "RG\iSave.sqf";	
+	[] spawn { call onActionSaver;};	
 		
 	player groupChat format["You bought %1 %2 for $%3", _amount, _item_name, strM(_total_due)];
 };

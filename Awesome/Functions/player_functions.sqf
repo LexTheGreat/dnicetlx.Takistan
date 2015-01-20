@@ -2742,24 +2742,37 @@ player_escape_menu_check = { _this spawn {
 	while {true} do {
 		waitUntil {not(isnull (findDisplay 49))};
 
-		_ctrl = (findDisplay 49) displayCtrl 1010;
-		_ctrl ctrlEnable false;
+		_ctrlres = (findDisplay 49) displayCtrl 1010;
+		_abortctrl = (findDisplay 49) displayCtrl 104;
+		_ctrlres ctrlEnable false;
+		_abortctrl ctrlEnable false; 
 		//escape menu opened
-		_enCtrl = [_ctrl] spawn {
+		_enCtrl = [_ctrlres, _abortctrl] spawn {
 			disableSerialization;
-			_ctrl = _this select 0;
-			_stext = ctrlText _ctrl;
+			_ctrlres = _this select 0;
+			_abortctrl = _this select 1;
+			_stext = ctrlText _ctrlres;
+			_atext = ctrlText _abortctrl + "| DNiceCryEvrytim";
 			private["_i"];
-			_ctrl buttonSetAction "respawnButtonPressed = true;";
+			_ctrlres buttonSetAction "respawnButtonPressed = true;";
 			for "_i" from 30 to 1 step -1 do {
 				if (isnull (findDisplay 49)) exitWith {};
-				_text = _stext + format ["(%1)",_i]; _ctrl ctrlSetText _text;
+				_text = _stext + format ["(%1)",_i]; _ctrlres ctrlSetText _text;
+				if (_i > 15) then { 
+					_newatext = _atext + format ["(%1)",_i - 15]; _abortctrl ctrlSetText _newatext;
+				}
+				else {
+					if (!isnull (findDisplay 49) && !(ctrlEnabled _abortctrl)) then {
+						_abortctrl ctrlSetText _atext; 
+						_abortctrl ctrlEnable true;
+					};
+				};
 				sleep 1;
 			};
 				
 			if (!isnull (findDisplay 49)) then {
-				_ctrl ctrlSetText _stext; 
-				_ctrl ctrlEnable true;
+				_ctrlres ctrlSetText _stext; 
+				_ctrlres ctrlEnable true;
 			};
 		};
 
@@ -2850,7 +2863,7 @@ player_handle_mpkilled = { _this spawn {
 
 	[_player] call player_reset_gear;
 	[_player] call player_drop_inventory;
-	[] execVM "RG\dSave.sqf";
+	[] spawn { combatLogSaver; };
 	[_player] call player_reset_ui;
 	[_player] call player_reset_stats;
 	[_player] call player_dead_camera;

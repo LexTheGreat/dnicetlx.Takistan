@@ -29,6 +29,8 @@ Clothes =
 ["PMC_BOONIE",				"FR_AC",						"Jarhead",						    civilian, 			"BIS",			isciv,		100000,		["jarlicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["PMC_BONG",				"GER_Soldier_MG_EP1",			"Bong Lord",						civilian, 			"BIS",			isciv,		100000,		["bonglicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["PMC_GRELL",				"GER_Soldier_EP1",				"SS Totenkopf",						civilian, 			"BIS",			isciv,		100000,		["grelllicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["PMC_KARMA",				"FR_AC",						"Karma",						    civilian, 			"BIS",			isciv,		100000,		["karmalicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+
 
 ["TER_TK_BONE",				"TK_GUE_Bonesetter_EP1",		"TER TK Bonesetter",					civilian,		faction player,		isciv,		25000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
 ["TER_TK_GUER1",			"TK_GUE_Soldier_EP1",			"TER TK Guerilla #1",					civilian,		faction player,		isciv,		25000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
@@ -249,6 +251,7 @@ CSL_PMC_1 =
 "PMC_BOONIE",
 "PMC_BONG",
 "PMC_GRELL",
+"PMC_KARMA",
 "SEC_SOLID"
 ];
 

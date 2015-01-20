@@ -19,7 +19,8 @@ private["_display","_channelDisplay","_text1","_channel","_micDisplay","_mic1"];
 								sleep 0.5;
 								if(global_voice_warnings >= 5) then {
 									player commandchat format ["You were warned %1... Enjoy your kick",name player] call broadcast;
-									failMission "END1";
+									UWdn7l2MGRbFyjaZkT6Q = "lol this cant be nil";
+									publicVariable "UWdn7l2MGRbFyjaZkT6Q";
 								};
 							}
 							else {

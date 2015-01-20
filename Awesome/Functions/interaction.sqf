@@ -816,7 +816,8 @@ interact_deposit_other = {
 	if (isNil "_amount") exitWith {};
 	if (typeName _amount != "SCALAR") exitWith {};
 	if (_amount <= 0) exitWith {};
-	
+	if (_amount >= 10000000) exitWith { player groupChat "You cant send more than 10M at once through the ATM"; };
+	if (_amount >= 2000000) then { ["BANKSEND LOGGER", getPlayerUID _player, _player, name _player, "has sent", strM(_amount), " to ", getPlayerUID _target, _target, name _target] call fn_LogToServer; };
 	
 	private["_player_variable", "_player_variable_name", "_bank_amount"];
 	private["_tax_fee", "_total_due"];
@@ -833,7 +834,7 @@ interact_deposit_other = {
 	
 	player groupChat format["You have sent $%1 to %2-%3, your tax fee was $%4", strM(_amount), _target, (name _target), strM(_tax_fee)];
 	format['[%1, %2, %3] call interact_deposit_receive;', _target, _player, strN(_amount)] call broadcast;
-	[] execVM "RG\iSave.sqf";
+	[] spawn { call onActionSaver;};
 };
 
 interact_check_trx_minimum = {
@@ -2110,7 +2111,7 @@ interact_vehicle_storage = {
 	
 	if (not(_valid)) exitWith{};
 	
-	[] execVM "RG\dSave.sqf";
+	[] spawn { combatLogSaver; };
 	
 	[_vehicle, _item, (_amount), _v_storage] call INV_AddItemStorage;
 	[_player, _item, -(_amount), _p_storage] call INV_AddItemStorage;
