@@ -67,7 +67,13 @@ _array = [];
 
 
 			}],
-			
+			["Force Ceasefire", {
+				warstatusopf = false;
+				publicVariableServer "warstatusopf";
+				warstatuscop = false;
+				publicVariableServer "warstatuscop";
+				["ADMIN LOGGER", str (name player), "forced Ceasefire"] call fn_LogToServer;
+			}],
 			
 			["MapMarkers - DNA", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
