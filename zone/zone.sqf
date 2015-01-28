@@ -20,7 +20,7 @@ zone_capture = {
     _curOwner = [_zone] call zone_getOwner;
 
     if(_curOwner == side player && side player != civilian && side player != resistance) exitWith {
-        hint "You can't capture this, incorect team!";
+        hint "You can't capture this, incorrect team!";
     };
     
     if(!warstatus) exitWith {
