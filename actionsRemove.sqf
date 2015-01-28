@@ -158,7 +158,9 @@ _role RemoveAction action_h5;
 _role RemoveAction action_h6;
 _role RemoveAction action_h7;
 
-
+_role RemoveAction opforZoneAction;
+_role RemoveAction centerZoneAction;
+_role RemoveAction bluforZoneAction;
 
 [] call clear_new_actions;
 [player] call holster_remove_actions;

@@ -274,6 +274,10 @@ action122 = _role addaction ["Sign ceasefire with North", "noscript.sqf",'warsta
 action123 = _role addaction ["Sign ceasefire with TLA", "noscript.sqf",'warstatuscop = false;publicVariableServer "warstatuscop";',1, false, true, "", "warstatus && warstatuscop && ischief"];
 action124 = _role addaction ["Declare/Lift Martial Law in Rasman", "Awesome\Functions\war_functions.sqf", ["start_martial"],1, false, true, "", "ischief && player distance copbank < 20"];
 action125 = _role addaction ["Activate Radar", "Awesome\Functions\radar_function.sqf", [], 1, false, true, "", "(!radarActive && rolenumber == 78 && player distance atm5 < 20)||(!radarActive && rolenumber == 96 && player distance copbank < 20)"];
+//======================== Zone Commands
+opforZoneAction = _role addaction ["Capture Opfor Zone", "noscript.sqf", "['opforZone'] call zone_capture;",1,false,true,"","warstatus && player distance opforZoneFlag < 5"];
+centerZoneAction = _role addaction ["Capture Alpha Zone", "noscript.sqf", "['centerZone'] call zone_capture;",1,false,true,"","warstatus && player distance centerZoneFlag < 5"];
+bluforZoneAction = _role addaction ["Capture Blufor Zone", "noscript.sqf", "['bluforZone'] call zone_capture;",1,false,true,"","warstatus && player distance bluforZoneFlag < 5"];
 //[copbank, ["Access PMC White List", "maindialogs.sqf", ["pmc_whitelist"], 0, false, true, "", "true"]] call add_new_action;
 [player] call holster_add_actions;
 A_running = false;

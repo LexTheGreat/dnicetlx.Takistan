@@ -89,6 +89,7 @@ class Mission
 		"castructureshouse_a_hospital",
 		"castructureshouse_a_office01",
 		"castructureshouse_a_office02",
+		"cabuildings",
 		"castructures_e_housea_a_villa",
 		"ind_expedice",
 		"castructuresland_ind_stack_big",
@@ -112,7 +113,6 @@ class Mission
 		"caweapons_baf",
 		"caweapons_ammoboxes",
 		"casigns_e",
-		"cabuildings",
 		"camp_armory_misc_loudspeakers",
 		"caweapons",
 		"takistan"
@@ -8050,7 +8050,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=4243;
+		items=4246;
 		class Item0
 		{
 			position[]={5678.9585,96.308502,8893.3311};
@@ -51800,10 +51800,49 @@ class Mission
 			text="redhelishop";
 			init="this allowdamage false; this enableSimulation false;";
 		};
+		class Item4243
+		{
+			position[]={6588.6826,369.81223,4545.3423};
+			azimut=270.63199;
+			special="NONE";
+			id=4636;
+			side="EMPTY";
+			vehicle="FlagPole_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="opforZoneFlag";
+			init="this allowdamage false;";
+		};
+		class Item4244
+		{
+			position[]={5933.5215,122.96975,7432.6123};
+			azimut=270.63199;
+			special="NONE";
+			id=4637;
+			side="EMPTY";
+			vehicle="FlagPole_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="centerZoneFlag";
+			init="this allowdamage false;";
+		};
+		class Item4245
+		{
+			position[]={5622.3481,74.160004,9911.9902};
+			azimut=270.63199;
+			special="NONE";
+			id=4638;
+			side="EMPTY";
+			vehicle="FlagPole_EP1";
+			leader=1;
+			skill=0.60000002;
+			text="bluforZoneFlag";
+			init="this allowdamage false;";
+		};
 	};
 	class Markers
 	{
-		items=423;
+		items=430;
 		class Item0
 		{
 			position[]={6122.7437,83.040001,11568.63};
@@ -55804,6 +55843,63 @@ class Mission
 			colorName="ColorBlue";
 			a=1.2;
 			b=1.2;
+		};
+		class Item423
+		{
+			position[]={6587.8647,369.99765,4543.3228};
+			name="opforZone";
+			markerType="ELLIPSE";
+			type="Empty";
+			colorName="ColorRed";
+			a=500;
+			b=500;
+		};
+		class Item424
+		{
+			position[]={6587.1953,370.04883,4542.8784};
+			name="opforFlag";
+			type="Faction_RU";
+		};
+		class Item425
+		{
+			position[]={5933.6382,122.98558,7432.4707};
+			name="centerZone";
+			markerType="ELLIPSE";
+			type="Empty";
+			a=250;
+			b=250;
+		};
+		class Item426
+		{
+			position[]={5933.459,122.93825,7432.9448};
+			name="centerFlag";
+			type="Strongpoint";
+		};
+		class Item427
+		{
+			position[]={5623.0156,74.16053,9912.8311};
+			name="bluforZone";
+			markerType="ELLIPSE";
+			type="Empty";
+			colorName="ColorBlue";
+			a=500;
+			b=500;
+		};
+		class Item428
+		{
+			position[]={5622.6758,74.160004,9912.5};
+			name="bluforFlag";
+			type="Faction_US";
+		};
+		class Item429
+		{
+			position[]={4360.7861,45.314262,10856.319};
+			name="gangmarker1_1";
+			text=" Gang Area 1 (Cocaine + LSD)";
+			type="mil_warning";
+			colorName="ColorOrange";
+			a=0.80000001;
+			b=0.80000001;
 		};
 	};
 	class Sensors
