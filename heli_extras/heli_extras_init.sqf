@@ -21,15 +21,6 @@ FDKTZ_Get_Slider = Compile preprocessFileLineNumbers "heli_extras\heli_get_slide
 FDKTZ_Get_Textbox = Compile preprocessFileLineNumbers "heli_extras\heli_get_textbox.sqf";
 FDKTZ_Disable_AI = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\functions\disable_AI.sqf";
 FDKTZ_Enable_AI = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\functions\Enable_AI.sqf";
-FDKTZ_Get_Radius = Compile preprocessFileLineNumbers "heli_extras\heli_get_radius.sqf";
-FDKTZ_Update_Radius = Compile preprocessFileLineNumbers "heli_extras\heli_update_radius.sqf";
-FDKTZ_Find_Point_Circle = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\functions\Find_Point_on_Circle.sqf";
-FDKTZ_Get_Radius_Textbox = Compile preprocessFileLineNumbers "heli_extras\heli_get_radius_textbox.sqf";
-FDKTZ_Circle_Area = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\circle_pos\circle_area.sqf";
-FDKTZ_Circle_Area_Init = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\circle_pos\circle_area_init.sqf";
-FDKTZ_Stop_Circle = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\circle_pos\stop_circle.sqf";
-FDKTZ_Rotate_Left = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\heli_options\Rotate_left.sqf";
-FDKTZ_Rotate_Right = Compile preprocessFileLineNumbers "heli_extras\helicopter\heli_scripts\heli_options\Rotate_right.sqf";
 
 //Height Functions
 FDKTZ_Update_textbox = Compile preprocessFileLineNumbers "heli_extras\heli_update_txtbox.sqf";
@@ -65,8 +56,11 @@ FDKTZ_Heli_Extras_Radius_Cached = 50;
 //Debug Mode 0 = Off 1 = On
 FDKTZ_Heli_Extras_Debug = 0;
 
+FDKTZ_Heli_Stop_Orders = false;
+
 
 if (FDKTZ_Heli_Extras_Debug == 1) then
 {
 	diag_log format ["Heli Extras Initalized"];
+	player globalChat "Heli Extras Initalized";
 };

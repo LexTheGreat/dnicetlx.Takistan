@@ -7,17 +7,17 @@ shop_list_stock_max = 2;
 _generalstore = 
 	[
 		["Fuelline", 80, 160],
-		["kanister", 80, 80],
-		["kleinesreparaturkit", 40, 40],
-		["Bread", 20, 40],
+		["kanister", 80, 180],
+		["kleinesreparaturkit", 40, 140],
+		["Bread", 20, 140],
 		["boar", -1, -1],
-		["medikit", 0, 10],
+		["medikit", 10, 110],
 		["handy", -1, -1],
 		["lighter", -1, -1],
 		["fishingpole", -1, -1],
 		["Stone", -1, -1],
-		["ziptie", 10, 20],
-		["Binocular", 180, 180],
+		["ziptie", 80, 100],
+		["Binocular", 120, 180],
 		["GPS", 140, 180]
 	];
 

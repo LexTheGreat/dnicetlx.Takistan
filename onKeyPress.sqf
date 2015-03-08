@@ -333,6 +333,7 @@ keyboard_admin_menu_handler = {
 	if(dialog) exitWith {closeDialog 0; false};
 	if (!isStaff) exitWith {false};
 	[player] execVM "adminconsolfill.sqf";
+	//[player] spawn { _this call stBegin; };
 	createDialog "Main";
 	true
 };
@@ -438,11 +439,14 @@ keyboard_cop_speed_gun_handler = {
 
 keyboard_gear_button_handler = {
 	[] spawn { call onActionSaver;};
+	if (debug) then {
+		player groupChat "Debug Gear Save run";
+	};
 	true
 };
 
 keyboard_overlapping_actions = ["LeanLeft", "LeanLeftToggle", "LeanRight",  "LeanRightToggle"];
-keyboard_overlapping_keys = [];
+keyboard_overlapping_keys = [219];//heliextras
 {
 	private["_action"];
 	_action = _x;
@@ -491,10 +495,11 @@ KeyUp_handler = {
 		case DIK_TAB: {
 			_handled = [] call keyboard_tlr_keys_handler;
 		};
-		case DIK_ESCAPE: {
+		/*case DIK_ESCAPE: {
 			_handled = [] call keyboard_gear_button_handler;
-		};
+		};*/
 		case DIK_G: {
+			if (_inVehicle) exitWith {_handled=false;};
 			_handled = [] call keyboard_gear_button_handler;
 		};
 		case DIK_T: {
@@ -541,19 +546,46 @@ KeyUp_handler = {
 				if (not(_ctrl)) exitWith {_handled = false;};
 				_handled = [] call keyboard_lock_unlock_handler;
 		};
-		/*
-		case DIK_7: {
-			[] spawn {
-				call compile preprocessFile "buffer.sqf";
-			};
-		};
-		*/
+
 		case DIK_F12:{
 			if (not(_ctrl)) exitWith {_handled = false;};
 			_handled = [] call keyboard_admin_menu_handler;
 		};
 		
+		case DIK_L:	{
+			_handled = [] call keyboard_lock_unlock_handler;
+		};
 		
+		case DIK_F: 
+		{
+		_only_cop_car_classes = ["UAZ_UNARMED_UN_EP1","LadaLM"];
+		
+			if (not(_ctrl)) exitWith {_handled = false;};
+			
+			if(_inVehicle) then
+			{
+				if (iscop or isopf) then
+				{
+					_handled = [] call keyboard_cop_siren_handler;
+				}
+				else
+				{
+					// not a cop or opfor
+					// sirens on stolen cop vehicles only
+
+					_vehicle_class = typeOf (vehicle player);
+					if (_vehicle_class  in _only_cop_car_classes) then
+					{
+						_handled = [] call keyboard_cop_siren_handler;
+					};
+				};
+			
+			}
+			else // not in vehicle
+			{
+				_handled = [] call keyboard_stun_handler;
+			};
+		};
 
 		
 		
@@ -583,7 +615,6 @@ KeyDown_handler = {
 	_shift  = _this select 2;
 	_ctrl	= _this select 3;
 	_alt	= _this select 4;
-
 
 	if (_key in(actionKeys "LookAround")) then {
 		lookingAround = true;
@@ -646,42 +677,8 @@ KeyDown_handler = {
 		};
 	
 		case DIK_L:	{
-				_handled = [] call keyboard_lock_unlock_handler;
-		};
-		
-		case DIK_F: 
-		{
-		_only_cop_car_classes = ["UAZ_UNARMED_UN_EP1","LadaLM"];
-		
-			if (not(_ctrl)) exitWith {_handled = false;};
-			
-			if(_inVehicle) then
-			{
-				if (iscop or isopf) then
-				{
-					_handled = [] call keyboard_cop_siren_handler;
-				}
-				else
-				{
-					// not a cop or opfor
-					// sirens on stolen cop vehicles only
-
-					_vehicle_class = typeOf (vehicle player);
-					if (_vehicle_class  in _only_cop_car_classes) then
-					{
-						_handled = [] call keyboard_cop_siren_handler;
-					};
-				};
-			
-			}
-			else // not in vehicle
-			{
-				_handled = [] call keyboard_stun_handler;
-
-			};
-			
-		
-
+			_handled = INV_shortcuts;
+			//_handled = [] call keyboard_lock_unlock_handler;
 		};
 		
 		case DIK_V: {
@@ -718,7 +715,8 @@ KeyDown_handler = {
 	};
 	
 	if (_key in keyboard_overlapping_keys) exitWith {
-		false;
+		//player globalChat "overlapping key";
+		false
 	};
 	
 	_handled
@@ -735,8 +733,8 @@ keyboard_setup = {
 		if (isNull _display) exitWith {false};
 		true
 	};
-	_display displaySetEventHandler ["KeyDown", "_this call KeyDown_handler"];
-	_display displaySetEventHandler ["KeyUp", "_this call KeyUp_handler"];
+	_display displayAddEventHandler ["KeyDown", "_this call KeyDown_handler"];
+	_display displayAddEventHandler ["KeyUp", "_this call KeyUp_handler"];
 };
 
 call keyboard_setup;

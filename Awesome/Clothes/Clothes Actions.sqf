@@ -69,7 +69,9 @@ C_change_shop = {
 
 	
 	_c_array = _this select 0;
-	_shopnum = C_shopnum;
+	_shopnum = _this select 1;
+	
+		
 	
 	_moneh = [player, "money"] call INV_GetItemAmount; 
 	_side = C_Side;
@@ -122,7 +124,10 @@ C_change_shop = {
 	};
 	
 	closeDialog 0;
-	[player, _c_class, false] spawn C_change;
+	
+	//server globalchat format ["%1", _this select 2];
+	[player, _c_class, false, _this select 2] spawn C_change;
+
 	
 	sleep 3;
 	if (C_change_fail) then {
@@ -227,10 +232,10 @@ C_change = {
 		call _failed_change;
 	};
 
-	if ((_class in pmc_skin_list) && (_uid in pmcblacklist)) exitWith {
+	/*if ((_class in pmc_skin_list) && (_uid in pmcblacklist)) exitWith {
 		player groupchat "You cannot access PMC Shops: The police chief has added you to the blacklist";
 		call _failed_change;
-	};
+	};*/
 	
 	_score = score _oldUnit;
 	_rank = rank _oldUnit;
@@ -238,7 +243,7 @@ C_change = {
 	_sarmor = _oldUnit getVariable "stun_armor";
 	_mask = _oldUnit getVariable "gasmask";
 	
-	_oldUnit switchCamera "INTERNAL";
+	//_oldUnit switchCamera "INTERNAL";
 	
 	private["_temp_group"];
 	_temp_group = (group server);
@@ -265,6 +270,14 @@ C_change = {
 	xorE=true;
 	_newUnit setVehicleInit format['this setVehicleVarName "%1"; %1 = this; liafu = true;', _var_name];
 	processInitCommands;
+	
+	{
+			if ( (typeName _x) == "STRING" ) then {
+				xorE=true;
+				_newUnit setVehicleInit format['liafu = true; this setObjectTexture %1', [_forEachIndex, _x]];
+				processInitCommands;
+			};
+	}forEach (_this select 3);
 	
 	[_newUnit] joinSilent _group;
 	addSwitchableUnit _newUnit;
@@ -293,14 +306,14 @@ C_change = {
 		C_haschanged = true;
 		C_haschanged_c = _class;
 	};
-
-	[] spawn C_save;
+	[] execVM "briefing.sqf";
+	//[] spawn C_save;
 	C_changing = false;
 	
 	role = _newUnit;
-	_newUnit addEventHandler ["fired", {_this execVM "Awesome\EH\EH_fired.sqf"}];
-	_newUnit addEventHandler ["handleDamage", {_this execVM "Awesome\EH\EH_handledamage.sqf"}];
-	_newUnit addEventHandler ["WeaponAssembled", {_this execVM "Awesome\EH\EH_weaponassembled.sqf"}];
+	_newUnit addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	_newUnit addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
+	_newUnit addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	_newUnit addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];
 	_newUnit addMPEventHandler ["MPRespawn", { _this call player_handle_mprespawn }];
 	

@@ -257,7 +257,7 @@ rasman_list = {
 			all_buildings set [(count all_buildings), _x];
 		} forEach _array; 
 	};
-	} forEach [[spawn_protector, 120], [vip_protector, 80], [rasman_protector, 560], [opfor_protector, 400]];
+	} forEach [[spawn_protector, 200], [vip_protector, 80], [rasman_protector, 560], [opfor_protector, 400]];
 	all_buildings
 };
 
@@ -392,6 +392,7 @@ if(isClient) then
 	[] spawn {
 	_dupeid = str (getPlayerUID player);
 	if (!(["7656", _dupeid] call KK_fnc_inString)) then {
+		_duper = str (name player);
 		["NON VALID ID FOUND ON", _duper] call fn_LogToServer;
 	};
 };

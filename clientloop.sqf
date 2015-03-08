@@ -373,6 +373,9 @@ check_smoke_grenade = {
 	if (typeName _flashed != "BOOL") exitWith {};
 	if (not(_flashed)) exitWith {};
 	
+	if(!isNil "alreadyFlashing") then {
+		if (alreadyFlashing) exitWith {};
+	};
 	private ["_mask", "_fadeInTime", "_fadeOutTime"];
 	
 	_mask = player getvariable "gasmask";
@@ -385,13 +388,16 @@ check_smoke_grenade = {
 	
 	[] spawn {
 		private ["_fadeInTime", "_fadeOutTime"];
-		_fadeInTime   = 1;
-		_fadeOutTime  = 5;
-		if (not(alive player)) exitWith {};
+		if (alreadyFlashing) exitWith {};
+		_fadeInTime   = 3;
+		_fadeOutTime  = 7;
+		if (not(alive player)) exitWith { };
+		alreadyFlashing = true;
 		titleCut ["","WHITE OUT",0];
 		sleep _fadeOutTime;
 		titleCut ["","WHITE IN",0];
 		sleep _fadeInTime;
+		alreadyFlashing = false;
 		player setVariable ["flashed", false, true];
 	};
 		
@@ -475,13 +481,13 @@ check_restrains = {
 		StunActiveTime=0;
 	}
 	else { if (_logicallyRestrained && _physicallyRestrained) then {
+		if(vehicle player != player) then { // Eject restrained players
+	    	player action ["Eject", vehicle player];
+	    };
 		if (not([player, 50] call player_near_cops) && not([player, 50] call player_near_opf)) then {
 			[player, "restrained", false] call player_set_bool;
 			player groupChat format["You have managed to unrestrain yourself!"];
 		};
-		if(vehicle player != player) then { // Eject restrained players
-	            player action ["Eject", vehicle player];
-	        };
 	};};};
 };
 
@@ -524,7 +530,7 @@ _donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 				if(_x == _pWeps) then {
 					[player, 10] call jail_player_punish;
 				};
-			} forEach _vipWepArray;
+			} count _vipWepArray;
 		};
 	};
 	if(!ispmc) then {
@@ -533,7 +539,7 @@ _donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 			if(_x == _pWeps) then {
 				[player, 5] call jail_player_punish;
 			};
-		} forEach _donWepArray;
+		} count _donWepArray;
 	};
 };
 
@@ -585,6 +591,8 @@ client_loop = {
 		call check_global_voice;
 		call check_donator_items;
 		call mayor_unarmer;
+		player removeAllEventHandlers "handleDamage";
+		player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
 		if(!isciv) then {
 			call check_checkpoints;
 		};

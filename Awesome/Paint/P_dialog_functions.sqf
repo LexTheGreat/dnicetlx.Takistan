@@ -291,13 +291,14 @@ P_Dialog_Full = {
 			ctrlEnable [1713, false];
 		};
 
-		
+		if (!isNil "P_choice") then {
 		if (P_choice == "storage") then {
 			ctrlEnable [1701, false];
 		};
 		
 		if (P_choice == "store") then {
 			ctrlEnable [1701, true];
+		};
 		};
 		
 		if (vehicle player == player) then {closeDialog 0; player groupchat "P ERROR: Player exited vehicle"};

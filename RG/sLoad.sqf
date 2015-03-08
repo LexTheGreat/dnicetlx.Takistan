@@ -19,19 +19,21 @@ _loadFromDBClient =
 				bankstatsareloaded = true;
 		};
 		if(typeName _varValue == 'ARRAY') then {
-		if(count _varValue != 0) then {
-		if(_varName == 'WeaponsplayerWest') then {{player addWeapon _x} forEach _varValue;};	
-		if(_varName == 'MagazinesplayerWest') then {{player addMagazine _x} forEach _varValue;};	
-		if(_varName == 'LicensesWest') then {INV_LicenseOwner = _varValue;};
-		if(_varName == 'InventoryWest') then {[player, _varValue] call player_set_inventory;};
-		if(_varName == 'privateStorageWest') then {[player,'private_storage', _varValue] call player_set_array;};
-		if(_varName == 'FactoryWest') then {INV_Fabrikowner = _varValue;};
-		if(_varName == 'positionPlayerWest') then {player setPosATL _varValue;};
-		if(_varName == 'BackWepPlayerWest') then {  {unitBackpack player addWeaponCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
-		if(_varName == 'BackMagPlayerWest') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
+			if(count _varValue != 0) then {
+				if(_varName == 'MagazinesplayerWest') then {{player addMagazine _x} forEach _varValue;};
+				if(_varName == 'WeaponsplayerWest') then {{player addWeapon _x} forEach _varValue;};		
+				if(_varName == 'LicensesWest') then {INV_LicenseOwner = _varValue;};
+				if(_varName == 'InventoryWest') then {[player, _varValue] call player_set_inventory;};
+				if(_varName == 'privateStorageWest') then {[player,'private_storage', _varValue] call player_set_array;};
+				if(_varName == 'FactoryWest') then {INV_Fabrikowner = _varValue;};
+				if(_varName == 'positionPlayerWest') then {player setPosATL _varValue;};
+				if(_varName == 'BackWepPlayerWest') then {  {unitBackpack player addWeaponCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
+				if(_varName == 'BackMagPlayerWest') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
+			};
 		};
+		if(typeName _varValue == 'STRING') then {
+			if(_varName == 'BackpackPlayerWest' && _varValue != '<NULL-object>') then {player addBackpack _varValue;};
 		};
-		if(_varName == 'BackpackPlayerWest') then {player addBackpack _varValue;};
 		};
 	};
 	if(playerSide == east) then
@@ -56,7 +58,9 @@ _loadFromDBClient =
 		if(_varName == 'BackMagPlayerEast') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
 		};
 		};
-		if(_varName == 'BackpackPlayerEast') then {player addBackpack _varValue;};
+		if(typeName _varValue == 'STRING') then {
+		if(_varName == 'BackpackPlayerEast' && _varValue != '<NULL-object>') then {player addBackpack _varValue;};
+		};
 		};
 	};
 	if(playerSide == resistance) then
@@ -80,7 +84,9 @@ _loadFromDBClient =
 		if(_varName == 'BackMagPlayerRes') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
 		};
 		};
-		if(_varName == 'BackpackPlayerRes') then {player addBackpack _varValue;};
+		if(typeName _varValue == 'STRING') then {
+		if(_varName == 'BackpackPlayerRes' && _varValue != '<NULL-object>') then {player addBackpack _varValue;};
+		};
 		};
 	};
 	if(playerSide == civilian) then
@@ -105,7 +111,9 @@ _loadFromDBClient =
 		if(_varName == 'BackMagPlayerCiv') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
 		};
 		};
-		if(_varName == 'BackpackPlayerCiv') then {player addBackpack _varValue;};
+		if(typeName _varValue == 'STRING') then {
+		if(_varName == 'BackpackPlayerCiv' && _varValue != '<NULL-object>') then {player addBackpack _varValue;};
+		};
 		};
 	};
 ";

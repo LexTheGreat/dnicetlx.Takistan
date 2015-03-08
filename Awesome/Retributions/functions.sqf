@@ -451,7 +451,7 @@ determine_retribution = {
 get_near_vehicle_driver =  {
 	private["_driver", "_near_vehicles"];
 	_driver = nil;
-	_near_vehicles = nearestObjects [getpos player, ["LandVehicle"], 20];
+	_near_vehicles = nearestObjects [ASLtoATL getposASL player, ["LandVehicle"], 20];
 	//player groupChat format["Near VEHS: %1", _near_vehicles];
 	{
 		if ((speed _x > 10) and (not(isNull(driver _x)))) exitWith {
@@ -512,7 +512,7 @@ compute_death_parameters = {
 	_killer_side = [_killer] call stats_get_faction;
 	_victim_bounty = [player] call player_get_bounty;
 	_victim_criminal =  (_victim_bounty > 0);
-	_teamkill = (_victim_side == _killer_side) && (_victim_side != "Civilian");
+	_teamkill = (_victim_side == _killer_side) && (_victim_side != "Civilian") && (!_roadkill);
 	_justified = (_victim_armed || _victim_criminal);
 	_enemies = ((_killer_side != _victim_side) && not((_victim_side == "Civilian") || (_killer_side == "Civilian")));
 	_killer_uid = getPlayerUID _killer;
@@ -683,7 +683,7 @@ remove_vehicle_licenses = {
 	
 	player groupchat "You have lost your vehicle licenses for reckless driving!";
 	INV_LicenseOwner = INV_LicenseOwner - ["car","truck"];
-	["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
+	//["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
 	demerits = 0;
 };
 
@@ -695,7 +695,7 @@ remove_weapon_licenses = {
 	
 	player groupchat "You are now wanted, and lost your gun licenses!";
 	INV_LicenseOwner = INV_LicenseOwner - ["pistollicense","riflelicense","automatic"];
-	["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
+	//["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
 };
 
 remove_licenses = {
@@ -834,31 +834,32 @@ track_death = {
 	_qualifier = format["%1%2", _armed_str, _criminal_str];
 	
 
-	if ((_victim_side == "Civilian") and not(_victim_armed or _victim_criminal)) exitWith {
+	if ((_victim_side == "Civilian") and (!(_victim_armed) or !(_victim_criminal))) exitWith {
 		[_dp] call time_penalty;
 		[_dp] call remove_licenses;
 		if (_killer_side == "Cop"||_killer_side == "Opfor") then {
-			[_killer, "unarmedcivskilled", 1] call player_update_scalar;
-			if(unarmedcivskilled < 3) then {
+			//[_killer, "unarmedcivskilled", 1] call player_update_scalar;
+			format['
+			[] spawn
+            {
+            if (player != %1) exitWith {};
+			unarmedcivskilled = unarmedcivskilled + 1;
+			if(unarmedcivskilled <= 3) then {
 				player groupChat "STOP KILLING UNARMED OR NON-CRIMINAL CIVILIANS OR BE BLACKLISTED FROM COP/OPFOR SLOTS! consider this your final warning";
 			}
 			else {
-				_killer_uid = getPlayerUID _killer;
+				_killer_uid = getPlayerUID player;
 				copblacklist set [count copblacklist, _killer_uid];
 				opfblacklist set [count opfblacklist, _killer_uid];
 				publicVariable "copblacklist";
 				publicVariable "opfblacklist";
-				format['
-				[] spawn
-                {
-                    if (player != %1) exitWith {};
-					player groupChat "you are breaking rules by killing unarmed/non-criminal civilians rather than arresting them!";
-					player groupChat "Now being blacklisted from blufor/opfor slots, goodbye";
-					sleep 3;
-					failMission "END1";
-				};
-				', _killer] call broadcast;
+				player groupChat "you are breaking rules by killing unarmed/non-criminal civilians rather than arresting them!";
+				player groupChat "Now being blacklisted from blufor/opfor slots, goodbye";
+				sleep 3;
+				failMission "END1";
 			};
+			};
+			', _killer] call broadcast;
 		};
 		[_dp, format["aggravated-crime%1", _qualifier], _bounty] call death_set_wanted; 
 	};
@@ -868,10 +869,18 @@ track_death = {
 		[_dp] call time_penalty;
 		[_dp] call remove_licenses;
 	};
-	if (peacecomps && ((_victim_side == "Cop" && _killer_side == "Opfor") || (_victim_side == "Opfor" && _killer_side == "Cop"))) exitWith {
-		[_dp] call tk_penalty;
-		[_dp] call time_penalty;
-		[_dp] call remove_licenses;
+	_warCrime = false;
+	if (peacecomps && ((_victim_side == "Cop" && _killer_side == "Opfor") || (_victim_side == "Opfor" && _killer_side == "Cop"))) then {
+		_vicPos = getPos _victim;
+		
+		if ((_victim_side == "Cop" && ((_vicPos distance getMarkerPos "opf_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_delta" > 800)))||(_victim_side == "Opfor" && ((_vicPos distance getMarkerPos "blu_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_bravo" > 800) && (_vicPos distance getMarkerPos "checkpoint_alpha" > 800)))) then { 
+			_warCrime = true;
+			[_dp] call tk_penalty;
+			[_dp] call time_penalty;
+			[_dp] call remove_licenses;
+		};
+	};
+	if (_warCrime) exitWith {
 	};
 	if (_victim_criminal and (_killer_side == "Cop")) then {
 		[_dp] call collect_criminal_reward;

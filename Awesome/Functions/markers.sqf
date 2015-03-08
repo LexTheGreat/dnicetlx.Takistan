@@ -89,20 +89,18 @@ marker_side_loop_draw = {
 	if(isNil "_player_variable") exitWith {};
 	if (not([player, "sidemarkers"] call player_get_bool) || 
 		not([player] call player_human) || 
-		([player] call player_civilian) ||
-		not([_player_variable] call player_human) ||
-		([_player_variable] call player_civilian)) exitWith {
+		not([_player_variable] call player_human)) exitWith {
 		_local_marker setMarkerAlphaLocal 0;
 	};
 	
-	private["_has_admin_camera"];
+	/*private["_has_admin_camera"];
 	_has_admin_camera = _player_variable getVariable "has_admin_camera";
 	_has_admin_camera = if (isNil "_has_admin_camera") then { false } else {_has_admin_camera};
 	_has_admin_camera = if (typeName _has_admin_camera != "BOOL") then {false} else {_has_admin_camera};
 	
 	if (_has_admin_camera) exitWith {
 		_local_marker setMarkerAlphaLocal 0;
-	};
+	};*/
 	
 	//both the marked-player, and the player belong to the same side
 	if (([player] call player_side) != ([_player_variable] call player_side)) exitWith {
@@ -137,6 +135,8 @@ marker_side_loop = {
 	[] spawn marker_side_loop; 
 };
 
-[] spawn marker_side_loop;
+if (!isciv) then {
+	[] spawn marker_side_loop;
+};
 
 marker_functions_defined = true;

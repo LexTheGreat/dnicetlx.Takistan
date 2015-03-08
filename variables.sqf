@@ -1,7 +1,7 @@
 //=================================================================================
 INV_smscost              = 2500;
 add_civmoney             = 100000;
-add_copmoney             = 100000;
+add_copmoney             = 60000;
 add_workplace            = 20000;
 CopWaffenAvailable       = 1;
 CopInPrisonTime          = 120;
@@ -16,6 +16,7 @@ MayorTaxPercent          = 25;
 chiefSteuern             = 0;
 chiefBekommtSteuern      = 35;
 eigene_zeit              = time;
+victim_handle_open 		 = true;
 
 money_limit              = 99999999;
 bank_limit               = 99999999;
@@ -46,7 +47,7 @@ lockpickchance           = 35;
 planting                 = false;
 drugstockinc             = 900;
 druguserate              = 120;
-treefixreward			 = 5000;
+treefixreward			 = 2000;
 
 currecciv               = false;
 curreccop               = false;
@@ -241,7 +242,7 @@ working=false;
 //===============================GANGS=============================================
 gangincome          = 50000;
 gangcreatecost      = 200000;
-gangdeltime         = 300;
+gangdeltime         = 600;
 ["gangsarray", []] call stats_init_variable;
 gangmember          = false;
 gangleader          = false;
@@ -277,8 +278,12 @@ warstatuscop		  = false;
 if(isNil 'peacecomps') then {
 	peacecomps			  = true;
 };
+if(isNil 'warWinner') then {
+	warWinner			  = civilian;
+};
 
 saveinprogress = false;
+savedelay = false;
 //=========== cop patrol array ==========
 coppatrolarray  =
 [
@@ -359,7 +364,7 @@ MayorExtraPay            = 50000;
 
 private["_i"];
 _i = 0;
-while { _i < (count playerstringarray) } do {
+while { _i < (count civstringarray) } do {
 	WahlArray = WahlArray + [ [] ];
 	_i = _i + 1;
 };
@@ -539,6 +544,9 @@ droppableitems = [];
 	droppableitems set [(count droppableitems), _class];
 } forEach classmap;
 
+droppableitems = droppableitems call GetUnduplicatedArray;
+
+
 item2class = {
 	private["_item", "_class"];
 	_item = _this select 0;
@@ -562,6 +570,7 @@ item2class = {
 	
 	_class
 };
+
 
 workplace_object = 0;
 workplace_radius = 1;
@@ -618,14 +627,14 @@ player_connected_handler = {
 	_name = _this select 1;
 	_uid = _this select 2;
 	
-	//player groupChat format["%1 (%2) just connected", _name, _uid];
-	publicVariable "LawsArray";
+	//server globalChat format["%1 (%2) just connected", _name, _uid];
+	/*publicVariable "LawsArray";
 	publicVariable "INV_ItemTypenArray";
 	publicvariable "INV_ItemStocks";
 	publicvariable "gangsarray";
-	publicvariable "squadarray";
+	publicvariable "squadarray";*/
 };
-
-if(isServer)then {
+/*
+if(isServer) then {
 	onPlayerConnected { [_id, _name, _uid] call player_connected_handler };
-};
+};*/

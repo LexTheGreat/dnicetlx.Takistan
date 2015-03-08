@@ -12,16 +12,16 @@ private "_lz";
 
 //first we need to create a marker and set up a map click option
 
-_lz = createMarker ["HeliLZ", [0,0,0]];
-"HeliLZ" setMarkerShape "ICON";
-"HeliLZ" setMarkerColor "ColorOrange";
-"HeliLZ" setMarkerType "Pickup";
-"HeliLZ" setMarkerText "HeliLZ";
+_lz = createMarkerLocal ["HeliLZ", [0,0,0]];
+"HeliLZ" setMarkerShapeLocal "ICON";
+"HeliLZ" setMarkerColorLocal "ColorOrange";
+"HeliLZ" setMarkerTypeLocal "Pickup";
+"HeliLZ" setMarkerTextLocal "LZ";
 
 FDKTZ_LZ_Marked = false;
 
 hint "Map Click Landing Zone";
-onMapSingleClick {"HeliLZ" setMarkerPos _pos; FDKTZ_LZ_Marked = true};
+onMapSingleClick {"HeliLZ" setMarkerPosLocal _pos; FDKTZ_LZ_Marked = true};
 waitUntil {FDKTZ_LZ_Marked};
 onMapSingleClick {};
 FDKTZ_LZ_Marked = false;
@@ -31,10 +31,10 @@ FDKTZ_LZ_Marked = false;
 if (FDKTZ_Heli_Extras_Debug == 1) then
 {
 	//Show a visible helipad
-	helipad_heli = "HeliH" createVehicle (getMarkerPos "HeliLZ");
+	helipad_heli = "HeliH" createVehicleLocal (getMarkerPos "HeliLZ");
 }
 else
 {
 	//Use Invisible Helipad
-	helipad_heli = "HeliHEmpty" createVehicle (getMarkerPos "HeliLZ");
+	helipad_heli = "HeliHEmpty" createVehicleLocal (getMarkerPos "HeliLZ");
 };

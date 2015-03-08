@@ -1091,7 +1091,9 @@ _ClickSwitch =
 	{
 		_cs_change = true;
 		
-		_cs_ol = [ nearestObjects [_c, ["AllVehicles"], 500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
+		//_cs_ol = [ nearestObjects [_c, ["AllVehicles"], 1500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
+		//_cs_ol = [ _c nearEntities [["AllVehicles"], 500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
+		_cs_ol = [ entities "AllVehicles" ] call _SelectObjects;
 		
 		if (_fo) then { _cs_ol = _cs_ol - [_cs_ol select 0] };
 		

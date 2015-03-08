@@ -14,7 +14,7 @@ if (_art == "use") then {
 			_bombs = [];
 
 			{
-				_bombs = _bombs + ( (position player) nearObjects  [_x, 3] );
+				_bombs = _bombs + (nearestObjects  [player, _x, 3] );
 			} forEach _DefuseBombArray;
 
 			if (count _bombs > 0) then {

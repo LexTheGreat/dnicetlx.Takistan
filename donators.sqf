@@ -20,7 +20,6 @@ donators1 	  = [
 					"76561198069905879", //Swift
 					"76561198097975603", //Nightshade
 					"76561198043681651", //Mez
-					"76561198152562567", // XxNickxX
 					"76561198074221979", //DJ-Recon
 					"76561198099263770", //illfingas
 					"76561198095522901", //Richard Powers
@@ -65,7 +64,6 @@ donators1 	  = [
 					"76561198083884755", //Nick
 					"76561198093915329", //Niko
 					"76561198069165434", //Tengum Val Gold
-					"76561198143189534", //SHERMAN Isaiah Calhoun
 					"76561198077959418", //dylanlind
 					"76561198089530624", //Dan
 					"76561198079616759", //Jordan Delonge
@@ -84,7 +82,6 @@ donators1 	  = [
 					"76561198170609449", //Ryguy6006 / Ryan
 					"76561198006670783", //Tony Molnar / Bruin
 					"76561198059290772", //Mexistache
-					"76561198114597817", //Mr. Baggles Enjin
 					"76561198095689472", //kyle mendes achmed
 					"76561198042587584", //Chives Enjin
 					"76561198088178208", //Cooleo579 enjin
@@ -101,6 +98,35 @@ donators1 	  = [
 					"76561198082805000", //Russian Bear
 					"76561198110469807", //Mason Fox
 					"76561198050730382", //Austin Jumper
+					"76561198094767351", //silverwolf
+					"76561198012920317", //Drew
+					"76561198048151196", //MrHands Enjin
+					"76561198085176214", //Mr Wok
+					"76561198095037617", //Goldenpotaters
+					"76561198058838936", //M. Tom
+					"76561198087605602", //Jarmin1 Enjin
+					"76561198176437922", //Zerum
+					"76561198047395579", //GrandBrutus
+					"76561198165712571", //MSGT-sniper-is-back
+					"76561198056681023", //Kim Jong Fun
+					"76561198103955155", //Just A Gamer
+					"76561198069144395", //Skybomb
+					"76561198089026304", //iMagiik Joe Day
+					"76561198080647285", //InsectorTec Enjin Jordan
+					"76561198019776493", //Nanderson Enjin
+					"76561198119484473", //mhampton
+					"76561198080082141", //InfectiousGamer
+					"76561198096706367", //[LULZ] Sean
+					"76561198075911086", //Spencer Anderson
+					"76561198086218896", //Hugo Strom
+					"76561198103742000", //SFGSpartan Enjin Kim Amaz
+					"76561198090890061", //marek
+					"76561198042098526", //Jaloko
+					"76561198089751040", //Javilenier
+					"76561198055459939", //cfm200 enjin
+					"76561198150121484", //Tatiana
+					"76561198162653207", //The Sober Dan
+					"76561198048867679", //Fabian
 					"76561198144636471" //Sw!tch $15
 		    ];
 
@@ -114,7 +140,6 @@ donators2 	  = [
 					"76561198064255265",//DaveHoboMofo
 					"76561198086016923", //BaconWarrior
 					"76561198075424014", //LeHazy
-					"76561198040908402", //MattMax509
 					"76561198045152287", //[DNICE] Yousef Wendy
 					"76561198049714505", //Laptopwarrior/GriswoldLog
 					"76561198093692248", //Oooohkillem
@@ -169,31 +194,56 @@ donators2 	  = [
 					"76561198059732869", //Pvt. Reggie
 					"76561198122297063", //Dowables
 					"76561198069677444", //Jawn
-					"76561198129102813", //Nick Norman
 					"76561198105821449", //Derpy Herpy derpderp75
 					"76561198097070500", //Mythic
 					"76561198080009724", //Bonenberger13
 					"76561198083602285", //Pimp God Tyrone
-					"76561198068098093", //Explosiveman Enjin
 					"76561198090767260", //Zaar Enjin
 					"76561198093686268", //James Washcloth
 					"76561198102207968", //Abel Ortega
 					"76561198001534106", //Beau
-					"76561198085563991", //Masuk Hussein Crow
 					"76561198146770526", //Agent Gaming
 					"76561198077835165", //CanMan 179 //$30
 					"76561198039594808", //Emanuel
 					"76561198168912341", //Kiwiwonder
-					"76561198140314791", //Imran Zakhaev
+					"76561198067610239", //Imran Zakhaev
 					"76561198018600234", //JORDAN Beck
-					"76561198162808465", //Visual Enjin
-					"76561198067620373", //Snowman
+					//"76561198067620373", //Snowman ban
 					"76561198133152953", //Lemmings
 					"76561198124176578", //Lt Monkey
 					"76561198119216004", //Heaven
 					"76561198055310671", //Elgin Terry
 					"76561198122666011", //cyka blyat
 					"76561197990568150", //Grismer
+					"76561198083701025", //knight
+					"76561198143189534", //SHERMAN Isaiah Calhoun $35 enjin
+					"76561198042099228", //Curtis London
+					"76561198065859672", //Alvino
+					"76561198152562567", // XxNickxX
+					"76561198043117324", //GARRETT_ $35
+					"76561198134796571", //Canadian Bacon T2
+					"76561198064657725", //Scrowell
+					"76561198035381118", //Bemis
+					"76561198090140009", //LimpyLongLeg
+					"76561198068873234", //WannaBeRanger Enjin
+					"76561198079511236", //Frankie Enjin
+					"76561197996312393", //scylendrey Enjin Righteous Light
+					"76561198008415781", //Comet
+					"76561198055769028", //Chandler West
+					"76561197980953981", //pacifiststart
+					"76561198079637409", //Skater Zackk
+					"76561197973705584", //dookiepower enjin
+					"76561198110016140", //DarksunVG
+					"76561198093467203", //Cheddar Enjin
+					"76561198028005476", //MichaelS
+					"76561198101499715", //Rexspd20
+					"76561198087841197", //Cameron12321
+					"76561198067206897", //=DGR= Voxx
+					"76561198063832142", //DrinkyCrow
+					"76561198088370787", //Anon
+					"76561198057705410", //Dahking21
+					"76561198084659010", //ScumbagSteve
+					"76561198061672377", //[SS]Death Rider
 					"76561198114549420" //RageCometz
 			];
 
@@ -205,7 +255,6 @@ donators3  	  = [
 				"76561198056520395", //TMJ0523
 				"76561198059512364", //ethan smith(nice guy)
 				"76561198085473116", //CPT. RUSSELL
-				"76561198062448514", //Abu Nazzir (Sion)
 				"76561198071466491", //|KINGZ|MAC
 				"76561198078405272",  //Henrik $40
 				"76561198062759694", //MaikelHawk
@@ -220,7 +269,6 @@ donators3  	  = [
 				"76561198115818821​", //CaseTheSlayer
 				"76561198017822314", //Morvistic
 				"76561198119279822", //Mr. Penguin
-				"76561198101924418", //Lex_Dev
 				"76561198019703127", //walker
 				"76561198071078533", //Lucid Hysteria
 				"76561198087009530", //Leiwyn
@@ -228,6 +276,13 @@ donators3  	  = [
 				"76561198081149300", //blazn 20M purchse
 				"76561198091256187", //Robb Stark
 				"76561198135614824", //Weeaboo effecting team
+				"76561198048711651", //Jamie Ranger
+				"76561198085630212", //TMC Barkuz
+				"76561198007560382", //Zraka upped
+				"76561198040908402", //MattMax509
+				"76561198035613411", //The Meat Cleaver	
+				"76561198015531909", //Paltala		
+				"76561198130797899", //Nick Norman			
 				"76561198098170503" //King Akbur	
 			];
 
@@ -236,6 +291,7 @@ donators3  	  = [
 // Donated $75
 donators4  	  = [
 				"76561198111424831", //TiLTDRAMZ
+				"76561198047477296", //Jamal Nippleham	
 				"76561198045721518" //Burty
 
 ];
@@ -247,7 +303,7 @@ donatorsVIP     = [
 				"245049094", // Fyodor
 				"76561198106962111", // Wilson (Vukan)
 				"76561198018896118", // 72nd Talfi/Willigsire
-				"247857670", // LIL PWMZORER
+				"76561198132366940", // LIL PWMZORER
 				"76561198068079024", //SolidSnake
 				"76561198131604780", //GREASY
 				"76561198046673227", //SAM1
@@ -282,6 +338,17 @@ donatorsVIP     = [
 				"76561198139401322", //Mu'tasim Asadullah
 				"76561198118377646", //ShawnMoody
 				"76561198021990722", //Mushroombat
+				"76561198101924418", //Lex_Dev
+				"76561198162808465", //Visual Enjin
+				"76561198141620815", //Uncle Bubs
+				"76561198114597817", //Mr. Baggles Enjin
+				"76561198068098093", //Explosiveman Enjin
+				"76561198062448514", //Abu Nazzir (Sion)
+				"76561198136436202", //Dark Veteran
+				"76561198106146295", //XxThatWhitexX
+				"76561198146759961", //Connor
+				"76561198074752188", //Muzammil Zaffar Mujahid
+				"76561198085563991", //Masuk Hussein Crow
 				"76561198134427407"//Ja
 				//"76561198100072934" //NESKOVICH
 

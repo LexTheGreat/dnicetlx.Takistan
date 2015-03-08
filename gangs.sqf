@@ -100,9 +100,9 @@ if(!gangmember)exitwith{player groupchat "you are not in a gang!"};
 if(_art == "kick") then {
 
 	if((_this select 1) == "notingame") exitWith {
-		player groupchat "you cannot kick members unless they are ingame!"
+		player groupchat "you cannot kick members unless they are ingame! Offline members are removed every 2 minutes"
 	};
-
+	player groupchat format ["%1", _this];
 	_civ = call compile format["%1", _this select 1];
 
 	if(player == _civ) exitWith {

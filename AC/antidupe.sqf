@@ -3,9 +3,9 @@ _duper = str (name player);
 _dupeid = str (getPlayerUID player);
 
 waitUntil {!isNil "statsLoaded"};
-sleep 20;
 _side = str (playerSide);
 _don = "Regular";
+//["Connection Tracker",  _side, _duper, " = connected"] call fn_LogToServer;
 if (isdon) then {
 	_don = "Donator";
 };
@@ -20,7 +20,7 @@ while {true} do
 	{
 	// lets get their position and their position 1 second from now...
 		_oldBank = [player] call player_get_total_money;//get_bank_valuez;
-		sleep 10;
+		sleep 1;
 		_newBank = [player] call player_get_total_money;
 		_difference = _newBank - _oldBank;
 		//player commandchat format ['%1, %2, %3', str (getPlayerUID player), name player, _difference];
@@ -32,6 +32,10 @@ while {true} do
 					["DUPING LOGGER", _dupeid, _duper, _side, _don, _difference] call fn_LogToServer;
 					//execVM "AC\punish.sqf";					
 				};
+				/*if(_difference > 30000000) then 
+				{
+					["FALSE POSITIVE DUPE?", _dupeid, _oldBank, _newBank, _difference] call fn_LogToServer;
+				};*/
 			};
 	};
 };

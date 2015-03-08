@@ -14,7 +14,7 @@ workplacejob_deliverymsg         =
 
 ];
 
-deliveryjobmulti                 = 4;
+deliveryjobmulti                 = 12;
 workplacejob_courier_maxmoney    = 15000;
 deliverymintime			 = 100;
 
@@ -87,12 +87,13 @@ getmarkerpos "taximarker25"
 ];
 
 workplacejob_taxi_sperrzeit	 = 0.01;
-workplacejob_taxi_multiplikator  = 4;
-workplacejob_taxi_maxmoney       = 35000;
+workplacejob_taxi_multiplikator  = 12;
+workplacejob_taxi_maxmoney       = 75000;
 taximaxdistance			 = 5200;
 taximindistance			 = 3500;
 
 //========================================ASSASSINATION============================================
 
-workplacejob_assassin_break   = 10;
+workplacejob_assassin_break   = 5;
+workplacejob_hostage_break    = 5;
 workplacejob_assassion_failed = false;

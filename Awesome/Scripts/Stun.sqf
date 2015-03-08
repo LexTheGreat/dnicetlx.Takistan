@@ -68,12 +68,15 @@ if (_action == 3) then {
 	if (_unit distance getMarkerpos "respawn_east" < 100) exitwith {};
 	if (_unit distance getMarkerpos "respawn_guerrila" < 100) exitwith {};
 	if (_unit distance getMarkerpos "respawn_civilian" < 100) exitwith {};
+	if (_unit distance getMarkerpos "respawn_southciv" < 100) exitwith {};
+	if (_unit distance getMarkerpos "respawn_pmc" < 100) exitwith {};
 	
 	_currentw	= [_unit] call getCW_class;
 	
 	_men = nearestobjects [getpos _unit, ["CAManBase"], 3] - [_unit];
 	_man = _men select 0;
 	
+	if(isNil "_man") exitWith { };
 	// bailflag
 	if ((_man in shopusearray) || (_man == bailflag)) exitWith {};
 	

@@ -1,6 +1,7 @@
 #include "Awesome\Functions\macro.h"
 
 _art = ((_this select 3) select 0);
+_vcl = objnull;
 if (_art == "getajob_delivery") then {
 	if (alreadygotaworkplacejob == 2) exitWith {
 		player groupChat localize "STRS_workplacemission_searchalready";
@@ -9,9 +10,10 @@ if (_art == "getajob_delivery") then {
 	if (alreadygotaworkplacejob == 1) exitWith {
 		player groupChat format [localize "STRS_workplacemission_already", workplacejob_deliveryname];
 	};
-
-	if(canceltime) exitwith {
-		player groupchat "You cannot start another delivery mission so soon after failing one!";
+	if (!isNil 'canceltime') then {
+		if(canceltime) exitwith {
+			player groupchat "You cannot start another delivery mission so soon after failing one!";
+		};
 	};
 
 	canceltime=false;
@@ -33,13 +35,13 @@ if (_art == "getajob_delivery") then {
 	timetaken = 0;
 	_a1 = 0;
 	_pos = getpos player;
-	vcl = objnull;
+	
 	workplacejob_deliverymoney = round(workplacejob_deliveryflag distance _pos)*deliveryjobmulti;
 	if(workplacejob_deliverymoney > workplacejob_courier_maxmoney) then {
 		workplacejob_deliverymoney = workplacejob_courier_maxmoney
 	};
 	
-	maxtime	= workplacejob_deliverymoney/50;
+	maxtime	= workplacejob_deliverymoney/160;
 	
 	if(maxtime < deliverymintime) then {
 		maxtime = deliverymintime
@@ -48,7 +50,7 @@ if (_art == "getajob_delivery") then {
 	while {true} do {
 		if (player distance workplacejob_deliveryflag <= 5 and vehicle player == player) exitwith {
 			player removeaction deliveryinfoaction;
-			vcl removeaction deliveryinfoaction;
+			_vcl removeaction deliveryinfoaction;
 			player groupChat format[localize "STRS_workplacemission_delivery_finish", strM(workplacejob_deliverymoney)];
 			hint format["Destination: %1\nTime taken: %2 seconds.\nPay: $%3\nDistance remaining: %4m", workplacejob_deliveryname, timetaken, round workplacejob_deliverymoney, (round(workplacejob_deliveryflag Distance player))];
 			[player, 'money', round workplacejob_deliverymoney] call INV_AddInventoryItem;
@@ -57,15 +59,15 @@ if (_art == "getajob_delivery") then {
 		};
 
 		if (vehicle player != player and _a1 == 1) then {
-			vcl = vehicle player;
+			_vcl = vehicle player;
 			player removeaction deliveryinfoaction;
-			deliveryinfoaction = vcl addAction ["Delivery mission info", "noscript.sqf", 'hint format["Destination: %1\nTime remaining: %2 seconds.\nPay: $%3\nDistance remaining: %4m", workplacejob_deliveryname, round(maxtime - timetaken), round workplacejob_deliverymoney, (round(workplacejob_deliveryflag Distance player))]',1,false,true,"",""];
+			deliveryinfoaction = _vcl addAction ["Delivery mission info", "noscript.sqf", 'hint format["Destination: %1\nTime remaining: %2 seconds.\nPay: $%3\nDistance remaining: %4m", workplacejob_deliveryname, round(maxtime - timetaken), round workplacejob_deliverymoney, (round(workplacejob_deliveryflag Distance player))]',1,false,true,"",""];
 
 			_a1 = 0;
 		};
 
 		if (vehicle player == player and _a1 == 0) then {
-			vcl removeaction deliveryinfoaction;
+			_vcl removeaction deliveryinfoaction;
 			deliveryinfoaction = player addAction ["Delivery mission info", "noscript.sqf", 'hint format["Destination: %1\nTime remaining: %2 seconds.\nPay: $%3\nDistance remaining: %4m", workplacejob_deliveryname, round(maxtime - timetaken), round workplacejob_deliverymoney, (round(workplacejob_deliveryflag Distance player))]',1,false,true,"",""];
 
 			_a1 = 1;
@@ -82,8 +84,8 @@ if (_art == "getajob_delivery") then {
 
 if (_art == "cancel") then {
 	player removeAction deliveryinfoaction;
-	player removeAction deliverycancelaction;
-	vcl removeaction deliveryinfoaction;
+	player removeAction action62;
+	_vcl removeaction deliveryinfoaction;
 	player groupchat "delivery mission failed!";
 	alreadygotaworkplacejob = 0;
 	workplacemissioninfos = ["", ""];

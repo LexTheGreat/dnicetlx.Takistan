@@ -118,6 +118,17 @@ if ( ((_unit distance (getmarkerpos "vip_donator_area_1")) < 100) ) exitwith {
 		format['hint "WARNING %1: DO NOT FIRE INSIDE THE SOUTHERN VIP DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
+if ( ((_unit distance (getmarkerpos "vip_donator_area")) < 100) ) exitwith {
+		deleteVehicle _bullet;
+		if (firestrikes == 0) exitwith {
+			[player] call player_reset_gear;
+			firestrikes = totalstrikes;
+		};
+		
+		firestrikes = firestrikes - 1;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE NORTHERN VIP DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		
+	};
 
 ///////////////
 // STUN EFFECTS

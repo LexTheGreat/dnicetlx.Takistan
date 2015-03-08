@@ -18,7 +18,7 @@ if (vehicle player == player) then
 		deleteVehicle _x;
 		_deleted = _deleted + 1;
 
-		} forEach (player nearObjects ["weaponholder", 5]);
+		} forEach (nearestObjects [player, "weaponholder", 5]);
 
 	player groupChat format[localize "STRS_inv_items_weapondeleted", _deleted];
 

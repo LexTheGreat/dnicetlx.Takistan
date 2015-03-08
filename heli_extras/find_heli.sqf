@@ -31,6 +31,14 @@ _num = parseNumber _data;
 //Convert to an Array Index
 //_num = _num - 1;
 
+//player sideChat format ["%1", _num];
+
+if (_num == 0) exitWith {
+	player sideChat "Choose a Vehicle from the listbox!!!";
+	_heli = nil;
+	_heli
+};
+
 //get the units in the player's squad
 _units = units group player;
 

@@ -5,7 +5,7 @@
 // Main Parameter
 
 // Move Speed ( Recommended 0.0-1.0 )
-#define CFMOVE 0.8
+#define CFMOVE 1.5
 
 // Turn Speed ( Recommended 0.0-1.0 )
 #define CFTRK 0.3
@@ -17,7 +17,7 @@
 #define LISTFRIENDLY true
 #define LISTENEMY true
 #define LISTCIVILIAN true
-#define LISTANIMAL true
+#define LISTANIMAL false
 
 // Radius distance to which units is listed in Unit List and groups showed in Map.
 // ( Recommended 1000-3000, viewDistance is graphic option value )

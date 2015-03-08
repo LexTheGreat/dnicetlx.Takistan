@@ -158,7 +158,7 @@ if(_art == "clientloop") then {
 		_members   = _squadarray select 1;
 		_name	   = name player;
 
-		if(_name in _members and not([player] call player_copilian))then {
+		if(_name in _members and not([player] call player_cop))then {
 			_members = _members - [_name];
 			_squadarray set[1, _members];
 			format['squadarray set[%1, %2]', _c, _squadarray] call broadcast;
@@ -176,7 +176,7 @@ if(_art == "clientloop") then {
 				_lunit = [_leader] call player_lookup_name;
 				
 				private["_leader_active"];
-				_leader_active = ([_lunit] call player_copilian);
+				_leader_active = ([_lunit] call player_cop);
 		
 				if (not(_leader_active) && not(player in (units startgroup))) then {
 					[player] joinsilent startgroup;

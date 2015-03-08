@@ -14,6 +14,6 @@ deleteVehicle helipad_heli;
 
 //Delete the Marker
 
-deleteMarker "HeliLZ";
+deleteMarkerLocal "HeliLZ";
 
 //Add action to create LZ

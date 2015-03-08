@@ -1,7 +1,7 @@
 private ["_itemsToClear","_obj","_rad","_delay"];
 _obj = getMarkerPos "cleanermark"; // get spawn - might as well
 _rad = 8000;  //  radius outwards from center point to clear items.
-_delay = 1200; // amount of time in-between clean-ups
+_delay = 800; // amount of time in-between clean-ups
  
 while {true} do
 {
@@ -24,15 +24,22 @@ while {true} do
 	format ["player commandChat ""STAY IN YOUR VEHICLES"";"] call broadcast;
 	sleep 1;
 	for [{_i=9}, {_i > 0}, {_i=_i-1}] do {
-		format ["hintsilent ""OBJECTGEDDON IN %1"";", _i] call broadcast;
+		format ["hint ""OBJECTGEDDON IN %1"";", _i] call broadcast;
 		sleep 1;
 	};
+	_t1 = diag_tickTime;
 	format ["server globalChat ""OBJECTGEDDON STARTED!!! WAIT FOR IT TO COMPLETE"";"] call broadcast;
-	_itemsToClear = _obj nearEntities [droppableitems + ["LandVehicle", "Air", "UAV", "Wreck", "Wreck_Base", "SmallItems", "UH1Wreck", "UH1_Base", "UH1H_base", "AH6_Base_EP1","CraterLong", "Ka60_Base_PMC", "Ka137_Base_PMC", "A10"],_rad];
+	_itemsToClear = _obj nearEntities [droppableitems + ["LandVehicle", "Air"],_rad];
 	{
 		if (count crew _x == 0) then {
 			deleteVehicle _x;
 		};
 	} count _itemsToClear;
+	{
+		{
+			deleteVehicle _x;
+		} count (_obj nearObjects [_x, _rad]); 
+	} forEach ["WeaponHolder", "Wreck_Base","CraterLong"];
 	format ["server globalChat ""OBJECTGEDDON COMPLETE YOU MAY NOW LEAVE YOUR VEHICLES"";"] call broadcast;
+	[diag_tickTime - _t1, "OBJECTGEDDON"] call fnc_fps_log;
 };

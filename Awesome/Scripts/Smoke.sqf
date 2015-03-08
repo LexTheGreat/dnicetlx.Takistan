@@ -18,19 +18,19 @@ _Tear_gas =
 	_pos = _this select 0;
 	_timenow = time;
 	_array = [];
-	while{time < (_timenow + 10) || (!(isnull _pos))}do
+	while{time < (_timenow + 20) || (!(isnull _pos))}do
 		{
 			sleep 1;
 			if(!(isnull _pos))then
 				{
-					if(count(nearestObjects [_pos, ["Man"], 10]) > 0)then
+					if(count(nearestObjects [_pos, ["Man"], 20]) > 0)then
 						{
 
 							{
 								_x setVariable ["flashed",true, true];
 								_array set [count _array,_x];
 
-							} foreach nearestObjects [_pos, ["Man"], 10];
+							} foreach nearestObjects [_pos, ["Man"], 20];
 						
 						}else{
 						

@@ -6,7 +6,7 @@ _art = (_this select 3) select 0;
 if (isNil "workplacejob_hostage_serverarray") then {workplacejob_hostage_serverarray = []};
 
 if (_art == "serverloop") then {
-
+	_t1 = diag_tickTime;
 	while {true} do {
 		for [{_i=0}, {_i < (count workplacejob_hostage_serverarray)}, {_i=_i+1}] do {
 			if (isNull ((workplacejob_hostage_serverarray select _i) select 0)) then {
@@ -18,7 +18,8 @@ if (_art == "serverloop") then {
 
 				workplacejob_hostage_serverarray set [_i,""];
 				workplacejob_hostage_serverarray = workplacejob_hostage_serverarray - [""];
-				//"if(iscop)then{player sidechat ""The threat to the hostage has been removed""}" call broadcast;
+				"if(iscop)then{player sidechat ""The threat to the hostage has been removed""}" call broadcast;
+				//[diag_tickTime - _t1, "HOSTAGE LOOP"] call fnc_fps_hi_log;
 				sleep ((workplacejob_hostage_break)*60);
 				workplacejob_hostage_active = false;
 				publicvariable "workplacejob_hostage_active";
@@ -46,11 +47,11 @@ if (_art == "getajob_hostage") then {
 
 	//creating VIP
 	liafu = true;
-	_group = createGroup east;
+	_group = createGroup west;
 //	[format["%1 (%2, %3, %4) - hostage: group created %5",  round(time), player, (name player), (getPlayerUID player), _group]] call l4a;
 	hostage1 = _group createUnit ["Functionary1_EP1", _pos, [], _radius, "FORM"];
 	xorE=true;
-	hostage1 setvehicleinit 'liafu = true;hostage1 = this;this setVehicleVarName "hostage1";';
+	hostage1 setvehicleinit 'liafu = true;hostage1 = this;this setVehicleVarName "hostage1"; this disableAI "TARGET";';
 
 	processInitCommands;
 
@@ -62,7 +63,7 @@ if (_art == "getajob_hostage") then {
 	"htargetmarker" setMarkerType "Marker";
 	"htargetmarker" setMarkerColor "ColorRed";
 	"htargetmarker" setMarkerText "Hostage target";
-	_markername SetMarkerPos _start;
+	_markername SetMarkerPos getPosASL hostage1;
 
 	workplacejob_hostage_active = true; publicvariable "workplacejob_hostage_active";
 
@@ -75,7 +76,7 @@ if (_art == "getajob_hostage") then {
 
 
 	while {true} do {
-		"htargetmarker" setmarkerpos getpos hostage1;
+		_markername setmarkerpos getPosASL hostage1;
 
 		if (_minutecounter >= 750 and alive player) exitWith {
 			[player, 300000] call transaction_bank;
@@ -98,9 +99,9 @@ if (_art == "getajob_hostage") then {
 
 		if(hostage1 distance getmarkerpos "hostagezone" > 150) exitwith {
 			"
-			server globalchat ""The Hostage taker has fled the area! Cops get $5000"";
+			server globalchat ""The Hostage taker has fled the area! Cops get $20000"";
 			_copplayernumber = playersNumber west;
-			_copbonus = 5000;
+			_copbonus = 20000;
 			if (iscop) then {[player, _copbonus] call transaction_bank; player sidechat format[""you received $%1 for hostage taker fleeing the area"", _copbonus];};
 			" call broadcast;
 			sleep 2;

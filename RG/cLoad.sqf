@@ -1,4 +1,4 @@
-startmoneh = 700000;
+startmoneh = 100000;
 donatormoneh = 3000000;
 silvermoneh = 6000000;
 goldmoneh = 12000000;
@@ -189,16 +189,16 @@ if ((ispmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside ==
 if (_uid == "76561198068079024") then {INV_LicenseOwner = INV_LicenseOwner + ["mgslicense"];
 			server globalchat "FOXHOUND MEMBER DETECTED: METAL GEAR License Added";
 };
-if (_uid == "76561198072033337") then {INV_LicenseOwner = INV_LicenseOwner + ["jarlicense"];
-			server globalchat "A wild SS Jarhead appears: Jarhead License Added";
+if (_uid == "76561198080206289" || _uid == "76561198072033337" || _uid == "76561198114597817" || _uid == "76561198068098093" || _uid == "76561198141964948") then {INV_LicenseOwner = INV_LicenseOwner + ["jarlicense"];
+			server globalchat "A wild Jarhead appears: Jarhead License Added";
 };
-if (_uid == "76561198046673227") then {INV_LicenseOwner = INV_LicenseOwner + ["bonglicense"];
+if (_uid == "76561198046673227" || _uid == "76561198155614911") then {INV_LicenseOwner = INV_LicenseOwner + ["bonglicense"];
 			server globalchat "Friendly Neighborhood Drug Dealer Identified: Bong Reseller License Added";
 };
 if (_uid == "76561198084473560" || _uid == "76561198078405272") then {INV_LicenseOwner = INV_LicenseOwner + ["grelllicense"];
 			server globalchat "SS Totenkopf Identified: SS License Added";
 };
-if (_uid == "76561198080206289" || _uid == "76561198079002512") then {INV_LicenseOwner = INV_LicenseOwner + ["colelicense"];
+if (_uid == "76561198079002512" || _uid == "76561198139401322") then {INV_LicenseOwner = INV_LicenseOwner + ["colelicense"];
 			server globalchat "The Name is Bond: Bond License Added";
 };
 if (_uid == "76561198081926401") then {INV_LicenseOwner = INV_LicenseOwner + ["karmalicense"];

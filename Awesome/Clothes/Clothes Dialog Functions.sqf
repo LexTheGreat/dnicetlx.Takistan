@@ -90,7 +90,8 @@ C_Dialog_Full = {
 				ctrlEnable [1702, true];
 				
 				C_selectedarray = [_item] call C_array_d;
-	
+				
+				if (count C_selectedarray < 2) exitWith {};
 				_class = C_selectedarray select 1;
 				_cost = C_selectedarray select 6;
 				_lic = C_selectedarray select 7;
@@ -424,6 +425,7 @@ C_Dialog_Switch = {
 		
 	{
 		_IA 	= [_x] call C_array_d;
+		if (count _IA < 3) exitWith { };
 		_index	= lbAdd [1500, format["%1", (_IA select 2)]];
 		lbSetData [1500, _index, _x];
 	} foreach C_List;
@@ -556,7 +558,7 @@ C_buy = {
 		// buy and change
 		case 2: {
 			if ( C_Preview_Class != (C_selectedarray select 1) ) then { C_T_Change = false; } else { C_T_Change = true;};
-			[C_selectedarray, C_shopnum] spawn C_change_shop;
+			[C_selectedarray, C_shopnum, C_T_P] spawn C_change_shop;
 		};
 	};
 };

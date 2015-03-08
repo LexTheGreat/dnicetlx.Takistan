@@ -544,8 +544,8 @@ factory_loop = {
 	_prod = (_prod + 1) max (0);
 	_pend = (_pend - 1) max (0);
 
-	[_prod_name, _prod] spawn stats_client_save;
-	[_pend_name, _pend] spawn stats_client_save;
+	//[_prod_name, _prod] spawn stats_client_save;
+	//[_pend_name, _pend] spawn stats_client_save;
 
 	missionNamespace setVariable [_prod_name, _prod];
 	missionNamespace setVariable [_pend_name, _pend];
@@ -588,7 +588,7 @@ factory_loop = {
 		_current_production = missionNamespace getVariable _prod_name;
 
 		if ((_current_production < _original_production) ) exitWith {
-			[_prod_name, _current_production] spawn stats_client_save;
+			//[_prod_name, _current_production] spawn stats_client_save;
 			_production_canceled = true;
 		};
 
@@ -625,9 +625,9 @@ factory_loop = {
 	player groupChat format["A %1 was produced at your %2", _item_name, _factory_name];
 
 	//update the stats
-	[_prod_name, _prod] spawn stats_client_save;
+	/*[_prod_name, _prod] spawn stats_client_save;
 	[_avail_name, _avail] spawn stats_client_save;
-	[_queue_name, _queue] spawn stats_client_save;
+	[_queue_name, _queue] spawn stats_client_save;*/
 
 	sleep 1;
 	_this spawn factory_loop;
@@ -734,15 +734,15 @@ factory_item_dequeue = {
 	private["_production_cost"];
 	_production_cost = [_item] call factory_calculate_production_cost;
 	[_player, "money", _production_cost, _factory_storage] call INV_AddItemStorage;
-	[_factory_storage, _player getVariable _factory_storage] call stats_client_save;
+	//[_factory_storage, _player getVariable _factory_storage] call stats_client_save;
 
 	//player groupChat format["%1-%2, you have been reimbursed $%3 for %4", _player, (name _player), _production_cost, _item_name];
 	//player groupChat format["_queue = %1", _queue];
 	missionNamespace setVariable [_queue_name, _queue];
 	missionNamespace setVariable [_pend_name, _pend];
 	missionNamespace setVariable [_prod_name, _prod];
-	[_prod_name, _prod] spawn stats_client_save;
-	[_queue_name, _queue] spawn stats_client_save;
+	//[_prod_name, _prod] spawn stats_client_save;
+	//[_queue_name, _queue] spawn stats_client_save;
 	call factory_update_queue_list;
 };
 
@@ -823,8 +823,8 @@ factory_item_enqueue = {
 		missionNamespace setVariable [_pend_name, _pend];
 		missionNamespace setVariable [_factory_queue, _queue];
 
-		[_pend_name, _pend] call stats_client_save;
-		[_factory_queue, _queue] call stats_client_save;
+		//[_pend_name, _pend] call stats_client_save;
+		//[_factory_queue, _queue] call stats_client_save;
 		_amount = _amount - 1;
 	};
 
@@ -885,7 +885,7 @@ factory_item_create = {
 	while { _amount > 0 && _avail > 0} do {
 		_avail = _avail - 1;
 		missionNamespace setVariable [_avail_name, _avail];
-		[_avail_name, _avail] spawn stats_client_save;
+		//[_avail_name, _avail] spawn stats_client_save;
 
 		switch _item_type do {
 			case "Item": {
@@ -1221,6 +1221,7 @@ factory_update_production_stats = {
 
 	private["_info", "_item_name"];
 	_info = (_item call INV_GetItemArray);
+	if (isNil "_info") exitWith {};
 	_item_name = (_info call INV_GetItemName);
 
 	private["_eta"];
@@ -1334,7 +1335,7 @@ factory_hire_workers = {
 	_workers = _workers + _workers_count;
 	player groupChat format["%1-%2, you have hired %3 workers for your %4", _player, (name _player), _workers_count, _factory_name];
 	missionNamespace setVariable [_workers_name, _workers];
-	[_workers_name, _workers] call stats_client_save;
+	//[_workers_name, _workers] call stats_client_save;
 
 
 	//adjust the ETA for the current item in queue
@@ -1416,8 +1417,14 @@ factory_buy = {
 
 	[_player, "money", -(_factory_cost)] call INV_AddInventoryItem;
 	INV_Fabrikowner = INV_Fabrikowner + [ _factory_id ];
-	["INV_Fabrikowner", INV_Fabrikowner] spawn stats_client_save;
-
+	//["INV_Fabrikowner", INV_Fabrikowner] spawn stats_client_save;
+	_uid = getplayerUID player;
+	if(isciv) then {
+		[_uid, "FactoryCiv", INV_Fabrikowner] call fn_SaveToServer;
+	};
+	if (isins) then {
+		[_uid, "FactoryRes", INV_Fabrikowner] call fn_SaveToServer;
+	};
 
 	player groupChat format["%1-%2, you bought this factory for $%3", _player, (name _player), strM(_factory_cost)];
 	[_player] call factory_remove_actions;

@@ -1,10 +1,10 @@
 player_get_player_by_name = {
 	private["_name", "_player"];
 	_name = _this select 0;
-	if (isNil "_name") exitWith {nil};
-	if (typeName _name != "STRING") exitWith {nil};
+	if (isNil "_name") exitWith {false};
+	if (typeName _name != "STRING") exitWith {false};
 
-	_player = nil;
+	_player = false;
 
 	{
 		private["_exit"];
@@ -28,7 +28,7 @@ player_get_player_by_name = {
 
 private["_counter", "_sleep_time"];
 _counter = 0;
-_sleep_time = 60;
+_sleep_time = 120;
 while {true} do {
 
 	//Go through each of the gangs
@@ -53,23 +53,33 @@ while {true} do {
 		//check that all the members of the gang are active, remove any that are not
 		private["_j", "_original_size"];
 		_original_size = count _members;
-		_j = (count _members) - 1;
-		while { _j >= 0 } do {
+		//server globalChat format ["running gang loop for gang %1", _gangarray];
+		//_j = (count _members) - 1;
+		{
+			_player = [[_x] call player_lookup_name] call player_civilian;
+			//server globalChat format ["player: %1   -    %2", _player, _x];
+			if (!_player) then {
+				//player groupChat format["Removing %1 from gang %2", _player_name, _gang_name];
+				_members = _members - [_x];
+				_gangarray set[1, _members];
+			};
+		} count _members;
+		/*while { _j >= 0 } do {
 			private["_player_name", "_player"];
 			_player_name = _members select _j;
 			_player = [_player_name] call player_get_player_by_name;
-			if(isNil "_player" )then {
+			if (isNil "_player")t hen {
 				//player groupChat format["Removing %1 from gang %2", _player_name, _gang_name];
 				_members = _members - [_player_name];
 				_gangarray set[1, _members];
 			};
 			_j = _j - 1;
-		};
+		};*/
 		
 		//player groupChat format["Done Checking gang %1, now has %2 members", _gang_name, count(_members)];
 		
 		//if the gang member count is 0, delete it (given that the timeout has passed)
-		if(_counter >= gangdeltime && (count _members) == 0) then {
+		if(count _members == 0) then {
 			//player groupChat format["Will delete gang %1, because it has 0 members", _gang_name];
 			format['
 			gangsarray set[%1, 0]; 
@@ -85,10 +95,10 @@ while {true} do {
 		_i = _i - 1;
 	};
 	
-	if(_counter >= gangdeltime)then{
+	/*if(_counter >= gangdeltime)then{
 		_counter = 0
 	};
 	
-	_counter = _counter + _sleep_time;
+	_counter = _counter + _sleep_time;*/
 	sleep _sleep_time;
 };

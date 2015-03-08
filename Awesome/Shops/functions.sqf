@@ -1534,7 +1534,7 @@ shop_buy_vehicle = {
 		_logic = _data select shop_buy_item_logic;
 		_total_due = _data select shop_buy_item_total_due;
 		_class = _data select shop_buy_item_class;
-		_sleep_time = 5;
+		_sleep_time = 2;
 		
 		player groupChat format ["You bought a %1 for $%2. Please wait %3 seconds until the vehicle spawns.", _item_name, strM(_total_due), _sleep_time];
 		[_sleep_time] call shop_set_busy;

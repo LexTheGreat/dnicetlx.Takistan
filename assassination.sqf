@@ -7,6 +7,7 @@ if (isNil "workplacejob_assassin_serverarray") then {workplacejob_assassin_serve
 
 if (_art == "serverloop") then {
 	while {true} do {
+		_t1 = diag_tickTime;
 		private["_i"];
 		_i = 0;
 		while { _i < (count workplacejob_assassin_serverarray) } do {
@@ -19,6 +20,7 @@ if (_art == "serverloop") then {
 				workplacejob_assassin_serverarray set [_i,""];
 				workplacejob_assassin_serverarray = workplacejob_assassin_serverarray - [""];
 				"if(iscop)then{player sidechat ""The threat to the VIP has been removed""}" call broadcast;
+				[diag_tickTime - _t1, "ASSASSIN LOOP"] call fnc_fps_hi_log;
 				sleep ((workplacejob_assassin_break)*60);
 				workplacejob_assassin_active = false;
 				publicvariable "workplacejob_assassin_active";
@@ -52,7 +54,7 @@ if (_art == "getajob_assassin") then {
 	deletevehicle VIPbodyguard2;
 
 	//creating VIP
-	_group = createGroup east;
+	_group = createGroup west;
 	//[format["%1 (%2, %3, %4) - assasination: group created %5",  round(time), player, (name player), (getPlayerUID player), _group]] call l4a;
 
 	VIPtarget = _group createUnit ["Functionary1_EP1", _pos, [], _radius, "FORM"];
@@ -119,12 +121,12 @@ if (_art == "getajob_assassin") then {
 	format["workplacejob_assassin_serverarray = workplacejob_assassin_serverarray + [[%1, VIPtarget]];", player] call broadcast;
 
 	_markerobj = createMarker ["targetmarker",[0,0]];
-	_markername= "targetmarker";
+	_markername = "targetmarker";
 	_markerobj setMarkerShape "ICON";
 	"targetmarker" setMarkerType "Marker";
 	"targetmarker" setMarkerColor "ColorRed";
 	"targetmarker" setMarkerText "Assassination target";
-	_markername SetMarkerPos _start;
+	_markername SetMarkerPos getPosASL VIPtarget;
 
 	workplacejob_assassin_active = true; publicvariable "workplacejob_assassin_active";
 
@@ -132,7 +134,7 @@ if (_art == "getajob_assassin") then {
 
 	"if (iscop) then {player sideChat ""Someone is trying to kill a government VIP. The target has been marked on the map. Rescue the target before its too late!""};" call broadcast;
 
-	player groupchat "The police are on to you and the VIP knows your coming, hurry up!";
+	player groupchat "The police are on to you and the VIP knows you are coming, hurry up!";
 	[player, "(assassin)", 100000] call player_update_warrants;
 	VIPtarget domove getmarkerpos "policebase";
 	
@@ -147,7 +149,7 @@ if (_art == "getajob_assassin") then {
 		*/
 		
 		"if(alive player and isciv and player distance assveh <= 150)then{titleText [""The Government is operating in this area! Turn back or you will be shot!"", ""plain down""]};" call broadcast;
-		"targetmarker" setmarkerpos getpos VIPtarget;
+		_markername setmarkerpos getPosASL VIPtarget;
 		if (_secondcounter >= 15) then {
 			_group setBehaviour "AWARE";
 			_group setSpeedMode "NORMAL";

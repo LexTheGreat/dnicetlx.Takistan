@@ -12,7 +12,7 @@ if (_art == "serverloop") then
 {
 
 while {true} do {
-
+	_t1 = diag_tickTime;
 	for [{_i=0}, {_i < (count workplacejob_taxi_serverarray)}, {_i=_i+1}] do
 
 		{
@@ -35,7 +35,7 @@ while {true} do {
 			};
 
 		};
-
+	[diag_tickTime - _t1, "TAXI LOOP "] call fnc_fps_hi_log;
 	sleep 10;
 
 	};
@@ -84,9 +84,8 @@ while {true} do {
 
 	_taxizeit = time;
 	_civ 	  = civclassarray select round random(count civclassarray - 1);
-	_O0O0 = player;
 
-	call compile format ["'%1' createUnit [[(_start select 0),(_start select 1),0], group civ_logicunit, ""%2taxikunde = this; this setVehicleVarName """"%2taxikunde""""; this disableAI """"MOVE""""; this disableAI """"TARGET"""";""]; [%2taxikunde] join grpNull; liafu = true; processInitCommands;", _civ, player];
+	call compile format ["'%1' createUnit [[(_start select 0),(_start select 1),0], group server, ""%2taxikunde = this; this setVehicleVarName """"%2taxikunde""""; this disableAI """"MOVE""""; this disableAI """"TARGET"""";""]; [%2taxikunde] join grpNull; liafu = true; processInitCommands;", _civ, player];
 
 	format["workplacejob_taxi_serverarray + [%1, %1taxikunde];", player] call broadcast;
 

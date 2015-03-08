@@ -19,6 +19,34 @@ private
 //get the heli selected
 _heli = call FDKTZ_Find_Heli;
 
+[FDKTZ_Heli_Extras_Dialog_AI_Slingload, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_AI_Slingload_detach, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Combat_Insertion, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Combat_Pickup, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_AI_Fastrope, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Start_Engine, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Dust_Off, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Land, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Abort_Landing, "enable"] call FDKTZ_Button_Control;
+[FDKTZ_Heli_Extras_Dialog_Set_Height_Button, "enable"] call FDKTZ_Button_Control;
+
+if (isNil "_heli") exitWith { 
+	execVM 'heli_extras\heli_lock.sqf'
+};
+
+if (!isNil "_heli") exitWith { 
+	[FDKTZ_Heli_Extras_Dialog_AI_Slingload, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_AI_Slingload_detach, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Combat_Insertion, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Combat_Pickup, "enable"] call FDKTZ_Button_Control;
+	//[FDKTZ_Heli_Extras_Dialog_AI_Fastrope, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Start_Engine, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Dust_Off, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Land, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Abort_Landing, "enable"] call FDKTZ_Button_Control;
+	[FDKTZ_Heli_Extras_Dialog_Set_Height_Button, "enable"] call FDKTZ_Button_Control;
+};
+
 //get the type of heli using the config file
 #define __cfgheli configFile >> "CfgVehicles" >> typeOf _heli
 
@@ -61,7 +89,7 @@ if ((_istransport == 1) && (_isgunship == 1)) then
 	};
 	
 	//Check for the fastrope addon
-	if (isClass (configFile >> "CfgPatches" >> "norrn_dbo_fastrope")) then
+	/*if (isClass (configFile >> "CfgPatches" >> "norrn_dbo_fastrope")) then
 		{
 			if (_heli isKindOf "Mi24_D_TK_EP1" or _heli isKindOf "mas_tak_veh_mi24p" or _heli isKindOf "UH60M_EP1" or _heli isKindOf "CH_47F_EP1" or _heli isKindOf "MH6J_EP1" or _heli isKindOf "BAF_Merlin_HC3_D" or _heli isKindOf "CH_47F_BAF" or _heli isKindOf "PRACS_MH6J") then
 			{
@@ -78,7 +106,7 @@ if ((_istransport == 1) && (_isgunship == 1)) then
 		{
 			//No fastrope addon enabled, disable the button
 			[FDKTZ_Heli_Extras_Dialog_AI_Fastrope, "disable"] call FDKTZ_Button_Control;
-		};
+		};*/
 	
 	//Debug
 	if (FDKTZ_Heli_Extras_Debug == 1) then { diag_log format ["Heli %1 is a Transport-gunship",typeOf _heli]};
@@ -109,7 +137,7 @@ else
 			[FDKTZ_Heli_Extras_Dialog_Combat_Pickup, "enable"] call FDKTZ_Button_Control;
 		};
 		//Check for the Fastrope addon
-		if (isClass (configFile >> "CfgPatches" >> "norrn_dbo_fastrope")) then
+		/*if (isClass (configFile >> "CfgPatches" >> "norrn_dbo_fastrope")) then
 		{
 			if (_heli isKindOf "Mi24_D_TK_EP1" or _heli isKindOf "mas_tak_veh_mi24p" or _heli isKindOf "UH60M_EP1" or _heli isKindOf "CH_47F_EP1" or _heli isKindOf "MH6J_EP1" or _heli isKindOf "BAF_Merlin_HC3_D" or _heli isKindOf "CH_47F_BAF" or _heli isKindOf "PRACS_MH6J") then
 			{
@@ -126,7 +154,7 @@ else
 		{
 			//No fastrope addon enabled, disable the button
 			[FDKTZ_Heli_Extras_Dialog_AI_Fastrope, "disable"] call FDKTZ_Button_Control;
-		};
+		};*/
 		
 		//Debug
 		if (FDKTZ_Heli_Extras_Debug == 1) then { diag_log format ["Heli %1 is a Transport",typeOf _heli]};

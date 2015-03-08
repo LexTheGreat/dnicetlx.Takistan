@@ -511,6 +511,8 @@ interact_president_update_votes = {
 	private["_voter_number", "_candidate_number"];
 	
 	if (not(isServer)) exitWith {};
+	_t1 = diag_tickTime;
+	
 	_voter_number = _this select 0;
 	_candidate_number = _this select 1;
 	
@@ -536,6 +538,7 @@ interact_president_update_votes = {
 
 	//then add the voter to this candidate's array of voters
 	WahlArray SET [_candidate_number, ((WahlArray select _candidate_number ) + [_voter_number])];
+	[diag_tickTime - _t1, "interact_president_update_votes LOOP"] call fnc_fps_hi_log;
 };
 
 
@@ -830,11 +833,11 @@ interact_deposit_other = {
 	};
 	
 	[_player, -(_total_due)] call transaction_bank;
+	[] spawn { call onActionSaver;};
 	[_tax_fee] call shop_update_taxes;
 	
 	player groupChat format["You have sent $%1 to %2-%3, your tax fee was $%4", strM(_amount), _target, (name _target), strM(_tax_fee)];
 	format['[%1, %2, %3] call interact_deposit_receive;', _target, _player, strN(_amount)] call broadcast;
-	[] spawn { call onActionSaver;};
 };
 
 interact_check_trx_minimum = {
@@ -932,7 +935,7 @@ interact_withdraw = {
 
 interact_atm_menu = { _this spawn {
 	private["_player"];
-	
+	if (isNil "statsLoaded") exitWith {player groupChat "Calm your ADD down, and let the server load first :)";};
 	_player = _this select 0;
 	if (not([_player] call player_human)) exitWith {};
 	if (_player != player) exitWith {};
@@ -1578,7 +1581,7 @@ interact_side_ai_class = {
 	if (isNil "_side") exitWith {""};
 	if (typeName _side != "SIDE") exitWith {""};
 	
-	if (_side == west) exitWith {"UN_CDF_Soldier_EP1"};
+	if (_side == west) exitWith {"GER_Soldier_EP1"};
 	if (_side == east) exitWith {"TK_Soldier_EP1"};
 	if (_side == resistance) exitWith {"TK_GUE_Soldier_EP1"};
 	""
@@ -1586,6 +1589,7 @@ interact_side_ai_class = {
 
 interact_recruit_ai_receive = {
 	if (not(isServer)) exitWith {};
+	//_t1 = diag_tickTime;
 	private["_player"];
 	
 	//player groupChat format["interact_recruit_ai_receive %1", _this];
@@ -1612,7 +1616,7 @@ interact_recruit_ai_receive = {
 	processInitCommands;
 
 	_unit = missionNamespace getVariable _unit_name;
-	_backup = call compile format["%1", _varName];
+	//_backup = call compile format["%1", _varName];
 
 	private["_side_ai_weapons", "_side_ai_magazines"];
 	
@@ -1625,6 +1629,7 @@ interact_recruit_ai_receive = {
 	
 	reload _unit;
 	_unit addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];
+	//[diag_tickTime - _t1, "interact_recruit_ai_receive"] call fnc_fps_log;
 };
 
 interact_recruit_ai = { _this spawn {
@@ -2105,13 +2110,13 @@ interact_vehicle_storage = {
 			player groupChat format["The total weight of the items exceed the your carrying capacity"];
 		};
 		
-		player groupChat format["You took %1 item(s) out of th vehicle", strM(abs(_amount))];
+		player groupChat format["You took %1 item(s) out of the vehicle", strM(abs(_amount))];
 		_valid = true;		
 	};
 	
 	if (not(_valid)) exitWith{};
 	
-	[] spawn { combatLogSaver; };
+	[] spawn { call onActionSaver; };
 	
 	[_vehicle, _item, (_amount), _v_storage] call INV_AddItemStorage;
 	[_player, _item, -(_amount), _p_storage] call INV_AddItemStorage;
@@ -2193,7 +2198,7 @@ interact_factory_storage = {
 	
 	[_player, _item, _amount, _f_storage] call INV_AddItemStorage;
 	[_player, _item, -(_amount), _p_storage] call INV_AddItemStorage;
-	[_f_storage, (_player getVariable _f_storage)] call stats_client_save;
+	//[_f_storage, (_player getVariable _f_storage)] call stats_client_save;
 	
 	closeDialog 0;
 	call shop_play_animation;
@@ -2268,7 +2273,7 @@ interact_generic_storage = {
 	if (not(_valid)) exitWith {};
 	[_player, _item, (_amount), _g_storage] call INV_AddItemStorage;
 	[_player, _item, -(_amount), _p_storage] call INV_AddItemStorage;
-	[_g_storage, (_player getVariable _g_storage)] call stats_client_save;
+	//[_g_storage, (_player getVariable _g_storage)] call stats_client_save;
 	closeDialog 0;
 	call shop_play_animation;
 };

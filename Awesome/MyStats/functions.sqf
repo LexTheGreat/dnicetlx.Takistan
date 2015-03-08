@@ -82,12 +82,12 @@ stats_load_request_send = {
 	_data = [];
 	_complete =  false;
 	while {true} do {  
-		
-/*		_data = server getVariable _response_variable;
+	//was disable	
+		_data = server getVariable _response_variable;
 		_complete = true;
 		_complete = if (isNil "_data") then {false} else {_complete};
 		_complete = if (typeName _data != "ARRAY") then {false} else { _complete };
-*/
+//
 		if !(isNil {server getVariable _response_variable}) then {
 				if ( (typeName (server getVariable _response_variable)) == "ARRAY" ) then {
 						_data = server getVariable _response_variable;
@@ -96,7 +96,7 @@ stats_load_request_send = {
 			};
 		
 		if (_complete) exitWith {};
-		uiSleep 0.1;
+		//uiSleep 0.1;
 	};
 	
 	_data
@@ -293,7 +293,7 @@ stats_client_save = {
 	
 	_variable = _this select 0;
 	_value = _this select 1;
-	[] spawn { call onActionSaver;};
+	//[] spawn { call onActionSaver;};
 	[player, _variable, _value] call stats_player_save;
 	true
 };
@@ -351,20 +351,20 @@ stats_server_player_disconnected = {
 	private["_player"]; 
 	_player = [_name] call player_lookup_name;
 	
-	diag_log format["%1,%2,%3 - Disconnected!", _player, _name];
+	//diag_log format["%1,%2,%3 - Disconnected!", _player, _name];
 	
-	[_player] call player_save_side_gear;
+	/*[_player] call player_save_side_gear;
 	[_player] call player_save_side_inventory;
 	[_player] call player_save_side_position;
 	[_player] call player_save_side_damage;
-	[_player] call player_save_side_vehicle;
+	[_player] call player_save_side_vehicle;*/
 	
-	private["_vehicle"];
+	/*private["_vehicle"];
 	_vehicle = (vehicle _player);
 	if (not(_vehicle == _player)) then {
 		[_vehicle] call vehicle_save_stats;
 		[_vehicle] call vehicle_start_track;
-	};
+	};*/
 		
 	private["_stats_uid"];
 	_stats_uid =  [_player] call stats_get_uid;
@@ -406,13 +406,13 @@ stats_server_setup = {
 	
 	
 	//keep a count of how many times the server has restarted
-	private["_restart_count"];
+	/*private["_restart_count"];
 	_restart_count = server getVariable "restart_count";
 	_restart_count = if (isNil "_restart_count") then {0} else {_restart_count};
 	_restart_count = if (typeName _restart_count != "SCALAR") then {0} else {_restart_count};
 	_restart_count = _restart_count + 1;
 	server setVariable ["restart_count", _restart_count, true];
-	["restart_count", _restart_count] call stats_server_save;
+	["restart_count", _restart_count] call stats_server_save;*/
 	
 	call stats_load_core_libraries;
 	
@@ -432,6 +432,13 @@ stats_client_server_setup_wait = {
 		uiSleep 0.1;
 	};
 	_complete
+};
+
+stats_compile_loading = {
+	private["_data", "_object"];
+	_data = _this select 0;
+	_object = _this select 1;
+	[_data, _object, true, true] call stats_compile;
 };
 
 stats_compile_sequential = {
@@ -629,7 +636,7 @@ stats_init_entry = {
 		if (not(isNil "_current_value")) exitWith {};
 		missionNamespace setVariable [_variable, _value];
 		_object setVariable [_variable, _value, true];
-		//diag_log format["%1, %2 = %3", _object, _variable, _value];
+		diag_log format["%1, %2 = %3", _object, _variable, _value];
 	}
 	else {
 		_object setVariable [_variable, _value, true];
@@ -714,8 +721,8 @@ stats_client_wait_uid = {
 	//work-around cannot do waitUtil in preloading screen
 	while {true} do {
 		_uid = [player] call stats_get_uid;
-		if (_uid != "") exitWith {};
-		uiSleep 0.1;
+		//if (_uid != "") exitWith {};
+		//uiSleep 0.1;
 	};
 	
 	_uid
@@ -735,7 +742,7 @@ stats_client_setup = {
 	//uiSleep 1;
 	
 	//private["_uid"];
-	_uid = call stats_client_wait_uid;
+	//_uid = call stats_client_wait_uid;
 	
 	//["Fetching client stats from server ... "] call stats_client_update_loading_title;
 	//[0.6] call stats_client_update_loading_progress;
@@ -755,7 +762,6 @@ stats_client_setup = {
 	call stats_load_core_libraries;
 	call player_continuity;
 
-
 	//["Client stats setup complete ... "] call stats_client_update_loading_title;
 	//[1] call stats_client_update_loading_progress;
 	//uiSleep 1;
@@ -772,6 +778,17 @@ stats_setup = {
 	if (isClient) then {
 		call stats_client_setup;
 	};
+};
+
+GetUnduplicatedArray = {
+    private["_e","_i"];
+    _i = 0;
+    while { count _this != _i } do {
+        _e = _this select _i;
+        _this = [_e] + ( _this - [_e] );
+        _i = _i + 1;
+    };
+    _this
 };
 
 call stats_setup;

@@ -10,7 +10,7 @@ class FDKTZ_Heli_Extras_Menu_Dialog
 	idd = FDKTZ_Heli_Extras_Dialog;
 	movingEnable = true;
 	enableSimulation = true;
-	onLoad = "execVM 'heli_extras\get_helis_in_squad.sqf'";
+	onLoad = "execVM 'heli_extras\get_helis_in_squad.sqf';execVM 'heli_extras\heli_lock.sqf';";
 	controlsBackground[] =
 	{
 		FDKTZ_Heli_Extras_Menu_Background
@@ -46,15 +46,7 @@ class FDKTZ_Heli_Extras_Menu_Dialog
 		FDKTZ_Heli_Extras_Menu_AI_Options_Label,
 		FDKTZ_Heli_Extras_Menu_Disable_AI_Button,
 		FDKTZ_Heli_Extras_Menu_Enable_AI_Button,
-		FDKTZ_Heli_Extras_Menu_Turn_Left_Button,
-		FDKTZ_Heli_Extras_Menu_Turn_Right_Button,
-		FDKTZ_Heli_Extras_Menu_Circle_Area_Label,
-		FDKTZ_Heli_Extras_Menu_Circle_Left_Button,
-		FDKTZ_Heli_Extras_Menu_Circle_Right_Button,
-		FDKTZ_Heli_Extras_Menu_Stop_Circle_Button,
-		FDKTZ_Heli_Extras_Menu_Radius_Label,
-		FDKTZ_Heli_Extras_Menu_Radius_Slider,
-		FDKTZ_Heli_Extras_Menu_Radius_Textbox,
+		FDKTZ_Heli_Extras_Menu_Cancel_Orders_Button,
 		FDKTZ_Heli_Extras_Menu_Map
 	};
 	
@@ -487,98 +479,15 @@ class FDKTZ_Heli_Extras_Menu_Dialog
 		w = 0.2;
 	};
 	
-	//Turn Left
-	class FDKTZ_Heli_Extras_Menu_Turn_Left_Button: FDKTZ_Heli_Extras_Menu_Button
+	//Cancels all orders given
+	class FDKTZ_Heli_Extras_Menu_Cancel_Orders_Button: FDKTZ_Heli_Extras_Menu_Button
 	{
 		idc = -1;
-		text = "Turn Left";
-		action = "[] spawn FDKTZ_Rotate_Left";
+		text = "Cancel Orders";
+		action = "FDKTZ_Heli_Stop_Orders = true;";
 		x = 0.8;
 		y = 0.3;
-		w = 0.2;
-	};
-	
-	//Turn Right
-	class FDKTZ_Heli_Extras_Menu_Turn_Right_Button: FDKTZ_Heli_Extras_Menu_Button
-	{
-		idc = -1;
-		text = "Turn Right";
-		action = "[] spawn FDKTZ_Rotate_Right";
-		x = 0.8;
-		y = 0.35;
-		w = 0.2;
-	};
-	
-	//Circle Area Label
-	class FDKTZ_Heli_Extras_Menu_Circle_Area_Label: FDKTZ_Heli_Extras_Menu_Text
-	{
-		idc = -1;
-		text = "Circle Area:";
-		x = 0.8;
-		y = 0.6;
-	};
-	
-	//Left Button
-	class FDKTZ_Heli_Extras_Menu_Circle_Left_Button: FDKTZ_Heli_Extras_Menu_Button
-	{
-		idc = -1;
-		text = "Left";
-		action = "['left'] execVM 'heli_extras\helicopter\heli_scripts\circle_pos\circle_area_init.sqf'";
-		x = 0.76;
-		y = 0.6;
-		w = 0.15;
-	};
-	
-	//Right Button
-	class FDKTZ_Heli_Extras_Menu_Circle_Right_Button: FDKTZ_Heli_Extras_Menu_Button
-	{
-		idc = -1;
-		text = "Right";
-		action = "['right'] execVM 'heli_extras\helicopter\heli_scripts\circle_pos\circle_area_init.sqf'";
-		x = 0.91;
-		y = 0.6;
-		w = 0.15;
-	};
-	
-	//Stop Button
-	class FDKTZ_Heli_Extras_Menu_Stop_Circle_Button: FDKTZ_Heli_Extras_Menu_Button
-	{
-		idc = -1;
-		text = "Stop";
-		action = "[] call FDKTZ_Stop_Circle";
-		x = 1.06;
-		y = 0.6;
-		w = 0.15;
-	};
-	
-	//Radius Label
-	class FDKTZ_Heli_Extras_Menu_Radius_Label: FDKTZ_Heli_Extras_Menu_Text
-	{
-		idc = -1;
-		text = "Radius:";
-		x = 0.8;
-		y = 0.68;
-	};
-	
-	//Radius Slider
-	class FDKTZ_Heli_Extras_Menu_Radius_Slider: FDKTZ_Heli_Extras_Menu_Slider_Base
-	{
-		idc = FDKTZ_Heli_Extras_Dialog_Set_Radius_Slider;
-		x = 0.8;
-		y = 0.73;
-		w = 0.2;
-		h = 0.05;
-		onSliderPosChanged = "[] call FDKTZ_Update_Radius";
-	};
-	
-	//Radius Textbox
-	class FDKTZ_Heli_Extras_Menu_Radius_Textbox: FDKTZ_Heli_Extras_Menu_Text_Box_Base
-	{
-		idc = FDKTZ_Heli_Extras_Dialog_Set_Radius_Textbox;
-		x = 1.03;
-		y = 0.73;
-		w = 0.1;
-		h = 0.05;
+		w = 0.28;
 	};
 	
 	//Map Control
@@ -591,7 +500,7 @@ class FDKTZ_Heli_Extras_Menu_Dialog
 		
 		x = 0.364; 
 		y = 0.39; 
-		w = 0.40; 
+		w = 0.80; 
 		h = 0.40; 
 		
 		colorBackground[] = {1.00, 1.00, 1.00, 1.00}; 

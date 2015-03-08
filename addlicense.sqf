@@ -49,7 +49,7 @@ if (_art == "add") then
 
 	
 	INV_LicenseOwner = INV_LicenseOwner + [_license];
-	["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
+	//["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
 
 	} else {
 
@@ -58,7 +58,7 @@ if (_art == "add") then
 	if (not(_license call INV_HasLicense)) exitWith {player groupChat localize "STRS_inv_buylicense_alreadyfalse";};
 	INV_LicenseOwner = INV_LicenseOwner - [_license];
 	player groupChat format[localize "STRS_inv_buylicense_losttraining", _name];
-	["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
+	//["INV_LicenseOwner", INV_LicenseOwner] spawn stats_client_save;
 
 	};
 

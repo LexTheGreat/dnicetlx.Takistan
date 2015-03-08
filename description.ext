@@ -16,7 +16,7 @@ respawnDialog = false;
 // Define PMC Custom GPS Skin
 onMinimapScript[] = {"BIS_fnc_customGPS_Spawn"};
 
-class Header {gameType =  TEAM; minPlayers = 1; maxPlayers = 109;};
+class Header {gameType =  TEAM; minPlayers = 1; maxPlayers = 112;};
 
 class CfgSounds
 {
@@ -32,19 +32,19 @@ class CfgSounds
 		class copintro
 		{
 			name = "copintro";
-			sound[] = {\Awesome\Sound\copintro.ogg, .7, 1};
+			sound[] = {\Awesome\Sound\copintro.ogg, .6, 1};
 			titles[] = {};
 		};
 		class opfintro
 		{
 			name = "opfintro";
-			sound[] = {\Awesome\Sound\opfintro.ogg, .7, 1};
+			sound[] = {\Awesome\Sound\opfintro.ogg, .5, 1};
 			titles[] = {};
 		};
 		class indintro
 		{
 			name = "indintro";
-			sound[] = {\Awesome\Sound\indintro.ogg, .7, 1};
+			sound[] = {\Awesome\Sound\indintro.ogg, .6, 1};
 			titles[] = {};
 		};
 		class Bam
@@ -57,6 +57,34 @@ class CfgSounds
 		};
 	};
 
+	//Dialog Includes
+#include "heli_extras\heli_extras_dialog\heli_extras_dialog.hpp"
+#include "heli_extras\heli_extras_dialog\airplane_extras_dialog.hpp"
+
+//PreInit sets up the Keys
+class Extended_PreInit_EventHandlers
+{
+	class heli_extras
+	{
+		clientInit = "execVM 'heli_extras\heli_extras_preclientinit.sqf'";
+	};
+};
+
+/*class Extended_Init_EventHandlers
+{
+    class AllVehicles
+    {
+		UCD_veh_init = "_this spawn UCD_fnc_cacheObject";
+    };
+};*/
+
+class Extended_PostInit_EventHandlers   
+{
+	class heli_extras
+	{
+		clientInit = "execVM 'heli_extras\heli_extras_init.sqf'";
+	};
+};
 
 #include "Awesome\Dialogs\Essentials\RscDefines.hpp"
 #include "Awesome\Dialogs\Essentials\DialogColorConstants.hpp"
@@ -105,30 +133,5 @@ class CfgSounds
 
 #include "adminconsoldesc.hpp"
 
-#include "heli_extras\heli_extras_dialog\heli_extras_dialog.hpp"
-#include "heli_extras\heli_extras_dialog\airplane_extras_dialog.hpp"
 
-class Extended_PreInit_EventHandlers
-{
-	class heli_extras
-	{
-		clientInit = "execVM 'heli_extras\heli_extras_preclientinit.sqf'";
-	};
-};
-
-/*class Extended_Init_EventHandlers
-{
-    class AllVehicles
-    {
-		UCD_veh_init = "_this spawn UCD_fnc_cacheObject";
-    };
-};*/
-
-class Extended_PostInit_EventHandlers   
-{
-	class heli_extras
-	{
-		clientInit = "execVM 'heli_extras\heli_extras_init.sqf'";
-	};
-};
 

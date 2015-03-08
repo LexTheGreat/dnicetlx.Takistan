@@ -578,13 +578,13 @@ if (_art == "gildenverwaltung") then {
 
 	private["_i"];
 	_i = 0;
-	while { _i < (count _members) } do {
+	{
 		_member = (_members select _i);
-		_obj = if(not([_obj] call player_civilian)) then {"notingame"} else { _obj };
+		_obj = [_member] call player_lookup_name;
+		if(!([_obj] call player_civilian)) then {"notingame"} else { _obj };
 		_index = lbAdd [102, (format ["%1 (%2)", _member, _obj])];
 		lbSetData [102, _index, (format ["%1", _obj])];
-		_i = _i + 1;
-	};
+	} count _members;
 };
 if (_art == "squad_manage") then {
 	if(!squadleader)exitwith{player groupchat "you are not the squad leader!"};

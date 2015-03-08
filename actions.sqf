@@ -72,8 +72,8 @@ action113 = _role addaction ["Reset targets","noscript.sqf",'{_x animate["terc",
 //action20 = _role addaction [format["Restore PK NEST ($%1)", PKcost],"recruitai.sqf","PK4",1,false,true,"","_gunner = gunner PK4; player distance recruitai <= 5 and (!alive _gunner or isnull _gunner or !alive PK4)"];
 
 cpbkp = _role addaction ["Recruit Peacekeeper $200000","noscript.sqf",'[player] call interact_recruit_ai;',1,false,true,"","!curreccop and player distance copbackup <= 10 and count (units group player) < 5 and iscop"];
-opbkp = _role addaction ["Recruit Soldier $150000","noscript.sqf",'[player] call interact_recruit_ai;',1,false,true,"","!currecred and player distance redbackup <= 10 and count (units group player) < 6"];
-insbkp = _role addaction ["Recruit Mujahideen $100000","noscript.sqf",'[player] call interact_recruit_ai;',1,false,true,"","!currecins and player distance insbackup <= 10 and count (units group player) < 8"];
+opbkp = _role addaction ["Recruit Soldier $200000","noscript.sqf",'[player] call interact_recruit_ai;',1,false,true,"","!currecred and player distance redbackup <= 10 and count (units group player) < 6"];
+insbkp = _role addaction ["Recruit Mujahideen $200000","noscript.sqf",'[player] call interact_recruit_ai;',1,false,true,"","!currecins and player distance insbackup <= 10 and count (units group player) < 8"];
 
 //===================================== IMPOUND AREA ==================================================
 action21 = _role addaction ["Impound Lot","maindialogs.sqf",["impound"],1,false,true,"","player distance impoundbuy <= 5 or player distance copcar <= 5"];
@@ -81,7 +81,7 @@ action21 = _role addaction ["Impound Lot","maindialogs.sqf",["impound"],1,false,
 //================================== COP DELETE EVIDENCE ================================================
 //action23 = _role addaction ["Take evidence","noscript.sqf",'player groupchat "evidence removed."; {deletevehicle _x} foreach (nearestobjects [getpos player, ["weaponholder"], 3])',1,true,true,"",'_weps = (nearestobjects [getpos player, ["weaponholder"], 3] select 0); player distance _weps < 5 and iscop'];
 //================================== COP SLAVE ACTIONS ================================================
-action24 = _role addaction ["Who do you work for?","noscript.sqf",'player groupchat format["My Master goes by the name of %1.", leader (nearestobjects [getpos player, civslavearray,  3] select 0)]',1,true,true,"",'_slave = (nearestobjects [getpos player, civslavearray, 3] select 0); not([_slave] call player_human) and ((player distance _slave) < 5) and ([(leader _slave)] call player_human) and iscop'];
+action24 = _role addaction ["Who do you work for?","noscript.sqf",'player groupchat format["Yooo wuts goochie, ma pimp daday bae %1.", leader (nearestobjects [getpos player, civslavearray,  3] select 0)]',1,true,true,"",'_slave = (nearestobjects [getpos player, civslavearray, 3] select 0); not([_slave] call player_human) and ((player distance _slave) < 5) and ([(leader _slave)] call player_human) and iscop'];
 action25 = _role addaction ["Set slave free","noscript.sqf",'_slave = (nearestobjects [getpos player, civslavearray,  3] select 0); _civ = leader _slave; deletevehicle _slave; [player, "(human-exploitation)", 20000] call player_update_warrants; player groupchat "the slave has been freed!";',1,true,true,"",'_slave = (nearestobjects [getpos player, civslavearray, 3] select 0); not([_slave] call player_human) and ((player distance _slave) < 5) and ([(leader _slave)] call player_human) and iscop'];
 //==================================== OBJECT ACTIONS =================================================
 /*action89 = _role addaction ["Remove Searchlight","noscript.sqf",'if (((call INV_GetOwnWeight) + ("SearchLight_US_EP1" call INV_GetItemTypeKg)) > INV_CarryingCapacity)exitwith{player groupChat localize "STRS_inv_buyitems_maxgewicht"};deletevehicle (nearestobjects [getpos player, ["SearchLight_US_EP1"], 3] select 0);[player, "SearchLight_US_EP1", 1] call INV_AddInventoryItem;player groupchat "you picked up a searchlight";',1,true,true,"",'_light = (nearestobjects [getpos player, ["SearchLight_US_EP1"],  3] select 0); !(_light in speedcamarray) and player distance _light < 5 and iscop'];
@@ -275,9 +275,9 @@ action123 = _role addaction ["Sign ceasefire with TLA", "noscript.sqf",'warstatu
 action124 = _role addaction ["Declare/Lift Martial Law in Rasman", "Awesome\Functions\war_functions.sqf", ["start_martial"],1, false, true, "", "ischief && player distance copbank < 20"];
 action125 = _role addaction ["Activate Radar", "Awesome\Functions\radar_function.sqf", [], 1, false, true, "", "(!radarActive && rolenumber == 78 && player distance atm5 < 20)||(!radarActive && rolenumber == 96 && player distance copbank < 20)"];
 //======================== Zone Commands
-opforZoneAction = _role addaction ["Capture Opfor Zone", "noscript.sqf", "['opforZone'] call zone_capture;",1,false,true,"","warstatus && player distance opforZoneFlag < 5"];
-centerZoneAction = _role addaction ["Capture Alpha Zone", "noscript.sqf", "['centerZone'] call zone_capture;",1,false,true,"","warstatus && player distance centerZoneFlag < 5"];
-bluforZoneAction = _role addaction ["Capture Blufor Zone", "noscript.sqf", "['bluforZone'] call zone_capture;",1,false,true,"","warstatus && player distance bluforZoneFlag < 5"];
+opforZoneAction = _role addaction ["Cap/Neutralize Anar City", "noscript.sqf", "['opforZone',opforZoneFlag,'opforFlag'] call zone_capture;",1,false,true,"","!isciv && player distance opforZoneFlag < 5 && side player != ['opforZone'] call zone_getOwner"];
+indepZoneAction = _role addaction ["Cap/Neutralize Khushab City", "noscript.sqf", "['indepZone',indepZoneFlag,'indepFlag'] call zone_capture;",1,false,true,"","!isciv && player distance indepZoneFlag < 5 && side player != ['indepZone'] call zone_getOwner"];
+bluforZoneAction = _role addaction ["Cap/Neutralize North Oil Fields", "noscript.sqf", "['bluforZone',bluforZoneFlag,'bluforFlag'] call zone_capture;",1,false,true,"","!isciv && player distance bluforZoneFlag < 5 && side player != ['bluforZone'] call zone_getOwner"];
 //[copbank, ["Access PMC White List", "maindialogs.sqf", ["pmc_whitelist"], 0, false, true, "", "true"]] call add_new_action;
 [player] call holster_add_actions;
 A_running = false;

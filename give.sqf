@@ -51,6 +51,9 @@ if (_action == "uebergabe") then {
 if (_action == "bekommen") then {
 	private["_player"];
 	_player = _this select 3;
+	if (_item == "MONEY" && _quantity > 2000000) then {
+		["GIVEPLAYER LOGGER", str (name _player), " gave ", str (name player), _quantity] call fn_LogToServer;
+	};
 	if ([player, _item, _quantity] call INV_AddInventoryItem) then {
 		player groupChat format[localize "STRS_inv_inventar_gotfromotherplayer", strN(_quantity), _item_name, name _player];
 	}

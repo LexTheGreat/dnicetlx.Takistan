@@ -14,6 +14,6 @@ if (_art == "property") then {
 	[player, 'money', -(_cost)] call INV_AddInventoryItem;
 	player groupChat format[localize "STRS_gotshop", rolestring, strM(_cost)];
 	BuildingsOwnerArray = BuildingsOwnerArray + [_name];
-	["BuildingsOwnerArray", BuildingsOwnerArray] spawn stats_client_save;
+	//["BuildingsOwnerArray", BuildingsOwnerArray] spawn stats_client_save;
 };
 

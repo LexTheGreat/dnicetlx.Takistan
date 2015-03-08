@@ -11,6 +11,7 @@ private
 //get heli selected
 _heli = call FDKTZ_Find_Heli;
 
+if (isNil "_heli") exitWith { };
 if (isNull _heli) then
 {
 	if (FDKTZ_Heli_Extras_Debug == 1) then

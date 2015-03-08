@@ -331,14 +331,18 @@ stun_hands = { _this spawn {
 	_unit = _this select 0;
 	_man = _this select 1;
 	
+	if(isNil "_man") exitwith { 
+		player commandChat "No one is close enough for you to punch";
+	};
+	
 	if (stunning) exitwith {};
 	stunning = true;
 	
 	_damage = damage _man;
 	_pdamage = damage _unit;
-	_random = round (random 100);
+	_random = round (random 50);
 	
-	if(isNull _man) exitwith {stunning = false;};
+
 	if(!alive _man) exitwith {stunning = false;};
 	if(_man distance _unit > 2) exitwith {stunning = false;};
 	if( !( [_unit, _man] call is_facing ) ) exitwith {stunning = false;};

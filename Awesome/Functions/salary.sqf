@@ -29,6 +29,14 @@ cop_salary_handout = {
 		_income = _income + chiefExtraPay;
 	};
 	
+	if(iscop) then {
+		_bluZone = ['bluforZone'] call zone_getOwner;
+		if (_bluZone == resistance || _bluZone == east) then {
+			_income = _income*(0.5);
+			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
+		};
+	};
+	
 	if ((round(time/60)) <= 14) then {
 		_income = _income + 200000;
 	};
@@ -62,59 +70,79 @@ civilian_salary_handout = {
 	
 	_activecount = 0;
 	
-	private["_i"];
-	for [{_i=0}, {_i < (count BuildingsOwnerArray)}, {_i=_i+1}] do {
-		private["_check"];
-		_check = ( round((random 2)*((BuyAbleBuildingsArray select _i) select 4) ) );
-		_income = _income + _check;
-	};
+	if (isciv) then {
+		private["_i"];
+		for [{_i=0}, {_i < (count BuildingsOwnerArray)}, {_i=_i+1}] do {
+			private["_check"];
+			_check = ( round((random 2)*((BuyAbleBuildingsArray select _i) select 4) ) );
+			_income = _income + _check;
+		};
 
-	if (timeinworkplace > 0) then {
-		private["_workplacepaycheck"];
-		_workplacepaycheck = (round(add_workplace/180*timeinworkplace));
-		_income = _income + _workplacepaycheck;
+		if (timeinworkplace > 0) then {
+			private["_workplacepaycheck"];
+			_workplacepaycheck = (round(add_workplace/180*timeinworkplace));
+			_income = _income + _workplacepaycheck;
+		};
+
+		private["_c", "_gang_name", "_gang_active_members"];
+		_gang_name	= "None";
+		_c = 0;
+		_gang_active_members = 0;
+		while { _c < (count gangsarray) } do {
+			private["_cgang_array", "_cgang_name", "_cgang_members"];
+			_cgang_array = gangsarray select _c;
+			_cgang_name  = _cgang_array select 0;
+			_cgang_members = _cgang_array select 1;
+
+			if((name player) in _cgang_members)then {
+				_gang_name = _cgang_name;
+				private["_j"];
+				_j = 0;
+				while { _j < (count _cgang_members) } do {
+					private["_cgang_member_name", "_cgang_member"];
+					_cgang_member_name = (_cgang_members select _j);
+					_cgang_member = [_cgang_member_name] call player_lookup_name;
+					if ([_cgang_member] call player_civilian) then {
+						_gang_active_members = _gang_active_members + 1;
+					};
+					_j = _j + 1;
+				};
+			};
+			_c = _c + 1;
+		};
+		if(!isNil "_gang_name" && !isNil "_gang_active_members") then {
+		if(_gang_name != "None" && _gang_active_members > 0) then {
+			private["_extra", "_control"];
+			_extra = ( gangincome / _gang_active_members);
+			if (gangarea1 getvariable "control" == _gang_name) then { _income = _income + _extra };
+			if (gangarea2 getvariable "control" == _gang_name) then { _income = _income + _extra };
+			if (gangarea3 getvariable "control" == _gang_name) then { _income = _income + _extra };
+		};};
+
+		timeinworkplace = 0;
+	};
+	
+	if(isins) then {
+		_insZones = [resistance] call zone_getCount;
+		if(_insZones < 3) then {
+			_income = _income*(0.25 + (_insZones)*.25);
+			player commandChat format ["Controlling %1/3 capture zones yields %2 percent income. We must spread Shariah further.", _insZones, 25 + (_insZones)*25];
+		};
+	};
+	
+	if(isopf) then {
+		_opfZone = ['opforZone'] call zone_getOwner;
+		if (_opfZone == resistance || _opfZone == west) then {
+			_income = _income*(0.5);
+			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
+		};
 	};
 	
 	if ((round(time/60)) <= 14) then {
 		_income = _income + 200000;
 	};
-
-	private["_c", "_gang_name", "_gang_active_members"];
-	_gang_name	= "None";
-	_c = 0;
-	_gang_active_members = 0;
-	while { _c < (count gangsarray) } do {
-		private["_cgang_array", "_cgang_name", "_cgang_members"];
-		_cgang_array = gangsarray select _c;
-		_cgang_name  = _cgang_array select 0;
-		_cgang_members = _cgang_array select 1;
-
-		if((name player) in _cgang_members)then {
-			_gang_name = _cgang_name;
-			private["_j"];
-			_j = 0;
-			while { _j < (count _cgang_members) } do {
-				private["_cgang_member_name", "_cgang_member"];
-				_cgang_member_name = (_cgang_members select _j);
-				_cgang_member = [_cgang_member_name] call player_lookup_name;
-				if ([_cgang_member] call player_civilian) then {
-					_gang_active_members = _gang_active_members + 1;
-				};
-				_j = _j + 1;
-			};
-		};
-		_c = _c + 1;
-	};
-	if(!isNil "_gang_name" && !isNil "_gang_active_members") then {
-	if(_gang_name != "None" && _gang_active_members > 0) then {
-		private["_extra", "_control"];
-		_extra = ( gangincome / _gang_active_members);
-		_income = if (gangarea1 getvariable "control" == _gang_name) then { _income + _extra } else  {_income};
-		_income = if (gangarea2 getvariable "control" == _gang_name) then { _income + _extra } else  {_income};
-		_income = if (gangarea3 getvariable "control" == _gang_name) then { _income + _extra } else  {_income};
-	};};
-
-	timeinworkplace = 0;
+	
+	
 	_income = if (isNil "_income") then { add_civmoney } else {_income};
 	_income = if (typeName _income != "SCALAR") then { add_civmoney } else { _income };
 	
@@ -141,11 +169,11 @@ civilian_salary_handout = {
 };
     donator_salary_handout = {
      
-            _uid                         = getPlayerUID player;
+            _uid = getPlayerUID player;
      
             _admincashbonus = 0;
             _donatorcashbonus = 0;
-			_income = 1;
+			_income = 0;
 
             if (isStaff) then
             {
@@ -172,6 +200,30 @@ civilian_salary_handout = {
                     _donatorcashbonus                               = 1000000;
             };
             _income = _admincashbonus + _donatorcashbonus;
+			
+			if(!isciv) then {
+				if(iscop) then {
+					_bluZone = ['bluforZone'] call zone_getOwner;
+					if (_bluZone == resistance || _bluZone == east) then {
+						_income = _income*(0.5);
+					};
+				}
+				else {
+					if(isopf) then {
+						_opfZone = ['opforZone'] call zone_getOwner;
+						if (_opfZone == resistance || _opfZone == west) then {
+							_income = _income*(0.5);
+						};
+					}
+					else {
+						if(isins) then {
+							_insZones = [resistance] call zone_getCount;
+							_income = _income*(0.25 + (_insZones)*.25);
+						};
+					};
+				};
+			};
+			
             if (_income > 0) then
             {
                 [player, _income] call transaction_bank;

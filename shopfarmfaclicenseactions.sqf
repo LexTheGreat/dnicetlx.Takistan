@@ -111,6 +111,7 @@ while {true} do {
 	};
 
 	//======================================PAINT=========================================
+	waitUntil{!isNil 'Paint_Shops'};
 	for [{_i = 0}, {_i < (count Paint_Shops)}, {_i = _i + 1}] do
 	{
 		private["_PShopa","_PSpawn","_PLocation_1"];

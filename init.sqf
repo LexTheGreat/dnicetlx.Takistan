@@ -12,7 +12,15 @@ call compile preprocessfile "Life\Init\triggers.sqf";
 //PREPROCESS HERE
 combatLogSaver = compile preprocessfile "RG\dSave.sqf";
 onActionSaver = compile preprocessfile "RG\iSave.sqf";
+//stBegin = compile preprocessfile  "adminconsolfill.sqf";
 private ["_h"];
+/////////////////////////////////////////
+
+
+debug = false;
+
+
+//////////////////////////
 server globalChat "Initializing Xtreme Takistan Life.......";
 
 _h = [] execVM "donators.sqf";
@@ -22,6 +30,11 @@ _h = [] execVM "Awesome\Functions\encodingfunctions.sqf";
 waitUntil{scriptDone _h};
 
 if (isServer) then {
+	enableEnvironment false;
+	[] execVM "iniDB\server_cmd.sqf";
+	//waitUntil{scriptDone _h};
+	_h = [] execVM "Awesome\Server\Server_Fnc.sqf";
+	waitUntil{scriptDone _h};
 	_h = [] execVM "Awesome\MyStats\persist.sqf";
 	waitUntil{scriptDone _h};
 };
@@ -43,7 +56,6 @@ CIVILIAN setFriend [RESISTANCE, 0];
 //[] execVM "clean.sqf";
 
 
-debug = false;
 //server globalChat "debug is true";
 if(!debug)then{
 if (isClient) then {
@@ -59,6 +71,9 @@ waitUntil{scriptDone _h};
 
 
 if (isServer) then {
+	/*CBA_display_ingame_warnings = false; 
+	publicVariable "CBA_display_ingame_warnings";*/
+	
 	call compile preprocessFile "\iniDB\init.sqf";
 	sleep 0.1;
 	[] execVM "\iniDB\saver.sqf";
@@ -111,7 +126,7 @@ waitUntil{scriptDone _h};
 _h = [] execVM "Awesome\Functions\quicksort.sqf";
 waitUntil{scriptDone _h};
 //server globalChat "invvars loading";
-server globalChat "Shop information being loaded, may take a few minutes, please wait...";
+server globalChat "Shop information being loaded, may take a few moments, please wait...";
 _h = [] execVM "INVvars.sqf";
 waitUntil{scriptDone _h};
 //server globalChat "shopfncs loading";
@@ -174,7 +189,9 @@ publicvariable "station9robbed";
 //server globalChat "loadad station vars";
 
 if(isClient) then {
-	
+	A_fnc_EH_hDamage		= compile (preprocessFileLineNumbers "Awesome\EH\Eh_handledamage.sqf");
+	A_fnc_EH_fired			= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired.sqf");
+	A_fnc_EH_wa				= compile (preprocessfileLineNumbers "Awesome\EH\EH_weaponassembled.sqf");
 	[] execVM "RG\cLoad.sqf";
 	server globalChat "Loading - Please Wait";
 	[] execVM "Client\watermark.sqf";
@@ -191,13 +208,17 @@ if(isClient) then {
 	[] execVM "clientloop.sqf";
 	[0,0,0,["clientloop"]] execVM "gangs.sqf";
 	[0,0,0,["clientloop"]] execVM "squads.sqf";
-	player addEventHandler ["fired", {_this execVM "Awesome\EH\EH_fired.sqf"}];
-	player addEventHandler ["handleDamage", {_this execVM "Awesome\EH\EH_handledamage.sqf"}];
-	player addEventHandler ["WeaponAssembled", {_this execVM "Awesome\EH\EH_weaponassembled.sqf"}];
+	player removeAllEventHandlers "fired";
+	player removeAllEventHandlers "handleDamage";
+	player removeAllEventHandlers "WeaponAssembled";
+	player addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
+	player addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	[] execVM "onKeyPress.sqf";
 	[] execVM "ui.sqf";
 	[] execVM "AC\antidupe.sqf";
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
+	//[] execVM "heli_extras\Menu_setup.sqf";
 	server globalChat "Loading Fully Complete";
 };
 /*
@@ -233,7 +254,6 @@ if (isServer) then {
 	//[] execVM "governmentconvoy.sqf";
 	[] execVM "geddon.sqf";
 	[] execVM "iniDB\war_loop.sqf";
-	[] execVM "iniDB\server_cmd.sqf";
 
 //=======================rob gas station init and variables================
 	station1money = 50000;
@@ -256,6 +276,8 @@ if (isServer) then {
 	publicvariable "station9money";
 	[] execVM "stationrobloop.sqf";
 };
+
+[] execVM "zone\zone.sqf";
 
 /*
 // Define Variables
@@ -304,5 +326,8 @@ execVM "BTK\Cargo Drop\Start.sqf";
 // ====================================================================================
 */
 
-// Do it last.
-[] execVM "zone\zone.sqf";
+
+
+
+
+

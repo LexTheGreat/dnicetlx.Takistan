@@ -209,68 +209,6 @@ vehicle_start_track = {
 };
 
 
-
-vehicle_GetIn_handler = {
-	private["_vehicle", "_position", "_player"];
-	_vehicle = _this select 0;
-	_position = _this select 1;
-	_player = _this select 2;
-	
-	if (_player != player) exitWith {};
-	
-	if (_position == "driver") then {
-		[_player] call player_save_side_vehicle;
-		private["_entred_driver_uid"];
-		_entred_driver_uid = ([_player] call stats_get_uid);
-		_vehicle setVariable ["active_driver_uid", _entred_driver_uid, true];
-		
-		private["_saved_driver_uid"];
-		_saved_driver_uid = [_vehicle, "saved_driver_uid"] call vehicle_get_string;
-		
-		if (_saved_driver_uid == _entred_driver_uid) then {
-			[_vehicle, "saved_driver_uid", ""] call vehicle_set_string;
-			[_vehicle] call vehicle_stop_track;
-		}
-		else {
-			[_vehicle] call vehicle_track;
-		};
-		
-		
-	};
-};
-
-
-
-vehicle_GetOut_handler = {
-	private["_vehicle", "_position", "_player"];
-	_vehicle = _this select 0;
-	_position = _this select 1;
-	_player = _this select 2;
-	
-	if (_player != player) exitWith {};
-	
-	if (_position == "driver") then {
-		[_player] call player_save_side_vehicle;
-		_vehicle setVariable ["active_driver_uid", "", true];
-		
-		private["_exited_driver_uid"];
-		_exited_driver_uid = [_player] call stats_get_uid;
-		
-		private["_saved_driver_uid"];
-		_saved_driver_uid = [_vehicle, "saved_driver_uid"] call vehicle_get_string;
-		
-		if ((_saved_driver_uid == _exited_driver_uid)) then {
-			[_vehicle, "saved_driver_uid", ""] call vehicle_set_string;
-			[_vehicle] call vehicle_stop_track;
-		}
-		else {
-			[_vehicle] call vehicle_track;
-		};
-		
-		
-	};
-};
-
 vehicle_save_gear_request_receive = {
 	/*
 	private["_str"];
@@ -826,17 +764,17 @@ vehicle_set_init = {
 		mounted_actions_init = mounted_actions_init + [%1];
 		[%1] call mounted_add_actions;
 	
-		this addEventHandler ["GetIn", { _this spawn vehicle_GetIn_handler}];
-		this addEventHandler ["GetOut", { _this spawn vehicle_GetOut_handler}];
+		/*this addEventHandler ["GetIn", { _this spawn vehicle_GetIn_handler}];
+		this addEventHandler ["GetOut", { _this spawn vehicle_GetOut_handler}];*/
 	',_vehicle_name];
 	processInitCommands;
 };
 
 vehicle_generate_name = {
-	private["_restart_count"];
-	_restart_count = server getVariable "restart_count";
+	//private["_restart_count"];
+	//_restart_count = server getVariable "restart_count";
 	//_vehicle setDir (getDir _logic);
-	_vehicle_name = format["vehicle_%1_%2_%3", player, _restart_count, round(time)];
+	_vehicle_name = format["vehicle_%1_%2", player, round(time)];
 	_vehicle_name
 };
 
@@ -1176,18 +1114,16 @@ vehicle_load = {
 	
 	[_player, "vehicles_list"] call stats_update_variables_list;
 	["vehicles_name_list", []] call stats_init_variable;
-
-	private["_vehicle_names"];
-	_vehicle_names = vehicles_name_list;
-	if (isNil "_vehicle_names") exitWith {};
-	if (typeName _vehicle_names != "ARRAY") exitWith {};
+	
+	if (isNil "vehicles_name_list") exitWith {};
+	if (typeName vehicles_name_list != "ARRAY") exitWith {};
 	private["_vehicle", "_vehicle_name"];
 	{
 		_vehicle_name = _x;
 		_vehicle = missionNamespace getVariable _vehicle_name;
 		if (isNil "_vehicle") exitWith {};
 		[_player, _vehicle] call vehicle_add;
-	} foreach _vehicle_names;
+	} foreach vehicles_name_list;
 		
 	
 };
@@ -1204,7 +1140,7 @@ vehicle_add = {
 	_vehicles = _vehicles - [objNull];
 	_vehicles = _vehicles + [_vehicle];
 	_player setVariable ["vehicles_list", _vehicles, true];
-	call vehicle_save;
+	//call vehicle_save;
 };
 
 vehicle_remove = {
@@ -1221,7 +1157,7 @@ vehicle_remove = {
 	_vehicles = _vehicles - [_vehicle];
 	_player setVariable ["vehicles_list", _vehicles, true];
 	
-	call vehicle_save;
+	//call vehicle_save;
 };
 
 vehicle_list = {
@@ -1236,6 +1172,6 @@ vehicle_list = {
 };
 
 
-call vehicle_load;
-call vehicle_save_gear_setup;
+//call vehicle_load;
+//call vehicle_save_gear_setup;
 vehicle_functions_defined = true;

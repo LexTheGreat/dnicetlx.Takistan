@@ -11,6 +11,9 @@ broadcast_receive = {
 	_code = _this select 1;
 	if (isNil "_code") exitWith{};
 	if (typeName _code != "STRING") exitWith {};
+	/*if(isServer) then {
+		diag_log format ["RECEIVED BROADCASTED: %1", _code];
+	};*/
 	call compile _code;
 };
 
@@ -19,6 +22,10 @@ broadcast = {
 	_code = _this;
 	if (isNil "_code") exitWith {};
 	if (typeName _code != "STRING") exitWith {};
+	
+	/*if(isServer) then {
+		diag_log format ["SENT BROADCASTED: %1", _code];
+	};*/
 	
 	missionNamespace setVariable [player_broadcast_buffer, _code];
 	publicVariable player_broadcast_buffer;

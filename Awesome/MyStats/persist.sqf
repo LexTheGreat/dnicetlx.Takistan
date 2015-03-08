@@ -71,8 +71,8 @@ updatePlayerVariable = {
 	_variable_value = if (typeName _variable_value != "STRING") then {format["%1", _variable_value]} else {_variable_value};
 	
 	private["_result"];
-	_result = ["updatePlayerVariable", _uid, _variable_name, _variable_value] call invoke_java_method;
-	([_result] call parseResult)
+	//_result = ["updatePlayerVariable", _uid, _variable_name, _variable_value] call invoke_java_method;
+	//([_result] call parseResult)
 };
 
 getPlayerVariable = {

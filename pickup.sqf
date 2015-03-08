@@ -29,7 +29,7 @@ _object setvariable ["droparray", nil, true];
 
 if(primaryweapon player == "" and secondaryweapon player == "")then{player playmove "AmovPercMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon"}else{player playmove "AinvPknlMstpSlayWrflDnon"};
 
-sleep 1;
+//sleep 1;
 
 [player, _item, _amount, ([player] call player_inventory_name)] call INV_CreateItem;
 

@@ -4,19 +4,23 @@
 _art = _this select 0;
 
 if (_art == "init") then {
-	INV_drogenusesperre = 0;
-	INV_drogen_usesperre = FALSE;
-	INV_DrogenCounter = 0;
+	INV_drogen_usesperre = false;
+	//INV_DrogenCounter = 0;
 };
 
 if (_art == "use") then {
 	_item   = _this select 1;
 	_anzahl = _this select 2;
-	if (INV_drogenusesperre == 1) exitWith {player groupChat localize "STRS_inv_item_druguse_toomany";};
-	if (INV_drogen_usesperre) then {INV_drogenusesperre = 1;};
-	INV_DrogenCounter =  INV_DrogenCounter + _anzahl;
+	if (!isNil "INV_drogen_usesperre") then {
+		if (INV_drogen_usesperre) exitWith {player groupChat localize "STRS_inv_item_druguse_toomany";};
+		INV_drogen_usesperre = true;
+	}
+	else {
+		INV_drogen_usesperre = true;
+	};
+	//INV_DrogenCounter =  INV_DrogenCounter + _anzahl;
 	[player, _item, -(_anzahl)] call INV_AddInventoryItem;
-	_endeZeit = time + 60 + (_anzahl * 10);
+	_endeZeit = time + 30 + (_anzahl * 40);
 
 	if (_item == "lsd") then {
 		while {time < _endeZeit} do {
@@ -61,10 +65,11 @@ if (_art == "use") then {
 			_force = random 10;
 			"chromAberration" ppEffectEnable true;
 			"chromAberration" ppEffectAdjust [_force / 24, _force / 24, false];
-			"chromAberration" ppEffectCommit (0.3 + random 0.1);
+			"chromAberration" ppEffectCommit (0.3 + random 0.2);
 			waituntil {ppEffectCommitted "chromAberration"};
 			sleep 0.6;
 		};
+		"chromAberration" ppEffectEnable false;
 	};
 
 	if (_item == "marijuana") then {
@@ -89,8 +94,8 @@ if (_art == "use") then {
 	};
 
 	player groupChat localize "STRS_inv_item_druguse_ende";
-	INV_drogenusesperre = 0;
-	INV_DrogenCounter =  INV_DrogenCounter - _anzahl;
+	INV_drogen_usesperre = false;
+	//INV_DrogenCounter =  INV_DrogenCounter - _anzahl;
 
 };
 
@@ -98,6 +103,6 @@ if (_art == "use") then {
 "wetDistortion" ppEffectEnable false;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [0.5,0.5,0.5,0], [0.5,0.5,0.5,0], [0.5,0.5,0.5,0]];
 "colorCorrections" ppEffectCommit 10;
-waitUntil {ppEffectCommitted "colorCorrections"};
+//waitUntil {ppEffectCommitted "colorCorrections"};
 "colorCorrections" ppEffectEnable false;
 "chromAberration" ppEffectEnable false;

@@ -13,7 +13,15 @@ if(!isnull (nearestobjects[getpos player, droppableitems, 1] select 0)) exitWith
 };
 
 if (_amount <= 0) exitwith {
-	format["hint ""%1 has dropped %2!"";", (name player), _amount] call broadcast;
+	//format["hint ""%1 has dropped %2!"";", (name player), _amount] call broadcast;
+};
+
+//player commandChat format ["%1 and %2", _item, _amount];
+if (_item == "MONEY" && _amount < 1000) exitWith {
+	player groupChat "You cant drop less than 1,000 dollars";
+};
+if (_item == "MONEY" && _amount > 500000) exitWith {
+	player groupChat "You cant drop more than 500,000 dollars";
 };
 
 if (_item call INV_GetItemDropable) then {

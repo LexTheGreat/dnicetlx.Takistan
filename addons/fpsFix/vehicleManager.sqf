@@ -40,8 +40,8 @@ _vehicleManager =
 			_x setVariable [fpsFix_eventHandlers, true];
 		};*/
 
-		sleep 0.1;
-	} forEach vehicles;
+		sleep 1;
+	} count vehicles;
 };
 
 _lastPos = [0,0,0];

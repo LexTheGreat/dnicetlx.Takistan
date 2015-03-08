@@ -42,6 +42,7 @@ player_side = {
 player_civilian = {
 	private["_player"];
 	_player = _this select 0;
+	//player groupchat format ["%1", _player];
 	(([_player] call player_side) == civilian)
 };
 
@@ -184,7 +185,7 @@ player_set_arrest = {
 	_arrest_variable_name = format["arrest"];
 
 	_player setVariable [_arrest_variable_name, _arrest, true];
-	[_player, _arrest_variable_name, _arrest] call stats_player_save;
+	//[_player, _arrest_variable_name, _arrest] call stats_player_save;
 };
 
 player_get_arrest = {
@@ -232,7 +233,7 @@ player_set_reason = {
 	_reason_variable_name = format["warrants"];
 	
 	_player setVariable [_reason_variable_name, _reason, true];
-	[_player, _reason_variable_name, _reason] call stats_player_save;
+	//[_player, _reason_variable_name, _reason] call stats_player_save;
 	
 };
 
@@ -266,7 +267,7 @@ player_set_wanted = {
 	_wanted_variable_name = format["wanted"];
 
 	_player setVariable [_wanted_variable_name, _wanted, true];
-	[_player, _wanted_variable_name, _wanted] call stats_player_save;
+	//[_player, _wanted_variable_name, _wanted] call stats_player_save;
 };
 
 player_get_wanted = {
@@ -317,7 +318,7 @@ player_set_bounty = {
 	_bounty_variable_name = format["bounty"];
 	
 	_player setVariable [_bounty_variable_name, _bounty, true];
-	[_player, _bounty_variable_name, _bounty] call stats_player_save;
+	//[_player, _bounty_variable_name, _bounty] call stats_player_save;
 };
 
 
@@ -431,7 +432,7 @@ player_set_scalar = {
 	if (_current_value == _variable_value) exitWith {};
 	
 	_player setVariable [_variable_name, _variable_value, true];
-	[_player, _variable_name, _variable_value] call stats_player_save;
+	//[_player, _variable_name, _variable_value] call stats_player_save;
 };
 
 player_get_scalar = {
@@ -481,7 +482,7 @@ player_set_bool = {
 	if (str(_current_value) == str(_variable_value)) exitWith {};
 	
 	_player setVariable [_variable_name, _variable_value, true];
-	[_player, _variable_name, _variable_value] call stats_player_save;
+	//[_player, _variable_name, _variable_value] call stats_player_save;
 };
 
 player_get_bool = {
@@ -531,7 +532,7 @@ player_set_bail = {
 	_bail_variable_name = format["bail"];
 	
 	_player setVariable [_bail_variable_name, _bail, true];
-	[_player, _bail_variable_name, _bail] call stats_player_save;
+	//[_player, _bail_variable_name, _bail] call stats_player_save;
 };
 
 
@@ -1254,7 +1255,7 @@ player_set_array_checked = {
 	};
 	
 	_player setVariable [_variable_name, _variable_value, true];
-	[_player, _variable_name, _variable_value] call stats_player_save;
+	//[_player, _variable_name, _variable_value] call stats_player_save;
 };
 
 
@@ -1289,7 +1290,7 @@ player_set_string = {
 	if (str(_current_value) == str(_variable_value)) exitWith {};
 	
 	_player setVariable [_variable_name, _variable_value, true];
-	[_player, _variable_name, _variable_value] call stats_player_save;
+	//[_player, _variable_name, _variable_value] call stats_player_save;
 };
 
 player_get_string = {
@@ -1544,149 +1545,6 @@ player_save_side_gear = {
 	else {
 		publicVariable "side_gear_request_buffer";
 	};
-};
-
-player_save_side_position = {
-	private["_player"];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_position_atl", "_direction"];
-	_position_atl = getPosATL _player;
-	_direction = getDir _player;
-	
-	//diag_log format["player_save_side_position %1 %2", _position_atl, _direction];
-	[_player, format["position_atl_%1", _side], _position_atl] call player_set_array;
-	[_player, format["direction_%1", _side], _direction] call player_set_scalar;
-};
-
-player_load_side_position = {
-	private["_player"];
-	//player groupChat format["player_load_side_position %1", _this];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_position_atl", "_direction"];
-	_position_atl = [_player, format["position_atl_%1", _side]] call player_get_array;
-	_direction = [_player, format["direction_%1", _side]] call player_get_scalar;
-	
-	
-	if (not((count _position_atl) == 3)) exitWith {};
-	_player setPosATL _position_atl;
-	_player setDir _direction;
-};
-
-
-
-
-player_save_side_damage = {
-	private["_player"];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_damage"];
-	_damage = damage _player;
-	//diag_log format["Saving damage %1", _damage];
-	[_player, format["damage_%1", _side], _damage] call player_set_scalar;
-};
-
-player_load_side_damage = {
-	private["_player"];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_damage"];
-	_damage = [_player, format["damage_%1", _side]] call player_get_scalar;
-	
-	if (_damage < 0 ||  _damage > 1) exitWith {};
-	
-	_player setDamage _damage;
-};
-
-
-
-player_load_side_vehicle = {
-	//player groupChat format["player_load_side_vehicle %1", _this];
-	private["_player"];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {false};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_vehicle_name"];
-	_vehicle_name = [_player, format["vehicle_driven_name_%1", _side]] call player_get_string;
-	if (_vehicle_name == "") exitWith {false};
-	
-	private["_vehicle_class"];
-	_vehicle_class = [_player, format["vehicle_driven_class_%1", _side]] call player_get_string;
-	if (_vehicle_class == "") exitWith {false};
-	
-	//player groupChat format["_vehicle_name = %1, _vehicle_class = %2", _vehicle_name, _vehicle_class];
-	
-	private["_vehicle"];
-	_vehicle = [_vehicle_name, _vehicle_class] call vehicle_recreate;
-	if (isNil "_vehicle") exitWith {false};
-	
-	private["_active_driver_uid", "_saved_driver_uid", "_player_uid", "_distance"];
-	_player_uid = [_player] call stats_get_uid;
-	_saved_driver_uid = [_vehicle, "saved_driver_uid"] call vehicle_get_string;
-	_active_driver_uid = [_vehicle, "active_driver_uid"] call vehicle_get_string;
-	
-	//player groupChat format["_player_uid = %1", _player_uid];
-	//player groupChat format["_saved_driver_uid = %1", _saved_driver_uid];
-	//player groupChat format["_active_driver_uid = %1", _active_driver_uid];
-	
-	if (not((_active_driver_uid in ["", _saved_driver_uid]) && (_saved_driver_uid == _player_uid))) exitWith {
-		player groupChat "Your vehicle has been stolen, destroyed, or moved while you were away!";
-		false
-	};
-	
-	[_player, _vehicle, false] call player_enter_vehicle;
-	[_player, _vehicle] call vehicle_add;
-	//player groupChat format["Vehicle recreated!"];
-	true
-};
-
-player_save_side_vehicle = {
-	private["_player"];
-	_player = _this select 0;
-	if (not([_player] call player_exists)) exitWith {};
-	
-	private["_side"];
-	_side = ([_player] call player_side);
-	_side = toLower(str(_side));
-	
-	private["_vehicle", "_driver", "_vehicle_name", "_vehicle_class"];
-	_vehicle = (vehicle _player);
-	_driver = driver _vehicle;
-	_vehicle_name = "";
-	_vehicle_class = "";
-	
-	if (not(_vehicle == _player) && driver(_vehicle) == _player) then {
-		_vehicle_name = vehicleVarName _vehicle;
-		_vehicle_class = typeOf _vehicle;
-	};
-	
-	[_player, format["vehicle_driven_name_%1", _side], _vehicle_name] call player_set_string;
-	[_player, format["vehicle_driven_class_%1", _side], _vehicle_class] call player_set_string;
 };
 
 player_save_side_inventory = {
@@ -2543,11 +2401,7 @@ player_continuity = {
 		_player allowDamage false;
 		
 		[_player] call player_load_side_gear;
-		[_player] call player_load_side_damage;
 		
-		if (not([_player] call player_load_side_vehicle)) then {
-			[_player] call player_load_side_position;
-		};
 		_player allowDamage true;
 	};
 	
@@ -2610,7 +2464,7 @@ player_reset_prison = {
 		[_player] call player_prison_convict;
 	}
 	else {if ([_player, "roeprison"] call player_get_bool) then {
-		[_player] call player_prison_roe;
+		[_player, true] call player_prison_roe;
 	};};};
 };
 
@@ -2659,6 +2513,7 @@ player_spawn = { _this spawn {
 	
 	//mark the player alive when we are done with the dead camera
 	[_player, false] call player_set_dead;
+	waitUntil {!isNil "name_tags_3d_controls_setup"};
 	[_player] call name_tags_3d_controls_setup;
 };};
 
@@ -2742,10 +2597,16 @@ player_escape_menu_check = { _this spawn {
 	while {true} do {
 		waitUntil {not(isnull (findDisplay 49))};
 
+		[] spawn { call onActionSaver;};
+
 		_ctrlres = (findDisplay 49) displayCtrl 1010;
 		_abortctrl = (findDisplay 49) displayCtrl 104;
+		_restartctrl = (findDisplay 49) displayCtrl 119;
+		if (!debug) then {
 		_ctrlres ctrlEnable false;
 		_abortctrl ctrlEnable false; 
+		_restartctrl ctrlEnable false;
+		};
 		//escape menu opened
 		_enCtrl = [_ctrlres, _abortctrl] spawn {
 			disableSerialization;
@@ -2863,7 +2724,7 @@ player_handle_mpkilled = { _this spawn {
 
 	[_player] call player_reset_gear;
 	[_player] call player_drop_inventory;
-	[] spawn { combatLogSaver; };
+	[] spawn { call combatLogSaver; };
 	[_player] call player_reset_ui;
 	[_player] call player_reset_stats;
 	[_player] call player_dead_camera;

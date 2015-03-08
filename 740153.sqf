@@ -31,7 +31,7 @@ while { ctrlVisible 1038} do {
             _benoetigteItems = (_item call INV_GetItemMaterials);
             {
                 lbAdd [4, format["%1 - %2", ((_x select 0) call INV_GetItemName), (_x select 1)] ];
-            } forEach _benoetigteItems;
+            } count _benoetigteItems;
         };
     };
     sleep 0.3;

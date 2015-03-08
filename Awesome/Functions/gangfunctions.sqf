@@ -59,7 +59,7 @@ flag_gang_setup = {
 	if (isNil "_banner") then
 	{
 		//player groupChat "Setting up flag banner";
-		_banner = createVehicle ["FlagCarrierTKMilitia_EP1", getpos _anchor, [], 0, "CAN_COLLIDE"];
+		_banner = createVehicle ["FlagCarrierRedCrystal_EP1", getpos _anchor, [], 0, "CAN_COLLIDE"];
 		_anchor setVariable ["banner", _banner, true];
 		_offset = [0,0,-7.5];
 		_banner attachTo [_anchor,_offset];
