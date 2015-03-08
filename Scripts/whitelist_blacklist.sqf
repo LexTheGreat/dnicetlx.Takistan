@@ -14,6 +14,7 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
+	"76561198101924418", //Lex_the_great ~ Testing
 	"245049094", // Fyodor
 	"247857670", //lilpwn
 	"76561198134427407" // Ja

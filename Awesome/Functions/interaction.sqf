@@ -935,7 +935,7 @@ interact_withdraw = {
 
 interact_atm_menu = { _this spawn {
 	private["_player"];
-	if (isNil "statsLoaded") exitWith {player groupChat "Calm your ADD down, and let the server load first :)";};
+	if (isNil "statsLoaded") exitWith {player groupChat "Calm your ASS down, and let the server load first :)";};
 	_player = _this select 0;
 	if (not([_player] call player_human)) exitWith {};
 	if (_player != player) exitWith {};

@@ -218,6 +218,7 @@ if(isClient) then {
 	[] execVM "ui.sqf";
 	[] execVM "AC\antidupe.sqf";
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
+    [] execVM "lockgear.sqf";
 	//[] execVM "heli_extras\Menu_setup.sqf";
 	server globalChat "Loading Fully Complete";
 };

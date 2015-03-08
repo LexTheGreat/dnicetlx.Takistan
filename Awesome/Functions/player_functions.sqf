@@ -2589,6 +2589,7 @@ player_drop_inventory = {
 
 player_escape_menu_check = { _this spawn {
 	if (not(isClient)) exitWith {};
+    if (debug) exitWith {};
 	// Taken from DOMINATION
 	// Edited for TLR
 	disableSerialization;
