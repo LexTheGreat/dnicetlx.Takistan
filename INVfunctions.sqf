@@ -514,7 +514,7 @@ INV_GetScriptFromClass_Weap = {
 
 // Get item Array
 INV_GetItemArray = {
-	private ["_c", "_Fobjarray"];
+	private ["_Fobjarray"];
 	_Fobjarray = [];
 	//player groupChat format ["item array this %1", _this];
 	if ((typeName _this) == "STRING") then {

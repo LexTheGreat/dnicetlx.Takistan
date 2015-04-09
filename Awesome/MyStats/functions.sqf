@@ -623,23 +623,34 @@ stats_init_entry = {
 	_variable = _this select 1;
 	_value = _this select 2;
 	
-	if (isNil "_object") exitWith {};
-	if (typeName _object != "OBJECT") exitWith {};
 	if (isNil "_variable") exitWith {};
-	if (typeName _variable != "STRING") exitWith {};
-
-	
-	//check if it already has a value
-	if ((_object == player) || (_object == server)) then {
+	if (typeName _variable != "STRING") exitWith { };
+	if (isServer && isDedicated) then {
 		private["_current_value"];
 		_current_value = missionNameSpace getVariable _variable;
-		if (not(isNil "_current_value")) exitWith {};
+		if (!isNil "_current_value") exitWith { };
+		//if (isNil "_value") exitWith {};
+		missionNamespace setVariable [_variable, _value];
+		server setVariable [_variable, _value, true];
+	};
+	if (isNil "_object") exitWith {};
+	if (typeName _object != "OBJECT") exitWith { };
+	/*if (isDedicated && isServer) then {
+		diag_log format["server running under vars found for %1, %2 = %3", _object, _variable, _value];
+	};*/
+	
+	//check if it already has a value
+	if (_object == player) then {
+		private["_current_value"];
+		_current_value = missionNameSpace getVariable _variable;
+		if (!isNil "_current_value") exitWith { };
+		//if (isNil "_value") exitWith {};
 		missionNamespace setVariable [_variable, _value];
 		_object setVariable [_variable, _value, true];
-		diag_log format["%1, %2 = %3", _object, _variable, _value];
+		//diag_log format["%1, %2 = %3", _object, _variable, _value];
 	}
 	else {
-		_object setVariable [_variable, _value, true];
+		_variable = _value;
 	};
 };
 

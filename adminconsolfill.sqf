@@ -136,34 +136,34 @@ _array = [];
             }],
 			
 			["Blacklist player from Cop&Opfor", {
-				if(!AdminSpamBroadcasting) then {
-					AdminSpamBroadcasting = true;
-					private["_killer_uid"];
-					_killer_uid = getPlayerUID _selectedplayer;
-					["ADMIN LOGGER", name (_selectedplayer), "was temp blacklisted by", str (name player)] call fn_LogToServer;
-					copblacklist set [count copblacklist, _killer_uid];
-					opfblacklist set [count opfblacklist, _killer_uid];
-					publicVariable "copblacklist";
-					publicVariable "opfblacklist";
-					format['
-					[] spawn
-							{
-								if (player != %1) exitWith {};
-								player groupChat "You have been blacklisted from Opfor/Blufor by Staff due to repeated abuse";
-								sleep 3;
-								failMission "END1";
-							};
-						', _selectedplayer] call broadcast;
-	                hint format["Player (%1) was blacklisted.", name (_selectedplayer)];
-	                sleep 5; 
-					AdminSpamBroadcasting = false;
-				} else {
+			if(!AdminSpamBroadcasting) then {
+				AdminSpamBroadcasting = true;
+				private["_killer_uid"];
+				_killer_uid = getPlayerUID _selectedplayer;
+				["ADMIN LOGGER", name (_selectedplayer), "was temp blacklisted by", str (name player)] call fn_LogToServer;
+				copblacklist set [count copblacklist, _killer_uid];
+				opfblacklist set [count opfblacklist, _killer_uid];
+				publicVariable "copblacklist";
+				publicVariable "opfblacklist";
+				format['
+				[] spawn
+						{
+							if (player != %1) exitWith {};
+							player groupChat "You have been blacklisted from Opfor/Blufor by Staff due to repeated abuse";
+							sleep 3;
+							failMission "END1";
+						};
+					', _selectedplayer] call broadcast;
+				sleep 5; 
+				AdminSpamBroadcasting = false;
+				}
+				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 
             }],
 			
-            ["Un-Blacklist Player from Cop&Opfor [uid only]", {
+			["Un-Blacklist Player from Cop&Opfor [uid only]", {
                 if(!AdminSpamBroadcasting) then {
                     AdminSpamBroadcasting = true;
                     private["_killer_uid"];
@@ -180,7 +180,7 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
             }],
-            
+			
 			["Kick Player from Game", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;

@@ -28,9 +28,9 @@ player_get_player_by_name = {
 
 private["_counter", "_sleep_time"];
 _counter = 0;
-_sleep_time = 120;
+_sleep_time = 120; //change to about 120 or 60
 while {true} do {
-
+	//format['server globalChat "Current Gangs: %1 \n Squads: %2"', if(!isNil "gangsarray") then { gangsarray } else { 'empty' };, if(!isNil "squadarray") then { squadarray } else { 'empty' };] call broadcast;
 	//Go through each of the gangs
 	private["_i"];
 	if(isNil "gangsarray") then { 

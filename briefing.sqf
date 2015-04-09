@@ -150,7 +150,7 @@ player createDiaryRecord ["bugs",
 Please report bugs to my e-mail or TS!<br/>
 Website: TLX-gaming.enjin.com <br/>
 E-mail: dhawt11@gmail.com<br/>
-Teamspeak: TLX.ts3dns.com<br/>
+Teamspeak: 192.99.46.21<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>

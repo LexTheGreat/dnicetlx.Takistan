@@ -35,7 +35,7 @@ if(_art == "create") then {
 
 	[player, 'money', -squadcreatecost] call INV_AddInventoryItem;
 
-	format['squadarray = squadarray + [["%1", ["%2"], true]]', _text, _name] call broadcast;
+	format['squadarray = squadarray + [["%1", ["%2"], true]];', _text, _name] call broadcast;
 
 	player groupchat format["you have created a new squad called %1!", _text];
 

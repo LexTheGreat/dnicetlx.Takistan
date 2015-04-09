@@ -6,10 +6,11 @@ private["_display","_channelDisplay","_text1","_channel","_micDisplay","_mic1"];
 				_text1 = ctrlText (_micDisplay displayCtrl 101);
 				_mic1 = '\ca\ui\textures\mikrak.paa';
                 _channel = ctrlText (_channelDisplay displayCtrl 101);
-                if((_channel == "Side channel" || _channel == "Command channel" || _channel == "Global channel") && _text1 == _mic1) then {
+                if(((_channel == "Side channel" || _channel == "Command channel") && isciv) || _channel == "Global channel" && _text1 == _mic1) then {
 						if(!(isNil "global_voice_warnings")) exitWith { };
 						global_voice_warnings = 0;
-						player enableSimulation false;
+						voice_stop = true;
+						//player enableSimulation false;
                         while{global_voice_warnings <= 4} do {
 							_text1 = ctrlText (_micDisplay displayCtrl 101);
 							_channel = ctrlText (_channelDisplay displayCtrl 101);
@@ -38,7 +39,7 @@ private["_display","_channelDisplay","_text1","_channel","_micDisplay","_mic1"];
 									global_voice_warnings = nil;
 								};
 							};
-							if (isNil "global_voice_warnings") exitWith { player enableSimulation true; };
+							if (isNil "global_voice_warnings") exitWith { voice_stop = false; };//player enableSimulation true;
 							global_voice_warnings = global_voice_warnings + 1;
 							//player enableSimulation true;
 							};

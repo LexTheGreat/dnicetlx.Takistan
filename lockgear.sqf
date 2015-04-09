@@ -15,10 +15,10 @@ while {true} do {
             };
         };
         // Backpack Opened ~ Not implmented becuse of debate on fourm not clear on if needed or not
-        /*if (_cTarget isKindOf "Man" and (isPlayer _cTarget) and (_cTarget != player)) then {
+        if (_cTarget isKindOf "Man" and (isPlayer _cTarget) and (_cTarget != player)) then {
 			player sideChat "You can't open this units inventory!";
             (FindDisplay 106) closeDisplay 1;
-            waitUntil {isnull (findDisplay 106)};                                                   * 
-        };*/
+            waitUntil {isnull (findDisplay 106)};                                                   
+        };
     };
 };

@@ -1,7 +1,7 @@
 #include "Awesome\Functions\dikcodes.h"
 
 
-stunned_allowed_actions = ["Chat", "NextChannel", "PrevChannel", "VoiceOverNet", "ShowMap", "PushToTalkAll", "PushToTalkCommand", "PushToTalkDirect", "PushToTalkGroup", "PushToTalkSide", "PushToTalkVehicle", "PushToTalkAll", "PushToTalk"];
+stunned_allowed_actions = ["Chat", "NextChannel", "PrevChannel", "ShowMap", "PushToTalkCommand", "PushToTalkDirect", "PushToTalkGroup", "PushToTalkSide", "PushToTalkVehicle", "PushToTalkAll", "PushToTalk"];
 
 agony_allowed_actions = ["Chat", "NextChannel", "PrevChannel"];
 
@@ -138,12 +138,12 @@ keyboard_trunk_handler = {
 };
 
 keyboard_stunned_check = {
-	(([player, "isstunned"] call player_get_bool))
+	[player, "isstunned"] call player_get_bool
 };
 
 keyboard_restrained_check = {
-	if (iscop or isopf) exitWith {false};
-	([player, "restrained"] call player_get_bool)
+	//if (iscop or isopf) exitWith {false};
+	[player, "restrained"] call player_get_bool
 };
 
 keyboard_agony_check = {
@@ -438,10 +438,25 @@ keyboard_cop_speed_gun_handler = {
 };
 
 keyboard_gear_button_handler = {
-	[] spawn { call onActionSaver;};
 	if (debug) then {
 		player groupChat "Debug Gear Save run";
 	};
+	if(isNil "esc_ctr") then {
+				esc_ctr = 15;
+			}
+			else {
+				if (esc_ctr > 0) exitWith {
+					_handled = false;
+				};
+				[] spawn { call onActionSaver;};
+				esc_ctr = 15;
+				[] spawn { 
+					while { esc_ctr > 0} do {
+						sleep 1;
+						esc_ctr = esc_ctr - 1;
+					};
+				};				
+			};
 	true
 };
 
@@ -453,7 +468,7 @@ keyboard_overlapping_keys = [219];//heliextras
 	keyboard_overlapping_keys = keyboard_overlapping_keys + (actionKeys _action);
 } foreach keyboard_overlapping_actions;
 
-keyboard_adminCheck = {(_this select 0) == DIK_F7};
+keyboard_adminCheck = {(_this select 0) == DIK_F12};
 
 
 KeyUp_handler = {
@@ -465,21 +480,25 @@ KeyUp_handler = {
 	_ctrl	= _this select 3;
 	_alt	= _this select 4;
 	
-	afkTime = time;
+	//afkTime = time;
 	
 	_handled = false;
 	
+	
+	if (voice_stop) exitWith {
+		true
+	};
 	if (_key in(actionKeys "LookAround")) then {
 		lookingAround = false;
 	};
 	
-	if ((call keyboard_stunned_check) || (call keyboard_restrained_check) && !([_key] call keyboard_adminCheck)) exitWith {
-		not(_key in (call keyboard_get_stunned_allowed_keys))
+	if (((call keyboard_stunned_check) || (call keyboard_restrained_check)) && !([_key] call keyboard_adminCheck)) exitWith {
+		//player groupChat "Stun checker run";
+		!(_key in (call keyboard_get_stunned_allowed_keys))
 	};
 	if (call keyboard_agony_check && !([_key] call keyboard_adminCheck)) exitwith {
 		!(_key in (call keyboard_get_agony_allowed_keys))
 	};
-	
 	//Fix for exploit using cross-arms animation, that allows players to glitch through walls
 	if ((animationState player) == "shaftoe_c0briefing_otazky_loop6") then {
 		player setPosATL (player getVariable "animation_position");
@@ -489,15 +508,18 @@ KeyUp_handler = {
 	_inVehicle = ((vehicle player) != player);
 	
 	switch _key do {
+		case DIK_F4: {
+			if(_alt) exitWith { player groupChat "No rage quitting allowed you n00b"; _handled = false; };
+		};
 		case DIK_Y: {
-			_handled = [] call keyboard_animation_handler;
+				_handled = [] call keyboard_animation_handler;
 		};
 		case DIK_TAB: {
 			_handled = [] call keyboard_tlr_keys_handler;
 		};
-		/*case DIK_ESCAPE: {
+		case DIK_ESCAPE: {
 			_handled = [] call keyboard_gear_button_handler;
-		};*/
+		};
 		case DIK_G: {
 			if (_inVehicle) exitWith {_handled=false;};
 			_handled = [] call keyboard_gear_button_handler;
@@ -586,11 +608,8 @@ KeyUp_handler = {
 				_handled = [] call keyboard_stun_handler;
 			};
 		};
-
-		
-		
-	};
 	
+	}; //end of switch key
 	if (_inVehicle && _key == DIK_E) exitWith {
 		_inVehicle
 	};
@@ -615,17 +634,20 @@ KeyDown_handler = {
 	_shift  = _this select 2;
 	_ctrl	= _this select 3;
 	_alt	= _this select 4;
-
+	
+	if (voice_stop) exitWith {
+		true
+	};
+	
 	if (_key in(actionKeys "LookAround")) then {
 		lookingAround = true;
 	};
 	
-	
-	if ((call keyboard_stunned_check) || (call keyboard_restrained_check)) exitWith {
-		not(_key in (call keyboard_get_stunned_allowed_keys))
+	if (((call keyboard_stunned_check) || (call keyboard_restrained_check)) && !([_key] call keyboard_adminCheck)) exitWith {
+		!(_key in (call keyboard_get_stunned_allowed_keys))
 	};
 	
-	if (call keyboard_agony_check) exitwith {
+	if (call keyboard_agony_check && !([_key] call keyboard_adminCheck)) exitwith {
 		!(_key in (call keyboard_get_agony_allowed_keys))
 	};
 	
@@ -639,6 +661,9 @@ KeyDown_handler = {
 	_isDriver = ((driver (vehicle player)) == player);
 		
 	switch _key do {
+		case DIK_F4: {
+			if(_alt) exitWith { _handled = false };
+		};
 		case DIK_Y: {
 			_handled = INV_shortcuts;
 		};

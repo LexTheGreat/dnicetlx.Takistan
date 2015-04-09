@@ -311,7 +311,7 @@ if (iscop or isopf) then {
     RadioTextMsg_1 = "Put your fucking hands up!";
     RadioTextMsg_2 = "Pull over and stay in your vehicle!";
     RadioTextMsg_3 = "Drop your weapon and put your hands on your head!";
-    RadioTextMsg_4 = "Your free to go, have a nice day";
+    RadioTextMsg_4 = "You're free to go, have a nice day";
 } else {
     RadioTextMsg_1 = "Put your fucking hands up now!";
     RadioTextMsg_2 = "Step away from the vehicle!";
@@ -348,6 +348,7 @@ selfkilled               = 0;
 killstrafe               = 100000;
 copteamkillstrafe        = 100000;
 GesetzAnzahl             = 10;
+if (isNil 'LawsArray') then {
 LawsArray              = [
 	"Always Drive on the RIGHT side of the road", 
 	"70km/h in cities, 110km/h on rural roads",
@@ -355,6 +356,7 @@ LawsArray              = [
 	"Always Holster weapons in Towns 100k/1min jail.",
 	"Completing an assassination mission is murder"
 ];
+};
 
 
 isMayor                  = false;
@@ -620,21 +622,10 @@ civclassarray         =
 civslavearray          = ["Hooker1","Hooker2","Hooker3","Hooker4","RU_Hooker1","RU_Hooker2","RU_Hooker3","RU_Hooker4"];
 civworkerarray         = ["Worker1","Worker2","Worker3","Worker4"];
 terroristarray         = ["TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_AAT_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_HAT_EP1","TK_INS_Soldier_AAT_EP1","TK_INS_Soldier_EP1"];
-
-player_connected_handler = {
-	private["_id", "_name", "_uid"];
-	_id = _this select 0;
-	_name = _this select 1;
-	_uid = _this select 2;
+if (isClient) then {
+	armed_vehicle_count = 0;
+	voice_stop = false;
 	
-	//server globalChat format["%1 (%2) just connected", _name, _uid];
-	/*publicVariable "LawsArray";
-	publicVariable "INV_ItemTypenArray";
-	publicvariable "INV_ItemStocks";
-	publicvariable "gangsarray";
-	publicvariable "squadarray";*/
+	server_to_client_sync = player;
+	publicVariableServer "server_to_client_sync";
 };
-/*
-if(isServer) then {
-	onPlayerConnected { [_id, _name, _uid] call player_connected_handler };
-};*/

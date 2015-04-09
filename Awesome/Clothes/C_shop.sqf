@@ -137,6 +137,7 @@ Clothes =
 ["CZ_BOONIE",				"FR_AC",						"Jarhead",						    west, 			"BIS",			iscop,		500000,		["jarlicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_BONG",					"GER_Soldier_MG_EP1",			"Bong Lord",						    west, 			"BIS",			iscop,		500000,		["bonglicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_COLE",					"US_Delta_Force_Undercover_Takistani06_EP1",			"The Original Bond",						    west, 			"BIS",			iscop,		500000,		["colelicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["CZ_RECK",					"GER_Soldier_TL_EP1",			"The Recker",						    west, 			"BIS",			iscop,		500000,		["recklicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 
 ["OPF_AZIZ",				"TK_Aziz_EP1",					"OPF AZIZ",								east,			"BIS_TK",			isopf,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["OPF_CMD",					"TK_Commander_EP1",				"OPF COMMANDER",						east,			"BIS_TK",			isopf,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
@@ -396,6 +397,7 @@ CSL_UN_1 =
 "CZ_BOONIE",
 "CZ_BONG",
 "CZ_COLE",
+"CZ_RECK",
 "CZ_SOLID"
 ];
 

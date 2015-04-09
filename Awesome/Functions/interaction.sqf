@@ -935,7 +935,7 @@ interact_withdraw = {
 
 interact_atm_menu = { _this spawn {
 	private["_player"];
-	if (isNil "statsLoaded") exitWith {player groupChat "Calm your ASS down, and let the server load first :)";};
+	if (isNil "statsLoaded") exitWith {player groupChat "Calm your A.D.D. down, and let the server load first :)";};
 	_player = _this select 0;
 	if (not([_player] call player_human)) exitWith {};
 	if (_player != player) exitWith {};
@@ -1343,8 +1343,8 @@ interact_drug_search_response = {
 	_message = format["%1-%2 had drugs, you removed them. You should arrest %1-%2 or give him a ticket of $%3. ", _target, (name _target), strM(_amount/2)];
 	player groupChat _message;
 	
-	_message = format["%1-%2 had $%3 worth of drugs!", _target, (name _target), strM(_amount)];
-	format['titleText [toString(%1), "PLAIN"];', toArray(_message)] call broadcast;	
+	_message = format["%1-%2 had $%3 worth of drugs confiscated!", _target, (name _target), strM(_amount)];
+	format['titleText ["%1", "PLAIN"];', _message] call broadcast;	
 };
 
 interact_drug_search_count = {
@@ -2150,7 +2150,7 @@ interact_factory_storage = {
 	_item_kind = _item call INV_GetItemKindOf;
 	
 	if (not(_item_kind in ["ressource", "drug", "money"]) && _amount > 0) exitWith {
-		player groupChat format ["You can only store money, drugs, and ressources in factories"];
+		player groupChat format ["You can only store money, drugs, and resources in factories"];
 	};
 
 	private["_info", "_f_storage", "_p_storage"];

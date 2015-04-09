@@ -38,6 +38,7 @@ INV_Licenses =
 		["bonglicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"Bong Reseller License",999999999],
 		["grelllicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"SS License",999999999],
 		["colelicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"The Bond License",999999999],
+		["recklicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"Reck License",999999999],
 		["karmalicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"KarmaIsABitch",999999999],
 		["highcaliberrifle",[licenseflag2,licenseflag2,licenseflag2,licenseflag2,licenseflag2],"High Caliber Rifle License",250000],
 		["newslicense",[atmnews,atmnews,atmnews,atmnews,atmnews],"News Reporters License",1500000],

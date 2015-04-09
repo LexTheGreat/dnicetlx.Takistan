@@ -2358,14 +2358,14 @@ if (isServer) then {
                         _array = _x;
                         _max = _array select shop_list_stock_max;
 						_newMax set [count _newMax, _max];
-                } forEach _buyList;
+                } count _buyList;
                 INV_ItemMaxStocks set [_i, _newMax];
                 _i = _i + 1;
         };
         publicVariable "INV_ItemMaxStocks";
 };
 
-//buidld the INV_ItemStocks array
+//build the INV_ItemStocks array
 if (isServer) then {
         INV_ItemStocks = [];
         private["_i"];
@@ -2382,7 +2382,7 @@ if (isServer) then {
                         _array = _x;
                         _max = _array select shop_list_stock;
                         _newStock set [count _newStock, _max];
-                } forEach _buyList;
+                } count _buyList;
 
                 INV_ItemStocks set [_i, _newStock];
                 _i = _i + 1;
@@ -2408,14 +2408,14 @@ if (isServer) then {
                 _array = _x;
                 _item = _array select shop_list_item;
                 _newSell set[count _newSell, _item];
-        } forEach _sellList;
+        } count _sellList;
         
         {
                 private["_array", "_item"];
                 _array = _x;
                 _item = _array select shop_list_item;
                 _newBuy set[count _newBuy, _item];
-        } forEach _buyList;
+        } count _buyList;
         
         _newArray set[INV_ItemShops_BuyList, _newBuy];
         _newArray set[INV_ItemShops_SellList, _newSell];

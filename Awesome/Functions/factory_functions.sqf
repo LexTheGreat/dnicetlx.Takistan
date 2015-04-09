@@ -868,7 +868,7 @@ factory_item_create = {
 	if (not(_item_type in ["Item", "Weapon", "Magazine", "Vehicle"])) exitWith {};
 
 	if (_item_type == "Vehicle" && _amount > 1) exitWith {
-		player groupChat format["%1-%2, you can only create one %3 at a time", _player, (name _player), _item_name];
+		player groupChat format["%1-%2, you can only deploy one %3 at a time", _player, (name _player), _item_name];
 	};
 
 	private["_avail_name", "_avail"];
@@ -876,10 +876,10 @@ factory_item_create = {
 	_avail = missionNamespace getVariable _avail_name;
 
 	if (_avail  < _amount) exitWith {
-		player groupChat format["%1-%2, you have not produced enough %3 to create", _player, (name _player), _item_name];
+		player groupChat format["%1-%2, you have not produced enough %3 to deploy", _player, (name _player), _item_name];
 	};
 
-	player groupChat format["%1-%2, you have created %3 %4", _player, (name _player), _amount, _item_name];
+	player groupChat format["%1-%2, you have deployed %3 %4", _player, (name _player), _amount, _item_name];
 
 	_avail = missionNamespace getVariable _avail_name;
 	while { _amount > 0 && _avail > 0} do {
@@ -990,6 +990,7 @@ factory_update_queue_list = {
 	while { _i < (count _queue) } do {
 		private["_citem", "_citem_info", "_citem_name", "_index"];
 		_citem = _queue select _i;
+
 		_citem_info = (_citem call INV_GetItemArray);
 		_citem_name = (_citem_info call INV_GetItemName);
 
@@ -1092,7 +1093,7 @@ factory_validate_enqueue_item = {
 	_index = (lbCurSel factory_enqueue_list_id);
 
 	if (_index < 0 ) exitWith {
-		(["You have not selected any item to produce or create", ""])
+		(["You have not selected any item to produce or deploy", ""])
 	};
 
 	_item = (lbData [factory_enqueue_list_id, _index]);
@@ -1136,7 +1137,7 @@ factory_validate_enqueue_item = {
 
 
 	if (_amount > _avail) then {
-		_message1 = "The amount of items created is higher than the amount of items produced";
+		_message1 = "The amount of items to deploy is higher than the amount of items produced";
 		_create_allowed = false;
 	};
 
@@ -1217,9 +1218,10 @@ factory_update_production_stats = {
 	_item = (lbData [factory_dequeue_list_id, _index]);
 
 	if (isNil "_item") exitWith {};
-	if (typeName _item != "STRING") exitWith {};
+	if (typeName _item != "STRING" || _item == "") exitWith {};
 
 	private["_info", "_item_name"];
+	//player groupChat format ["item array this %1", _item];
 	_info = (_item call INV_GetItemArray);
 	if (isNil "_info") exitWith {};
 	_item_name = (_info call INV_GetItemName);

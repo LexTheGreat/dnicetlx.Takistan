@@ -15,19 +15,42 @@ check_armed_player = {
 	if ((primaryWeapon _player) != "") exitWith {true};
 	if ((secondaryWeapon _player) != "") exitWith {true};
 	
-	//check if player is gunner
-	private["_vehicle", "_in_vehicle", "_is_commander", "_is_driver", "_is_gunner"];
+	//check if vehicle has armaments
+	private["_vehicle", "_in_vehicle"];
 	_vehicle = (vehicle _player);
-	_is_driver = (driver(_vehicle) == _player);
+
 	_in_vehicle = (_vehicle != _player);
-	_is_commander = (commander(_vehicle) == _player) && not(_is_driver);
-	_is_gunner = (gunner(_vehicle) == _player);
-	if (_in_vehicle && (_is_gunner || _is_commander))  exitWith { true };
 	
+	if (armed_vehicle_count > 0 && !_in_vehicle) exitWith {
+		armed_vehicle_count = armed_vehicle_count - 1;
+		true
+	};
+	
+	_armed_vehicle = false;
+	if (_in_vehicle) then {
+		{
+			_turret = _x;
+			_non_wep = ["SmokeLauncher", "FlareLauncher", "CMFlareLauncher", "CarHorn"];
+			//player groupChat "In vehicle, checking if smoker";
+			if (!(_turret in _non_wep)) then {
+				//player groupChat "Found to not be a smoker";
+				{
+					//player groupChat format ["comparing %1 to %2 class", _turret, _x];
+					if ([_turret, _x] call shop_weapon_inherits_from) exitWith { _armed_vehicle = true; };
+				} count ["CannonCore", "LauncherCore", "MGunCore"];
+			};
+			if (_armed_vehicle) exitWith { };
+		} count weapons _vehicle;
+		//_is_commander = (commander(_vehicle) == _player) && not(_is_driver);
+		//_is_gunner = (gunner(_vehicle) == _player);
+		//if (_in_vehicle && (_is_gunner || _is_commander))  exitWith { true };
+	
+	};
+	if (_in_vehicle && _armed_vehicle) exitWith { armed_vehicle_count = 30; true }; //countdown timer for exiting an armed vehicle
 	//Check if player has a suicide vest or similar bomb
 	private["_armed_items"];
-	//Remote bomb, timed bomb, activated bomb (ied), speed bomb, suicide vest, lighter
-	_armed_items = ["fernzuenderbombe", "zeitzuenderbombe", "aktivierungsbombe", "geschwindigkeitsbombe", "selbstmordbombe", "lighter"];
+	//Remote bomb, timed bomb, activated bomb (ied), speed bomb, suicide vest, lighter //removed lighter
+	_armed_items = ["fernzuenderbombe", "zeitzuenderbombe", "aktivierungsbombe", "geschwindigkeitsbombe", "selbstmordbombe"];
 	if([_player, _armed_items] call INV_HasItem) exitWith { true };
 	
 	//check if player has pistol
@@ -114,15 +137,15 @@ check_armed = {
 	if (isNil "_player") exitWith { false };
 	if (not(alive _player)) exitWith {false};
 	
-	private["_armed_vehicle", "_armed_player"];
-	_armed_vehicle = ([_player] call check_armed_vehicle);
+	private["_armed_player"];
+	//_armed_vehicle = ([_player] call check_armed_vehicle);
 	_armed_player =  ([_player] call check_armed_player);
 	_was_stunning = ([_player] call check_armed_stunning);
 	
-	//player groupChat format["_armed_vehicle = %1, _armed_player = %2, _was_stunning = %3", _armed_vehicle, _armed_player, _was_stunning];
+	//player groupChat format[" _armed_player = %1, _was_stunning = %2", _armed_player, _was_stunning];
 	
 	private["_armed"];
-	_armed = _armed_vehicle || _armed_player || _was_stunning;
+	_armed = (_armed_player || _was_stunning);
 	[_player, _armed] call player_update_armed;
 	_player setVariable ["armed", _armed];
 	_armed

@@ -120,7 +120,7 @@ class Mission
 	randomSeed=4402856;
 	class Intel
 	{
-		briefingName="Takistan Life Xtreme 1.2 by D-Nice";
+		briefingName="Takistan Life Xtreme 1.3 by D-Nice";
 		briefingDescription="Taki Mafucking XTREMEEEEE";
 		resistanceWest=0;
 		startWeather=0;
@@ -577,7 +577,7 @@ class Mission
 					azimut=139.89799;
 					id=87;
 					side="WEST";
-					vehicle="US_Soldier_SL_EP1";
+					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -599,7 +599,7 @@ class Mission
 					azimut=133.614;
 					id=88;
 					side="WEST";
-					vehicle="US_Soldier_SL_EP1";
+					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -621,7 +621,7 @@ class Mission
 					azimut=126.939;
 					id=89;
 					side="WEST";
-					vehicle="US_Soldier_SL_EP1";
+					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;

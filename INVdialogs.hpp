@@ -135,7 +135,7 @@ class factory_dialog {
 		w = 0.35; h = 0.04;
 		colorBackgroundDisabled[] = DISABLED_BUTTON_BACKGROUND;
 		colorDisabled[] = DISABLED_BUTTON_TEXT;
-		text = "Create item";
+		text = "Deploy item";
 	};
 
 

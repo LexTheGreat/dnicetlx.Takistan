@@ -2589,7 +2589,6 @@ player_drop_inventory = {
 
 player_escape_menu_check = { _this spawn {
 	if (not(isClient)) exitWith {};
-    if (debug) exitWith {};
 	// Taken from DOMINATION
 	// Edited for TLR
 	disableSerialization;
@@ -2740,6 +2739,8 @@ player_handle_mprespawn = {
 	private["_unit", "_corpse"];
 	_unit = _this select 0;
 	_corpse = _this select 1;
+	
+	[] spawn { call combatLogSaver; };
 	
 	if (not(str(_unit) == str(player))) exitWith {};
 	[_unit, false] call player_spawn;

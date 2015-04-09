@@ -14,7 +14,6 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198101924418", //Lex_the_great ~ Testing
 	"245049094", // Fyodor
 	"247857670", //lilpwn
 	"76561198134427407" // Ja
@@ -31,11 +30,12 @@ A_LIST_DERPS	=
 
 A_LIST_SNADMINS	=
 [
-		//"76561198018896118" //TalfieWillig
-	"76561198135899866", //BakedPotato
 	"76561198043681651", //Mez
-	"76561198018896118" //Willigsire
+	"000000" //placeholder
+		//"76561198018896118" //Willigsire
 	//"76561198154237291" //Garcia
+			//"76561198018896118" //TalfieWillig
+	//"76561198135899866", //BakedPotato
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -45,9 +45,11 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"171689606", //Greasy
-	"76561198093831210",//Turtles
+	//"76561198093831210",//Turtles
 	"76561198124176578", //1st Lt Monkey
 	"76561198101924418", //Lex_the_great
+	"76561198139401322", //Mu'tasim Asadullah
+	"76561198053580599", //MartinAleksander
 	//"76561198119216004", //Heaven
 	"136274630" // SS Jarhead
 ];
@@ -73,12 +75,13 @@ A_LIST_MODS	=
 	//"76561198069165434", //Tengum
 	"76561198055956102", //Col. M Reid
 	//"76561198097364044", //Sheriff Mccgringleberry
-	"76561198053580599", //MartinAleksander
 	//"76561198110859316", //Bmac
-	"76561198139401322", //Mu'tasim Asadullah
 	"76561198093692248", //Oooohkillem
 	"76561198160921083", //PastyHoneybuns
 	"76561198063832142", //DrinkyCrow
+	"76561198134796571", //Canadian Bacon T2
+	"76561198035381118", //Bermis Wukun
+	"76561198071078533", //Lucid Hysteria
 	"000000" //Placeholder
 ];
 
@@ -111,11 +114,15 @@ pmcwhitelist = [
 
 // Blacklisting
 if(isNil "copblacklist") then {
-	copblacklist = ["76561198150297021"//Envy
+	copblacklist = [
+	"76561198040462947", //Son of the Bitch
+	"76561198095037617", //Goldenpotaters
+	"76561198150297021"//Envy
 	];
 };
 if(isNil "opfblacklist") then {
-	opfblacklist = [];
+	opfblacklist = ["76561198040462947" //Son of the Bitch
+	];
 };
 if(isNil "opfcmdblacklist") then {
 	opfcmdblacklist = [
@@ -123,7 +130,9 @@ if(isNil "opfcmdblacklist") then {
 	];
 };
 if(isNil "insblacklist") then {
-	insblacklist = [];
+	insblacklist = [
+	
+	];
 };
 pmcblacklist = [];
 

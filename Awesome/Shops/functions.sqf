@@ -498,7 +498,7 @@ shop_weapon_inherits_from = {
 	if (isNil "_config_class") exitWith { false };
 	
 	if (typeName _weapon_class != "STRING") exitWith { false };
-	if (typename _base_class != "STRING") exitWith { false };
+	if (typeName _base_class != "STRING") exitWith { false };
 	
 	private["_i", "_matches", "_parent_config", "_parent_name"];
 	_i = 10;
@@ -592,7 +592,7 @@ shop_buy_item_validate_data = {
 	_status_message = "";
 	_buyButton_state = true;
 	
-	if (_amount <= 0.999) exitWith {
+	if (_amount < 1) exitWith {
 		["You have entered an invalid amount of items to buy", _quiet] call shop_set_status_message; nil
 	};
 	
@@ -1241,7 +1241,7 @@ shop_sell_gear = {
 		};};};
 		_i = _i - 1;
 	};
-	[] spawn { call onActionSaver;};
+	//[] spawn { call onActionSaver;};
 	
 	player groupChat format["You sold %1 %2 for $%3", _amount, _item_name, strM(_total_return)];	
 };
@@ -1269,7 +1269,7 @@ shop_buy_item = {
 	call shop_play_animation;
 	[player, _item, _amount, ([player] call player_inventory_name)] call INV_CreateItem;
 	player groupChat format["You bought %1 %2 for $%3", _amount, _item_name, strM(_total_due)];
-	[] spawn { call onActionSaver;};
+	//[] spawn { call onActionSaver;};
 };
 
 
@@ -1299,7 +1299,7 @@ shop_buy_gear_item = {
 	};
 	
 	[_class, _amount, _crate, _in_hands] spawn _function;
-	[] spawn { call onActionSaver;};	
+	//[] spawn { call onActionSaver;};	
 		
 	player groupChat format["You bought %1 %2 for $%3", _amount, _item_name, strM(_total_due)];
 };

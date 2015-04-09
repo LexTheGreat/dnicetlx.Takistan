@@ -12,11 +12,12 @@ if(animationstate _civ == "civilsitting03" or animationstate _civ == "civilsitti
 {
 
 (format ["%1 switchmove ""%2"";", _civ, "boundCaptive_unaErc"]) call broadcast;
+[_civ, "restrained", false] call player_set_bool;
 player groupchat "You released the player";
 
 };
 
-if(vehicle _civ != _civ)exitwith{player groupchat "The civ is in a vehicle!"};
+if(vehicle _civ != _civ)exitwith{player groupchat "The person is in a vehicle!"};
 if (!(_civ call dniceIsVictim)) exitwith {player groupchat localize "STRS_inventory_checknohandszip"};
 if(animationstate _civ == "CivilSitting") exitwith {player groupchat "Already ziptied"}; 
 
@@ -26,6 +27,7 @@ if(([player, "ziptie"] call INV_GetItemAmount) < 1 && (([player, "ziptie_don"] c
 
 (format ["%1 playmove ""%2"";", player, "AmovPercMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon"]) call broadcast;
 (format ["%1 switchmove ""%2"";", _civ, "CivilSitting"]) call broadcast;
+[_civ, "restrained", true] call player_set_bool;
 
 [player, 'ziptie',-1] call INV_AddInventoryItem;
 [player, 'ziptie_don',-1] call INV_AddInventoryItem;
