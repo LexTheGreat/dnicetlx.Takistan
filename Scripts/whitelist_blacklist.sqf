@@ -16,7 +16,7 @@ A_LIST_DEVS     =
 [
 	"245049094", // Fyodor
 	"247857670", //lilpwn
-	"76561198134427407" // Ja
+	"76561198134427407" //moj
 ];
 
 // Directors and Deputy Directors
@@ -31,6 +31,7 @@ A_LIST_DERPS	=
 A_LIST_SNADMINS	=
 [
 	"76561198043681651", //Mez
+	"76561198101924418", //Lex_the_great
 	"000000" //placeholder
 		//"76561198018896118" //Willigsire
 	//"76561198154237291" //Garcia
@@ -47,10 +48,10 @@ A_LIST_ADMINS	=
 	"171689606", //Greasy
 	//"76561198093831210",//Turtles
 	"76561198124176578", //1st Lt Monkey
-	"76561198101924418", //Lex_the_great
 	"76561198139401322", //Mu'tasim Asadullah
 	"76561198053580599", //MartinAleksander
-	//"76561198119216004", //Heaven
+	"76561198080206289", //Cole
+	"76561198160921083", //PastyHoneybuns
 	"136274630" // SS Jarhead
 ];
 
@@ -61,27 +62,14 @@ A_LIST_ADMINS	=
 A_LIST_MODS	=
 [
 	"243766406", //Switch
-	//"76561198083468675", //DexTer
-	//"76561198049714505", //Laptopwarrior/GriswoldLog
-	//"76561198107780908", //Chris/Psycho
-	//"76561198093692248", //Oooohkillem
-	"76561198080206289", //Cole
-	//"76561198015154477", //LeadMagnet
-	//"76561198141964948", //Dreams
-	//"76561198133152953", //Lemmings
-	//"76561198121446470", //SIR
-	//"76561198021622967", //Trooper1030
-	//"76561198134919635", //LordWookie
-	//"76561198069165434", //Tengum
-	"76561198055956102", //Col. M Reid
-	//"76561198097364044", //Sheriff Mccgringleberry
-	//"76561198110859316", //Bmac
 	"76561198093692248", //Oooohkillem
-	"76561198160921083", //PastyHoneybuns
 	"76561198063832142", //DrinkyCrow
 	"76561198134796571", //Canadian Bacon T2
 	"76561198035381118", //Bermis Wukun
 	"76561198071078533", //Lucid Hysteria
+	"76561198094294502", //Unknown
+	"76561198074752188", //Wolfgang
+	"76561197984064803", //BeardedDeath
 	"000000" //Placeholder
 ];
 

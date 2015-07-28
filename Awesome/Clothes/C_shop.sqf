@@ -111,7 +111,7 @@ Clothes =
 ["CIV_TK_WOM1",				"TK_CIV_Woman01_EP1",						"CIV TK Woman Burqa",					civilian,		faction player,		isciv,		25000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["CIV_TK_WOM2",				"TK_CIV_Woman02_EP1",						"CIV TK Woman Scarf Black",					civilian,		faction player,		isciv,		25000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["CIV_TK_WOM3",				"TK_CIV_Woman03_EP1",						"CIV TK Woman Scarf Brown",					civilian,		faction player,		isciv,		25000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-
+["CIV_WOLF",				"Goat01_EP1",						"CIV Wolf in Sheeps Clothing",					civilian,		faction player,		isciv,		25000,		["wolflicense"],		[],		["light"],		[0,1,2,3,4,5]	],
 ["CIV_CH_DOC",				"Doctor",						"CIV CH Doctor",						civilian,		faction player,		isciv,		25000,		["paramedic_license"],		[],		["light"],		[0,1,2,3,4,5]	],
 
 
@@ -138,6 +138,9 @@ Clothes =
 ["CZ_BONG",					"GER_Soldier_MG_EP1",			"Bong Lord",						    west, 			"BIS",			iscop,		500000,		["bonglicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_COLE",					"US_Delta_Force_Undercover_Takistani06_EP1",			"The Original Bond",						    west, 			"BIS",			iscop,		500000,		["colelicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_RECK",					"GER_Soldier_TL_EP1",			"The Recker",						    west, 			"BIS",			iscop,		500000,		["recklicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["CZ_NORD",					"US_Delta_Force_Marksman_EP1",			"Martin the Nord",						    west, 			"BIS",			iscop,		500000,		["nordlicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["CZ_SHEP",					"GER_Soldier_TL_EP1",			"Shep Herder",						    west, 			"BIS",			iscop,		500000,		["sheplicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["CZ_WOLF",					"US_Delta_Force_Undercover_Takistani06_EP1",			"Undercover Wolf",						    west, 			"BIS",			iscop,		500000,		["wolflicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 
 ["OPF_AZIZ",				"TK_Aziz_EP1",					"OPF AZIZ",								east,			"BIS_TK",			isopf,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["OPF_CMD",					"TK_Commander_EP1",				"OPF COMMANDER",						east,			"BIS_TK",			isopf,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
@@ -171,6 +174,9 @@ Clothes =
 ["OPF_RU_SOFF",				"RUS_Commander",				"OPF RU Spetsnaz Officer",				east,			"BIS_TK",			isopf,		200000,		["soviet_vehicles", "soviet_air_veh"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["OPF_RU_SO",				"RUS_Soldier1",					"OPF RU Spetsnaz Operator",				east,			"BIS_TK",			isopf,		150000,		["soviet_vehicles", "soviet_air_veh"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["OPF_INS_SAB",				"Ins_Soldier_Sab",					"OPF GRU Specops Commando",				east,			"BIS_TK",			isopf,		150000,		["soviet_vehicles", "soviet_air_veh"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
+["OPF_DRUNK",				"FR_TL",						"OPF Propaganda Minister",				east,			"BIS_TK",			isopf,		150000,		["drunklicense"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
+["OPF_WOLF",				"CDF_Soldier_Militia",						"OPF Wolf Militia",				east,			"BIS_TK",			isopf,		150000,		["wolflicense"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
+
 
 ["INS_BS",					"TK_INS_Bonesetter_EP1",		"INS BONESETTER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["INS_M1",					"TK_INS_Soldier_2_EP1",			"INS MILITIAMAN 1",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
@@ -185,6 +191,7 @@ Clothes =
 ["INS_SN",					"TK_INS_Soldier_Sniper_EP1",	"INS SNIPER",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["INS_TL",					"TK_INS_Soldier_TL_EP1",		"INS TEAM LEADER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
 ["INS_WL",					"TK_INS_Warlord_EP1",			"INS WARLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+["INS_WOLF",					"TK_INS_Warlord_EP1",			"INS WOLFLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		["wolflicense"],		[],		["light"],		[0,1,2,3,4,5]	],
 
 ["INS_CH_WL1",				"Ins_Bardak",					"INS CH Commander #1",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
 ["INS_CH_WL2",				"Ins_Lopotev",					"INS CH Commander #2",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
@@ -338,6 +345,7 @@ CSL_CIV_1 =
 "CIV_TK_WOM1",
 "CIV_TK_WOM2",
 "CIV_TK_WOM3",
+"CIV_WOLF",
 "CIV_CH_DOC"
 ];
 
@@ -373,6 +381,7 @@ CSL_CIV_2 =
 "CIV_CH_WOK2",
 "CIV_CH_WOK3",	
 "CIV_CH_WOK4",
+"CIV_WOLF",
 "CIV_CH_DOC"
 ];
 
@@ -398,6 +407,9 @@ CSL_UN_1 =
 "CZ_BONG",
 "CZ_COLE",
 "CZ_RECK",
+"CZ_NORD",
+"CZ_SHEP",
+"CZ_WOLF",
 "CZ_SOLID"
 ];
 
@@ -415,7 +427,8 @@ CSL_INS_1 =
 "INS_MG",
 "INS_SN",
 "INS_TL",
-"INS_WL"
+"INS_WL",
+"INS_WOLF"
 ];
 
 CSL_OPF_1 = 
@@ -442,6 +455,8 @@ CSL_OPF_1 =
 "OPF_RU_SASS",
 "OPF_RU_SOFF",
 "OPF_RU_SO",
+"OPF_DRUNK",
+"OPF_WOLF",
 "OPF_INS_SAB"
 ];
 

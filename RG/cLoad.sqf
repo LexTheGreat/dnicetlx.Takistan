@@ -207,6 +207,18 @@ if (_uid == "76561198079002512") then {INV_LicenseOwner = INV_LicenseOwner + ["r
 if (_uid == "76561198081926401") then {INV_LicenseOwner = INV_LicenseOwner + ["karmalicense"];
 			server globalchat "Don't be a bitch, cause Karma's a bitch: KarmaIsABitch License Added";
 };
+if (_uid == "76561198053580599") then {INV_LicenseOwner = INV_LicenseOwner + ["nordlicense"];
+			server globalchat "Nordic License Added";
+};
+if (_uid == "76561198063832142") then {INV_LicenseOwner = INV_LicenseOwner + ["drunklicense"];
+			server globalchat "Drunk Minister License Added";
+};
+if (_uid == "76561198133658655") then {INV_LicenseOwner = INV_LicenseOwner + ["sheplicense"];
+			server globalchat "Shep Herder License Added";
+};
+if (_uid == "76561198074752188") then {INV_LicenseOwner = INV_LicenseOwner + ["wolflicense"];
+			server globalchat "Wolfgang License Added";
+};
 
 
 
