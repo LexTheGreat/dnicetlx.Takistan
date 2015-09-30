@@ -13,7 +13,7 @@ if (_art == "start_martial") then
 	};
 	if(martialstatus) then {
 		MessageText = "Martial Law has been lifted in Rasman ";
-		scode = format ['titleText ["%1", "PLAIN"];liafu = true;', MessageText];
+		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=false;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
 		processInitCommands;
@@ -23,7 +23,7 @@ if (_art == "start_martial") then
 	}
 	else {
 		MessageText = "Martial Law has been declared in Rasman \n Civilians, you may be searched and held by the police at will";
-		scode = format ['titleText ["%1", "PLAIN"];liafu = true;', MessageText];
+		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=true;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
 		processInitCommands;

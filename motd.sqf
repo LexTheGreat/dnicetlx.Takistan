@@ -1,5 +1,5 @@
 hint "Make sure you read the TLX tabs on map before playing";
-server globalchat "[Server Message]Welcome to D-Nice's Takistan Life Xtreme";
+server globalchat "[Server Message]Welcome to Takistan Life Xtreme";
 custom_motd = nil;
 while {true} do {
 	{server globalChat format["[MoTD] %1", _x]} forEach [

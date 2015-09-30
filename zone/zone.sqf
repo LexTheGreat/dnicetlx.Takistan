@@ -53,7 +53,7 @@ zone_capture = {
 		sleep 5;
 	};
     capturing = false;
-    // Check if near, if not cancel. Should stop it from cap'n if killed
+    // Check if near, if not cancel. Should stop it from cap'n
     if (getPosASL player distance _lockpos > 1 || _capCancelled) exitWith {
 		[_zone, _oldColor] call zone_setCapping;
         hint 'Flag Capture Interrupted';

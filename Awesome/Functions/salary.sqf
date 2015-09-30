@@ -8,7 +8,7 @@ cop_salary_handout = {
 
 	private["_income"];
 	_income = add_copmoney;
-
+	
 	if ("patrol_training" call INV_HasLicense) then {
 		_income = _income + 5000;
 	};
@@ -32,7 +32,7 @@ cop_salary_handout = {
 	if(iscop) then {
 		_bluZone = ['bluforZone'] call zone_getOwner;
 		if (_bluZone == resistance || _bluZone == east) then {
-			_income = _income*(0.5);
+			_income = _income*(0.2);
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
 		};
 	};
@@ -133,7 +133,7 @@ civilian_salary_handout = {
 	if(isopf) then {
 		_opfZone = ['opforZone'] call zone_getOwner;
 		if (_opfZone == resistance || _opfZone == west) then {
-			_income = _income*(0.5);
+			_income = _income*(0.2);
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
 		};
 	};
@@ -201,7 +201,8 @@ civilian_salary_handout = {
             };
             _income = _admincashbonus + _donatorcashbonus;
 			
-			if(!isciv) then {
+			// Disabled for bonus
+			/*if(!isciv) then {
 				if(iscop) then {
 					_bluZone = ['bluforZone'] call zone_getOwner;
 					if (_bluZone == resistance || _bluZone == east) then {
@@ -222,7 +223,7 @@ civilian_salary_handout = {
 						};
 					};
 				};
-			};
+			};*/
 			
             if (_income > 0) then
             {

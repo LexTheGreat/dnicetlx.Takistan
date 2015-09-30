@@ -127,7 +127,6 @@ donators1 	  = [
 					"76561198104647520", //AL3RT
 					//"76561198119668286", //Veryhappy
 					"76561198135788672", //Harees a laykum
-					"76561198094294502", //Unkown /gregory
 					"76561198074002335", //Graham Enjin
 					"76561198051253668", //Gus/Leah
 					"76561198035282340", //Kwazine
@@ -171,7 +170,8 @@ donators1 	  = [
 					"76561198112314720", //gdies
 					"76561198185294739", //Awmaster2015
 					"76561198088068336", //DrSpreadEm
-					"76561198144636471" //Sw!tch $15
+					"76561198144636471", //Sw!tch $15
+					"76561198066340114" //DeadMenRacing $10
 		    ];
 
 // Remember the Array format! No comma on last item in array!
@@ -437,8 +437,9 @@ donatorsVIP     = [
 				"76561198063832142", //DrinkyCrow
 				"76561198127065101", //=WoA=BlackHawk
 				"76561198035305504", //n.shoupp
-				"76561198134427407"//Ja
-				//"76561198100072934" //NESKOVICH
-
+				"76561198134427407", //Ja
+				"76561198094294502", //Unkown /gregorys
+				"76561198100072934" //NESKOVICH
+			
 			];
 

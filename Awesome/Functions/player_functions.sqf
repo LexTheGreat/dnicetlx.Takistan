@@ -2613,7 +2613,7 @@ player_escape_menu_check = { _this spawn {
 			_ctrlres = _this select 0;
 			_abortctrl = _this select 1;
 			_stext = ctrlText _ctrlres;
-			_atext = ctrlText _abortctrl + "| DNiceCryEvrytim";
+			_atext = ctrlText _abortctrl + "| Anti-Combat Log";
 			private["_i"];
 			_ctrlres buttonSetAction "respawnButtonPressed = true;";
 			for "_i" from 30 to 1 step -1 do {

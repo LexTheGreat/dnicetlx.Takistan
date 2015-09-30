@@ -120,8 +120,8 @@ class Mission
 	randomSeed=4402856;
 	class Intel
 	{
-		briefingName="Takistan Life Xtreme 1.3 by D-Nice";
-		briefingDescription="Taki Mafucking XTREMEEEEE";
+		briefingName="Takistan Life Xtreme 1.3";
+		briefingDescription="TLX is BACK!!!";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;

@@ -32,10 +32,15 @@ Copyright (C) 2011  Matthew Simms
 			if(!warstatus) then {
 				_war = "PEACE";
 				_warcol = "#347c17";
+				if(!(isNil 'martialstatus')) then {
+					if(martialstatus) then {
+						_warcol = "#ffff00";
+					};
+				};
 			}
 			else {
 				if(peacecomps) then {
-					_war = "CEASFIRE";
+					_war = "CEASEFIRE";
 					_warcol = "#ffff00";
 				}
 				else {
@@ -44,7 +49,15 @@ Copyright (C) 2011  Matthew Simms
 				};
 			};
 			
-			((RPP_display_ui select 0) displayCtrl 1) ctrlSetStructuredText parseText format["<t align='right' size='1.15'><t shadow='1'shadowColor='#000000'><t color='#347c17'>Health: <t color='%2'>%1 <t color='#ff8400'><br/>Server Uptime: %3 Min <br/><t color='%4'>%5<br/><t color='#E8E06F'> Teamspeak: 192.99.46.21</t></t>", _health, _healthtextcol, (round(time/60)),_warcol,_war];
+			if(!(isNil 'martialstatus')) then {
+				if(martialstatus) then {
+					_war = format["%1 | Martial Law", _war];
+				};
+			};
+			
+			
+			
+			((RPP_display_ui select 0) displayCtrl 1) ctrlSetStructuredText parseText format["<t align='right' size='1.15'><t shadow='1'shadowColor='#000000'><t color='#347c17'>Health: <t color='%2'>%1 <t color='#ff8400'><br/>Server Uptime: %3 Min <br/><t color='%4'>%5<br/><t color='#E8E06F'> Teamspeak: 162.248.91.190</t></t>", _health, _healthtextcol, (round(time/60)),_warcol,_war];
 			sleep 1;
 	};
 };

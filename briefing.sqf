@@ -133,11 +133,11 @@ player createDiaryRecord ["credits",
 [
 "Staff and TS3",
 "
-Admin: [TLX] D-Nice<br/>
+Owner: [TLX] Unknown<br/>
 TS3 Info;<br/>
 Address: On right hand side :)<br/>
 Mission build: 1.0<br/>
-Current version developed by: [TLX] D-Nice, [TLX] Lex_The_Great<br/>
+Current version developed by: D-Nice, [TLX] Lex_The_Great<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
 ]
@@ -147,10 +147,9 @@ player createDiaryRecord ["bugs",
 [
 "Boogies",
 "
-Please report bugs to my e-mail or TS!<br/>
+Please report bugs to the Website or TS!<br/>
 Website: TLX-gaming.enjin.com <br/>
-E-mail: dhawt11@gmail.com<br/>
-Teamspeak: 192.99.46.21<br/>
+Teamspeak: 162.248.91.190<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
@@ -236,7 +235,7 @@ $100 = 50M Start + 1M extra salary + 500kg inventory + TWS weapons and other exc
 
 player createDiaryRecord ["changelog",
 [
-"D-Nice's Takistan Life Xtreme",
+"Takistan Life Xtreme",
 "
 <br/>
 August 14, 2014<br/>

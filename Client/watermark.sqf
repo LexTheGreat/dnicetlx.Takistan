@@ -1,4 +1,4 @@
-watermark_text = "DNICE TakiLife";
+watermark_text = "TLX";
 sleep 1;
 
 //Watermark

@@ -26,7 +26,8 @@ A_LIST_DERPS	=
 A_LIST_SNADMINS	=
 [
 	"76561198094294502", // Unknown
-	"76561198101924418" //Lex_the_great
+	"76561198101924418", //Lex_the_great
+	"76561198154237291" //SGT E. Garcia
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -36,7 +37,7 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"76561198124176578", //1st Lt Monkey
-	"76561198160921083" //PastyHoneybuns
+	"76561198139401322" //Mu'Tasim
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -45,7 +46,7 @@ A_LIST_ADMINS	=
 
 A_LIST_MODS	=
 [
-	"000000" //Placeholder
+	"76561198160921083" //PastyHoneybuns
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;

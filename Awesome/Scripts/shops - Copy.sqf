@@ -4,22 +4,20 @@ shop_list_item = 0;
 shop_list_stock = 1;
 shop_list_stock_max = 2;
 
-["LandRover_MG_TK_EP1", -1, -1],
-
 _generalstore = 
 	[
 		["Fuelline", 80, 160],
-		["kanister", 80, 80],
-		["kleinesreparaturkit", 40, 40],
-		["Bread", 20, 40],
+		["kanister", 80, 180],
+		["kleinesreparaturkit", 40, 140],
+		["Bread", 20, 140],
 		["boar", -1, -1],
-		["medikit", 0, 10],
+		["medikit", 10, 110],
 		["handy", -1, -1],
 		["lighter", -1, -1],
 		["fishingpole", -1, -1],
 		["Stone", -1, -1],
-		["ziptie", 10, 20],
-		["Binocular", 180, 180],
+		["ziptie", 80, 100],
+		["Binocular", 120, 180],
 		["GPS", 140, 180]
 	];
 
@@ -200,9 +198,6 @@ _as =
 		["MV22", 5, 10],
 		["An2_1_TK_CIV_EP1", 5, 10],
 		["An2_2_TK_CIV_EP1", 5, 10],
-		["L39", 0, 5],
-		["Su25_civ",0, 5],
-		["Su34_civ",0, 5],
 		["C130J", 5, 5]
 	];
 
@@ -217,10 +212,7 @@ _as_1 =
 		["MV22", 10, 10],
 		["An2_1_TK_CIV_EP1", 10, 10],
 		["An2_2_TK_CIV_EP1", 10, 10],
-		["L39", 10, 10],
-		["Su25_civ",5, 5],
-		["Su34_civ",5, 5],
-		["C130J", 5, 5]
+		["C130J", 2, 5]
 	];
 
 //Hospital Doctor
@@ -485,6 +477,7 @@ _pmcs        =
 		["Binocular_Vector", -1, -1],
 		["Laserdesignator", -1, -1],
 		["Laserbatteries", -1, -1],
+		["ziptie", -1, -1],
 		["lockpick", -1, -1],
 		["medikit", -1, -1],
 		["kleinesreparaturkit", -1, -1],
@@ -782,8 +775,8 @@ _copshop_sobr =
 		["SMAW_HEDP", -1, -1],
 		["M47Launcher_EP1", -1, -1],
 		["Dragon_mag", -1, -1],	
-		/*["Stinger", -1, -1],
-		["Stinger_mag", -1, -1],*/
+		["Stinger", -1, -1],
+		["Stinger_mag", -1, -1],
 		["M32", -1, -1],
 		["Rnd_HE", -1, -1],
 		["Rnd_Smoke", -1, -1],
@@ -1092,6 +1085,8 @@ _igs =
 		["PG7V",  -1, -1],
 		["PG7VR", -1, -1],
 		["PG7VL", -1, -1],
+		["Igla", -1, -1],
+		["Igla_mag", -1, -1],
 		["OG7", -1, -1],
 		["RPG18", -1, -1],
 		["RPG18_mag", -1, -1],
@@ -1269,7 +1264,7 @@ _rgs =
 		["Rnd_762x39_SA58", -1, -1],
 		["PK", -1, -1],
 		//["Pecheneg", -1, -1],
-		//["Rnd_762x54_PK", -1, -1],
+		["Rnd_762x54_PK", -1, -1],
 		["SVD", -1, -1],
 		["SVD_CAMO", -1, -1],
 		["SVD_des_EP1", -1, -1],
@@ -1700,6 +1695,7 @@ _cdws =
 		["kanister_don", -1 , -1],
 		["ziptie_don", -1, -1],
 		["reparaturkit_don",-1 , -1],
+		["vclammo", -1, -1],
 		["UZI_SD_EP1_don",-1,-1],
 		["Rnd_9x19_UZI_SD_don",-1,-1],
 		["M9SD_don",-1,-1],
@@ -1727,6 +1723,9 @@ _cdws =
 		["Rnd_45ACP_don", -1, -1],
 		["CZ_550_don", -1, -1],
 		["x_22_LR_17_HMR_don", -1, -1],
+		["AKS74kobra_don", -1, -1],
+		["AKS74U_don", -1, -1],
+		["Rnd_545x39_AK_don", -1, -1],
 		["AKS_GOLD_don", -1, -1],
 		["AK_47_M_don", -1, -1],
 		["AK_47_S_don", -1, -1],
@@ -1786,6 +1785,7 @@ _cpdws =
 		["kanister_don", -1 , -1],
 		["ziptie_don", -1, -1],
 		["reparaturkit_don",-1 , -1],
+		["vclammo", -1, -1],
 		["UZI_SD_EP1_don",-1,-1],
 		["Rnd_9x19_UZI_SD_don",-1,-1],
 		["M9SD_don",-1,-1],
@@ -1902,6 +1902,7 @@ _idws =
 		["kanister_don", -1 , -1],
 		["ziptie_don", -1, -1],
 		["reparaturkit_don",-1 , -1],
+		["vclammo", -1, -1],
 		["UZI_SD_EP1_don",-1,-1],
 		["Rnd_9x19_UZI_SD_don",-1,-1],
 		["M9SD_don",-1,-1],
@@ -2018,6 +2019,7 @@ _odws =
 		["kanister_don", -1 , -1],
 		["ziptie_don", -1, -1],
 		["reparaturkit_don",-1 , -1],
+		["vclammo", -1, -1],
 		["UZI_SD_EP1_don",-1,-1],
 		["Rnd_9x19_UZI_SD_don",-1,-1],
 		["M9SD_don",-1,-1],
@@ -2078,6 +2080,7 @@ _vipshop =
 	["medikit_vip", -1, -1],
 	["kleinesreparaturkit_vip", -1, -1],
 	["reparaturkit_vip", -1, -1],
+	["vclammo", -1, -1],
 	["kanister_vip", -1, -1],
 	["supgrade5_vip", -1, -1],
 	["nitro_vip", -1, -1],
@@ -2167,7 +2170,7 @@ _newsstationair =
 				
 ];
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+
 INV_ItemShops_Object = 0;
 INV_ItemShops_Name = 1;
 INV_ItemShops_Crate = 2;
@@ -2357,14 +2360,14 @@ if (isServer) then {
                         _array = _x;
                         _max = _array select shop_list_stock_max;
 						_newMax set [count _newMax, _max];
-                } forEach _buyList;
+                } count _buyList;
                 INV_ItemMaxStocks set [_i, _newMax];
                 _i = _i + 1;
         };
         publicVariable "INV_ItemMaxStocks";
 };
 
-//buidld the INV_ItemStocks array
+//build the INV_ItemStocks array
 if (isServer) then {
         INV_ItemStocks = [];
         private["_i"];
@@ -2381,21 +2384,21 @@ if (isServer) then {
                         _array = _x;
                         _max = _array select shop_list_stock;
                         _newStock set [count _newStock, _max];
-                } forEach _buyList;
+                } count _buyList;
 
                 INV_ItemStocks set [_i, _newStock];
                 _i = _i + 1;
         };
         publicVariable "INV_ItemStocks";
 };
+
+	
 //SHOULD REPLACE WITH FOR LOOP THEN TRY FOREACH
 //buidld the INV_ItemShops array
-private["_i"];
-_i = 0;
-while { _i < (count INV_ItemShops) } do {
+{
         private["_newArray", "_buyList", "_sellList", "_newBuy", "_newSell"];
         
-        _newArray = INV_ItemShops select _i;
+        _newArray = _x;
         _buyList = _newArray select INV_ItemShops_BuyList;
         _sellList = _newArray select INV_ItemShops_SellList;
         
@@ -2407,23 +2410,22 @@ while { _i < (count INV_ItemShops) } do {
                 _array = _x;
                 _item = _array select shop_list_item;
                 _newSell set[count _newSell, _item];
-        } forEach _sellList;
+        } count _sellList;
         
         {
                 private["_array", "_item"];
                 _array = _x;
                 _item = _array select shop_list_item;
                 _newBuy set[count _newBuy, _item];
-        } forEach _buyList;
+        } count _buyList;
         
         _newArray set[INV_ItemShops_BuyList, _newBuy];
         _newArray set[INV_ItemShops_SellList, _newSell];
         
-        INV_ItemShops set[_i, _newArray];
-        _i = _i + 1;
-};
-
-if (isClient) then {
+        INV_ItemShops set[_forEachIndex, _newArray];
+} forEach INV_ItemShops;
+	
+/*if (isClient) then {
         waitUntil { not(isNil "INV_ItemStocks") };
         waitUntil { not(isNil "INV_ItemMaxStocks") };
-};
+};*/
