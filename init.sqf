@@ -23,7 +23,7 @@ debug = false;
 //////////////////////////
 server globalChat "Initializing Xtreme Takistan Life.......";
 
-_h = [] execVM "donators.sqf";
+_h = [] execVM "supporters.sqf";
 waitUntil{scriptDone _h};
 
 _h = [] execVM "Awesome\Functions\encodingfunctions.sqf";

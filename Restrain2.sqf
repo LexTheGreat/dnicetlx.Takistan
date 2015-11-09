@@ -15,7 +15,7 @@ player groupchat "You released the civilian!";
 
 if(vehicle _civ != _civ)exitwith{player groupchat "the civ is in a vehicle!"};
 
-if ("ziptie" call INV_GetItemAmount < 1 && "ziptie_vip" call INV_GetItemAmount < 1 && "ziptie_don" call INV_GetItemAmount < 1) exitwith {player groupchat "You need a zip tie in your inventory in order to use this."};
+if ("ziptie" call INV_GetItemAmount < 1 && "ziptie_vip" call INV_GetItemAmount < 1 && "ziptie_sup" call INV_GetItemAmount < 1) exitwith {player groupchat "You need a zip tie in your inventory in order to use this."};
 if (!(_civ call dniceIsVictim)) exitwith {player groupchat localize "STRS_inventory_checknohands"};
 
 (format ["%1 switchmove ""%2"";", _civ, "civillying01"]) call broadcast;

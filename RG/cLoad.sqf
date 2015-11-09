@@ -1,5 +1,5 @@
 startmoneh = 100000;
-donatormoneh = 3000000;
+supportermoneh = 3000000;
 silvermoneh = 6000000;
 goldmoneh = 12000000;
 platinummoneh = 25000000;
@@ -14,22 +14,22 @@ vipmoneh = 50000000;
 private["_uid"];
 _uid = getPlayerUID player;
 
-if (_uid in donators1) then {
-    startmoneh = donatormoneh;
+if (_uid in supporters1) then {
+    startmoneh = supportermoneh;
 }
-else { if (_uid in donators2) then {
+else { if (_uid in supporters2) then {
     startmoneh = silvermoneh;
 	INV_CarryingCapacity = 100;
 }
-else { if (_uid in donators3) then {
+else { if (_uid in supporters3) then {
     startmoneh = goldmoneh;
 	INV_CarryingCapacity = 200;
 }
-else { if (_uid in donators4) then {
+else { if (_uid in supporters4) then {
 	INV_CarryingCapacity = 300;
     startmoneh = platinummoneh;
 }
-else { if (_uid in donatorsVIP) then {
+else { if (_uid in supportersVIP) then {
     startmoneh = VIPmoneh;
 	INV_CarryingCapacity = 500;
 };};};};};
@@ -175,51 +175,139 @@ if (isNil "bankstatsareloaded") then {
 statsLoaded = 1;
 
 
-if ((isdon) && !("donator" call INV_HasLicense)) then {
-INV_LicenseOwner = INV_LicenseOwner + ["donator"];
-server globalchat "DONATOR ACCOUNT DETECTED: Donator License Added";};
+if ((issup) && !("supporter" call INV_HasLicense)) then {
+INV_LicenseOwner = INV_LicenseOwner + ["supporter"];
+server globalchat "supporter ACCOUNT DETECTED: supporter License Added";};
 
 if ((isvip) && !("viplicense" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["viplicense"];
-server globalchat "VIP DONATOR ACCOUNT DETECTED: VIP Donator License Added";};
+server globalchat "VIP supporter ACCOUNT DETECTED: VIP supporter License Added";};
 
 if ((ispmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
 			server globalchat "PMC ACCOUNT DETECTED: PMC License Added"};
 			
-if (_uid == "76561198068079024") then {INV_LicenseOwner = INV_LicenseOwner + ["mgslicense"];
-			server globalchat "FOXHOUND MEMBER DETECTED: METAL GEAR License Added";
-};
-if (_uid == "76561198047477296" || _uid == "76561198080206289" || _uid == "76561198072033337" || _uid == "76561198114597817" || _uid == "76561198068098093" || _uid == "76561198141964948") then {INV_LicenseOwner = INV_LicenseOwner + ["jarlicense"];
-			server globalchat "A wild Jarhead appears: Jarhead License Added";
-};
-if (_uid == "76561198046673227" || _uid == "76561198155614911" || _uid == "76561198118377646") then {INV_LicenseOwner = INV_LicenseOwner + ["bonglicense"];
-			server globalchat "Friendly Neighborhood Drug Dealer Identified: Bong Reseller License Added";
-};
-if (_uid == "76561198084473560" || _uid == "76561198078405272") then {INV_LicenseOwner = INV_LicenseOwner + ["grelllicense"];
-			server globalchat "SS Totenkopf Identified: SS License Added";
-};
-if (_uid == "76561198139401322") then {INV_LicenseOwner = INV_LicenseOwner + ["colelicense"];
-			server globalchat "The Name is Bond: Bond License Added";
-};
-if (_uid == "76561198079002512") then {INV_LicenseOwner = INV_LicenseOwner + ["recklicense"];
-			server globalchat "Reck License Added";
-};
-if (_uid == "76561198081926401") then {INV_LicenseOwner = INV_LicenseOwner + ["karmalicense"];
-			server globalchat "Don't be a bitch, cause Karma's a bitch: KarmaIsABitch License Added";
-};
-if (_uid == "76561198053580599") then {INV_LicenseOwner = INV_LicenseOwner + ["nordlicense"];
-			server globalchat "Nordic License Added";
-};
-if (_uid == "76561198063832142") then {INV_LicenseOwner = INV_LicenseOwner + ["drunklicense"];
-			server globalchat "Drunk Minister License Added";
-};
-if (_uid == "76561198133658655") then {INV_LicenseOwner = INV_LicenseOwner + ["sheplicense"];
-			server globalchat "Shep Herder License Added";
-};
-if (_uid == "76561198074752188") then {INV_LicenseOwner = INV_LicenseOwner + ["wolflicense"];
-			server globalchat "Wolfgang License Added";
+			
+// Custom License
+mgslicense = [
+	"76561198068079024",
+	"76561198000426604",
+	"76561198094294502",
+	"76561198154237291"
+];
+jarlicense = [
+	"76561198047477296",
+	"76561198080206289",
+	"76561198072033337",
+	"76561198114597817",
+	"76561198068098093",
+	"76561198141964948",
+	"76561198094294502",
+	"76561198154237291"
+];
+bonglicense = [
+	"76561198046673227",
+	"76561198155614911",
+	"76561198118377646",
+	"76561198094294502",
+	"76561198154237291"
+];
+SSLicense = [
+	"76561198084473560",
+	"76561198078405272",
+	"76561198094294502",
+	"76561198154237291"
+];
+colelicense = [
+	"76561198139401322",
+	"76561198094294502",
+	"76561198154237291"
+];
+recklicense = [
+	"76561198079002512",
+	"76561198094294502",
+	"76561198154237291"
+];
+karmalicense = [
+	"76561198081926401",
+	"76561198094294502",
+	"76561198154237291"
+];
+nordlicense = [
+	"76561198053580599",
+	"76561198094294502",
+	"76561198154237291"
+];
+drunklicense = [
+	"76561198063832142",
+	"76561198000426604",
+	"76561198094294502",
+	"76561198154237291"
+];
+sheplicense = [
+	"76561198133658655",
+	"76561198094294502",
+	"76561198154237291"
+];
+wolflicense = [
+	"76561198074752188",
+	"76561198000426604",
+	"76561198094294502",
+	"76561198154237291"
+];
+
+// ------------
+
+if((getPlayerUID player) in mgslicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["mgslicense"];
+	server globalchat "FOXHOUND MEMBER DETECTED: METAL GEAR License Added";
 };
 
+if((getPlayerUID player) in jarlicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["jarlicense"];
+	server globalchat "A wild Jarhead appears: Jarhead License Added";
+};
 
+if((getPlayerUID player) in bonglicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["bonglicense"];
+	server globalchat "Friendly Neighborhood Drug Dealer Identified: Bong Reseller License Added";
+};
 
+if((getPlayerUID player) in SSLicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["grelllicense"];
+	server globalchat "SS Totenkopf Identified: SS License Added";
+};
 
+if((getPlayerUID player) in colelicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["colelicense"];
+	server globalchat "The Name is Bond: Bond License Added";
+};
+
+if((getPlayerUID player) in recklicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["recklicense"];
+	server globalchat "Reck License Added";
+};
+
+if((getPlayerUID player) in karmalicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["karmalicense"];
+	server globalchat "Don't be a bitch, cause Karma's a bitch: KarmaIsABitch License Added";
+};
+
+if((getPlayerUID player) in nordlicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["nordlicense"];
+	server globalchat "Nordic License Added";
+};
+
+if((getPlayerUID player) in drunklicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["drunklicense"];
+	server globalchat "Drunk Minister License Added";
+};
+
+if((getPlayerUID player) in sheplicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["sheplicense"];
+	server globalchat "Shep Herder License Added";
+};
+
+if((getPlayerUID player) in wolflicense) then {
+	INV_LicenseOwner = INV_LicenseOwner + ["wolflicense"];
+	server globalchat "Wolfgang License Added";
+};

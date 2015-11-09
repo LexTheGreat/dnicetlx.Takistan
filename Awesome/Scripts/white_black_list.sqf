@@ -1,5 +1,5 @@
 /*
-A_LIST_DONATORS = [];
+A_LIST_supporterS = [];
 
 A_LIST_DERPS	=
 [
@@ -151,7 +151,7 @@ A_WBL_F_DIALOG_INIT = {
 	if (isAdmin) then {
 		_DFML_TITLE_1_DESC ctrlSetText format["UID		-		TYPE"];
 		_DFML_TITLE_2_DESC ctrlSetText format["UID		-		TYPE"];
-		_DFML_TITLE_3_DESC ctrlSetText format["UID	-	NAME	-	SLOT	- In White List?	-	In Black List?		-		In Admin List?		-		In Donator List?"];
+		_DFML_TITLE_3_DESC ctrlSetText format["UID	-	NAME	-	SLOT	- In White List?	-	In Black List?		-		In Admin List?		-		In supporter List?"];
 	} else {
 		_DFML_TITLE_1_DESC ctrlSetText format["UID"];
 		_DFML_TITLE_2_DESC ctrlSetText format["UID"];
@@ -215,7 +215,7 @@ A_WBL_F_DIALOG_INIT = {
 								(_x),
 								(call compile format["""%1"" in %2;", _uid, _whiteList_variable]), 
 								(call compile format["""%1"" in %2;", _uid, _blackList_variable]),
-								(_uid in A_LIST_ADMINS), (_uid in A_LIST_DONATORS)
+								(_uid in A_LIST_ADMINS), (_uid in A_LIST_supporterS)
 							  ]
 						);
 					} 
@@ -579,7 +579,7 @@ A_WBL_GETTYPE_NUM = {
 
 	if (_uid in A_LIST_ADMINS or _uid in A_LIST_SNADMINS or _uid in A_LIST_DERPS) then {
 			_return = 0;
-	} else { if (_uid in A_LIST_DONATORS) then {
+	} else { if (_uid in A_LIST_supporterS) then {
 			_return = 1;
 	} else {
 		_return = 2;
@@ -603,7 +603,7 @@ A_WBL_GETTYPE_NAME = {
 			_return = "ADMIN";
 		};
 		case 1: {
-			_return = "DONATOR";
+			_return = "supporter";
 		};
 		case 2: {
 			_return = "PLAYER";

@@ -22,7 +22,7 @@ if (!(_civ call dniceIsVictim)) exitwith {player groupchat localize "STRS_invent
 if(animationstate _civ == "CivilSitting") exitwith {player groupchat "Already ziptied"}; 
 
 
-if(([player, "ziptie"] call INV_GetItemAmount) < 1 && (([player, "ziptie_don"] call INV_GetItemAmount) < 1 )) exitwith {player groupchat "You need a zip tie in your inventory in order to use this function."};
+if(([player, "ziptie"] call INV_GetItemAmount) < 1 && (([player, "ziptie_sup"] call INV_GetItemAmount) < 1 )) exitwith {player groupchat "You need a zip tie in your inventory in order to use this function."};
 
 
 (format ["%1 playmove ""%2"";", player, "AmovPercMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon"]) call broadcast;
@@ -30,6 +30,6 @@ if(([player, "ziptie"] call INV_GetItemAmount) < 1 && (([player, "ziptie_don"] c
 [_civ, "restrained", true] call player_set_bool;
 
 [player, 'ziptie',-1] call INV_AddInventoryItem;
-[player, 'ziptie_don',-1] call INV_AddInventoryItem;
+[player, 'ziptie_sup',-1] call INV_AddInventoryItem;
 (format['server globalchat "%3 was zip tied by %2";if (rolestring == "%1") then {execVM "Unziptie.sqf";}', _civ, name _player, name _civ]) call broadcast;
 

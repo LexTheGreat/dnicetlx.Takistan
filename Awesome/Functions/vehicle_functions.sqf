@@ -406,22 +406,22 @@ vehicle_set_modifications = {
 		};
 		case "SUV_TK_EP1_vip": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvdonator.paa"]'; 
+			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
-		case "SUV_UN_EP1_retex_don": {
+		case "SUV_UN_EP1_retex_sup": {
 			xorE=true;
 			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvpolice.paa"]'; 
 			processInitCommands;
 		};
-		case "SUV_TK_EP1_don": {
+		case "SUV_TK_EP1_sup": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvdonator.paa"]'; 
+			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_vip": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvdonator.paa"]'; 
+			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_news": {
@@ -458,13 +458,13 @@ vehicle_set_modifications = {
 			_vehicle addmagazine "100Rnd_762x51_M240";
 			_vehicle addmagazine "100Rnd_762x51_M240";
 		};
-		case "HMMWV_DES_EP1_don": {
+		case "HMMWV_DES_EP1_sup": {
 			if(not(_silent)) then { hint "Reconfiguring vehicle..."; };
 			_vehicle setvariable ["tuning", 3, true];
 		};
 		
 		
-		case "Ka60_PMC_don": {
+		case "Ka60_PMC_sup": {
 			if(not(_silent)) then { hint "Reconfiguring helicopter armament..."; };
 			_vehicle addmagazine "2000Rnd_762x51_M134";
 			_vehicle addweapon "TwinM134";
@@ -537,7 +537,7 @@ vehicle_set_modifications = {
 			//_vehicle addweapon "GAU8";
 			
 		};
-			case "F35B_don": {
+			case "F35B_sup": {
 			if(not(_silent)) then { hint "Reconfiguring plane armament...";};
 			//_vehicle addmagazine "1350Rnd_30mmAP_A10";
 			//_vehicle removeweapon "GAU12";
@@ -549,7 +549,7 @@ vehicle_set_modifications = {
 			
 			
 		};
-		case "F35B_don2": {
+		case "F35B_sup2": {
 			if(not(_silent)) then { hint "Reconfiguring plane armament...";};
 			_vehicle addmagazine "2Rnd_Sidewinder_F35";
 			_vehicle addmagazine "2Rnd_Sidewinder_F35";
@@ -569,7 +569,7 @@ vehicle_set_modifications = {
 			
 			
 		};
-		case "Su25_Ins_don": {
+		case "Su25_Ins_sup": {
 			if(not(_silent)) then { hint "Reconfiguring plane armament...";};
 			//_vehicle removeweapon "AirBombLauncher";
 			//_vehicle removeweapon "R73Launcher_2";

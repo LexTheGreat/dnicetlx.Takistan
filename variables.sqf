@@ -18,8 +18,8 @@ chiefBekommtSteuern      = 35;
 eigene_zeit              = time;
 victim_handle_open 		 = true;
 
-money_limit              = 99999999;
-bank_limit               = 99999999;
+money_limit              = 199999999;
+bank_limit               = 199999999;
 
 wantedbonus              = 100000;
 monehStehlenMax          = 2000000;

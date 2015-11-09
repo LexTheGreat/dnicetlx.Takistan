@@ -86,7 +86,6 @@ GCam_Trigger_Fire = false;
 GCam_Trigger_Eject = false;
 GCam_O = objnull;
 
-XOrer = true;
 GCam_S = false;
 GCam_X = 0.0;
 GCam_Y = 0.0;
@@ -1091,9 +1090,7 @@ _ClickSwitch =
 	{
 		_cs_change = true;
 		
-		//_cs_ol = [ nearestObjects [_c, ["AllVehicles"], 1500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
-		//_cs_ol = [ _c nearEntities [["AllVehicles"], 500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
-		_cs_ol = [ entities "AllVehicles" ] call _SelectObjects;
+		_cs_ol = [ nearestObjects [_c, ["AllVehicles"], 500+1100*(1.0-sqrt(_zm/2.0))] ] call _SelectObjects;
 		
 		if (_fo) then { _cs_ol = _cs_ol - [_cs_ol select 0] };
 		

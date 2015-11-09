@@ -129,8 +129,6 @@ class Extended_PostInit_EventHandlers
 
 //#include "CodePad.hpp"
 
-#include "gcam_component.hpp"
-
 #include "adminconsoldesc.hpp"
 
 

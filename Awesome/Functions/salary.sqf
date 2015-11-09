@@ -167,39 +167,39 @@ civilian_salary_handout = {
 
 	call shop_reset_paid_taxes;
 };
-    donator_salary_handout = {
+    supporter_salary_handout = {
      
             _uid = getPlayerUID player;
      
             _admincashbonus = 0;
-            _donatorcashbonus = 0;
+            _supportercashbonus = 0;
 			_income = 0;
 
             if (isStaff) then
             {
                     _admincashbonus                                 = 300000;
             };
-            if (_uid in donators1) then
+            if (_uid in supporters1) then
             {
-                    _donatorcashbonus                               = 100000;
+                    _supportercashbonus                               = 100000;
             };
-            if (_uid in donators2) then
+            if (_uid in supporters2) then
             {
-                    _donatorcashbonus                               = 300000;
+                    _supportercashbonus                               = 300000;
             };
-            if (_uid in donators3) then
+            if (_uid in supporters3) then
             {
-                    _donatorcashbonus                               = 500000;
+                    _supportercashbonus                               = 500000;
             };
-            if (_uid in donators4) then
+            if (_uid in supporters4) then
             {
-                    _donatorcashbonus                               = 750000;
+                    _supportercashbonus                               = 750000;
             };
-            if (_uid in donatorsVIP) then
+            if (_uid in supportersVIP) then
             {
-                    _donatorcashbonus                               = 1000000;
+                    _supportercashbonus                               = 1000000;
             };
-            _income = _admincashbonus + _donatorcashbonus;
+            _income = _admincashbonus + _supportercashbonus;
 			
 			// Disabled for bonus
 			/*if(!isciv) then {
@@ -229,7 +229,7 @@ civilian_salary_handout = {
             {
                 [player, _income] call transaction_bank;
 				sleep 2;
-                hint format["You recieved a bonus income of $%1. Thanks for donating to TLX!", _income];
+                hint format["You recieved a bonus income of $%1. Thanks for Supporting TLX!", _income];
             };
     };
 
@@ -246,7 +246,7 @@ cop_salary_loop = {
 	};
 	if (not(iscop)) exitWith {};
 	[] spawn cop_salary_handout;
-	[] spawn donator_salary_handout;
+	[] spawn supporter_salary_handout;
 	[1] call isleep;
 	sleep 4;
 	[] spawn cop_salary_loop;
@@ -266,7 +266,7 @@ civilian_salary_loop = {
 	if (iscop) exitWith {};
 	
 	[] spawn civilian_salary_handout;
-    [] spawn donator_salary_handout;
+    [] spawn supporter_salary_handout;
 	[1] call isleep;
 	sleep 4;
 	[] spawn civilian_salary_loop;

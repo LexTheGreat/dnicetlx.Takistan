@@ -80,50 +80,50 @@ interact_ai = {
 	*/
 	// Disallows
 	/*
-	if((_target in don_shop_list)) exitWith {
-		if (not(isdon or isvip)) exitWith {
-			hint "You are not a donator!";
+	if((_target in sup_shop_list)) exitWith {
+		if (not(issup or isvip)) exitWith {
+			hint "You are not a supporter!";
 			false
 		};
 		[_id] call shop_open_dialog;
 		true
 	};
-	if((_target in vipdon_shop_list)) exitWith {
-		if (not(isdon or isvip)) exitWith {
-			hint "You are not a vip donator!";
+	if((_target in vipsup_shop_list)) exitWith {
+		if (not(issup or isvip)) exitWith {
+			hint "You are not a vip supporter!";
 			false
 		};
 		[_id] call shop_open_dialog;
 		true
 	};
 	*/
-	if((_target in bludon_shop_list)) exitWith {
+	if((_target in blusup_shop_list)) exitWith {
 		if (not([_player] call player_cop)) exitWith {
-			hint "You cannot access Blufor Donator Shops: Not a Cop";
+			hint "You cannot access Blufor supporter Shops: Not a Cop";
 			false
 		};
 		[_id] call shop_open_dialog;
 		true
 	};
-	if((_target in civdon_shop_list)) exitWith {
+	if((_target in civsup_shop_list)) exitWith {
 		if (not([_player] call player_civilian)) exitWith {
-			hint "You cannot access Civilian Donator Shops: Not a Civilian";
+			hint "You cannot access Civilian supporter Shops: Not a Civilian";
 			false
 		};
 		[_id] call shop_open_dialog;
 		true
 	};
-	if((_target in insdon_shop_list)) exitWith {
+	if((_target in inssup_shop_list)) exitWith {
 		if (not([_player] call player_insurgent)) exitWith {
-			hint "You cannot access Insurgent Donator Shops: Not an Insurgent";
+			hint "You cannot access Insurgent supporter Shops: Not an Insurgent";
 			false
 		};
 		[_id] call shop_open_dialog;
 		true
 	};
-		if((_target in opfdon_shop_list)) exitWith {
+		if((_target in opfsup_shop_list)) exitWith {
 		if (not([_player] call player_opfor)) exitWith {
-			hint "You cannot access Opfor Donator Shops: Not an Opfor";
+			hint "You cannot access Opfor supporter Shops: Not an Opfor";
 			false
 		};
 		[_id] call shop_open_dialog;

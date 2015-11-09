@@ -103,13 +103,13 @@ M_ill_time = 60;
 M_ill_decent = 0.0075;
 
 pmc_shop_list = [pmccar, pmcair, pmcbox, fortshop2, "pmc_license_journeyman", "pmc_license_defense", "pmc_license_air"];
-vipdon_shop_list = [vipshop, vipcarshop, vipfortshop,vipshop_1, vipcarshop_1];
+vipsup_shop_list = [vipshop, vipcarshop, vipfortshop,vipshop_1, vipcarshop_1];
 //, vipfortshop_1
-don_shop_list = [donatorcarshopcop, donatorboxshopcop, donatorairshopcop,donatorcarshopciv, donatorboxshopciv, donatorairshopciv,donatorcarshopopf, donatorboxshopopf, donatorairshopopf],donatorcarshopind, donatorboxshopind, donatorairshopind;
-bludon_shop_list = [donatorcarshopcop, donatorboxshopcop, donatorairshopcop,"donator", "donator", "donator"];
-civdon_shop_list = [donatorcarshopciv, donatorboxshopciv, donatorairshopciv,"donator", "donator", "donator"];
-opfdon_shop_list = [donatorcarshopopf, donatorboxshopopf, donatorairshopopf, "donator", "donator", "donator"];
-insdon_shop_list = [donatorcarshopind, donatorboxshopind, donatorairshopind, "donator", "donator", "donator"];
+sup_shop_list = [supportercarshopcop, supporterboxshopcop, supporterairshopcop,supportercarshopciv, supporterboxshopciv, supporterairshopciv,supportercarshopopf, supporterboxshopopf, supporterairshopopf],supportercarshopind, supporterboxshopind, supporterairshopind;
+blusup_shop_list = [supportercarshopcop, supporterboxshopcop, supporterairshopcop,"supporter", "supporter", "supporter"];
+civsup_shop_list = [supportercarshopciv, supporterboxshopciv, supporterairshopciv,"supporter", "supporter", "supporter"];
+opfsup_shop_list = [supportercarshopopf, supporterboxshopopf, supporterairshopopf, "supporter", "supporter", "supporter"];
+inssup_shop_list = [supportercarshopind, supporterboxshopind, supporterairshopind, "supporter", "supporter", "supporter"];
 pmc_skin_list = [];
 /*waitUntil {!isNil "CSL_PMC_1"};
 {

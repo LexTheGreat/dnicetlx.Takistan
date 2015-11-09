@@ -10,7 +10,8 @@ _uid = getPlayerUID player;
 A_LIST_DEVS     =
 [
 	"76561198094294502", // Unknown
-	"76561198101924418" // Lex
+	"76561198101924418", // Lex
+	"76561198154237291" //SGT E. Garcia
 ];
 
 // Directors and Deputy Directors
@@ -18,7 +19,8 @@ A_LIST_DEVS     =
 A_LIST_DERPS	=
 [
 	"76561198094294502", // Unknown
-	"76561198101924418" // Lex
+	"76561198101924418", // Lex
+	"76561198154237291" //SGT E. Garcia
 ];
 
 // Senior Admins
@@ -27,7 +29,9 @@ A_LIST_SNADMINS	=
 [
 	"76561198094294502", // Unknown
 	"76561198101924418", //Lex_the_great
-	"76561198154237291" //SGT E. Garcia
+	"76561198154237291", //SGT E. Garcia
+	"76561198124176578", //1st Lt Monkey
+	"76561198013686582"  //Hoto
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -37,7 +41,8 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"76561198124176578", //1st Lt Monkey
-	"76561198139401322" //Mu'Tasim
+	"76561198139401322", //Mu'Tasim
+	"76561198080206289"  //Original Cole
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -46,7 +51,14 @@ A_LIST_ADMINS	=
 
 A_LIST_MODS	=
 [
-	"76561198160921083" //PastyHoneybuns
+	"76561198063832142", // DrinkyCrow
+	"76561198102207968", // Able
+	"76561198141964948", // Dreams
+	"76561198035381118", // Wukun
+	"76561198134796571", // Canadian Bacon
+	"76561198119216004", // Heaven
+	"76561198134919635", // lordwookie
+	"76561198050730382"	//Judge
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -99,9 +111,9 @@ if(isNil "insblacklist") then {
 };
 pmcblacklist = [];
 
-isdon = ((_uid in donators1) || (_uid in donators2) || (_uid in donators3) || (_uid in donators4) || (_uid in donatorsVIP));
-isvip = ((_uid in donatorsVIP));
-ispmc = ((_uid in pmcwhitelist) or (isStaff) or (isdon));
+issup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
+isvip = ((_uid in supportersVIP));
+ispmc = ((_uid in pmcwhitelist) or (isStaff) or (issup));
 
 _side = playerSide;
 if((_uid in copblacklist) && (_side == west)) then {
@@ -121,34 +133,29 @@ if((_uid in insblacklist) && (_side == resistance)) then {
 	failMission "END1";};
 	
 if((!ispmc) && (isciv) && rolenumber >= 60) then {
-	player groupChat "You cannot join a PMC slot without donator privileges!";
+	player groupChat "You cannot join a PMC slot without supporter privileges!";
 	sleep 7;
 	failMission "END1";};
-if((!isAdmins) && rolenumber == 76) then {
+if((!isAdmins) && rolenumber == 72) then {
 	player groupChat "You cannot join a Admin slot without being an admin!";
 	sleep 7;
 	failMission "END1";};
-if((!isvip) && rolenumber >=74 && rolenumber <= 75) then {
+if((!isvip) && rolenumber == 71) then {
 	player groupChat "You cannot join a VIP slot without VIP privileges!";
 	sleep 7;
 	failMission "END1";};
 _notAllowed = false;
-if(!isdon) then {
-	if((rolenumber >=71 && rolenumber <= 73)||(rolenumber >= 77 && rolenumber <= 82)||(rolenumber >= 96 && rolenumber <= 99)) then {
-		player groupChat "You cannot join a donator slot without donator privileges!";
+if(!issup) then {
+	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 82)||(rolenumber >= 92 && rolenumber <= 95)) then {
+		player groupChat "You cannot join a supporter slot without supporter privileges!";
 		sleep 7;
 		failMission "END1";
 	};
 };
 if(_uid in opfcmdblacklist) then {
-	if (rolenumber >= 77 && rolenumber <= 78) then {
+	if (rolenumber >= 73 && rolenumber <= 74) then {
 		player groupChat "You are Blacklisted from Opfor Command Slots!";
 		sleep 7;
 		failMission "END1";
 	};
 };
-
-
-
-
-

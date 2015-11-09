@@ -2,7 +2,6 @@ player createDiarySubject ["rules","Rules Info"];;
 player createDiarySubject ["changelog","Updates"];
 player createDiarySubject ["controls","TLX Controls"];
 player createDiarySubject ["bugs","Official Website"];
-player createDiarySubject ["donations","Donations"];
 player createDiarySubject ["credits","Staff & TS3"];
 player createDiarySubject ["specialitems","Special Items"];
 
@@ -136,7 +135,7 @@ player createDiaryRecord ["credits",
 Owner: [TLX] Unknown<br/>
 TS3 Info;<br/>
 Address: On right hand side :)<br/>
-Mission build: 1.0<br/>
+Mission build: 1.4.5<br/>
 Current version developed by: D-Nice, [TLX] Lex_The_Great<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
@@ -215,28 +214,26 @@ this should give you the options for video settings, shout outs, fix head bug, a
 ]
 ];
 
-player createDiaryRecord ["donations",
-[
-"Donations",
-"
-Use our Site or TS3 link to donate, don't forget to send your steam ID, ingame name, and name on the account used to donate!<br/> 
-Bitcoin, Litecoin or other cryptocurrencies accepted and given preferred rates!!!<br/>
-All donator levels include donator shop access and PMC license, although not all items in the donator stores may be accessible for lower levels<br/>
-$10 = 3M Start + 100k extra salary<br/>
-$25 = 6M Start + 300k extra salary + 100kg inventory<br/>
-$50 = 12M Start + 500k extra salary + 200kg inventory<br/>
-$75 = 25M Start + 750k extra salary + 300kg inventory<br/>
-$100 = 50M Start + 1M extra salary + 500kg inventory + TWS weapons and other exclusive items<br/>
-<br/>
-<br/>
-"
-]
-];
-
 player createDiaryRecord ["changelog",
 [
 "Takistan Life Xtreme",
 "
+<br/>
+Oct 18, 2015<br/>
+MINOR UPDATE 1.4.1<br/>
+Added: .,! to law menu.<br/>
+Removed: INS 5 6 7 8.<br/>
+Edited: Fixed bank rob after death<br/>
+Edited: INS supporter moved/change<br/>
+<br/>
+Oct 10, 2015<br/>
+MAJOR UPDATE 1.4<br/>
+Added: To Many To List!<br/>
+Added: Weapons<br/>
+Added: War Zones<br/>
+Edited: Rules<br/>
+Edited: Base Changes<br/>
+Edited: Various code optimization and fixes<br/>
 <br/>
 August 14, 2014<br/>
 MAJOR UPDATE 1.0<br/>
@@ -254,9 +251,9 @@ Added lighting to all faction spawn points.<br/>
 Added rubber bullets for M1014 and Saiga12K which can now act as long range stun rifles.<br/>
 Added several static artillery and pods that can be towed by players.<br/>
 Added ability to tow all planes.<br/>
-Reorganized donator shop inventories.<br/>
+Reorganized supporter shop inventories.<br/>
 Added Auto comp system for restarts, giving 5M per paycheck for first 14 minutes.<br/>
-TODO: Add TWS for top level donators and hideouts, and some more vehicles and weapons for donators.<br/>
+TODO: Add TWS for top level supporters and hideouts, and some more vehicles and weapons for supporters.<br/>
 <br/>
 May 14, 2014<br/>
 Added: Mortars, fully working with all 3 shell types, HE, WP, Illum.<br/>
@@ -281,7 +278,3 @@ Here is a direct link to it: http://tlx-gaming.enjin.com/rules
 "
 ]
 ];
-
-
-
-player selectDiarySubject "donations";

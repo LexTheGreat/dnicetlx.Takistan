@@ -44,37 +44,37 @@ if ( ((_unit distance (getmarkerpos "respawn_guerrila")) < 100) ) exitwith {
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "cop_donator_area")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "cop_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "civ_donator_area")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "civ_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "ins_donator_area")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "ins_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "opf_donator_area")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "opf_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "vip_donator_area")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "vip_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "vip_donator_area_1")) < 90) ) exitwith {
+if ( ((_unit distance (getmarkerpos "vip_supporter_area_1")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;
 		} forEach _bullets;

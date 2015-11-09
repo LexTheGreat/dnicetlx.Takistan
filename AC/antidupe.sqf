@@ -1,18 +1,18 @@
-private ["_oldBank","_newBank","_difference","_duper","_dupeid","_side","_don"];
+private ["_oldBank","_newBank","_difference","_duper","_dupeid","_side","_sup"];
 _duper = str (name player);
 _dupeid = str (getPlayerUID player);
 
 waitUntil {!isNil "statsLoaded"};
 _side = str (playerSide);
-_don = "Regular";
+_sup = "Regular";
 //["Connection Tracker",  _side, _duper, " = connected"] call fn_LogToServer;
-if (isdon) then {
-	_don = "Donator";
+if (issup) then {
+	_sup = "Supporter";
 };
 if (isvip) then {
-	_don = "VIP";
+	_sup = "VIP";
 };
-_don = str (_don);
+_sup = str (_sup);
 while {true} do 
 {
 //make sure they are alive...
@@ -29,7 +29,7 @@ while {true} do
 			if  (_difference > 2000000) then 
 			{
 				if(_oldBank > 100000) then {
-					["DUPING LOGGER", _dupeid, _duper, _side, _don, _difference] call fn_LogToServer;
+					["DUPING LOGGER", _dupeid, _duper, _side, _sup, _difference] call fn_LogToServer;
 					//execVM "AC\punish.sqf";					
 				};
 				/*if(_difference > 30000000) then 

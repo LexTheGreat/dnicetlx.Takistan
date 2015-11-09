@@ -14,12 +14,12 @@ liafu = true;
 if( ((_unit distance getmarkerpos "respawn_west" < 100))  || 
 	((_unit distance getmarkerpos "respawn_east" < 100)) || 
 	((_unit distance getmarkerpos "respawn_guerrila" < 300)) || 
-	((_unit distance getmarkerpos "cop_donator_area" < 90)) || 
-	((_unit distance getmarkerpos "ins_donator_area" < 120)) || 
-	((_unit distance getmarkerpos "civ_donator_area" < 90)) || 
-	((_unit distance getmarkerpos "opf_donator_area" < 90)) || 
-	((_unit distance getmarkerpos "vip_donator_area_1" < 60)) || 
-	((_unit distance getmarkerpos "vip_donator_area" < 60)) || 
+	((_unit distance getmarkerpos "cop_supporter_area" < 90)) || 
+	((_unit distance getmarkerpos "ins_supporter_area" < 120)) || 
+	((_unit distance getmarkerpos "civ_supporter_area" < 90)) || 
+	((_unit distance getmarkerpos "opf_supporter_area" < 90)) || 
+	((_unit distance getmarkerpos "vip_supporter_area_1" < 60)) || 
+	((_unit distance getmarkerpos "vip_supporter_area" < 60)) || 
 	(_unit distance getmarkerpos "respawn_civilian" < 100)
 	) exitwith { false; };
 
@@ -60,7 +60,7 @@ if ([_source] call player_opfor or [_source] call player_cop) then {
 if ((_projectile == "B_12Gauge_74Slug") || (_projectile == "B_AA12_74Slug")) then {
 	sleep 1;
 	private["_stunq"];
-	_stunq = (((_weapon == "M1014") || (_weapon == "Saiga12K") || (_weapon == "AA12_PMC_don")));
+	_stunq = (((_weapon == "M1014") || (_weapon == "Saiga12K") || (_weapon == "AA12_PMC_sup")));
 	if ( (_stunq) ) then {
 		_reduce = true;
 		_distance = _source distance _unit;

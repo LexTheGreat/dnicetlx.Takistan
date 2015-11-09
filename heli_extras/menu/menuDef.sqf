@@ -40,6 +40,7 @@ _menuDef = [];
 } forEach _menus;
 
 if (count _menuDef == 0) then {
+	liafu = true;
 	hintC format ["Error: Menu not found: %1\n%2\n%3", str _menuName, if (_menuName == "") then {_this}else{""}, __FILE__];
 	diag_log format ["Error: Menu not found: %1, %2, %3", str _menuName, _this, __FILE__];
 };

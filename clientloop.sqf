@@ -530,17 +530,17 @@ jail_player_punish = {
 	private["_player", "_time"];
 	_player = _this select 0;
 	_time = _this select 1;
-	format['server globalChat"%1 was sent to jail for %2 minutes for using Donator weapons without Donator credentials";', name _player, _time] call broadcast;
+	format['server globalChat"%1 was sent to jail for %2 minutes for using supporter weapons without supporter credentials";', name _player, _time] call broadcast;
 	format['[%1, %2] call player_prison_time;', _player, _time] call broadcast;
 	format['[%1, 100] call player_prison_bail;', _player] call broadcast;
 	format['[%1] call player_prison_convict;', _player] call broadcast;
 };
 
 
-check_donator_items = {
-	private["_pWeps", "_donWepArray", "_vipWepArray"]; 
+check_supporter_items = {
+	private["_pWeps", "_supWepArray", "_vipWepArray"]; 
 _vipWepArray = ["AKS_74_GOSHAWK", "BAF_L85A2_RIS_CWS", "FN_FAL_ANPVS4", "m107", "m8_tws", "m8_tws_sd", "MetisLauncher", "STRELA", "Javelin"];
-_donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_EP1", "BAF_AS50_scoped", "AKS_74_NSPU","bizon_silenced", "Igla", "Stinger"];
+_supWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_EP1", "BAF_AS50_scoped", "AKS_74_NSPU","bizon_silenced", "Igla", "Stinger"];
 	
 	
 	_pWeps = currentWeapon player;
@@ -562,7 +562,7 @@ _donWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 			if(_x == _pWeps) then {
 				[player, 5] call jail_player_punish;
 			};
-		} count _donWepArray;
+		} count _supWepArray;
 	};
 };
 
@@ -612,7 +612,7 @@ client_loop = {
 		call check_droppable_items;
 		call check_restrains;
 		call check_global_voice;
-		call check_donator_items;
+		call check_supporter_items;
 		call mayor_unarmer;
 		player removeAllEventHandlers "handleDamage";
 		player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];

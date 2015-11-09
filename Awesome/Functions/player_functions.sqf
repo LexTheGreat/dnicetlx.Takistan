@@ -2078,6 +2078,7 @@ player_init_arrays = {
 	private["_player"];
 	_player = player;
 	
+	/*,"ins5","ins6","ins7","ins8",*/
 	playerstringarray = 
 	[
 		"civ1","civ2","civ3","civ4","civ5","civ6","civ7","civ8","civ9","civ10",
@@ -2087,7 +2088,7 @@ player_init_arrays = {
 		"civ41","civ42","civ43","civ44","civ45","civ46","civ47","civ48","civ49","civ50",
 		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
 		"civ61","civ62","civ63","civ64",
-		"ins1","ins2","ins3","ins4","ins5","ins6","ins7","ins8","ins9","ins10",
+		"ins1","ins2","ins3","ins4","ins9","ins10",
 		"ins11","ins12",
 		"opf1","opf2","opf3","opf4","opf5","opf6","opf7","opf8","opf9","opf10",
 		"opf11","opf12","opf13","opf14","opf15","opf16","opf17","opf18","opf19",
@@ -2589,6 +2590,7 @@ player_drop_inventory = {
 
 player_escape_menu_check = { _this spawn {
 	if (not(isClient)) exitWith {};
+	if (isServer) exitWith {};
 	// Taken from DOMINATION
 	// Edited for TLR
 	disableSerialization;

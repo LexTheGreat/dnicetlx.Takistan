@@ -205,28 +205,28 @@ Clothes =
 ["INS_CH_PIL",				"Ins_Soldier_Pilot",			"INS CH Pilot",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
 ["INS_CH_MED",				"Ins_Soldier_Medic",			"INS CH Medic",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
 
-["SEC_FR1",					"FR_TL",						"FR Team Lead",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_FR2",					"FR_Assault_R",					"FR Assault",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_FR3",					"FR_Corpsman",					"FR Corpsman",							west,			"BIS",				iscop,		100000,	["donator", "paramedic_license"],			[], 	["light", "full"],		[]	],
-["SEC_FR4",					"FR_Sapper",					"FR Demolitions",						west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_FR5",					"FR_AC",						"FR FAC Operator",						west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_FR6",					"FR_AR",						"FR Heavy Gunner",						west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_FR7",					"FR_Marksman",					"FR Marksman",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
+["SEC_FR1",					"FR_TL",						"FR Team Lead",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_FR2",					"FR_Assault_R",					"FR Assault",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_FR3",					"FR_Corpsman",					"FR Corpsman",							west,			"BIS",				iscop,		100000,	["supporter", "paramedic_license"],			[], 	["light", "full"],		[]	],
+["SEC_FR4",					"FR_Sapper",					"FR Demolitions",						west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_FR5",					"FR_AC",						"FR FAC Operator",						west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_FR6",					"FR_AR",						"FR Heavy Gunner",						west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_FR7",					"FR_Marksman",					"FR Marksman",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
 
-["SEC_BAF1",				"BAF_Soldier_TL_MTP",			"BAF Team Leader",						west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF2",				"BAF_Soldier_Officer_MTP",		"BAF Officer",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF3",				"BAF_Soldier_L_MTP",			"BAF Light Rifleman",					west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF4",				"BAF_Soldier_MTP",				"BAF Rifleman",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF5",				"BAF_Soldier_Medic_MTP",		"BAF Medic",							west,			"BIS",				iscop,		100000,	["donator", "paramedic_license"],			[], 	["light", "full"],		[]	],
-["SEC_BAF6",				"BAF_Soldier_EN_MTP",			"BAF Engineer",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF7",				"BAF_Pilot_MTP",				"BAF Pilot",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
-["SEC_BAF8",				"BAF_crewman_MTP",				"BAF Crewman",							west,			"BIS",				iscop,		100000,	["donator"],			[], 	["light", "full"],		[]	],
+["SEC_BAF1",				"BAF_Soldier_TL_MTP",			"BAF Team Leader",						west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF2",				"BAF_Soldier_Officer_MTP",		"BAF Officer",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF3",				"BAF_Soldier_L_MTP",			"BAF Light Rifleman",					west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF4",				"BAF_Soldier_MTP",				"BAF Rifleman",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF5",				"BAF_Soldier_Medic_MTP",		"BAF Medic",							west,			"BIS",				iscop,		100000,	["supporter", "paramedic_license"],			[], 	["light", "full"],		[]	],
+["SEC_BAF6",				"BAF_Soldier_EN_MTP",			"BAF Engineer",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF7",				"BAF_Pilot_MTP",				"BAF Pilot",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
+["SEC_BAF8",				"BAF_crewman_MTP",				"BAF Crewman",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
 
-["SEC_KSK1",				"GER_Soldier_EP1",				"KSK Rifleman",							west,			"BIS",				iscop,		100000,	["donator"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
-["SEC_KSK2",				"GER_Soldier_Medic_EP1",		"KSK Medic",							west,			"BIS",				iscop,		100000,	["donator", "paramedic_license"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
-["SEC_KSK3",				"GER_Soldier_MG_EP1",			"KSK MG",								west,			"BIS",				iscop,		100000,	["donator"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
-["SEC_KSK4",				"GER_Soldier_Scout_EP1",		"KSK Scout",							west,			"BIS",				iscop,		100000,	["donator"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
-["SEC_KSK5",				"GER_Soldier_TL_EP1",			"KSK Team Leader",						west,			"BIS",				iscop,		100000,	["donator"],		[],		["light", "full"],		[0,1,2,3,4,5]	]
+["SEC_KSK1",				"GER_Soldier_EP1",				"KSK Rifleman",							west,			"BIS",				iscop,		100000,	["supporter"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["SEC_KSK2",				"GER_Soldier_Medic_EP1",		"KSK Medic",							west,			"BIS",				iscop,		100000,	["supporter", "paramedic_license"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["SEC_KSK3",				"GER_Soldier_MG_EP1",			"KSK MG",								west,			"BIS",				iscop,		100000,	["supporter"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["SEC_KSK4",				"GER_Soldier_Scout_EP1",		"KSK Scout",							west,			"BIS",				iscop,		100000,	["supporter"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["SEC_KSK5",				"GER_Soldier_TL_EP1",			"KSK Team Leader",						west,			"BIS",				iscop,		100000,	["supporter"],		[],		["light", "full"],		[0,1,2,3,4,5]	]
 
 ];
 
@@ -527,11 +527,11 @@ Clothing_Shops =
 [CS_INS_1, 		CSL_INS_1, 			resistance,		isins,		[""],											cam_ins_1],
 [CS_UN_1, 		CSL_UN_1, 			west,			iscop,		[""],											cam_un_1],
 [CS_OPF_1, 		CSL_OPF_1, 			east,			isopf,		[""],											cam_opf_1],
-[CS_SECRET_KSK, CSL_SECRET_KSK, 	west,			iscop,		["donator"],								cam_sec_ksk_1],
-[CS_SECRET_FR, 	CSL_SECRET_FR, 		west,			iscop,		["donator"],									cam_sec_fr_1],
-[CS_SECRET_BAF, CSL_SECRET_BAF, 	west,			iscop,		["donator"],								cam_sec_baf_1],
-[CS_SECRET_OPF, CSL_SECRET_OPF, 	east,			isopf,		["donator"],								cam_sec_opf_1],
-[CS_SECRET_INS, CSL_SECRET_INS, 	resistance,		isins,		["donator"],								cam_sec_ins_1]
+[CS_SECRET_KSK, CSL_SECRET_KSK, 	west,			iscop,		["supporter"],								cam_sec_ksk_1],
+[CS_SECRET_FR, 	CSL_SECRET_FR, 		west,			iscop,		["supporter"],									cam_sec_fr_1],
+[CS_SECRET_BAF, CSL_SECRET_BAF, 	west,			iscop,		["supporter"],								cam_sec_baf_1],
+[CS_SECRET_OPF, CSL_SECRET_OPF, 	east,			isopf,		["supporter"],								cam_sec_opf_1],
+[CS_SECRET_INS, CSL_SECRET_INS, 	resistance,		isins,		["supporter"],								cam_sec_ins_1]
 ];
 
 

@@ -41,7 +41,7 @@ if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 		format['hint "WARNING %1: DO NOT FIRE INSIDE THE CIVILIAN SPAWN! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-	if ( ((_unit distance (getmarkerpos "cop_donator_area")) < 90) ) exitwith {
+	if ( ((_unit distance (getmarkerpos "cop_supporter_area")) < 90) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -49,10 +49,10 @@ if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE BLUFOR DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE BLUFOR supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-		if ( ((_unit distance (getmarkerpos "ins_donator_area")) < 90) ) exitwith {
+		if ( ((_unit distance (getmarkerpos "ins_supporter_area")) < 90) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -60,10 +60,10 @@ if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE INSURGENT DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE INSURGENT supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-	if ( ((_unit distance (getmarkerpos "civ_donator_area")) < 90) ) exitwith {
+	if ( ((_unit distance (getmarkerpos "civ_supporter_area")) < 90) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -71,10 +71,10 @@ if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE CIVILIAN DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE CIVILIAN supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-	if ( ((_unit distance (getmarkerpos "opf_donator_area")) < 90) ) exitwith {
+	if ( ((_unit distance (getmarkerpos "opf_supporter_area")) < 90) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -82,7 +82,7 @@ if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE OPFOR DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE OPFOR supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
 if ( ((_unit distance (getmarkerpos "respawn_east")) < 50) ) exitwith {
@@ -107,7 +107,7 @@ if ( ((_unit distance (getmarkerpos "respawn_guerrila")) < 100) ) exitwith {
 		format['hint "WARNING %1: DO NOT FIRE INSIDE THE INSURGENT SPAWN! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-if ( ((_unit distance (getmarkerpos "vip_donator_area_1")) < 100) ) exitwith {
+if ( ((_unit distance (getmarkerpos "vip_supporter_area_1")) < 100) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -115,10 +115,10 @@ if ( ((_unit distance (getmarkerpos "vip_donator_area_1")) < 100) ) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE SOUTHERN VIP DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE SOUTHERN VIP supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
-if ( ((_unit distance (getmarkerpos "vip_donator_area")) < 100) ) exitwith {
+if ( ((_unit distance (getmarkerpos "vip_supporter_area")) < 100) ) exitwith {
 		deleteVehicle _bullet;
 		if (firestrikes == 0) exitwith {
 			[player] call player_reset_gear;
@@ -126,7 +126,7 @@ if ( ((_unit distance (getmarkerpos "vip_donator_area")) < 100) ) exitwith {
 		};
 		
 		firestrikes = firestrikes - 1;
-		format['hint "WARNING %1: DO NOT FIRE INSIDE THE NORTHERN VIP DONATOR AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
+		format['hint "WARNING %1: DO NOT FIRE INSIDE THE NORTHERN VIP supporter AREA! %2/%3 chances left.";', name _unit, firestrikes, totalstrikes] call broadcast;
 		
 	};
 

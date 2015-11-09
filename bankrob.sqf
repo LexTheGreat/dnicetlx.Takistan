@@ -13,7 +13,7 @@ if (_art == "ausrauben") then {
 	if(!(call INV_IsArmed) and !debug)exitWith{player groupChat localize "STRS_bank_rob_noweapon";};
 	robenable = false;
 	call compile format["robpool%1 = 0;publicvariable ""robpool%1"";", _safe];
-	player groupChat format[localize "STRS_bank_rob_info", strM(robb_money)];
+	player groupChat format[localize "STRS_bank_rob_info", "<INSERT>"];
 
 	format['[0,1,2,["opfer", %1, %2]] execVM "bankrob.sqf";', _safe, local_cash] call broadcast;
 
@@ -24,7 +24,7 @@ if (_art == "ausrauben") then {
 	if (alive player) then {
 		[player, 'money', local_cash] call INV_AddInventoryItem;
 		player groupChat format[localize "STRS_bank_rob_success"];
-		[local_cash] spawn Bank_Rob_End_Script;
+		//[local_cash] spawn Bank_Rob_End_Script;
 	};
 
 	stolencash = stolencash + local_cash;
@@ -38,7 +38,7 @@ if (_art == "ausrauben") then {
 
 	if(_rblock != rblock)exitwith{};
 
-	for [{rblock}, {rblock > -1}, {rblock=rblock-1}] do {sleep 1;};
+	for [{rblock}, {rblock > -1}, {rblock=rblock-1}] do {sleep 1;if ([player] call player_get_dead) exitWith {};};
 
 	local_useBankPossible = true;
 	stolencash = 0;

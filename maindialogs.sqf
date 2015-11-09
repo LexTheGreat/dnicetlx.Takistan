@@ -249,18 +249,18 @@ if (_art == "spielerliste") then {
 		
 		if(!isNil "_player") then {
 		if ([_player] call player_human) then {
-			private["_label_text", "_index", "_money","_donstatus","_uid"];
+			private["_label_text", "_index", "_money","_supstatus","_uid"];
 			if(isStaff) then {
 				_money = [_player] call player_get_total_money;
 				_uid = getPlayerUID _player;
-				_donstatus = "";
-				if((_uid in donators1) || (_uid in donators2) || (_uid in donators3) || (_uid in donators4)) then {
-					_donstatus = " --- DONATOR";
+				_supstatus = "";
+				if((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4)) then {
+					_supstatus = " --- supporter";
 				};
-				if(_uid in donatorsVIP) then {
-					_donstatus = " --- VIP";
+				if(_uid in supportersVIP) then {
+					_supstatus = " --- VIP";
 				};
-				_label_text = format ["%1: %2 |-| $%3%4", _player, (name _player), strM(_money), _donstatus];
+				_label_text = format ["%1: %2 |-| $%3%4", _player, (name _player), strM(_money), _supstatus];
 			}
 			else {
 				_label_text =  format ["%1: %2", _player, (name _player)];

@@ -32,14 +32,14 @@ _array = [];
 
 			["------ All use is Logged------",	{}],
 			["------ Do Not Abuse------",	{}],
-			["------ Commands ------",	{}],
-
+			["---------------------------------", {}],
+			["****** Mod Commands ******",	{}],
 
 			
 			["Admin Camera (Toggle)", {
 				handle = [] execVM "camera.sqf";
 			}],
-			["Server Message!", {
+			["Server Message", {
 				if(!AdminSpamBroadcasting) then {
 					AdminSpamBroadcasting = true;
 					MessageText = _inputText;
@@ -58,7 +58,7 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 			}],
-			["Jail Player", {
+			/*["Jail Player", {
 				if(!AdminSpamBroadcasting) then {
 					AdminSpamBroadcasting = true;
 				_jailminutes = parseNumber(_inputText);
@@ -84,7 +84,7 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 
-			}],
+			}],*/
 			["Force Ceasefire", {
 				if(!AdminSpamBroadcasting) then {
 					AdminSpamBroadcasting = true;
@@ -110,7 +110,7 @@ _array = [];
 			}],*/
 			
 			
-            ["Kick Player to Lobby", {
+            /*["Kick Player to Lobby", {
 
 			if(!AdminSpamBroadcasting) then {
 					AdminSpamBroadcasting = true;
@@ -133,7 +133,10 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 				
-            }],
+            }],*/
+			
+			["---------------------------------", {}],
+			["****** Blacklist Commands ******",	{}],
 			
 			["Blacklist player from Cop&Opfor", {
 			if(!AdminSpamBroadcasting) then {
@@ -179,9 +182,9 @@ _array = [];
                 } else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
-            }],
+            }]
 			
-			["Kick Player from Game", {
+			/*["Kick Player from Game", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
 			format['
@@ -255,7 +258,7 @@ _array = [];
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
-            }]
+            }]*/
 			
 
 			
@@ -267,8 +270,8 @@ _array = [];
         {
            _newarray =
            [
-			["----- Admin Commands -----",	{}],
-
+			["---------------------------------", {}],
+			["****** Admin Commands ******",	{}],
 			["Crosshair Delete(deletes object in your crosshair, closest)", {
 				handle = [] execVM "Awesome\Admin\Ldelete.sqf";
 			}],
@@ -281,8 +284,8 @@ _array = [];
 				titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
 			}],
 
-			["GCam Spectate - Experimental", {
-				handle = [] execVM "gcam.sqf";
+			["GCam2 Spectate - Experimental", {
+				handle = [ player ] execVM "gcam\gcam.sqf";
 				["ADMIN LOGGER", "GCAM started by", str (name player)] call fn_LogToServer;
 			}],
 			["Remove player weapons", {
@@ -316,7 +319,8 @@ _array = [];
            _newarray =
            [
 
-		    ["----- SnAdmin Commands -----",	{}],
+		    ["---------------------------------", {}],
+			["****** Admin Commands ******",	{}],
 
 			
 			["Give ALL Players Money", {
@@ -481,11 +485,11 @@ _array = [];
 			}],
 
 			
-			["RangeFinder", {
+			/*["RangeFinder", {
 				player addweapon "binocular_vector";
 				player action ["switchweapon", player, player, 0];
 
-			}],
+			}],*/
 
 
 			["NV Goggles - ADMIN CAM USE", {
@@ -500,27 +504,8 @@ _array = [];
            _newarray =
            [
 
-		    ["------ Misc Commands ------",	{}],
-			
-
-        	["Speed 5 - Nitro Vehicle", {
-				(vehicle player) setvariable ["tuning", 5, true];
-				(vehicle player) setvariable ["nitro", 1, true];
-			}],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		    ["---------------------------------", {}],
+			["****** Dev Commands ******",	{}],
 			
 			["TP All to you", {
 			private["_adminLoc","_admin"];
@@ -553,7 +538,7 @@ _array = [];
                 ', _adminLoc] call broadcast;
 
             }],
-			
+
 			["Remove all civ player weap/inv", {
 				format['
 					[] spawn
@@ -565,62 +550,8 @@ _array = [];
 					};
 				'] call broadcast;
 			}],
-
-			["Weapon: AKM - M1911", {
-				{player addMagazine "30Rnd_762x39_AK47";} forEach [1,2,3,4,5,6,7,8];
-				player addweapon "AK_47_S";
-				{player addMagazine "7Rnd_45ACP_1911";} forEach [1,2,3,4,5,6,7,8];
-				player addweapon "Colt1911";
-				player action ["switchweapon", player, player, 0];
-			}],
-
-
-
-
-
-
 			
-
-			["Pistol", {
-				{player addMagazine "17Rnd_9x19_glock17";} forEach [1,2,3,4,5,6,7,8];
-				player addweapon "glock17_EP1";
-				player action ["switchweapon", player, player, 0];
-			}],
-
-			["10 Satchel Charges", {
-				handle = [] execVM "boomboom.sqf";
-			}],
-
-			["5 Marijuana", {
-				[player, 'marijuana',5] call INV_AddInventoryItem;
-			}],
-			["Give ALL Players Money", {
-				private["_variableName"];
-				_variableName = (vehicleVarName _selectedplayer);
-				if (isNil "_variableName") exitWith{};
-				if (_variableName == "") exitWith {};
-				_amount = parseNumber(_inputText);
-
-				if ((typeName _amount) == (typeName (1234))) then
-				{
-					hint format["Giving all players %1 dollars", _amount];
-					format['
-						[] spawn
-						{
-							liafu = true;
-							[player, %2] call transaction_bank;
-							player groupChat "A Server Administrator has sent you %2 dollars";
-						};
-					', _selectedplayer, _amount] call broadcast;
-				}
-				else
-				{
-					hint "ERROR: expected number";
-				};
-
-			}],
-			
-			["Self Invincibility (On)", {
+			/*["Self Invincibility (On)", {
 
 						player allowdamage false;
 						titleText [localize "STRS_admin_invincibility", "plain"];
@@ -633,7 +564,7 @@ _array = [];
 						titleText [localize "STRS_admin_invincibilityoff", "plain"];
 						player commandChat "I just turned off Invincibility";
 
-			}],
+			}],*/
 			["Destroy player vehicle", {
 				format['
 					[] spawn
@@ -645,40 +576,35 @@ _array = [];
 				', _selectedplayer] call broadcast;
 			}],
 			
-			["Give ALL Players Money", {
-				private["_variableName"];
-				_variableName = (vehicleVarName _selectedplayer);
-				if (isNil "_variableName") exitWith{};
-				if (_variableName == "") exitWith {};
-				_amount = parseNumber(_inputText);
-
-				if ((typeName _amount) == (typeName (1234))) then
-				{
-					hint format["Giving all players %1 dollars", _amount];
-					format['
-						[] spawn
-						{
-							liafu = true;
-							[player, %2] call transaction_bank;
-							player groupChat "A Server Administrator has sent you %2 dollars";
-						};
-					', _selectedplayer, _amount] call broadcast;
-				}
-				else
-				{
-					hint "ERROR: expected number";
-				};
-
+			["# Group checker", {
+				hint format ["Total number of groups = %1", (count allGroups)];			
 			}],
-
-            ["Add 100K Dollars to Bank", {
-                    [player, 100000] call transaction_bank;
-            }],
-
-            ["Add 1M Dollars to Bank", {
-                    [player, 1000000] call transaction_bank;
-            }],
-
+			
+			["Select Chief", {
+				private["_chiefString"];
+				chiefNumber = parseNumber(_inputText) + 94;
+				_chiefString  = (playerstringarray select chiefNumber);
+				publicVariable "chiefNumber";
+				format["hint format[localize ""STRS_chief_new"", ""%3"", %2]; 
+				if (%5 == %1) then {
+					ischief = true;
+				} else 
+				{
+					ischief = false;
+				};
+				player groupChat format['ischief is %4, rolenum is %5'] 
+				", chiefNumber, 5, _chiefString, ischief,(rolenumber-1)] call broadcast;
+				player groupChat format["chiefnum = %1", chiefNumber];
+			}],
+			
+			["---------------------------------", {}],
+			["*** Give Commands ***",	{}],
+			
+			["Speed 5 - Nitro Vehicle", {
+				(vehicle player) setvariable ["tuning", 5, true];
+				(vehicle player) setvariable ["nitro", 1, true];
+			}],
+			
 			["10 Lockpicks", {
 				[player, 'lockpick',10] call INV_AddInventoryItem;
 			}],
@@ -701,34 +627,40 @@ _array = [];
 				vehicle player setDamage 0;
 			}],
 
-
-
-
-
-
-
-
-        	["# Group checker", {
-				hint format ["Total number of groups = %1", (count allGroups)];			
+			["Weapon: AKM - M1911", {
+				{player addMagazine "30Rnd_762x39_AK47";} forEach [1,2,3,4,5,6,7,8];
+				player addweapon "AK_47_S";
+				{player addMagazine "7Rnd_45ACP_1911";} forEach [1,2,3,4,5,6,7,8];
+				player addweapon "Colt1911";
+				player action ["switchweapon", player, player, 0];
 			}],
 
+			["Pistol", {
+				{player addMagazine "17Rnd_9x19_glock17";} forEach [1,2,3,4,5,6,7,8];
+				player addweapon "glock17_EP1";
+				player action ["switchweapon", player, player, 0];
+			}],
+
+			["10 Satchel Charges", {
+				handle = [] execVM "boomboom.sqf";
+			}],
+
+			["5 Marijuana", {
+				[player, 'marijuana',5] call INV_AddInventoryItem;
+			}]
+
+             ];
+          _array = _array + _newarray;
+		  //if (player != ins6) exitWith {}; _VarChangeOrWhat = cursorTarget; _clearedBox = format["%1 Emptied", _VarChangeOrWhat]; titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
+        };
+
+    if (isAdminDev || isDeveloper) then
+        {
+           _newarray =
+           [
 			
-			["Select Chief", {
-				private["_chiefString"];
-				chiefNumber = parseNumber(_inputText) + 94;
-				_chiefString  = (playerstringarray select chiefNumber);
-				publicVariable "chiefNumber";
-				format["hint format[localize ""STRS_chief_new"", ""%3"", %2]; 
-				if (%5 == %1) then {
-					ischief = true;
-				} else 
-				{
-					ischief = false;
-				};
-				player groupChat format['ischief is %4, rolenum is %5'] 
-				", chiefNumber, 5, _chiefString, ischief,(rolenumber-1)] call broadcast;
-				player groupChat format["chiefnum = %1", chiefNumber];
-			}],
+			["---------------------------------", {}],
+		    ["****** Devlopment Commands ******",	{}],
 			["Runcode self", {
 				//[_inputText, owner player] call broadcast_client;
 			format['
@@ -742,61 +674,8 @@ _array = [];
 			}],
 			["Runcode all", {
 				_inputText call broadcast;
-			}]
-
-             ];
-          _array = _array + _newarray;
-		  //if (player != ins6) exitWith {}; _VarChangeOrWhat = cursorTarget; _clearedBox = format["%1 Emptied", _VarChangeOrWhat]; titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
-        };
-
-    if (isAdminDev || isDeveloper) then
-        {
-           _newarray =
-           [
-
-		    ["------- Dev Commands -------",	{}],
+			}],
 			
-			["Self Teleport", {
-				hint "Click on the map to Teleport! Note all TP is being logged, do not abuse";
-				liafu = true;
-				closeDialog 0;
-				openMap true;
-				onMapSingleClick "onMapSingleClick """";liafu = true; (vehicle player) setpos [_pos select 0, _pos select 1, 0]; openMap false;";
-			}],
-
-			["Add 100,000 Dollars to Inventory", {
-				[player, 'money',100000] call INV_AddInventoryItem;
-			}],
-
-			["Add 1 Million Dollars to Inventory", {
-				[player, 'money',1000000] call INV_AddInventoryItem;
-			}],
-
-			["Spawn Armored SUV", {
-
-			"ArmoredSUV_PMC" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
-
-			}],
-
-			["Spawn M1128_MGS_EP1", {
-
-			"M1128_MGS_EP1" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
-
-			}],
-
-			["Spawn GuerillaCacheBox_EP1", {
-			_admbox = createVehicle ["GuerillaCacheBox", [(ASLtoATL getposASL player select 0) + 3, (ASLtoATL getposASL player select 1) + 3, ASLtoATL getposASL player select 2],[], 0, "NONE"];
-
-			nul = _admbox execVM "addons\ammo.sqf";
-
-			}],
-
-
-			["Weapon: VSS-Vintorez", {
-				{player addMagazine "20Rnd_9x39_SP5_VSS";} forEach [1,2,3,4,5,6,7,8];
-				player addweapon "VSS_vintorez";
-				player action ["switchweapon", player, player, 0];
-			}],
 			["Make AI Ignore you", {
 			
 				player addrating 9999;
@@ -926,34 +805,43 @@ _array = [];
 					warstatus = true;
 				};
 			}],
-			["Kick Player from Game server exp", {
-
-			format['
-            [] spawn
-                    {
-                        if (player != %1) exitWith {};
-                        liafu = true;
-                        player groupChat "You have been kicked from the game by a server moderator.";
-                        sleep 3;
-
-
-
-						UWdn7l2MGRbFyjaZkT6Q = "lol this cant be nil";
-                        publicVariableServer "UWdn7l2MGRbFyjaZkT6Q";
-                    };
-                ', _selectedplayer] call broadcast;
-
-
-
-
-				["ADMIN LOGGER", name (_selectedplayer), "was KICKED by", str (name player)] call fn_LogToServer;
-            }],
+			
 			["COP - 1 List - BUGGED", {
 
 				["COP_1"] spawn A_WBL_F_DIALOG_INIT;
 
-			}]
+			}],
+			
+			["---------------------------------", {}],
+		    ["*** Give Commands ***",	{}],
+			
+			["Spawn Armored SUV", {
 
+			"ArmoredSUV_PMC" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
+
+			}],
+
+			["Spawn M1128_MGS_EP1", {
+
+			"M1128_MGS_EP1" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
+
+			}],
+
+			["Spawn GuerillaCacheBox_EP1", {
+			_admbox = createVehicle ["GuerillaCacheBox", [(ASLtoATL getposASL player select 0) + 3, (ASLtoATL getposASL player select 1) + 3, ASLtoATL getposASL player select 2],[], 0, "NONE"];
+
+			nul = _admbox execVM "addons\ammo.sqf";
+
+			}],
+
+			["Weapon: VSS-Vintorez", {
+				{player addMagazine "20Rnd_9x39_SP5_VSS";} forEach [1,2,3,4,5,6,7,8];
+				player addweapon "VSS_vintorez";
+				player action ["switchweapon", player, player, 0];
+			}],
+			
+			["---------------------------------", {}]
+			
 		];
           _array = _array + _newarray;
         };

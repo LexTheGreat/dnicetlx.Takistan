@@ -3,8 +3,9 @@ _uid = getPlayerUID player;
 
 // Remember the Array format! No comma on last item in array!
 
-// Donated $10
-donators1 	  = [
+// supporters1 = supporters1 + ["76561198067490194"];
+
+supporters1 	  = [
 					"76561198092270541", //SAMbro
 					"245528838", //[TGS] Joes
 					"76561198100072934", //NESKOVICH
@@ -44,7 +45,6 @@ donators1 	  = [
 					"76561198053191860", //Satpayev
 					"76561198094519741", //DjangoFreeman
 					"76561198123411634", //Joseph Vultaggio
-					"76561198089072949", //Kyle
 					"76561198047199328", //Zeds dead baby
 					"76561198022516829", //Abu Jasem
 					"76561198074236542", //Walker
@@ -165,19 +165,33 @@ donators1 	  = [
 					"76561198056613268", //TylerHansen
 					"76561198055195826", //A-JAY
 					"76561198056818686", //Leothaid
-					"76561198132550385", //Spandexlizard77 10M
+					"76561198132550385", //Spandexlizard77
 					"76561198085392030", //Dani Enjin
 					"76561198112314720", //gdies
 					"76561198185294739", //Awmaster2015
 					"76561198088068336", //DrSpreadEm
-					"76561198144636471", //Sw!tch $15
-					"76561198066340114" //DeadMenRacing $10
+					"76561198144636471", //Sw!tch
+					"76561198066340114", //DeadMenRacing
+					"76561198091817032", //Corey
+					"76561198067490194", //Anx
+					"76561198013194936", //On3eyedm3dic
+					"76561198142704814", //VoidShotzz
+					"76561198089464980", //Ctripp
+					"76561198079433421", //BuzzardBat
+					"76561198133995263", //Sgt Sanborne
+					"76561198108769496", //Dsmashicus
+					"76561198144339535", //John5
+					"76561198142832749", //SMA. N. Conforti
+					"76561198047739809", //Dieter
+					"76561198157505040",  //StarBoSs
+					"76561198130599452", //Ashton
+					"76561198134919635",  //Lordwookie
+					"76561198096310527"  //larsp_000
 		    ];
 
 // Remember the Array format! No comma on last item in array!
 
-// Donated $25
-donators2 	  = [
+supporters2 	  = [
 					"76561198124725504", //KillaCali3
 					"76561198062863149",//Spencer (donated by wade)
 					"76561198054194000", //S. Wade //add as mod
@@ -186,7 +200,6 @@ donators2 	  = [
 					"76561198075424014", //LeHazy
 					"76561198045152287", //[DNICE] Yousef Wendy
 					"76561198049714505", //Laptopwarrior/GriswoldLog
-					"76561198093692248", //Oooohkillem
 					"76561198107780908", //Chris/Psycho
 					"76561198011846083", //TheArtOfBalance
 					"76561198077387199", //Billyjeanismydad
@@ -216,7 +229,6 @@ donators2 	  = [
 					"76561198153831221", //rhotis
 					"76561198148463580", //dillan225
 					"76561198195833822", //CandyMan changed from 76561198166236290
-					"76561198079217419", //Jonathanbucy
 					"76561198063890424", //Brendan Donahue
 					"76561198139855195", //Murphy
 					"76561198006806376", //TonyMontana
@@ -228,7 +240,7 @@ donators2 	  = [
 					"76561198083087001", //DizzyOreo
 					"76561198050430232", //HardLike
 					"76561198102125657", //Edward UnknowingFrk Martinz
-					"76561198132242997", //MPxLuna $25 possible scammer
+					"76561198132242997", //MPxLuna possible scammer
 					"76561198065361202", //LifeShifter
 					"76561198096275577", //Henry Hill Liz Beckett 
 					"76561198112412098", //Sgt Dragon
@@ -236,7 +248,6 @@ donators2 	  = [
 					"76561198059732869", //Pvt. Reggie
 					"76561198122297063", //Dowables
 					"76561198069677444", //Jawn
-					"76561198105821449", //Derpy Herpy derpderp75
 					"76561198097070500", //Mythic
 					"76561198080009724", //Bonenberger13
 					"76561198083602285", //Pimp God Tyrone
@@ -245,7 +256,7 @@ donators2 	  = [
 					"76561198102207968", //Abel Ortega
 					"76561198001534106", //Beau
 					"76561198146770526", //Agent Gaming
-					"76561198077835165", //CanMan 179 //$30
+					"76561198077835165", //CanMan 179
 					"76561198039594808", //Emanuel
 					"76561198168912341", //Kiwiwonder
 					"76561198067610239", //Imran Zakhaev
@@ -258,11 +269,11 @@ donators2 	  = [
 					"76561198122666011", //cyka blyat
 					"76561197990568150", //Grismer
 					"76561198083701025", //knight
-					"76561198143189534", //SHERMAN Isaiah Calhoun $35 enjin
+					"76561198143189534", //SHERMAN Isaiah Calhoun
 					"76561198042099228", //Curtis London
 					"76561198065859672", //Alvino
 					"76561198152562567", // XxNickxX
-					"76561198043117324", //GARRETT_ $35
+					"76561198043117324", //GARRETT_
 					"76561198134796571", //Canadian Bacon T2
 					"76561198064657725", //Scrowell
 					"76561198090140009", //LimpyLongLeg
@@ -276,7 +287,6 @@ donators2 	  = [
 					"76561198110016140", //DarksunVG
 					"76561198093467203", //Cheddar Enjin
 					"76561198028005476", //MichaelS
-					"76561198101499715", //Rexspd20
 					"76561198087841197", //Cameron12321
 					"76561198067206897", //=DGR= Voxx
 					"76561198088370787", //Anon
@@ -299,7 +309,7 @@ donators2 	  = [
 					"76561198071162289", //Sgt Turtles Keegan
 					"76561198011207224", //Daniel Lopez
 					"76561198057153486", //Al-Qassam
-					"76561198119668286", //Zander $35
+					"76561198119668286", //Zander
 					"76561198115037623", //SuplexCity
 					"76561198030700685", //Du Tian yugboi
 					"76561198041348690", //BLUEBIRD
@@ -310,22 +320,23 @@ donators2 	  = [
 					"76561198068395350", //ThatFordGuy
 					"76561198083905699", //Luke Kruger/Fallen Russian
 					"76561198159209074", //Deutsch Flieger
-					"76561198050730382", //Austin Jumper
 					"76561198011333652", //DirtyXDavis
 					"76561198117612647", //Patrick Dyke
-					"76561198114549420" //RageCometz
+					"76561198161493575", // Ivan
+					"76561198114549420", //RageCometz
+					"76561198137071745", //OpejolkinGaming
+					"76561198137131240"  //CreepyIcecream
 			];
 
 // Remember the Array format! No comma on last item in array!
 
-// Donated $50
-donators3  	  = [
+supporters3  	  = [
 				"76561198087246280", //Steve briton
 				"76561198056520395", //TMJ0523
 				"76561198059512364", //ethan smith(nice guy)
 				"76561198085473116", //CPT. RUSSELL
 				"76561198071466491", //|KINGZ|MAC
-				"76561198078405272",  //Henrik $40
+				"76561198078405272",  //Henrik
 				"76561198062759694", //MaikelHawk
 				"76561198015154477", //leadmagnet
 				"76561197983195053", //Eric
@@ -335,12 +346,12 @@ donators3  	  = [
 				"76561198103350780", //Ryguy
 				"76561198089667130", //Facundo
 				"76561198115818821​", //CaseTheSlayer
-				"76561198119279822", //Mr. Penguin
+				"76561198211924507", //Mr. Penguin
 				"76561198019703127", //walker
 				"76561198071078533", //Lucid Hysteria
 				"76561198087009530", //Leiwyn
 				"76561198021622967", //Trooper1030
-				"76561198081149300", //blazn 20M purchse
+				"76561198081149300", //blazn
 				"76561198091256187", //Robb Stark
 				"76561198135614824", //Weeaboo effecting team
 				"76561198048711651", //Jamie Ranger
@@ -356,23 +367,25 @@ donators3  	  = [
 				"76561198079959469", //Rommel
 				"76561198179760007", //Scrotty/Smokey Enjin
 				"76561197984064803", //BeardedDeath Tim gib
-				"76561198098170503" //King Akbur	
+				"76561198098170503", //King Akbur
+				"76561198102000968", //RealHippie
+				"76561198105821449", //Derpy Herpy derpderp
+				"76561198093692248"  //Oooohkillem
 			];
 
 // Remember the Array format! No comma on last item in array!
 
-// Donated $75
-donators4  	  = [
+supporters4  	  = [
 				"76561198111424831", //TiLTDRAMZ
 				"76561197967346144", //[DC]Barkuticus
+				"76561198050730382", //Austin Jumper
 				"76561198045721518" //Burty
 
 ];
 
 // Remember the Array format! No comma on last item in array!
 
-// Donated VIP $100+
-donatorsVIP     = [
+supportersVIP     = [
 				"245049094", // Fyodor
 				"76561198106962111", // Wilson (Vukan)
 				"76561198018896118", // 72nd Talfi/Willigsire
@@ -381,7 +394,7 @@ donatorsVIP     = [
 				"76561198131604780", //GREASY
 				"76561198046673227", //SAM1
 				"76561198072033337", //Jarhead
-				//"76561198132242997", //MPxLuna $120
+				//"76561198132242997", //MPxLuna
 				"76561198154237291", //Sgt. E Garcia
 				"76561198045285643", //EdwardThronedBoar
 				"76561197969949094", //Mmetully
@@ -431,7 +444,7 @@ donatorsVIP     = [
 				"76561198005061273", //ComradeTWS Enjin
 				"76561198010528925", //Sw33tz
 				"76561198130797899", //Nick Norman
-				"76561198108066775", //Rivalhelicopter $30M
+				"76561198108066775", //Rivalhelicopter
 				"76561198101499715", //Rexspd20
 				"76561198133658655", //Roque
 				"76561198063832142", //DrinkyCrow
@@ -439,7 +452,10 @@ donatorsVIP     = [
 				"76561198035305504", //n.shoupp
 				"76561198134427407", //Ja
 				"76561198094294502", //Unkown /gregorys
-				"76561198100072934" //NESKOVICH
+				"76561198100072934", //NESKOVICH
+				"76561198079217419", //JohnBallsac
+				"76561198123306484", //Hoss
+				"76561198089072949"  //KAAAAAAYLE
 			
 			];
 
