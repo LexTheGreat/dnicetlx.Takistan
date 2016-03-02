@@ -18,6 +18,7 @@ private ["_h"];
 
 
 debug = false;
+shouldSnow = false;
 
 
 //////////////////////////
@@ -89,6 +90,9 @@ call compile preprocessfile "triggers.sqf";
 
 if (isClient) then {
 	[] execVM "briefing.sqf";
+	if (shouldSnow) then {
+		[] execVM "Scripts\snow.sqf";
+	};
 };
 
 // initializes Fixes
@@ -325,9 +329,3 @@ execVM "BTK\Cargo Drop\Start.sqf";
 		execNow "core\init.sqf";
 // ====================================================================================
 */
-
-
-
-
-
-

@@ -121,8 +121,8 @@ class Mission
 	randomSeed=4402856;
 	class Intel
 	{
-		briefingName="Takistan Life Xtreme 1.4.1";
-		briefingDescription="TLX is BACK!!!";
+		briefingName="Takistan Life Xtreme 1.4.9";
+		briefingDescription="Bark Bark!";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -644,13 +644,14 @@ class Mission
 					azimut=124.699;
 					id=90;
 					side="WEST";
-					vehicle="CZ_Soldier_Office_DES_EP1";
+					//vehicle="Pastor";
+					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
 					text="Cop5";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop5 - Police Captain";
+					description="Cop5 - Police Dog (Experimental, Developer/Staff, CLOSED)";
 				};
 			};
 		};
@@ -52208,7 +52209,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=444;
+		items=442;
 		class Item0
 		{
 			position[]={6122.7437,83.040001,11568.63};
@@ -55661,7 +55662,7 @@ class Mission
 		{
 			position[]={1958.575,286.41028,7709.5469};
 			name="ind_supporter_area_flag";
-			text="Insurgents supporter Area";
+			text="Insurgents Supporter Area";
 			type="mil_dot";
 			colorName="ColorGreen";
 		};
@@ -55679,7 +55680,7 @@ class Mission
 		{
 			position[]={1984.2797,280.70816,7689.4248};
 			name="servicepointmarker4_1_1";
-			text="supporter Vehicle Service Point";
+			text="Insurgent Supporter Vehicle Service Point";
 			type="selector_selectable";
 			colorName="ColorYellow";
 		};
@@ -56271,25 +56272,13 @@ class Mission
 		};
 		class Item431
 		{
-			position[]={1512.6117,397.66537,7635.4336};
-			name="ins_no_camp";
-			markerType="ELLIPSE";
-			type="Empty";
-			colorName="ColorGreen";
-			fillName="Border";
-			a=800;
-			b=500;
-			drawBorder=1;
-		};
-		class Item432
-		{
-			position[]={1886.8228,446.38168,8079.2632};
+			position[]={1000.8431,494.80771,7347.6797};
 			name="no_camp_text";
 			text="NO CAMPING THIS AREA!";
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item433
+		class Item432
 		{
 			position[]={5943.0957,83.040001,11868.608};
 			name="pmcsafezone";
@@ -56300,7 +56289,7 @@ class Mission
 			b=50;
 			angle=-23.991726;
 		};
-		class Item434
+		class Item433
 		{
 			position[]={5169.0186,145.39183,6055.1025};
 			name="safezonesouth";
@@ -56312,7 +56301,7 @@ class Mission
 			b=100;
 			drawBorder=1;
 		};
-		class Item435
+		class Item434
 		{
 			position[]={5175.4209,145.38135,6073.5723};
 			name="safezonesouthlb";
@@ -56320,14 +56309,14 @@ class Mission
 			type="mil_end";
 			colorName="ColorGreen";
 		};
-		class Item436
+		class Item435
 		{
 			position[]={5445.7573,139.81291,6313.3682};
 			name="Checkpoint Feruz Abad";
 			text="Checkpoint Feruz Abad";
 			type="mil_join";
 		};
-		class Item437
+		class Item436
 		{
 			position[]={5199.6582,145.39999,6059.5464};
 			name="passport_2";
@@ -56337,7 +56326,7 @@ class Mission
 			b=0.60000002;
 			angle=50;
 		};
-		class Item438
+		class Item437
 		{
 			position[]={5214.5322,145.39024,6081.2847};
 			name="MAINBAINK_1";
@@ -56346,7 +56335,7 @@ class Mission
 			colorName="ColorWhite";
 			b=0.60000002;
 		};
-		class Item439
+		class Item438
 		{
 			position[]={5114.8467,145.39999,6058.7695};
 			name="opforfob";
@@ -56357,14 +56346,14 @@ class Mission
 			b=40;
 			angle=-13;
 		};
-		class Item440
+		class Item439
 		{
 			position[]={3382.4048,176.52774,5526.2666};
 			name="Checkpoint Stalin";
 			text="Checkpoint Stalin";
 			type="mil_join";
 		};
-		class Item441
+		class Item440
 		{
 			position[]={1972.4415,279.4736,7661.9868};
 			name="Helimarker3_1";
@@ -56372,7 +56361,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=6.3491001;
 		};
-		class Item442
+		class Item441
 		{
 			position[]={1958.4031,280.85287,7661.5708};
 			name="insmark";
@@ -56383,15 +56372,6 @@ class Mission
 			a=50;
 			b=50;
 			drawBorder=1;
-		};
-		class Item443
-		{
-			position[]={2717.6462,220.16321,7966.4316};
-			name="temp_arrow";
-			text="INS Supporter moved in 1.4.1!";
-			type="mil_arrow2";
-			colorName="ColorBlack";
-			angle=239.26801;
 		};
 	};
 	class Sensors

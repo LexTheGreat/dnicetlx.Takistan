@@ -12,7 +12,7 @@ if (_art == "start_martial") then
 		martialstatus = false;
 	};
 	if(martialstatus) then {
-		MessageText = "Martial Law has been lifted in Rasman ";
+		MessageText = "Martial Law has been lifted in North Takistan ";
 		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=false;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
@@ -20,9 +20,11 @@ if (_art == "start_martial") then
 		clearVehicleInit player;
 		scode = nil;
 		martialstatus = false;
+		liafu = true;
+		publicVariable "martialstatus";
 	}
 	else {
-		MessageText = "Martial Law has been declared in Rasman \n Civilians, you may be searched and held by the police at will";
+		MessageText = "Martial Law has been declared in North Takistan \n Civilians, you may be searched and held by the police at will";
 		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=true;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
@@ -30,5 +32,7 @@ if (_art == "start_martial") then
 		clearVehicleInit player;
 		scode = nil;
 		martialstatus = true;
+		liafu = true;
+		publicVariable "martialstatus";
 	};
 };

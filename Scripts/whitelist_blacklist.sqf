@@ -10,8 +10,10 @@ _uid = getPlayerUID player;
 A_LIST_DEVS     =
 [
 	"76561198094294502", // Unknown
-	"76561198101924418", // Lex
-	"76561198154237291" //SGT E. Garcia
+	"76561198101924418", // Lex_the_great
+	"76561198154237291", // SGT E. Garcia
+	"76561198124176578", // 1st Lt Monkey
+	"76561198119216004"  // Heaven
 ];
 
 // Directors and Deputy Directors
@@ -20,7 +22,7 @@ A_LIST_DERPS	=
 [
 	"76561198094294502", // Unknown
 	"76561198101924418", // Lex
-	"76561198154237291" //SGT E. Garcia
+	"76561198154237291"  //SGT E. Garcia
 ];
 
 // Senior Admins
@@ -28,10 +30,10 @@ A_LIST_DERPS	=
 A_LIST_SNADMINS	=
 [
 	"76561198094294502", // Unknown
-	"76561198101924418", //Lex_the_great
-	"76561198154237291", //SGT E. Garcia
-	"76561198124176578", //1st Lt Monkey
-	"76561198013686582"  //Hoto
+	"76561198101924418", // Lex_the_great
+	"76561198154237291", // SGT E. Garcia
+	"76561198124176578", // 1st Lt Monkey
+	"76561198119216004"  // Heaven
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -40,9 +42,10 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198124176578", //1st Lt Monkey
-	"76561198139401322", //Mu'Tasim
-	"76561198080206289"  //Original Cole
+	"76561198134796571", // Canadian Bacon
+	"76561198053580599", //Martin
+	"76561198134919635",  // lordwookie
+	"76561198142625756" // Jaysec
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -51,14 +54,11 @@ A_LIST_ADMINS	=
 
 A_LIST_MODS	=
 [
-	"76561198063832142", // DrinkyCrow
-	"76561198102207968", // Able
-	"76561198141964948", // Dreams
-	"76561198035381118", // Wukun
-	"76561198134796571", // Canadian Bacon
-	"76561198119216004", // Heaven
-	"76561198134919635", // lordwookie
-	"76561198050730382"	//Judge
+
+	"76561198092203299", //Stoned Turtle
+	"76561198095702747", //Irish
+	"76561198101119702", //Tone
+	"76561198092131123"  //JacksonS
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -96,7 +96,8 @@ if(isNil "copblacklist") then {
 	];
 };
 if(isNil "opfblacklist") then {
-	opfblacklist = ["76561198040462947" //Son of the Bitch
+	opfblacklist = [
+	"76561198040462947" //Son of the Bitch
 	];
 };
 if(isNil "opfcmdblacklist") then {
@@ -109,7 +110,11 @@ if(isNil "insblacklist") then {
 	
 	];
 };
-pmcblacklist = [];
+pmcblacklist = [
+"76561198203570236", //Austin
+"76561198177166307", //Dark Arrow
+"76561198083392018" //jpf
+];
 
 issup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
 isvip = ((_uid in supportersVIP));
@@ -146,8 +151,15 @@ if((!isvip) && rolenumber == 71) then {
 	failMission "END1";};
 _notAllowed = false;
 if(!issup) then {
-	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 82)||(rolenumber >= 92 && rolenumber <= 95)) then {
+	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 78)||(rolenumber >= 92 && rolenumber <= 95)) then {
 		player groupChat "You cannot join a supporter slot without supporter privileges!";
+		sleep 7;
+		failMission "END1";
+	};
+};
+if(!isStaff) then {
+	if(rolenumber == 96) then {
+		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
 		failMission "END1";
 	};

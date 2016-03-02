@@ -1056,11 +1056,16 @@ get_death_message = {
 	
 	
 	if (respawnButtonPressed) exitWith {
+		nmchk = true;
+		["SUICIDE LOGGER", _victim_name, "respawn"] call fn_LogToServer;
 		format["%1 commited suicide, by clicking on respawn", _victim_name];
 	};
 	
-	if (_suicide) exitWith { 
-		format["%1 committed suicide", _victim_name];	
+	if (_suicide) exitWith {
+		nmchk = true;
+		["SUICIDE LOGGER", _victim_name] call fn_LogToServer;
+		["SUICIDE LOGGER DEBUG", _killer, _suicide, _victim_armed, _victim_criminal, _roadkill, _victim_side, _killer_side, _victim_name, _killer_name, _justified] call fn_LogToServer;
+		format["%1 committed suicide", _victim_name];
 	};
 	
 	//Death messages
@@ -1076,13 +1081,19 @@ get_death_message = {
 	if (_roadkill) then { _vehicle_str = " with a vehicle"; };
 
 	if (_victim_side == "Civilian") exitWith {
+		nmchk = true;
+		["KILL LOGGER", format["%1 killed %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str]] call fn_LogToServer;
 		format["%1 killed %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str];
 	};
 	
 	if (_teamkill) exitWith {
+		nmchk = true;
+		["KILL LOGGER", format["%1 team-killed %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str]] call fn_LogToServer;
 		format["%1 team-killed %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str];
 	};
 	
+	nmchk = true;
+	["KILL LOGGER", format["%1 murdered %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str]] call fn_LogToServer;
 	_message = format["%1 murdered %2 (%3%6 %4)%5", _killer_name, _victim_name, _armed_str, _victim_side, _vehicle_str, _criminal_str];
 	_message
 };

@@ -2,6 +2,13 @@ if(A_running) exitwith {};
 A_running = true;
 
 _role = Player;
+if (role == Cop5) then {
+	_role RemoveAction lexisgreat;
+	_role RemoveAction lexisgreat2;
+	_role RemoveAction lexisgreat3;
+	_role RemoveAction lexisgreat4;
+	_role RemoveAction lexisgreat5;
+};
 _role RemoveAction action1;
 _role RemoveAction action2;
 _role RemoveAction action3;

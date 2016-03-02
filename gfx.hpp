@@ -57,7 +57,7 @@ class Sichtweite_button2 : RscButton
 	x = 0.51; y = 0.27;
 	w = 0.07; h = 0.04;
 	text = "+100";
-	action = "if (GFX_ArmaViewDistance <= 5000) then {GFX_ArmaViewDistance = GFX_ArmaViewDistance + 100; setViewDistance GFX_ArmaViewDistance; player groupChat format['Viewdistance: %1', GFX_ArmaViewDistance];};";
+	action = "if (GFX_ArmaViewDistance <= 10000) then {GFX_ArmaViewDistance = GFX_ArmaViewDistance + 100; setViewDistance GFX_ArmaViewDistance; player groupChat format['Viewdistance: %1', GFX_ArmaViewDistance];};";
 
 	};
 

@@ -794,8 +794,8 @@ _copshop_sobr =
 		["SMAW_HEDP", -1, -1],
 		["M47Launcher_EP1", -1, -1],
 		["Dragon_mag", -1, -1],	
-		["Stinger", -1, -1],
-		["Stinger_mag", -1, -1],
+		//["Stinger", -1, -1],
+		//["Stinger_mag", -1, -1],
 		["M32", -1, -1],
 		["Rnd_HE", -1, -1],
 		["Rnd_Smoke", -1, -1],
@@ -1146,8 +1146,7 @@ _ihs =
 		["UH1H_TK_EP1", -1, -1],
 		["Ka137_PMC",-1,-1],
 		["Ka137_MG_PMC", -1, -1],
-		["Mi17_TK_EP1",-1 ,-1],
-		["Mi24_D_TK_EP1",-1 ,-1]
+		["Mi17_TK_EP1",-1 ,-1]
 	];
 // Insurgetn Supply
 _isup = 
@@ -1996,8 +1995,7 @@ _idas =
 	[	
 		//["AH6J_EP1_sup", -1, -1],
 		["AH6X_EP1_sup", -1, -1],
-		["Mi17_medevac_Ins_sup", -1, -1],
-		["Mi24_V_sup", -1, -1]
+		["Mi17_medevac_Ins_sup", -1, -1]
 	];
 
 //OPFOR supporter Vehicle Shop
@@ -2054,6 +2052,9 @@ _odws =
 		["SVD_CAMO_sup", -1, -1],
 		["SVD_sup", -1, -1],
 		["Rnd_762x54_SVD", -1, -1],
+		["VSS_Vintorez_sup", -1, -1],
+		["Rnd_9x39_10_VSS", -1, -1],
+		["Rnd_9x39_20_VSS", -1, -1],
 		["AKS_74_NSPU_sup", -1, -1],
 		["Sa58V_CCO_EP1_sup", -1, -1],
 		["Sa58V_RCO_EP1_sup", -1, -1],

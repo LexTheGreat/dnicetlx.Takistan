@@ -835,8 +835,8 @@ STRS_bank_rob_titlemsg,$$$$WARNING$$$$ Someone is robbing the bank $$$$WARNING$$
 STRS_admin_god,An administrator has activated self invincibility!,
 STRS_wartime,Opfor has declared war on blufor!,
 STRS_wartimeover,Opfor has ceased war with blufor!,
-STRS_martiallaw,Blufor has declared martial law in Rasman all civs are subject to search and detainment!,
-STRS_martiallawover,Blufor has ended martial law in rasman!,
+STRS_martiallaw,Blufor has declared martial law in North Takistan all civs are subject to search and detainment!,
+STRS_martiallawover,Blufor has ended martial law in North Takistan!,
 STRS_admin_ungod,An administrator has deactivated self invincibility!,
 STRS_bank_rob_lostnomoney,Because of your bank insurance you lost no money but you lost one bank insurance.,
 STRS_bank_rob_lostnomoneyvip,Due to your overseas bank account, You lost no money.

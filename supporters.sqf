@@ -19,7 +19,6 @@ supporters1 	  = [
 					"76561198071463315", //Lontra Atomica
 					"76561198084473560",//death terrorist/grille
 					"76561198069905879", //Swift
-					"76561198097975603", //Nightshade
 					"76561198043681651", //Mez
 					"76561198074221979", //DJ-Recon
 					"76561198099263770", //illfingas
@@ -54,7 +53,7 @@ supporters1 	  = [
 					"76561198155295570", //deancooper
 					"76561198056676644", //hellman4
 					"76561198114788756", //Fluskies
-					"76561198121446470", //SIR
+					"76561198267388254", // "76561198121446470", //SIR
 					"76561198152442647", //IIBARRICADEII
 					"76561198147080989", //travis00
 					"76561198055871342", //Sgt Brown
@@ -175,7 +174,6 @@ supporters1 	  = [
 					"76561198091817032", //Corey
 					"76561198067490194", //Anx
 					"76561198013194936", //On3eyedm3dic
-					"76561198142704814", //VoidShotzz
 					"76561198089464980", //Ctripp
 					"76561198079433421", //BuzzardBat
 					"76561198133995263", //Sgt Sanborne
@@ -185,8 +183,13 @@ supporters1 	  = [
 					"76561198047739809", //Dieter
 					"76561198157505040",  //StarBoSs
 					"76561198130599452", //Ashton
-					"76561198134919635",  //Lordwookie
-					"76561198096310527"  //larsp_000
+					"76561198096310527", //larsp_000
+					"76561198132937105", //Cas
+					"76561198112625726", //Lucas
+					"76561198075570847", //KenP
+					"76561198129817887", //Rhys
+					"76561198083392018", //jpf
+					"76561198044511240"  //Comrade
 		    ];
 
 // Remember the Array format! No comma on last item in array!
@@ -211,7 +214,6 @@ supporters2 	  = [
 					"76561198119475641", //Le Fother
 					"76561198145327197", //Alpha2O
 					"76561198105395558", //Collin
-					"76561198101119702", //Tyler MegaquartzMC
 					"76561198059792896", //Ben brenn
 					"76561198091781267", //PotatoPalsAlec
 					"76561198155990670", //Littlepip
@@ -223,7 +225,7 @@ supporters2 	  = [
 					"76561198061766345", //PotSmokingHippie
 					"76561198022259983", //LPK Solitude
 					"76561197985471552", //Bismarck
-					"76561198026224873", //Dalton
+					"76561198065642146", //Dalton
 					"76561198069889962", //oshit
 					"76561198058459273", //Bashir Zayz
 					"76561198153831221", //rhotis
@@ -261,10 +263,7 @@ supporters2 	  = [
 					"76561198168912341", //Kiwiwonder
 					"76561198067610239", //Imran Zakhaev
 					"76561198018600234", //JORDAN Beck
-					//"76561198067620373", //Snowman ban
 					"76561198133152953", //Lemmings
-					"76561198124176578", //Lt Monkey
-					"76561198119216004", //Heaven
 					"76561198055310671", //Elgin Terry
 					"76561198122666011", //cyka blyat
 					"76561197990568150", //Grismer
@@ -274,7 +273,6 @@ supporters2 	  = [
 					"76561198065859672", //Alvino
 					"76561198152562567", // XxNickxX
 					"76561198043117324", //GARRETT_
-					"76561198134796571", //Canadian Bacon T2
 					"76561198064657725", //Scrowell
 					"76561198090140009", //LimpyLongLeg
 					"76561198068873234", //WannaBeRanger Enjin
@@ -307,7 +305,7 @@ supporters2 	  = [
 					"76561198064531067", //lulzfunny
 					"76561198184870159", //SGT. McCracken
 					"76561198071162289", //Sgt Turtles Keegan
-					"76561198011207224", //Daniel Lopez
+					"76561198011207224", //Daniel Lopez (6sic6)
 					"76561198057153486", //Al-Qassam
 					"76561198119668286", //Zander
 					"76561198115037623", //SuplexCity
@@ -325,7 +323,9 @@ supporters2 	  = [
 					"76561198161493575", // Ivan
 					"76561198114549420", //RageCometz
 					"76561198137071745", //OpejolkinGaming
-					"76561198137131240"  //CreepyIcecream
+					"76561198137131240", //CreepyIcecream
+					"76561198043592153", //4ChanParyVan
+					"76561198132842532"  //MGM
 			];
 
 // Remember the Array format! No comma on last item in array!
@@ -344,7 +344,6 @@ supporters3  	  = [
 				"76561198071964800", //GavinTankGaming
 				"76561198158227283", //Gnome
 				"76561198103350780", //Ryguy
-				"76561198089667130", //Facundo
 				"76561198115818821​", //CaseTheSlayer
 				"76561198211924507", //Mr. Penguin
 				"76561198019703127", //walker
@@ -370,7 +369,8 @@ supporters3  	  = [
 				"76561198098170503", //King Akbur
 				"76561198102000968", //RealHippie
 				"76561198105821449", //Derpy Herpy derpderp
-				"76561198093692248"  //Oooohkillem
+				"76561198093692248", //Oooohkillem
+				"76561198114907761"  //Red-X Hunterizer
 			];
 
 // Remember the Array format! No comma on last item in array!
@@ -378,8 +378,7 @@ supporters3  	  = [
 supporters4  	  = [
 				"76561198111424831", //TiLTDRAMZ
 				"76561197967346144", //[DC]Barkuticus
-				"76561198050730382", //Austin Jumper
-				"76561198045721518" //Burty
+				"76561198201488867"  //Burty
 
 ];
 
@@ -454,7 +453,18 @@ supportersVIP     = [
 				"76561198094294502", //Unkown /gregorys
 				"76561198100072934", //NESKOVICH
 				"76561198079217419", //JohnBallsac
-				"76561198123306484", //Hoss
+				"76561198089667130", //Facundo
+				"76561198101119702", //Tyler MegaquartzMC
+				"76561198271741218", //God
+				"76561198067620373", //Robert
+				"76561198177166307", //Dark Arrow/kailil0285@gmail.com
+				"76561198142704814", //VoidShotzz
+				"76561198124176578", //Lt Monkey
+				"76561198119216004", //Heaven
+				"76561198134796571", //Canadian Bacon T2
+				"76561198050730382", //Austin Jumper
+				"76561198134919635", //Lordwookie
+				"76561198041119029", //Sgt. Ryan
 				"76561198089072949"  //KAAAAAAYLE
 			
 			];

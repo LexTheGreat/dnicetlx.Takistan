@@ -4,8 +4,22 @@ A_running = true;
 private["_role"];
 _role = player;
 
+
+if (_role == Cop5) then {
+	if(isNil "BiteCoolDown") then { BiteCoolDown = true; };
+	if(isNil "BarkCoolDown") then { BarkCoolDown = true; };
+	if(isNil "SniffCoolDown") then { SniffCoolDown = true; };
+	// todo, change this! Should remove after load
+	lexisgreat = player addAction ["Bite", "noscript.sqf", ' if(!BiteCoolDown) then { 	systemChat "[Dog][Bite]: You must wait to Bite."; } else { 	BiteCoolDown = false; 	_men = nearestobjects [getpos player, ["CAManBase"], 10] - [player]; 	_man = _men select 0; 	player switchmove "Dog_StopV2"; 	if((isPlayer _man) and ((player distance _man) <= 10)) then { 		format[''%1 switchmove "AdthPpneMstpSlowWrflDf_1";'',_man] call broadcast; 		sleep M_punch; 		format["if (player == %2) then { [%1, %2, %3] spawn stun_hands_hit; };", player, _man, 20] call broadcast; 	} else { systemChat "[Dog][Bite]: It is to far away, or it is not a player!"; }; 	sleep 1; 	BiteCoolDown = true; }; '];
+	lexisgreat2 = player addAction ["Bark", "noscript.sqf", 'if(!BarkCoolDown) then { systemChat "[Dog][Bark]: You must wait to Bark."; } else { BarkCoolDown = false; _soundSource = createSoundSource ["Sound_Dog", position player, [], 0]; sleep 1; _soundSource attachto [player, [0,0,0]]; sleep 1; deletevehicle _soundSource; sleep 1; BarkCoolDown = true; };'];
+	lexisgreat3 = player addAction ["= Sniff Actions =", "noscript.sqf", ''];
+	lexisgreat4 = player addAction ["Sniff Humans", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Humans."; } else { SniffCoolDown = false; _men = nearestobjects [getpos player, ["CAManBase"], 250] - [player]; systemChat format["== Sniffing... =="]; { if(isPlayer _x) then { systemChat format["[Dog]: %1, Distance: %2", name _x, player distance _x]; }; } forEach _men; sleep 1; SniffCoolDown = true; };'];
+	lexisgreat5 = player addAction ["Sniff IED", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Bombs."; } else { systemChat format["== Sniffing... =="]; { SniffCoolDown = false;  _men = player nearObjects [_x, 250]; { systemChat format["[Dog]: Alert Bomb Smelt!, Distance: %1", player distance _x];} forEach _men; } forEach ["PipeBomb", "BAF_ied_v1", "BAF_ied_v2", "BAF_ied_v3", "BAF_ied_v4", "PMC_ied_v1", "PMC_ied_v2", "PMC_ied_v3", "PMC_ied_v4"]; sleep 1; SniffCoolDown = true; };'];
+};	
+
+
 //====================================== HQ BOMB ======================================================
-action1 =	_role addaction ["Defuse Bomb","noscript.sqf",'if(planting)exitwith{};planting=true;player playmove "AinvPknlMstpSlayWrflDnon_medic";sleep 4;waituntil {animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};planting=false;if(!alive player)exitwith{};bombactive=false;publicvariable "bombactive";"hint ""The bomb has been defused!"";server globalchat ""The bomb has been defused!"";playsound ""fanfare"";" call broadcast;',1,false,true,"","player distance HQ <= 5 and iscop and bombactive and !planting"];
+action1 =	_role addaction ["Defuse Bomb","noscript.sqf",'if(planting)exitwith{};planting=true;player playmove "AinvPknlMstpSlayWrflDnon_medic";sleep 4;waituntil {animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};planting=false;if(!alive player)exitwith{};bombactive=false;publicvariable "bombactive";"hint ""The bomb has been defused!"";server globalchat ""The bomb has been defused!"";playsound ""fanfare"";" call broadcast;',1,false,true,"","player distance HQ <= 1 and iscop and bombactive and !planting"];
 action2 =	_role addaction ["Plant Bomb","noscript.sqf",'if(planting)exitwith{};planting=true;publicvariable "planting";player playmove "AinvPknlMstpSlayWrflDnon_medic";sleep 4;waituntil {animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};planting=false;publicvariable "planting";if(!alive player)exitwith{};bombactive=true;publicvariable "bombactive";',1,false,true,"","player distance HQ <= 5 and !bombactive and !planting and isciv"];
 //==================================== GANG MENU ======================================================
 //action3 =	_role addaction ["Gang Menu","maindialogs.sqf",["gangmenu"],1,false,true,"","player distance rathaus <= 3 and isciv"];
@@ -272,7 +286,7 @@ action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","iso
 action121 = _role addaction ["Declare War against North", "Awesome\Functions\war_functions.sqf", ["start_war"], 1, false, true, "", "!warstatus && rolenumber == 73 && player distance atm5 < 20"];
 action122 = _role addaction ["Sign ceasefire with North", "noscript.sqf",'warstatusopf = false;publicVariableServer "warstatusopf";',1, false, true, "", "warstatus && warstatusopf && rolenumber == 77"];
 action123 = _role addaction ["Sign ceasefire with TLA", "noscript.sqf",'warstatuscop = false;publicVariableServer "warstatuscop";',1, false, true, "", "warstatus && warstatuscop && ischief"];
-action124 = _role addaction ["Declare/Lift Martial Law in Rasman", "Awesome\Functions\war_functions.sqf", ["start_martial"],1, false, true, "", "ischief && player distance copbank < 20"];
+action124 = _role addaction ["Declare/Lift Martial Law in North Takistan", "Awesome\Functions\war_functions.sqf", ["start_martial"],1, false, true, "", "ischief && player distance copbank < 20"];
 action125 = _role addaction ["Activate Radar", "Awesome\Functions\radar_function.sqf", [], 1, false, true, "", "(!radarActive && rolenumber == 74 && player distance atm5 < 20)||(!radarActive && rolenumber == 92 && player distance copbank < 20)"];
 //======================== Zone Commands
 opforZoneAction = _role addaction ["Cap/Neutralize Anar City", "noscript.sqf", "['opforZone',opforZoneFlag,'opforFlag'] call zone_capture;",1,false,true,"","!isciv && player distance opforZoneFlag < 5 && side player != ['opforZone'] call zone_getOwner"];
