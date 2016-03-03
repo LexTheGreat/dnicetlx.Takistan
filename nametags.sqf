@@ -128,7 +128,7 @@ name_tags_draw = {
 	};
 	
 	if ([_target] call object_shop && _distance < 3) exitWith {
-		if(([_player] call player_cop) and _target in drugsellarray) then { 
+		if(([_player] call player_cop or [_player] call player_tnp) and _target in drugsellarray) then { 
 			_control ctrlSetStructuredText parseText format["<t size='1.2' font='Zeppelin33Italic' color='#ffffff'>Drug Search (E)</t>"];
 		}
 		else {
@@ -181,7 +181,7 @@ name_tags_draw = {
 	if ([_target] call player_human &&  _distance < 25) exitWith {
 		if ([_target, "has_admin_camera"] call player_get_bool) exitWith {};
 	
-		if ([_target] call player_cop) then{ 
+		if ([_target] call player_cop or [_target] call player_tnp) then{ 
 			_control ctrlSetStructuredText parseText format["<t size='1.2' font='Zeppelin33Italic' color='#0000ff'>%1 (%2)</t>", _target, (name _target)];
 		}
 		else { if (([_target] call player_civilian) && ([_target] call player_get_bounty) > 0) then {

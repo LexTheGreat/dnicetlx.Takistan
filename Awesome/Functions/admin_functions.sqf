@@ -98,7 +98,7 @@ admin_actions_list = {
 			player groupChat format["Player %1(%2) is ignoring the required playtime now", _target, (name _target)];
 			
 			private["_message"];
-			_message = "You are ignoring the required playtime now. Feel free to join blufor, insurent or opfor now.";
+			_message = "You are ignoring the required playtime now. Feel free to join Blufor, Opfor, or Cilivian now.";
 			format['if (player == %1) then {player groupChat toString(%2);};', _target, toArray(_message)] call broadcast;
 		}],
 		["Reset time(40m dy, 20m nt)", {

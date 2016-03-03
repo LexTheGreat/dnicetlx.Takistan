@@ -113,20 +113,38 @@ switch (playerSide) do
 	
 	case civilian:
 	{
-		[player, _uid, "moneyAccountCiv", "NUMBER"] call sendToServer;
-		[player, _uid, "MagazinesPlayerCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "WeaponsPlayerCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "LicensesCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "InventoryCiv", "ARRAY"] call sendToServer;
-    	[player, _uid, "privateStorageCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
-		[] spawn { 
-			sleep 5;
-			_uid = getPlayerUID player;
-			[player, _uid, "BackWepPlayerCiv", "ARRAY"] call sendToServer;
-			[player, _uid, "BackMagPlayerCiv", "ARRAY"] call sendToServer;
+		if (istnp) then {
+			[player, _uid, "moneyAccountTnp", "NUMBER"] call sendToServer;
+			[player, _uid, "MagazinesPlayerTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "WeaponsPlayerTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "LicensesTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "InventoryTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "privateStorageTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "FactoryTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "positionPlayerTnp", "ARRAY"] call sendToServer;
+			[player, _uid, "BackpackPlayerTnp", "STRING"] call sendToServer;
+			[] spawn { 
+				sleep 5;
+				_uid = getPlayerUID player;
+				[player, _uid, "BackWepPlayerTnp", "ARRAY"] call sendToServer;
+				[player, _uid, "BackMagPlayerTnp", "ARRAY"] call sendToServer;
+			};
+		} else {
+			[player, _uid, "moneyAccountCiv", "NUMBER"] call sendToServer;
+			[player, _uid, "MagazinesPlayerCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "WeaponsPlayerCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "LicensesCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "InventoryCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "privateStorageCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
+			[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
+			[] spawn { 
+				sleep 5;
+				_uid = getPlayerUID player;
+				[player, _uid, "BackWepPlayerCiv", "ARRAY"] call sendToServer;
+				[player, _uid, "BackMagPlayerCiv", "ARRAY"] call sendToServer;
+			};
 		};
 	};
 };
@@ -174,6 +192,7 @@ if (isNil "bankstatsareloaded") then {
 };
 statsLoaded = 1;
 
+
 if ((issup) && !("supporter" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["supporter"];
 server globalchat "supporter ACCOUNT DETECTED: supporter License Added";};
@@ -182,7 +201,7 @@ if ((isvip) && !("viplicense" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["viplicense"];
 server globalchat "VIP supporter ACCOUNT DETECTED: VIP supporter License Added";};
 
-if ((ispmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
+if ((isPmcSlot) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
 			server globalchat "PMC ACCOUNT DETECTED: PMC License Added"};
 			
 			
@@ -309,10 +328,4 @@ if((getPlayerUID player) in sheplicense) then {
 if((getPlayerUID player) in wolflicense) then {
 	INV_LicenseOwner = INV_LicenseOwner + ["wolflicense"];
 	server globalchat "Wolfgang License Added";
-};
-
-if (player == Cop5) then {
-	removeAllWeapons player;
-	player addWeapon "ItemMap";
-	[player, "Pastor", false] spawn C_change;
 };

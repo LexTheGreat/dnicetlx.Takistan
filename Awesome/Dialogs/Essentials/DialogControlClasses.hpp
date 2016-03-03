@@ -502,7 +502,7 @@ class RscMapControl
 		icon = "\ca\ui\data\ui_taskstate_current_CA.paa";
 		iconCreated = "\ca\ui\data\ui_taskstate_new_CA.paa";
 		iconCanceled = "#(argb,8,8,3)color(0,0,0,0)";
-		iconDone = "\ca\ui\data\ui_taskstate_done_CA.paa";
+		iconDone = "\ca\ui\data\ui_taskstate_supe_CA.paa";
 		iconFailed = "\ca\ui\data\ui_taskstate_failed_CA.paa";
 		color[] = {0.863, 0.584, 0.0, 1};
 		colorCreated[] = {0.95, 0.95, 0.95, 1};

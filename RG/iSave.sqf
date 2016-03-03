@@ -37,10 +37,26 @@ if (!isNil "statsLoaded") then {
 					
 					case civilian:
 					{
-						[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["InventoryCiv", ([player] call player_get_inventory)], ["WeaponsPlayerCiv", weapons player], ["BackpackPlayerCiv", typeOf unitBackpack player], ["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["privateStorageCiv", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
+						if (istnp) then {
+							[_uid, ["moneyAccountTnp", ([player] call get_bank_valuez)], ["InventoryTnp", ([player] call player_get_inventory)], ["WeaponsPlayerTnp", weapons player], ["BackpackPlayerTnp", typeOf unitBackpack player], ["BackWepPlayerTnp", getWeaponCargo (unitBackpack player)], ["privateStorageTnp", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
 
-						if(!savedelay) then {
-							[_uid, ["MagazinesPlayerCiv", magazines player], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+							if(!savedelay) then {
+								[_uid, ["MagazinesPlayerTnp", magazines player], ["BackMagPlayerTnp", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+							};
+						} else {
+							if (isPmcSlot) then {
+								[_uid, ["moneyAccountPmc", ([player] call get_bank_valuez)], ["InventoryPmc", ([player] call player_get_inventory)], ["WeaponsPlayerPmc", weapons player], ["BackpackPlayerPmc", typeOf unitBackpack player], ["BackWepPlayerPmc", getWeaponCargo (unitBackpack player)], ["privateStoragePmc", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
+
+								if(!savedelay) then {
+									[_uid, ["MagazinesPlayerPmc", magazines player], ["BackMagPlayerPmc", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+								};
+							} else {
+								[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["InventoryCiv", ([player] call player_get_inventory)], ["WeaponsPlayerCiv", weapons player], ["BackpackPlayerCiv", typeOf unitBackpack player], ["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["privateStorageCiv", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
+
+								if(!savedelay) then {
+									[_uid, ["MagazinesPlayerCiv", magazines player], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+								};
+							};
 						};
 					};
 			};

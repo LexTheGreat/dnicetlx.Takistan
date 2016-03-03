@@ -24,8 +24,15 @@ if (!isNil "statsLoaded") then {
 					
 					case civilian:
 					{
-						[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["MagazinesPlayerCiv", []], ["InventoryCiv", []], ["WeaponsPlayerCiv", []], ["positionPlayerCiv", getMarkerPos "respawn_civilian"], ["BackpackPlayerCiv", ""], ["BackWepPlayerCiv", [[],[]]], ["BackMagPlayerCiv", [[],[]]]] call fn_SaveAggToServer;
-
+						if (istnp) then {
+							[_uid, ["moneyAccountTnp", ([player] call get_bank_valuez)], ["MagazinesPlayerTnp", []], ["InventoryTnp", []], ["WeaponsPlayerTnp", []], ["positionPlayerTnp", getMarkerPos "respawn_civilian"], ["BackpackPlayerTnp", ""], ["BackWepPlayerTnp", [[],[]]], ["BackMagPlayerTnp", [[],[]]]] call fn_SaveAggToServer;
+						} else {
+							if (isPmcSlot) then {
+								[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["MagazinesPlayerPmc", []], ["InventoryCiv", []], ["WeaponsPlayerPmc", []], ["positionPlayerPmc", getMarkerPos "respawn_civilian"], ["BackpackPlayerPmc", ""], ["BackWepPlayerPmc", [[],[]]], ["BackMagPlayerPmc", [[],[]]]] call fn_SaveAggToServer;
+							} else {
+								[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["MagazinesPlayerCiv", []], ["InventoryCiv", []], ["WeaponsPlayerCiv", []], ["positionPlayerCiv", getMarkerPos "respawn_civilian"], ["BackpackPlayerCiv", ""], ["BackWepPlayerCiv", [[],[]]], ["BackMagPlayerCiv", [[],[]]]] call fn_SaveAggToServer;
+							};
+						};
 					};
 					sleep 45;
 					saveinprogress = false;

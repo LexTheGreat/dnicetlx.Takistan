@@ -316,14 +316,14 @@ keyboard_switch_normal_handler = {
 keyboard_gangs_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(isciv) || isins || isopf) exitWith {false};
+	if (not(isciv) || isopf) exitWith {false};
 	[0,0,0,["gangmenu"]] execVM "maindialogs.sqf";
 	true
 };
 keyboard_squads_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(iscop) || isins || isopf) exitWith {false};
+	if (not(iscop) || isopf) exitWith {false};
 	[0,0,0,["squadmenu"]] execVM "maindialogs.sqf";
 	true
 };
@@ -341,7 +341,7 @@ keyboard_admin_menu_handler = {
 keyboard_cop_menu_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(iscop or isopf)) exitWith {false};
+	if (not(iscop or isopf or istnp)) exitWith {false};
 	if ([player] call player_get_dead) exitWith {};
 	
 	private["_inVehicle"];

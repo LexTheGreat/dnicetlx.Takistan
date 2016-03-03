@@ -1,7 +1,7 @@
 INV_MAX_ITEMS           = 1000000;
 INV_MAX_DROPS	 		= 300;
 INV_shortcuts           = true;
-INV_SperrenVerbotArray  = [[copbase1, 250],[mosqueprop, 120], [banklogic, 35], [tairspawn, 150], [asairspawn, 30], [afacspawn, 30], [airfacspawn, 30], [insvehspawn, 80],[redhelispawn, 100],[CopPrisonAusgang, 20]];
+INV_SperrenVerbotArray  = [[copbase1, 250],[mosqueprop, 120], [banklogic, 35], [tairspawn, 150], [asairspawn, 30], [afacspawn, 30], [airfacspawn, 30], [redhelispawn, 100],[CopPrisonAusgang, 20]];
 
 
 _handler = [] execVM "INVfunctions.sqf";

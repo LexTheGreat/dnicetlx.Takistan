@@ -14,18 +14,18 @@ interact_human = {
 	civ_variable_name = str(_target);
 	civ_player_variable  = _target;
 	
-	if (([_player] call player_cop) && (not([_target] call player_cop) || ischief)) exitWith {
+	if (([_player] call player_cop or [_player] call player_tnp) && (not([_target] call player_cop or [_target] call player_tnp) || ischief)) exitWith {
 		if (not(createDialog "civmenu")) exitWith { hint "Dialog Error!";};
 		true;
 	};
-	if (([_player] call player_opfor) && (not([_target] call player_opfor) || ischief)) exitWith {
+	if (([_player] call player_opfor or [_player] call player_tnp) && (not([_target] call player_opfor or [_target] call player_tnp) || ischief)) exitWith {
 		if (not(createDialog "civmenu_opf")) exitWith { hint "Dialog Error!";};
 		true;
 	};
 	
 	  
 	
-	if (([_player] call player_civilian) ||([_player] call player_insurgent)) exitWith {
+	if (([_player] call player_civilian)) exitWith {
 		if (!(createDialog "civinteraktion")) exitWith {hint "Dialog Error!";};
 		true
 	};
@@ -49,7 +49,7 @@ interact_ai = {
 	private["_id"];
 	_id = _target call INV_GetShopNum;
 	
-	if(([_player] call player_cop) and (_target in drugsellarray)) exitWith {
+	if(([_player] call player_cop or [_player] call player_tnp) and (_target in drugsellarray)) exitWith {
 		[_id] spawn shop_drug_search;
 		true;
 	};
@@ -99,7 +99,7 @@ interact_ai = {
 	*/
 	if((_target in blusup_shop_list)) exitWith {
 		if (not([_player] call player_cop)) exitWith {
-			hint "You cannot access Blufor supporter Shops: Not a Cop";
+			hint "You cannot access Blufor Supporter Shops";
 			false
 		};
 		[_id] call shop_open_dialog;
@@ -108,14 +108,6 @@ interact_ai = {
 	if((_target in civsup_shop_list)) exitWith {
 		if (not([_player] call player_civilian)) exitWith {
 			hint "You cannot access Civilian supporter Shops: Not a Civilian";
-			false
-		};
-		[_id] call shop_open_dialog;
-		true
-	};
-	if((_target in inssup_shop_list)) exitWith {
-		if (not([_player] call player_insurgent)) exitWith {
-			hint "You cannot access Insurgent supporter Shops: Not an Insurgent";
 			false
 		};
 		[_id] call shop_open_dialog;
@@ -764,8 +756,7 @@ interact_mobile_send = {
 	
 	[_player, 'money', -(_cost)] call INV_AddInventoryItem;
 	
-	//if (not([_target, "mobile"] call player_get_bool)) exitWith {
-	if (([_target, "handy"] call INV_GetItemAmount) != 1) exitWith {
+	if (not([_target, "mobile"] call player_get_bool)) exitWith {
 		player groupChat format["%1-%2 does not have a mobile phone, your text message bounced", _target, (name _target)];
 	};
 
@@ -1231,7 +1222,7 @@ interact_rob_inventory = {
 	
 	
 	private["_near_cops"];
-	if (([player, 40] call player_near_cops) && not([_target] call player_cop)) then {
+	if (([player, 40] call player_near_cops or [player, 40] call player_near_tnp) && not([_target] call player_cop or [_target] call player_tnp)) then {
 		player groupChat format["You cannot rob %1-%2, there is a cop near", _target, (name _target)];
 	};
 	
@@ -1559,8 +1550,6 @@ interact_side_ai_magazines = {
 	
 	if (_side == west) exitWith { backup_cop_magazines };
 	if (_side == east) exitWith { backup_opf_magazines };
-	if (_side == resistance ) exitWith { backup_ins_magazines };
-	
 	[]
 };
 
@@ -1572,7 +1561,6 @@ interact_side_ai_weapons = {
 	
 	if (_side == west) exitWith { backup_cop_weapons };
 	if (_side == east) exitWith { backup_opf_weapons };
-	if (_side == resistance ) exitWith { backup_ins_weapons };
 	[]
 };
 

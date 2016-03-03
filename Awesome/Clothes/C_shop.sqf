@@ -178,32 +178,32 @@ Clothes =
 ["OPF_WOLF",				"CDF_Soldier_Militia",						"OPF Wolf Militia",				east,			"BIS_TK",			isopf,		150000,		["wolflicense"],							[],		["light", "full"],		[0,1,2,3,4,5]	],
 
 
-["INS_BS",					"TK_INS_Bonesetter_EP1",		"INS BONESETTER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M1",					"TK_INS_Soldier_2_EP1",			"INS MILITIAMAN 1",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M2",					"TK_INS_Soldier_3_EP1",			"INS MILITIAMAN 2",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M3",					"TK_INS_Soldier_4_EP1",			"INS MILITIAMAN 3",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M4",					"TK_INS_Soldier_AAT_EP1",		"INS MILITIAMAN 4",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M5",					"TK_INS_Soldier_AT_EP1",		"INS MILITIAMAN 5",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_M6",					"TK_INS_Soldier_EP1",			"INS MILITIAMAN 6",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_AA",					"TK_INS_Soldier_AA_EP1",		"INS AA",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_AR",					"TK_INS_Soldier_AR_EP1",		"INS AR",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_MG",					"TK_INS_Soldier_MG_EP1",		"INS MG",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_SN",					"TK_INS_Soldier_Sniper_EP1",	"INS SNIPER",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_TL",					"TK_INS_Soldier_TL_EP1",		"INS TEAM LEADER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_WL",					"TK_INS_Warlord_EP1",			"INS WARLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_WOLF",					"TK_INS_Warlord_EP1",			"INS WOLFLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		["wolflicense"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_BS",					"TK_INS_Bonesetter_EP1",		"INS BONESETTER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M1",					"TK_INS_Soldier_2_EP1",			"INS MILITIAMAN 1",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M2",					"TK_INS_Soldier_3_EP1",			"INS MILITIAMAN 2",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M3",					"TK_INS_Soldier_4_EP1",			"INS MILITIAMAN 3",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M4",					"TK_INS_Soldier_AAT_EP1",		"INS MILITIAMAN 4",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M5",					"TK_INS_Soldier_AT_EP1",		"INS MILITIAMAN 5",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_M6",					"TK_INS_Soldier_EP1",			"INS MILITIAMAN 6",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_AA",					"TK_INS_Soldier_AA_EP1",		"INS AA",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_AR",					"TK_INS_Soldier_AR_EP1",		"INS AR",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_MG",					"TK_INS_Soldier_MG_EP1",		"INS MG",								resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_SN",					"TK_INS_Soldier_Sniper_EP1",	"INS SNIPER",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_TL",					"TK_INS_Soldier_TL_EP1",		"INS TEAM LEADER",						resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_WL",					"TK_INS_Warlord_EP1",			"INS WARLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		[""],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_WOLF",					"TK_INS_Warlord_EP1",			"INS WOLFLORD",							resistance,		"BIS_TK_INS",		isins,		50000,		["wolflicense"],		[],		["light"],		[0,1,2,3,4,5]	],
 
-["INS_CH_WL1",				"Ins_Bardak",					"INS CH Commander #1",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_WL2",				"Ins_Lopotev",					"INS CH Commander #2",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_WL3",				"Ins_Commander",				"INS CH Commander #3",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_OFF",				"Ins_Soldier_CO",				"INS CH Officer",						resistance,		"BIS_TK_INS",		isins,		150000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_RFLM",				"Ins_Soldier_1",				"INS CH Rifleman",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_SAB",				"Ins_Soldier_Sab",				"INS CH Saboteur",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_SAPP",				"Ins_Soldier_Sapper",			"INS CH Sapper",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_SNIP",				"TK_Soldier_Spotter_EP1",		"INS CH Sniper",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_CREW",				"Ins_Soldier_Crew",				"INS CH Crewman",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_PIL",				"Ins_Soldier_Pilot",			"INS CH Pilot",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
-["INS_CH_MED",				"Ins_Soldier_Medic",			"INS CH Medic",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_WL1",				"Ins_Bardak",					"INS CH Commander #1",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_WL2",				"Ins_Lopotev",					"INS CH Commander #2",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_WL3",				"Ins_Commander",				"INS CH Commander #3",					resistance,		"BIS_TK_INS",		isins,		200000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_OFF",				"Ins_Soldier_CO",				"INS CH Officer",						resistance,		"BIS_TK_INS",		isins,		150000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_RFLM",				"Ins_Soldier_1",				"INS CH Rifleman",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_SAB",				"Ins_Soldier_Sab",				"INS CH Saboteur",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_SAPP",				"Ins_Soldier_Sapper",			"INS CH Sapper",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_SNIP",				"TK_Soldier_Spotter_EP1",		"INS CH Sniper",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_CREW",				"Ins_Soldier_Crew",				"INS CH Crewman",						resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_PIL",				"Ins_Soldier_Pilot",			"INS CH Pilot",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
+//["INS_CH_MED",				"Ins_Soldier_Medic",			"INS CH Medic",							resistance,		"BIS_TK_INS",		isins,		125000,		["bomb"],		[],		["light"],		[0,1,2,3,4,5]	],
 
 ["SEC_FR1",					"FR_TL",						"FR Team Lead",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
 ["SEC_FR2",					"FR_Assault_R",					"FR Assault",							west,			"BIS",				iscop,		100000,	["supporter"],			[], 	["light", "full"],		[]	],
@@ -413,24 +413,6 @@ CSL_UN_1 =
 "CZ_SOLID"
 ];
 
-CSL_INS_1 = 
-[
-"INS_BS",
-"INS_M1",
-"INS_M2",
-"INS_M3",
-"INS_M4",
-"INS_M5",
-"INS_M6",
-"INS_AA",
-"INS_AR",
-"INS_MG",
-"INS_SN",
-"INS_TL",
-"INS_WL",
-"INS_WOLF"
-];
-
 CSL_OPF_1 = 
 [
 "OPF_AZIZ",
@@ -524,14 +506,14 @@ Clothing_Shops =
 [CS_TER_1, 		CSL_TER_1, 			civilian,		isciv,		["bomb"],										cam_ter_1],
 [CS_CIV_1, 		CSL_CIV_1, 			civilian,		isciv,		[""],											cam_civ_1],
 [CS_CIV_2, 		CSL_CIV_2, 			civilian,		isciv,		[""],											cam_civ_2],
-[CS_INS_1, 		CSL_INS_1, 			resistance,		isins,		[""],											cam_ins_1],
+//[CS_INS_1, 		CSL_INS_1, 			resistance,		isins,		[""],											cam_ins_1],
 [CS_UN_1, 		CSL_UN_1, 			west,			iscop,		[""],											cam_un_1],
 [CS_OPF_1, 		CSL_OPF_1, 			east,			isopf,		[""],											cam_opf_1],
 [CS_SECRET_KSK, CSL_SECRET_KSK, 	west,			iscop,		["supporter"],								cam_sec_ksk_1],
 [CS_SECRET_FR, 	CSL_SECRET_FR, 		west,			iscop,		["supporter"],									cam_sec_fr_1],
 [CS_SECRET_BAF, CSL_SECRET_BAF, 	west,			iscop,		["supporter"],								cam_sec_baf_1],
-[CS_SECRET_OPF, CSL_SECRET_OPF, 	east,			isopf,		["supporter"],								cam_sec_opf_1],
-[CS_SECRET_INS, CSL_SECRET_INS, 	resistance,		isins,		["supporter"],								cam_sec_ins_1]
+[CS_SECRET_OPF, CSL_SECRET_OPF, 	east,			isopf,		["supporter"],								cam_sec_opf_1]
+//[CS_SECRET_INS, CSL_SECRET_INS, 	resistance,		isins,		["supporter"],								cam_sec_ins_1]
 ];
 
 

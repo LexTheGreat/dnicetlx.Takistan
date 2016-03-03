@@ -56,12 +56,6 @@ if ( ((_unit distance (getmarkerpos "civ_supporter_area")) < 90) ) exitwith {
 		} forEach _bullets;
 		deletevehicle _bullet;
 	};
-if ( ((_unit distance (getmarkerpos "ins_supporter_area")) < 90) ) exitwith {
-		{
-			deleteVehicle _x;
-		} forEach _bullets;
-		deletevehicle _bullet;
-	};
 if ( ((_unit distance (getmarkerpos "opf_supporter_area")) < 90) ) exitwith {
 		{
 			deleteVehicle _x;

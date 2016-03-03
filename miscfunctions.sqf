@@ -54,12 +54,11 @@ DialogNotCopsList = {
 };
 
 DialogPlayerList = {
-	private ["_control_id", "_show_civ", "_show_cop", "_show_ins", "_show_opf"];
+	private ["_control_id", "_show_civ", "_show_cop", "_show_opf"];
 	
 	_control_id = _this select 0;
 	_show_civ = _this select 1;
 	_show_cop = _this select 2;
-	_show_ins = _this select 3;
 	_show_opf = _this select 4;
 	
 	if (isNil "_control_id") exitWith {};
@@ -79,15 +78,13 @@ DialogPlayerList = {
 		
 		if(!isNil "_player_variable") then {
 			if (not([_player_variable] call player_exists)) exitWith {};
-			private["_is_civ", "_is_cop", "_is_ins", "_is_opf"];
+			private["_is_civ", "_is_cop", "_is_opf"];
 			_is_civ = [_player_variable] call player_civilian;
 			_is_cop = [_player_variable] call player_cop;
-			_is_ins = [_player_variable] call player_insurgent;
 			_is_opf = [_player_variable] call player_opfor;
 			
 			if (_is_civ && not(_show_civ)) exitWith {};
 			if (_is_cop && not(_show_cop)) exitWith {};
-			if (_is_ins && not(_show_ins)) exitWith {};
 			if (_is_opf && not(_show_opf)) exitWith {};
 			
 			private["_player_name"];

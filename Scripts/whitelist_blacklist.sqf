@@ -54,7 +54,6 @@ A_LIST_ADMINS	=
 
 A_LIST_MODS	=
 [
-
 	"76561198092203299", //Stoned Turtle
 	"76561198095702747", //Irish
 	"76561198101119702", //Tone
@@ -97,7 +96,7 @@ if(isNil "copblacklist") then {
 };
 if(isNil "opfblacklist") then {
 	opfblacklist = [
-	"76561198040462947" //Son of the Bitch
+		"76561198040462947" //Son of the Bitch
 	];
 };
 if(isNil "opfcmdblacklist") then {
@@ -151,18 +150,18 @@ if((!isvip) && rolenumber == 71) then {
 	failMission "END1";};
 _notAllowed = false;
 if(!issup) then {
-	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 78)||(rolenumber >= 92 && rolenumber <= 95)) then {
+	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 82)||(rolenumber >= 92 && rolenumber <= 95)) then {
 		player groupChat "You cannot join a supporter slot without supporter privileges!";
 		sleep 7;
 		failMission "END1";
 	};
 };
 if(!isStaff) then {
-	if(rolenumber == 96) then {
+	/*if(rolenumber == 96) then {
 		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
 		failMission "END1";
-	};
+	}; Dog Slot */
 };
 if(_uid in opfcmdblacklist) then {
 	if (rolenumber >= 73 && rolenumber <= 74) then {

@@ -53,17 +53,47 @@ player_opfor = {
 	(([_player] call player_side) == east)
 };
 
-player_insurgent = {
-	private["_player"];
-	_player = _this select 0;
-	(([_player] call player_side) == resistance)
-};
-
 player_cop = {
 	private["_player"];
 	_player = _this select 0;
 	if (isNil "_player") exitWith { };
 	(([_player] call player_side) == west)
+};
+
+player_tnp = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+	
+	_rolestring = toLower(str(_player));
+	(_rolestring in tnpstringarray)
+};
+
+player_tnpN = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+	
+	_rolestring = toLower(str(_player));
+	(_rolestring in tnpNstringarray)
+};
+
+player_tnpS = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+	
+	_rolestring = toLower(str(_player));
+	(_rolestring in tnpSstringarray)
+};
+
+player_terror = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+	
+	_rolestring = toLower(str(_player));
+	(_rolestring in terroriststringarray)
 };
 
 player_get_dead = {
@@ -107,7 +137,6 @@ player_side_prefix = {
 	
 	if (_side == west) exitWith {"cop"};
 	if (_side == east) exitWith {"opf"};
-	if (_side == resistance) exitWith {"ins"};
 	if (_side == civilian) exitWith {"civ"};
 	""
 };
@@ -122,7 +151,6 @@ player_prefix_side = {
 	if (_prefix == "cop") exitWith {west};
 	if (_prefix == "opf") exitWith {east};
 	if (_prefix == "civ") exitWith {civilian};
-	if (_prefix == "ins") exitWith {resistance};
 	
 	sideUnknown
 };
@@ -958,6 +986,13 @@ player_near_opf = {
 	(([_player, east, _distance] call player_near_side_count) > 0)
 };
 
+player_near_tnp = {
+	private["_player", "_distance"];
+	_player = _this select 0;
+	_distance = _this select 1;
+	(([_player, _distance] call player_near_tnp_count) > 0)
+};
+
 player_near_civilians = {
 	private["_player", "_distance"];
 	_player = _this select 0;
@@ -973,6 +1008,34 @@ player_near_side_count = {
 	_distance = _this select 2;
 	
 	(count ([_player, _side, _distance] call player_near_side))
+};
+
+player_near_tnp_count = {
+	private["_player", "_distance"];
+	_player = _this select 0;
+	_distance = _this select 2;
+	
+	if (not([_player] call player_human)) exitWith {0};
+	if (isNil "_distance") exitWith {0};
+	if (typeName _distance != "SCALAR") exitWith {0};
+	
+	private["_near_players"];
+	_near_players = [];
+	{
+		private["_cplayer", "_cside"];
+		_cplayer = _x;
+		
+		if (([_cplayer] call player_human)) then {
+			if (not(_cplayer == _player)) then {
+				if ([_cplayer] call player_tnp) then {
+					_near_players = _near_players + [_cplayer];
+				};
+			};
+		};
+	} 
+	forEach (nearestobjects[(getpos _player), ["Man"], _distance]);
+	
+	_near_players
 };
 
 player_near_side = {
@@ -2077,25 +2140,9 @@ player_init_arrays = {
 	
 	private["_player"];
 	_player = player;
+	_supslot = [""];
 	
 	/*,"ins5","ins6","ins7","ins8",*/
-	playerstringarray = 
-	[
-		"civ1","civ2","civ3","civ4","civ5","civ6","civ7","civ8","civ9","civ10",
-		"civ11","civ12","civ13","civ14","civ15","civ16","civ17","civ18","civ19","civ20",
-		"civ21","civ22","civ23","civ24","civ25","civ26","civ27","civ28","civ29","civ30",
-		"civ31","civ32","civ33","civ34","civ35","civ36","civ37","civ38","civ39","civ40",
-		"civ41","civ42","civ43","civ44","civ45","civ46","civ47","civ48","civ49","civ50",
-		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
-		"civ61","civ62","civ63","civ64",
-		"ins1","ins2","ins3","ins4","ins9","ins10",
-		"ins11","ins12",
-		"opf1","opf2","opf3","opf4","opf5","opf6","opf7","opf8","opf9","opf10",
-		"opf11","opf12","opf13","opf14","opf15","opf16","opf17","opf18","opf19",
-		"cop1","cop2","cop3","cop4","cop5","cop6","cop7","cop8","cop9","cop10",
-		"cop11","cop12","cop13","cop14","cop15","cop16","cop17","cop18","cop19","cop20"
-	];
-	
 	civstringarray = 
 	[
 		"civ1","civ2","civ3","civ4","civ5","civ6","civ7","civ8","civ9","civ10",
@@ -2105,8 +2152,38 @@ player_init_arrays = {
 		"civ41","civ42","civ43","civ44","civ45","civ46","civ47","civ48","civ49","civ50",
 		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
 		"civ61","civ62","civ63","civ64"
+	]; // 1	- 64
+	
+	unstringarray =
+	[
+		"Blu1","Blu2","Blu3","Blu4","Blu5","Blu6","Blu7","Blu8","Blu9","Blu10",
+		"Blu11","Blu12","Blu13","Blu14","Blu15","Blu16"
 	];
-
+	
+	opfstringarray =
+	[
+		"opf1","opf2","opf3","opf4","opf5","opf6","opf7","opf8","opf9","opf10",
+		"opf11","opf12","opf13","opf14","opf15","opf16"
+	];
+	
+	tnpNstringarray = 
+	[
+		"civ35", "civ36", "civ37", "civ38", "civ39", "civ40", "civ41", "civ42"
+	];
+	
+	tnpSstringarray =
+	[
+		"civ43", "civ44", "civ45", "civ46", "civ47", "civ48", "civ49", "civ50"
+	];
+	
+	tnpstringarray = tnpNstringarray + tnpSstringarray;
+	
+	terroriststringarray =
+	[
+		"civ51", "civ52", "civ53", "civ54"
+	];
+	
+	playerstringarray = civstringarray + unstringarray + opfstringarray;
 
 	role = _player;
 	rolestring = toLower(str(_player));
@@ -2114,10 +2191,23 @@ player_init_arrays = {
 
 	//player groupChat["role = %1, rolestring = %2,  rolenumber = %3", role, rolestring, rolenumber];
 
-	iscop = [_player] call player_cop;
+	isun = [_player] call player_cop;
+	iscop = isun; // Deprecated support, move on lex!
 	isciv = [_player] call player_civilian;
 	isopf = [_player] call player_opfor;
-	isins = [_player] call player_insurgent;
+	istnp = [_player] call player_tnp;
+	isterror = [_player] call player_terror;
+	
+	isNgov = isun || istnp || iscop;
+	isGov = isNgov || isopf || iscop;
+	
+	isBluforRanked = (rolestring in ["un1", "un2", "un3"]);
+	isOpforRanked = (rolestring in ["opf1", "opf2"]);
+	
+	isPmcSlot = (rolestring in ["civ59", "civ60", "civ61", "civ62", "civ63", "civ64"]);
+	issupSlot = (rolestring in [""]) || isPmcSlot;
+	isVipSlot = (rolestring in [""]);
+	isAdminSlot = (rolestring in [""]);
 	
 	_player addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];
 	_player addMPEventHandler ["MPRespawn", { _this call player_handle_mprespawn }];
@@ -2262,6 +2352,8 @@ player_side_spawn_marker = {
 	if (_side == west) exitWith { "respawn_west" };
 	if (_side == east) exitWith { "respawn_east" };
 	if (_side == resistance) exitWith { "respawn_guerrila" };
+	if ([player] call player_tnpN) exitWith { "respawn_tnpnorth" }; 
+	if ([player] call player_tnpS) exitWith { "respawn_tnpsouth" }; 
 	if (_side == civilian) exitWith { "respawn_civilian" };
 	
 	_default_respawn
@@ -2485,11 +2577,27 @@ player_spawn = { _this spawn {
 		[_player] call player_reset_gear;
 		private ["_respawn_marker", "_diff_slot"];
 			_diff_slot = false;
-			if(rolenumber >= 45 && rolenumber <=59) then {
+			if(rolenumber >= 18 && rolenumber <=34) then {
 				_respawn_marker = "respawn_southciv";
 				_diff_slot = true;
 			};
-			if(isciv && rolenumber >= 60) then {
+			if([_player] call player_tnpN) then {
+				_respawn_marker = "respawn_tnpnorth";
+				_diff_slot = true;
+			};
+			if([_player] call player_tnpS) then {
+				_respawn_marker = "respawn_tnpsouth";
+				_diff_slot = true;
+			};
+			if(rolenumber >= 51 && rolenumber <=54) then {
+				_respawn_marker = "respawn_southciv";
+				_diff_slot = true;
+			};
+			if(rolenumber >= 55 && rolenumber <=58) then {
+				_respawn_marker = "respawn_civilian";
+				_diff_slot = true;
+			};
+			if(isPmcSlot) then {
 				_respawn_marker = "respawn_pmc";
 				_diff_slot = true;
 			};
@@ -2555,7 +2663,7 @@ player_drop_inventory = {
 	_player = _this select 0;
 	if (not([_player] call player_exists)) exitWith {};
 	
-	if ([_player] call player_cop) then {
+	if ([_player] call player_cop or [_player] call player_tnp) then {
 		private["_amount"];	
 		_amount = ([player, "money"] call INV_GetItemAmount);
 		if (_amount <= 0) exitWith {};
@@ -2662,7 +2770,7 @@ player_init_civilian_stats = {
 player_init_cop_stats = {
 	private["_player"];
 	_player = _this select 0;
-	if (not([_player] call player_cop)) exitWith {};
+	if (not([_player] call player_cop or [_player] call player_tnp)) exitWith {};
 	
 	private["_gasmask_on"];
 	_gasmask_on = ([player, "gasmask_on"] call INV_GetItemAmount > 0);

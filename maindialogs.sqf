@@ -267,7 +267,7 @@ if (_art == "spielerliste") then {
 			};
 			_index = (_DFML displayCtrl 1) lbAdd _label_text;
 			private["_wanted"];
-			if (not([_player] call player_cop) && ([_player] call player_get_bounty) > 0) then {
+			if (not([_player] call player_cop or [_player] call player_tnp) && ([_player] call player_get_bounty) > 0) then {
 				(_DFML displayCtrl 1) lbSetColor [_index, [1, 0, 0, 1]];
 			};
 		};
@@ -285,7 +285,7 @@ if (_art == "spielerliste") then {
 		_player_variable_name = playerstringarray select _i;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		if (!isNil "_player_variable") then {
-		if (not([_player_variable] call player_cop) && ([_player_variable] call player_get_wanted)) then {
+		if (not([_player_variable] call player_cop or [_player_variable] call player_tnp) && ([_player_variable] call player_get_wanted)) then {
 			private["_bounty", "_reasons"];
 			_reasons = [_player_variable] call player_get_reason; 
 			_bounty = [_player_variable] call player_get_bounty;
@@ -463,7 +463,7 @@ if (_art == "chief") then {
 		if(!isNil "_player_variable") then {
 		if (([_player_variable] call player_exists)) then {
 			private["_player_cop"];
-			_player_cop = [_player_variable] call player_cop;
+			_player_cop = [_player_variable] call player_cop || [_player_variable] call player_tnp;
 			if (not(_player_cop)) exitWith {};
 			
 			private["_player_name"];
@@ -607,7 +607,7 @@ if (_art == "squad_manage") then {
 	_i = 0;
 	while { _i < (count _members) } do {
 		_member = (_members select _i);
-		_obj = if(not([_obj] call player_cop)) then {"notingame"} else { _obj };
+		_obj = if(not([_obj] call player_cop) or not([_obj] call player_tnp)) then {"notingame"} else { _obj };
 		_index = lbAdd [102, (format ["%1 (%2)", _member, _obj])];
 		lbSetData [102, _index, (format ["%1", _obj])];
 		_i = _i + 1;

@@ -8,7 +8,7 @@ A_DEBUG = { diag_log _this; };
 _t1 = diag_tickTime;
 
 if ((isNil "A_AI_ARRAY")) then {
-	A_AI_ARRAY = [university, storage, rathaus, bailflag, assassin, hostage, impoundbuy, shop1export, shop2export, shop3export, shop4export, licenseflag6, squadmanager];
+	A_AI_ARRAY = [university, storage, rathaus, bailflag, assassin, hostage, impoundbuy, shop1export, shop2export, shop3export, shop4export, squadmanager];
 
 	{
 		private["_shop"];
@@ -22,14 +22,12 @@ _Clothing_Shops =
 [CS_TER_1, 								cam_ter_1],
 [CS_CIV_1, 										cam_civ_1],
 [CS_CIV_2, 										cam_civ_2],
-[CS_INS_1, 										cam_ins_1],
 [CS_UN_1, 									cam_un_1],
 [CS_OPF_1, 											cam_opf_1],
 [CS_SECRET_KSK,							cam_sec_ksk_1],
 [CS_SECRET_FR, 									cam_sec_fr_1],
 [CS_SECRET_BAF, 						cam_sec_baf_1],
-[CS_SECRET_OPF,							cam_sec_opf_1],
-[CS_SECRET_INS, 					cam_sec_ins_1]
+[CS_SECRET_OPF,							cam_sec_opf_1]
 ];
 
 	{

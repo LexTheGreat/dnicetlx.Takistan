@@ -754,6 +754,22 @@ tk_jail_cop = {
 	[_killer, "roeprisontime", CopInPrisonTime] call player_set_scalar;
 	[_killer, false] call player_prison_roe;
 };
+
+tk_jail_tnp = {
+	private["_killer", "_victim"];
+	_killer = _this select 0;
+	//_victim = _this select 1;
+	
+	if (isNil "_killer") exitWith {};
+	
+	if (_killer != player) exitWith{};
+	if (not([_killer] call player_tnp)) exitWith {};
+	
+	//if (not ((_victim distance copbase1) < 400 || (_killer distance copbase1) < 400 || copskilled > 3)) exitWith {};
+	[_killer, "roeprisontime", CopInPrisonTime] call player_set_scalar;
+	[_killer, false] call player_prison_roe;
+};
+
 tk_jail_opf = {
 	private["_killer", "_victim"];
 	_killer = _this select 0;
@@ -780,6 +796,7 @@ tk_penalty = {
 	if (_killer_side == "Cop") exitWith {
 		format['[%1, %2] call tk_jail_cop;', _killer, _victim] call broadcast;
 	};
+	// TODO TNP TK Pen
 	if (_killer_side == "Opfor") exitWith {
 		format['[%1, %2] call tk_jail_opf;', _killer, _victim] call broadcast;
 	};
@@ -954,6 +971,7 @@ victim = {
 			_message = format["%1 was killed by the UN Stabilization Forces!", _victim_name];
 		};
 
+		
 		if([_killer] call player_insurgent) exitWith {
 			_message = format["%1 was killed by the Insurgents!", _victim_name];
 		};

@@ -16,7 +16,7 @@ respawnDialog = false;
 // Define PMC Custom GPS Skin
 onMinimapScript[] = {"BIS_fnc_customGPS_Spawn"};
 
-class Header {gameType =  TEAM; minPlayers = 1; maxPlayers = 112;};
+class Header {gameType =  TEAM; minPlayers = 1; maxPlayers = 96;};
 
 class CfgSounds
 {

@@ -49,13 +49,35 @@ while {true} do
 		
 		case civilian:
 		{
-			[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["InventoryCiv", ([player] call player_get_inventory)], ["positionPlayerCiv", ASLtoATL (getPosASL player)], ["BackpackPlayerCiv", typeOf unitBackpack player], ["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
-			[_uid, "MagazinesPlayerCiv", magazines player] call fn_SaveToServer; sleep 0.1;
-			if(count INV_LicenseOwner > 0) then {
-				[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["LicensesCiv", INV_LicenseOwner], ["WeaponsPlayerCiv", weapons player], ["FactoryCiv", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
-			}
-			else {
-				[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerCiv", weapons player]] call fn_SaveAggToServer; sleep 0.1;
+			if (istnp) then {
+				[_uid, ["moneyAccountTnp", ([player] call get_bank_valuez)], ["InventoryTnp", ([player] call player_get_inventory)], ["positionPlayerTnp", ASLtoATL (getPosASL player)], ["BackpackPlayerTnp", typeOf unitBackpack player], ["BackWepPlayerTnp", getWeaponCargo (unitBackpack player)], ["BackMagPlayerTnp", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+				[_uid, "MagazinesPlayerTnp", magazines player] call fn_SaveToServer; sleep 0.1;
+				if(count INV_LicenseOwner > 0) then {
+					[_uid, ["privateStorageTnp", ([player, "private_storage"] call player_get_array)], ["LicensesTnp", INV_LicenseOwner], ["WeaponsPlayerTnp", weapons player], ["FactoryTnp", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
+				}
+				else {
+					[_uid, ["privateStorageTnp", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerTnp", weapons player]] call fn_SaveAggToServer; sleep 0.1;
+				};
+			} else {
+				if (isPmcSlot) then {
+					[_uid, ["moneyAccountPmc", ([player] call get_bank_valuez)], ["InventoryPmc", ([player] call player_get_inventory)], ["positionPlayerPmc", ASLtoATL (getPosASL player)], ["BackpackPlayerPmc", typeOf unitBackpack player], ["BackWepPlayerPmc", getWeaponCargo (unitBackpack player)], ["BackMagPlayerPmc", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+					[_uid, "MagazinesPlayerPmc", magazines player] call fn_SaveToServer; sleep 0.1;
+					if(count INV_LicenseOwner > 0) then {
+						[_uid, ["privateStoragePmc", ([player, "private_storage"] call player_get_array)], ["LicensesPmc", INV_LicenseOwner], ["WeaponsPlayerPmc", weapons player], ["FactoryPmc", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
+					}
+					else {
+						[_uid, ["privateStoragePmc", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerPmc", weapons player]] call fn_SaveAggToServer; sleep 0.1;
+					};
+				} else {
+					[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["InventoryCiv", ([player] call player_get_inventory)], ["positionPlayerCiv", ASLtoATL (getPosASL player)], ["BackpackPlayerCiv", typeOf unitBackpack player], ["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+					[_uid, "MagazinesPlayerCiv", magazines player] call fn_SaveToServer; sleep 0.1;
+					if(count INV_LicenseOwner > 0) then {
+						[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["LicensesCiv", INV_LicenseOwner], ["WeaponsPlayerCiv", weapons player], ["FactoryCiv", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
+					}
+					else {
+						[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerCiv", weapons player]] call fn_SaveAggToServer; sleep 0.1;
+					};
+				};
 			};
 			player groupChat " [STATS SAVED] ";
 		};

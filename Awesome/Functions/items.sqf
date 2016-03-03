@@ -52,7 +52,7 @@ item_lockpick_use = {
 	};
 	
 	if ((player distance (getMarkerPos "respawn_West")) <= 120) exitwith {
-		player groupChat "You cannot lockpick vehicles in the Cop Base";
+		player groupChat "You cannot lockpick vehicles in the Blufor Base";
 	};
 	
 	if (time < ((_vehicle getVariable ["created", time]) + 60)) exitWith {

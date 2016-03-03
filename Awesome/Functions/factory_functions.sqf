@@ -1424,9 +1424,6 @@ factory_buy = {
 	if(isciv) then {
 		[_uid, "FactoryCiv", INV_Fabrikowner] call fn_SaveToServer;
 	};
-	if (isins) then {
-		[_uid, "FactoryRes", INV_Fabrikowner] call fn_SaveToServer;
-	};
 
 	player groupChat format["%1-%2, you bought this factory for $%3", _player, (name _player), strM(_factory_cost)];
 	[_player] call factory_remove_actions;

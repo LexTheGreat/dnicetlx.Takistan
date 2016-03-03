@@ -122,14 +122,6 @@ civilian_salary_handout = {
 		timeinworkplace = 0;
 	};
 	
-	if(isins) then {
-		_insZones = [resistance] call zone_getCount;
-		if(_insZones < 3) then {
-			_income = _income*(0.25 + (_insZones)*.25);
-			player commandChat format ["Controlling %1/3 capture zones yields %2 percent income. We must spread Shariah further.", _insZones, 25 + (_insZones)*25];
-		};
-	};
-	
 	if(isopf) then {
 		_opfZone = ['opforZone'] call zone_getOwner;
 		if (_opfZone == resistance || _opfZone == west) then {
@@ -177,7 +169,7 @@ civilian_salary_handout = {
 
             if (isStaff) then
             {
-                    _admincashbonus                                 = 300000;
+                    _admincashbonus                                 = 0;
             };
             if (_uid in supporters1) then
             {
@@ -229,7 +221,7 @@ civilian_salary_handout = {
             {
                 [player, _income] call transaction_bank;
 				sleep 2;
-                hint format["You recieved a bonus income of $%1. Thanks for Supporting TLX!", _income];
+                hint format["You recieved a bonus income of $%1. Thanks for supporting TLX!", _income];
             };
     };
 

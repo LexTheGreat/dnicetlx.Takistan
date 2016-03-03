@@ -2,6 +2,7 @@ player createDiarySubject ["rules","Rules Info"];;
 player createDiarySubject ["changelog","Updates"];
 player createDiarySubject ["controls","TLX Controls"];
 player createDiarySubject ["bugs","Official Website"];
+player createDiarySubject ["donations","Donations"];
 player createDiarySubject ["credits","Staff & TS3"];
 player createDiarySubject ["specialitems","Special Items"];
 
@@ -214,54 +215,44 @@ this should give you the options for video settings, shout outs, fix head bug, a
 ]
 ];
 
+player createDiaryRecord ["donations",
+[
+"Donations",
+"
+Use our Site or TS3 link to donate, don't forget to send your steam ID, ingame name, and name on the account used to donate!<br/> 
+Bitcoin, Litecoin or other cryptocurrencies accepted and given preferred rates!!!<br/>
+All supporter levels include supporter shop access and PMC license, although not all items in the supporter stores may be accessible for lower levels<br/>
+$10 = 3M Start + 100k extra salary<br/>
+$25 = 6M Start + 300k extra salary + 100kg inventory<br/>
+$50 = 12M Start + 500k extra salary + 200kg inventory<br/>
+$75 = 25M Start + 750k extra salary + 300kg inventory<br/>
+$100 = 50M Start + 1M extra salary + 500kg inventory + TWS weapons and other exclusive items<br/>
+<br/>
+<br/>
+"
+]
+];
+
 player createDiaryRecord ["changelog",
 [
 "Takistan Life Xtreme",
 "
 <br/>
-Oct 18, 2015<br/>
-MINOR UPDATE 1.4.1<br/>
-Added: .,! to law menu.<br/>
-Removed: INS 5 6 7 8.<br/>
-Edited: Fixed bank rob after death<br/>
-Edited: INS supporter moved/change<br/>
-<br/>
-Oct 10, 2015<br/>
-MAJOR UPDATE 1.4<br/>
-Added: To Many To List!<br/>
-Added: Weapons<br/>
-Added: War Zones<br/>
-Edited: Rules<br/>
-Edited: Base Changes<br/>
-Edited: Various code optimization and fixes<br/>
-<br/>
-August 14, 2014<br/>
-MAJOR UPDATE 1.0<br/>
-Added: Warring options for TLA leader<br/>
-Added:Chief has options to declare/lift martial law<br/>
-Added:Cops, Opfor, Insurgents now get paid 20k per minute for manning border CPs<br/>
-Edited: Most buildings are now destructible ingame, aside from some safezones, like rasman, civ spawn, and opfor spawn<br/>
-Edited: Various code optimization<br/>
-June 7, 2014<br/>
-Fixed a few duping bugs<br/>
-Added speedgun for cops use ctrl+g to activate while in vehicle<br/>
-Stat save removed, as it does not work on linux dedicated server.<br/>
-Added more aerial vehicles for civis.<br/>
-Added lighting to all faction spawn points.<br/>
-Added rubber bullets for M1014 and Saiga12K which can now act as long range stun rifles.<br/>
-Added several static artillery and pods that can be towed by players.<br/>
-Added ability to tow all planes.<br/>
-Reorganized supporter shop inventories.<br/>
-Added Auto comp system for restarts, giving 5M per paycheck for first 14 minutes.<br/>
-TODO: Add TWS for top level supporters and hideouts, and some more vehicles and weapons for supporters.<br/>
-<br/>
-May 14, 2014<br/>
-Added: Mortars, fully working with all 3 shell types, HE, WP, Illum.<br/>
-Added: All vehicles added.<br/>
-Added: Rasman CP fortifications and border CP gates.<br/>
-Edited: Edited some shop and vehicles prices.<br/>
-Edited: Balanced factions, increasing indep kill price for cops to 100k and 150k for opfor.<br/>
-Edited: Balanced faction salaries.<br/>
+Major Update 2.0<br/>
+November 5, 2015<br/>
+Removed INDFOR team completely<br/>
+Removed cop 17, 18, 19, and 20<br/>
+Made civilian terrorist 8 dedicated slots<br/>
+Added 1 slot to PMC - 6 Total<br/>
+Made 16 Civilian slots TNP<br/>
+Created Southern TNP Station<br/>
+Created TNP Shops<br/>
+Created Custom Civ terrorist shops<br/>
+Added Igla pod, Mi-8 TK to terrorist hideout<br/>
+Restructured BLUFOR and OPFOR<br/>
+- 1 Leader<br/>
+- 11 Soldiers<br/>
+- 4 Special Forces<br/>
 <br/>
 "
 ]
@@ -278,3 +269,7 @@ Here is a direct link to it: http://tlx-gaming.enjin.com/rules
 "
 ]
 ];
+
+
+
+player selectDiarySubject "donations";

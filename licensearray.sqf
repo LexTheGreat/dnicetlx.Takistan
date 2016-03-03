@@ -17,10 +17,10 @@ INV_Licenses =
         ["pistollicense",[pmcatm,licenseflag2,licenseflag2,licenseflag2,pmcatm],"Pistol License",40000],
         ["riflelicense",[pmcatm,licenseflag2,licenseflag2,licenseflag2,pmcatm],"Rifle License",125000],
         ["automatic",[pmcatm,licenseflag2,licenseflag2,licenseflag2,pmcatm],"Assault Weapon License",300000],
-		["engineer",[licenseflag3,pmcatm,southlicense1,atmins,atm5,university],localize "STRS_license_engineer",65000],
-        ["bomb",[airshop3,atmins,atm5,terrorshop,terrorshop],"Combat Training",350000],
+		["engineer",[atmtnpnc,atmtnpsc,licenseflag3,pmcatm,southlicense1,atm5,university],localize "STRS_license_engineer",65000],
+        ["bomb",[atmtnpnc,atmtnpsc,airshop3,atm5,terrorshop,terrorshop],"Combat Training",350000],
         ["probator",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_probator",10000],
-        ["patrol_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_coppatrol",150000],
+        ["patrol_training",[atmtnpnc,atmtnpsc,copbank,copbank,copbank,copbank,copbank],localize "STRS_license_coppatrol",150000],
         ["response_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copresponse",350000],
         ["sobr_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copswat",800000],
         ["air_support_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copairsupport",525000],
@@ -28,8 +28,8 @@ INV_Licenses =
         ["pmc_license_journeyman",[safelicense,safelicense,safelicense,safelicense,safelicense],"PMC Journeyman License",1500000],
         ["pmc_license_defense",[pmcatm,pmcatm,pmcatm,pmcatm,pmcatm],"PMC Defense License",350000],
         ["pmc_license_air",[pmcatm,pmcatm,pmcatm,pmcatm,pmcatm],"PMC Pilot License",850000],
-		["soviet_vehicles",[atmins,atm5,airshop3,terrorshop,terrorshop],"Soviet Vehicle Training",500000],
-        ["soviet_air_veh",[atmins,atm5,airshop3,terrorshop,terrorshop],"Soviet Aircraft Training",300000],
+		["soviet_vehicles",[atmtnpnc,atmtnpsc,atm5,airshop3,terrorshop,terrorshop],"Soviet Vehicle Training",500000],
+        ["soviet_air_veh",[atmtnpnc,atmtnpsc,atm5,airshop3,terrorshop,terrorshop],"Soviet Aircraft Training",300000],
         ["paramedic_license",[tdoc,tdoc,tdoc_1,tdoc_1,tdoc_1],"Paramedic Training",750000],
 		["supporter",[safelicense,safelicense,safelicense,safelicense,safelicense],"supporter License",999999999],
 		["viplicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"VIP supporter License",999999999],
@@ -46,7 +46,9 @@ INV_Licenses =
 		["wolflicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"Wolfgang License",999999999],
 		["highcaliberrifle",[licenseflag2,licenseflag2,licenseflag2,licenseflag2,licenseflag2],"High Caliber Rifle License",250000],
 		["newslicense",[atmnews,atmnews,atmnews,atmnews,atmnews],"News Reporters License",1500000],
-		["hitman",[safelicense,safelicense,safelicense,safelicense,safelicense],"Hitman License",500000]
+		["hitman",[safelicense,safelicense,safelicense,safelicense,safelicense],"Hitman License",500000],
+		["tnplicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"TNP License",999999999],
+		["terrorlicense",[safelicense,safelicense,safelicense,safelicense,safelicense],"Terrorist License",999999999]
         //["assassin",[agunshop,agunshop,safelicense,safelicense],"Assassin Training",30000]
     ];
 

@@ -15,7 +15,6 @@ if( ((_unit distance getmarkerpos "respawn_west" < 100))  ||
 	((_unit distance getmarkerpos "respawn_east" < 100)) || 
 	((_unit distance getmarkerpos "respawn_guerrila" < 300)) || 
 	((_unit distance getmarkerpos "cop_supporter_area" < 90)) || 
-	((_unit distance getmarkerpos "ins_supporter_area" < 120)) || 
 	((_unit distance getmarkerpos "civ_supporter_area" < 90)) || 
 	((_unit distance getmarkerpos "opf_supporter_area" < 90)) || 
 	((_unit distance getmarkerpos "vip_supporter_area_1" < 60)) || 
@@ -43,7 +42,7 @@ _reduce = false;
 
 private "_weapon";
 _weapon = currentWeapon _source;
-if ([_source] call player_opfor or [_source] call player_cop) then {
+if ([_source] call player_opfor or [_source] call player_cop or [_source] call player_tnp) then {
 	if (_projectile == "B_9x19_SD") then {
 		sleep 1;
 		private["_stunq"];

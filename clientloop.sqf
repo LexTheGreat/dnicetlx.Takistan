@@ -342,8 +342,10 @@ bases_check_teleport_marker = 3;
 bases_check_teleport_message = 4;
 
 bases_checks = [
-	["isins", "ins_area_1", 20, "telehesnotins", "You were teleported out of the Insurgent base!"],
 	["ispmc", "pmc_area_1", 20, "telehesnotpmc", "You were teleported out of the PMC base!"],
+	["isterror", "terror_area_1", 20, "telenotterrorciv", "You were teleported out of the terrorists' hideout!"],
+	["istnp", "tnp_area_n", 20, "telehesnottnpn", "You were teleported out of the TNP station!"],
+	["istnp", "tnp_area_s", 20, "telehesnottnps", "You were teleported out of the TNP station!"],
 	["isopf", "opfor_area_1", 20, "telehesnottla", "You were teleported out of the TLA base!"],
 	["iscop", "blufor_area_1", 20, "telehesnotcop", "You were teleported out of the Police base!"]	
 ];
