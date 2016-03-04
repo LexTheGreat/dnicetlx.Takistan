@@ -21,7 +21,7 @@ player createDiaryRecord ["specialitems",
 "Expensive Diamond Ring",
 "
 Needs:<br/>
-Diamond:15<br/>
+Diamond: 15<br/>
 Gold: 10<br/>
 "
 ]
@@ -136,7 +136,7 @@ player createDiaryRecord ["credits",
 Owner: [TLX] Unknown<br/>
 TS3 Info;<br/>
 Address: On right hand side :)<br/>
-Mission build: 1.4.5<br/>
+Mission build: 2.0<br/>
 Current version developed by: D-Nice, [TLX] Lex_The_Great<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
@@ -149,7 +149,7 @@ player createDiaryRecord ["bugs",
 "
 Please report bugs to the Website or TS!<br/>
 Website: TLX-gaming.enjin.com <br/>
-Teamspeak: 162.248.91.190<br/>
+Teamspeak: ts.tlxgaming.com<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
@@ -172,7 +172,7 @@ To enable or disable TLX functions and actions,
 Displays basic info about the player and server. Tells you how much money you have, who is wanted, etc.
 <br/>
 2: Inventory<br/>
-Shows items in player inventory. Allows you to drop, use, and give them to other people. (Note: to give another player a copy of your car keys, first select player to give keys to then press Use while Keychain is selected)
+Shows items in your inventory. Allows you to drop, use and give them to other people. (Note: to give another player a copy of your car keys, first select player to give keys to then press Use while Keychain is selected)
 <br/>
 3: Hands Up<br/>
 Raises hands to indicate surrender. Police can search and handcuff a civilian while their hands are raised.
@@ -221,12 +221,6 @@ player createDiaryRecord ["donations",
 "
 Use our Site or TS3 link to donate, don't forget to send your steam ID, ingame name, and name on the account used to donate!<br/> 
 Bitcoin, Litecoin or other cryptocurrencies accepted and given preferred rates!!!<br/>
-All supporter levels include supporter shop access and PMC license, although not all items in the supporter stores may be accessible for lower levels<br/>
-$10 = 3M Start + 100k extra salary<br/>
-$25 = 6M Start + 300k extra salary + 100kg inventory<br/>
-$50 = 12M Start + 500k extra salary + 200kg inventory<br/>
-$75 = 25M Start + 750k extra salary + 300kg inventory<br/>
-$100 = 50M Start + 1M extra salary + 500kg inventory + TWS weapons and other exclusive items<br/>
 <br/>
 <br/>
 "
@@ -248,7 +242,7 @@ Made 16 Civilian slots TNP<br/>
 Created Southern TNP Station<br/>
 Created TNP Shops<br/>
 Created Custom Civ terrorist shops<br/>
-Added Igla pod, Mi-8 TK to terrorist hideout<br/>
+Added Igla pod and Mi-8 TK to terrorist hideout<br/>
 Restructured BLUFOR and OPFOR<br/>
 - 1 Leader<br/>
 - 11 Soldiers<br/>
