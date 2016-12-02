@@ -132,11 +132,11 @@ player createDiaryRecord ["credits",
 [
 "Staff and TS3",
 "
-Owner: [TLX] Unknown<br/>
+Owner: [TLX] Lex_The_Great<br/>
 TS3 Info;<br/>
 Address: On right hand side :)<br/>
-Mission build: 1.4.5<br/>
-Current version developed by: D-Nice, [TLX] Lex_The_Great<br/>
+Mission build: 1.4.6<br/>
+Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Strideynet<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
 ]
@@ -148,7 +148,7 @@ player createDiaryRecord ["bugs",
 "
 Please report bugs to the Website or TS!<br/>
 Website: TLX-gaming.enjin.com <br/>
-Teamspeak: 162.248.91.190<br/>
+Teamspeak: glx.ts.nfoservers.com<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
@@ -272,7 +272,7 @@ player createDiaryRecord ["rules",
 "Where to find our most up to date rules",
 "
 Go on our website at TLX-Gaming.enjin.com to find our most up to date rules list. <br/>
-Here is a direct link to it: http://tlx-gaming.enjin.com/rules 
+Here is a direct link to it: http://tlx-gaming.enjin.com/rules
 <br/>
 
 "
