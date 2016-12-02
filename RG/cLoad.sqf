@@ -311,8 +311,10 @@ if((getPlayerUID player) in wolflicense) then {
 	server globalchat "Wolfgang License Added";
 };
 
-if (player == Cop5) then {
-	removeAllWeapons player;
-	player addWeapon "ItemMap";
-	[player, "Pastor", false] spawn C_change;
+if (!isNull Cop5) then {
+	if (player == Cop5) then {
+		removeAllWeapons player;
+		player addWeapon "ItemMap";
+		[player, "Pastor", false] spawn C_change;
+	};
 };

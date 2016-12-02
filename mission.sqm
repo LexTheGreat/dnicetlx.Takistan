@@ -644,7 +644,6 @@ class Mission
 					azimut=124.699;
 					id=90;
 					side="WEST";
-					//vehicle="Pastor";
 					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;

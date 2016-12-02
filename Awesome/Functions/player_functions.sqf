@@ -2057,17 +2057,6 @@ player_reset_stats = {
 	[_player, "extradeadtime", 30] call player_update_scalar;
 };
 
-
-
-
-
-
-
-
-
-
-
-
 player_init_arrays = {
 	while {true} do {
 		private["_complete"];

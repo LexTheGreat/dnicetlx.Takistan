@@ -9,31 +9,24 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198094294502", // Unknown
 	"76561198101924418", // Lex_the_great
-	"76561198154237291", // SGT E. Garcia
-	"76561198124176578", // 1st Lt Monkey
-	"76561198119216004"  // Heaven
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 // Directors and Deputy Directors
 
 A_LIST_DERPS	=
 [
-	"76561198094294502", // Unknown
-	"76561198101924418", // Lex
-	"76561198154237291"  //SGT E. Garcia
+	"76561198101924418", // Lex_the_great
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 // Senior Admins
 
 A_LIST_SNADMINS	=
 [
-	"76561198094294502", // Unknown
 	"76561198101924418", // Lex_the_great
-	"76561198154237291", // SGT E. Garcia
-	"76561198124176578", // 1st Lt Monkey
-	"76561198119216004"  // Heaven
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -42,10 +35,8 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198134796571", // Canadian Bacon
-	"76561198053580599", //Martin
-	"76561198134919635",  // lordwookie
-	"76561198142625756" // Jaysec
+	"76561198101924418", // Lex_the_great
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -55,10 +46,8 @@ A_LIST_ADMINS	=
 A_LIST_MODS	=
 [
 
-	"76561198092203299", //Stoned Turtle
-	"76561198095702747", //Irish
-	"76561198101119702", //Tone
-	"76561198092131123"  //JacksonS
+	"76561198101924418", // Lex_the_great
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -116,8 +105,8 @@ pmcblacklist = [
 "76561198083392018" //jpf
 ];
 
-issup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
-isvip = ((_uid in supportersVIP));
+issup = true; // ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
+isvip = true; // ((_uid in supportersVIP));
 ispmc = ((_uid in pmcwhitelist) or (isStaff) or (issup));
 
 _side = playerSide;

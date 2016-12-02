@@ -108,7 +108,7 @@ lbAdd [AdminConsol, "Lockpick"];
 lbAdd [AdminConsol, "Gas mask"];
 lbAdd [AdminConsol, "Shovel"];
 lbAdd [AdminConsol, "Pickaxe"];
-lbAdd [AdminConsol, "Jack Hammer"];
+lbAdd [AdminConsol, "JackHammer"];
 lbAdd [AdminConsol, "Spikestrip"];
 lbAdd [AdminConsol, "Storage box"];
 lbAdd [AdminConsol, "Camo Net"];
