@@ -15,7 +15,7 @@ if (_role == Cop5) then {
 	lexisgreat3 = player addAction ["= Sniff Actions =", "noscript.sqf", ''];
 	lexisgreat4 = player addAction ["Sniff Humans", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Humans."; } else { SniffCoolDown = false; _men = nearestobjects [getpos player, ["CAManBase"], 250] - [player]; systemChat format["== Sniffing... =="]; { if(isPlayer _x) then { systemChat format["[Dog]: %1, Distance: %2", name _x, player distance _x]; }; } forEach _men; sleep 1; SniffCoolDown = true; };'];
 	lexisgreat5 = player addAction ["Sniff IED", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Bombs."; } else { systemChat format["== Sniffing... =="]; { SniffCoolDown = false;  _men = player nearObjects [_x, 250]; { systemChat format["[Dog]: Alert Bomb Smelt!, Distance: %1", player distance _x];} forEach _men; } forEach ["PipeBomb", "BAF_ied_v1", "BAF_ied_v2", "BAF_ied_v3", "BAF_ied_v4", "PMC_ied_v1", "PMC_ied_v2", "PMC_ied_v3", "PMC_ied_v4"]; sleep 1; SniffCoolDown = true; };'];
-};	
+};
 
 
 //====================================== HQ BOMB ======================================================
@@ -192,18 +192,18 @@ action80 = _role addaction ["Shop 2 export","noscript.sqf","[(shop2 call INV_Get
 action81 = _role addaction ["Shop 3 export","noscript.sqf","[(shop3 call INV_GetShopNum)] call shop_open_dialog;",1,false,true,"","player distance shop3export <= 3"];
 action82 = _role addaction ["Shop 4 export","noscript.sqf","[(shop4 call INV_GetShopNum)] call shop_open_dialog;",1,false,true,"","player distance shop4export <= 3"];
 //======================================= GANG GUNSHOPS ==================================================
-action83 = _role addaction ["Gang Shop", "noscript.sqf", 
-                            "[(gangarea1 call INV_GetShopNum)] call shop_open_dialog;", 
+action83 = _role addaction ["Gang Shop", "noscript.sqf",
+                            "[(gangarea1 call INV_GetShopNum)] call shop_open_dialog;",
 			    1, false,true,"",
 			    "_control = gangarea1 getvariable ""control"";!isnil ""_control"" and player distance gangarea1 <= 5 and (_control == (call INV_MyGang))"];
-							
-action84 = _role addaction ["Gang Shop", "noscript.sqf", 
-                            "[(gangarea2 call INV_GetShopNum)] call shop_open_dialog;", 
+
+action84 = _role addaction ["Gang Shop", "noscript.sqf",
+                            "[(gangarea2 call INV_GetShopNum)] call shop_open_dialog;",
 			    1, false,true,"",
 			    "_control = gangarea2 getvariable ""control"";!isnil ""_control"" and player distance gangarea2 <= 5 and (_control == (call INV_MyGang))"];
-							
-action85 = _role addaction ["Gang Shop", "noscript.sqf", 
-                            "[(gangarea3 call INV_GetShopNum)] call shop_open_dialog;", 
+
+action85 = _role addaction ["Gang Shop", "noscript.sqf",
+                            "[(gangarea3 call INV_GetShopNum)] call shop_open_dialog;",
 			    1, false,true,"",
 			    "_control = gangarea3 getvariable ""control"";!isnil ""_control"" and player distance gangarea3 <= 5 and (_control == (call INV_MyGang))"];
 //===================================== Gas station Robbing===============================================

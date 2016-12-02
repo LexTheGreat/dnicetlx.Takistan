@@ -219,6 +219,11 @@ player createDiaryRecord ["changelog",
 "Takistan Life Xtreme",
 "
 <br/>
+Dec 2, 2016<br/>
+SERVER RETURNS! 1.4.2<br/>
+Edited: Several parts of outdated text<br/>
+<br/>
+<br/>
 Oct 18, 2015<br/>
 MINOR UPDATE 1.4.1<br/>
 Added: .,! to law menu.<br/>
