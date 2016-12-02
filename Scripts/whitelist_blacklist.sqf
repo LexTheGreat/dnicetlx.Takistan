@@ -13,7 +13,8 @@ A_LIST_DEVS     =
 	"76561198101924418", // Lex_the_great
 	"76561198154237291", // SGT E. Garcia
 	"76561198124176578", // 1st Lt Monkey
-	"76561198119216004"  // Heaven
+	"76561198119216004",  // Heaven
+	"76561198065161712" //Strideynet
 ];
 
 // Directors and Deputy Directors
@@ -102,12 +103,12 @@ if(isNil "opfblacklist") then {
 };
 if(isNil "opfcmdblacklist") then {
 	opfcmdblacklist = [
-	
+
 	];
 };
 if(isNil "insblacklist") then {
 	insblacklist = [
-	
+
 	];
 };
 pmcblacklist = [
@@ -136,7 +137,7 @@ if((_uid in insblacklist) && (_side == resistance)) then {
 	player groupChat "You are Blacklisted from Insurgent!";
 	sleep 7;
 	failMission "END1";};
-	
+
 if((!ispmc) && (isciv) && rolenumber >= 60) then {
 	player groupChat "You cannot join a PMC slot without supporter privileges!";
 	sleep 7;
