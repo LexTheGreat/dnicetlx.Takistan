@@ -17,8 +17,7 @@ A_LIST_DEVS     =
 
 A_LIST_DERPS	=
 [
-	"76561198101924418", // Lex_the_great
-	"76561198124176578" // 1st Lt Monkey
+	"76561198101924418" // Lex_the_great
 ];
 
 // Senior Admins
@@ -26,7 +25,8 @@ A_LIST_DERPS	=
 A_LIST_SNADMINS	=
 [
 	"76561198101924418", // Lex_the_great
-	"76561198124176578" // 1st Lt Monkey
+	"76561198124176578", // 1st Lt Monkey
+	"76561198095702747"  // Gio
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -35,8 +35,7 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198101924418", // Lex_the_great
-	"76561198124176578" // 1st Lt Monkey
+	"76561198101924418" // Lex_the_great
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -47,7 +46,8 @@ A_LIST_MODS	=
 [
 
 	"76561198101924418", // Lex_the_great
-	"76561198124176578" // 1st Lt Monkey
+	"76561198176287367", // Jay
+	"76561198095702747" // Irish
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -91,12 +91,12 @@ if(isNil "opfblacklist") then {
 };
 if(isNil "opfcmdblacklist") then {
 	opfcmdblacklist = [
-	
+
 	];
 };
 if(isNil "insblacklist") then {
 	insblacklist = [
-	
+
 	];
 };
 pmcblacklist = [
@@ -125,7 +125,7 @@ if((_uid in insblacklist) && (_side == resistance)) then {
 	player groupChat "You are Blacklisted from Insurgent!";
 	sleep 7;
 	failMission "END1";};
-	
+
 if((!ispmc) && (isciv) && rolenumber >= 60) then {
 	player groupChat "You cannot join a PMC slot without supporter privileges!";
 	sleep 7;
@@ -147,7 +147,7 @@ if(!issup) then {
 	};
 };
 if(!isStaff) then {
-	if(rolenumber == 96) then {
+	if((rolenumber == 96) || (rolenumber == 67)) then {
 		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
 		failMission "END1";

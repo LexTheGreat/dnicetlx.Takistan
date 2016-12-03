@@ -18,7 +18,9 @@ if (_art == "use") then {
 
 	_item   = _this select 1;
 	_anzahl = _this select 2;
-	"hint localize ""STRS_inv_item_selbstmordbombe_globalmsg"";" call broadcast;
+	
+	if (player == ins3) then { "hint localize ""STRS_inv_item_selbstmordbombe_globalmsg_dog"";" call broadcast; } else {"hint localize ""STRS_inv_item_selbstmordbombe_globalmsg"";" call broadcast; };
+	
 	liafu = true;
 	for [{_i=5}, {_i >= 0}, {_i=_i-1}] do {
 		titletext [format ["Bombcountdown: -->*%1*<--", _i],"plain"];

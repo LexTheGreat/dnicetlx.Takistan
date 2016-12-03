@@ -1,7 +1,7 @@
 LANGUAGE, English,
 STRM_briefing_name,Takistan Life: Xtreme,
 STRM_mission_description,Life RPG created by the Arma 2 Community,
-STRS_hints_vehicle_information,VEHICLE INFORMATION:\n\nName: %4\nType: %1\ndirection: %2°\nHeight ASL: %3m\nDriver: %5\nFree Cargo: %6\nlength: %7m,
+STRS_hints_vehicle_information,VEHICLE INFORMATION:\n\nName: %4\nType: %1\ndirection: %2ï¿½\nHeight ASL: %3m\nDriver: %5\nFree Cargo: %6\nlength: %7m,
 STRS_functions_crimelog_msg12,Speeding,
 STRS_anfang_laden,Loading.....\nPlease Wait,
 STRS_anfang_02,"Welcome to Takistan Life: Xtreme \n\n ALL vehicles enabled, STAT SAVE enabled\n\n RADAR, CAPTURE POINTS, AND MORE\n\n\n READ THE RULES BEFORE PLAYING. BREAKING RULES = KICK/BAN",
@@ -831,6 +831,7 @@ STRS_inv_item_drink_gegessen,You Drank something you are now %1/100 thirsty.,
 STRS_inv_item_selbstmordbombe,Suicide Bomb,
 STRS_inv_item_selbstmordbombe_info,When you are using this item,
 STRS_inv_item_selbstmordbombe_globalmsg,Allah Hu Akbar infidels,
+STRS_inv_item_selbstmordbombe_globalmsg_dog,Woofu Hu Barkakbar infidels,
 STRS_bank_rob_titlemsg,$$$$WARNING$$$$ Someone is robbing the bank $$$$WARNING$$$$,
 STRS_admin_god,An administrator has activated self invincibility!,
 STRS_wartime,Opfor has declared war on blufor!,
@@ -964,19 +965,19 @@ STRS_Drugs_Marijuana_Ready,Marijuana plant ready to harvest!,
 ,,
 STRS_mainmenu_MissionTutorial,"In this small Tutorial we will explain the basic aspects of the mission. For more information visit Zargabad Life topic on the BI forums or have a look at the briefing.\n\n
 	- Money, Items and the Inventory:\n
-	Money is one of the important things in Zargabad Life. While cops receive their normal paychecks after some time, civs have to work for their money. 
+	Money is one of the important things in Zargabad Life. While cops receive their normal paychecks after some time, civs have to work for their money.
 	Legal ways to earn money are staying in one of the workplaces, buy some workers
-	Illegal ways to earn money are robbing the bank, dealing with drugs or robbing other players. More information about ways to earn money can be found in the briefing. 
+	Illegal ways to earn money are robbing the bank, dealing with drugs or robbing other players. More information about ways to earn money can be found in the briefing.
 	Money and all the other items will be stored in your own inventory. You can open it by using the corespondending entry in your action menu. Items can be used, deleted or given to other players. Information about the items can be seen in the inventory.
-	All shops where you can buy and sell items are marked on the map (Items are Vehicles, Weapons and other Objects such as repair kits...). Keep in mind that you have to buy a license for weapons and some other items before you are able to buy them. 
-	When you die you lose you whole inventory. In order to save your money and items you can store them in your bank account, at your hideout or other storages. 
+	All shops where you can buy and sell items are marked on the map (Items are Vehicles, Weapons and other Objects such as repair kits...). Keep in mind that you have to buy a license for weapons and some other items before you are able to buy them.
+	When you die you lose you whole inventory. In order to save your money and items you can store them in your bank account, at your hideout or other storages.
 	If you lose your connection your account is saved on the server so you keep your money after a reconnect. Licenses are also saved. ,
 	Note that all saved information is lost when the server restarts or changes the map.\n\n,
 	- A word on weapons and vehicles:\n,
 	You should always holster your weapons by using the animation menu which can be found in your action menu. By carrying unholstered weapons cops will see you as a threat and attack you. ,
 	Using a vehicle you should always make sure that you are driving on the right side of the road and watch out for police checkpoints. Note that you vehicle can be locked using the action entry or the keychain in you inventory. \n\n,
 	- Getting started:\n,
-	As a cop you should always communicate with the other people. Warn before you shoot and try to stun instead of kill civilians. The first thing you should do is to get a stun gun, other weapons and a vehicle. 
+	As a cop you should always communicate with the other people. Warn before you shoot and try to stun instead of kill civilians. The first thing you should do is to get a stun gun, other weapons and a vehicle.
 	As a civ you are very low on money. You should buy a drivers license and a small vehicle in order to drive to a work place and do some jobs or stay there for a while. When having enough money you can buy workplaces, shops or other things to get some income.",
 ,,
 STRS_mainmenu_AboutThisMission,About this mission:\n,

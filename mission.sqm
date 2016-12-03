@@ -650,7 +650,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop5";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop5 - Police Dog (Experimental, Developer/Staff, CLOSED)";
+					description="Cop5 - Police Dog (Experimental)";
 				};
 			};
 		};
@@ -1265,7 +1265,7 @@ class Mission
 					skill=0.60000002;
 					text="ins4";
 					init="removeallweapons this;";
-					description="Mujahideen";
+					description="Mujahid";
 				};
 			};
 		};
@@ -7641,7 +7641,7 @@ class Mission
 					skill=0.60000002;
 					text="ins5";
 					init="removeallweapons this;this disableAI ""move""; this disableAI ""anim""; this allowdamage false; removeallweapons this;";
-					description="Mujahideen";
+					description="Mujahid";
 				};
 			};
 		};
@@ -7664,7 +7664,7 @@ class Mission
 					skill=0.60000002;
 					text="ins1";
 					init="removeallweapons this;";
-					description="Mujahideen";
+					description="Mujahid";
 				};
 			};
 		};
@@ -7687,7 +7687,7 @@ class Mission
 					skill=0.60000002;
 					text="ins2";
 					init="removeallweapons this;";
-					description="Mujahideen";
+					description="Mujahid";
 				};
 			};
 		};
@@ -7701,16 +7701,15 @@ class Mission
 				{
 					position[]={10.739335,460.77234,7074.5327};
 					azimut=218.207;
-					special="NONE";
 					id=258;
 					side="GUER";
-					vehicle="TK_GUE_Soldier_MG_EP1";
+					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
 					text="ins3";
-					init="removeallweapons this;";
-					description="Mujahideen";
+					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
+					description="Ins3 - Terrorist Dog (Experimental)";
 				};
 			};
 		};

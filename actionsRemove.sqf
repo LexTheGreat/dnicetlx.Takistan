@@ -168,10 +168,11 @@ _role RemoveAction bluforZoneAction;
 A_running = false;
 
 
-if (role == Cop5) then {
+if (_role == Cop5 || _role == ins3) then {
 	_role RemoveAction lexisgreat;
 	_role RemoveAction lexisgreat2;
 	_role RemoveAction lexisgreat3;
 	_role RemoveAction lexisgreat4;
-	_role RemoveAction lexisgreat5;
+	if (_role == ins3) then { _role RemoveAction lexisgreat5; }
+	if (_role == ins3) then { _role RemoveAction strideyisnotbetter1; }
 };
