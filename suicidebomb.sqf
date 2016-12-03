@@ -11,7 +11,7 @@ if ((player distance (getmarkerpos "respawn_civilian")) < 130) exitWith {
   player groupchat "Some supernatural force prevents you from detonating a bomb in this holy place!"
 };
 
-"hint localize ""STRS_inv_item_selbstmordbombe_globalmsg"";" call broadcast;
+"hint localize ""STRS_inv_item_selbstmordbombe_globalmsg_dog"";" call broadcast;
 liafu = true;
 for [{_i=5}, {_i >= 0}, {_i=_i-1}] do {
   titletext [format ["Bombcountdown: -->*%1*<--", _i],"plain"];
