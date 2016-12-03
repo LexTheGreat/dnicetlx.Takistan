@@ -2492,7 +2492,7 @@ player_spawn = { _this spawn {
 		[_player] call player_intro_text;
 	};
 
-	if (not(_first_time) && ([_player] call player_cop)) then {
+	if (not(_first_time) && (([_player] call player_cop) || ([_player] call player_opfor))) then {
 		[_player] call player_load_side_gear;
 	};
 
@@ -2544,7 +2544,7 @@ player_drop_inventory = {
 	_player = _this select 0;
 	if (not([_player] call player_exists)) exitWith {};
 
-	if ([_player] call player_cop) then {
+	if ([_player] call player_cop || [_player] call player_opfor ) then {
 		private["_amount"];
 		_amount = ([player, "money"] call INV_GetItemAmount);
 		if (_amount <= 0) exitWith {};
