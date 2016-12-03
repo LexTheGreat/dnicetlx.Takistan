@@ -66,6 +66,15 @@ player_cop = {
 	(([_player] call player_side) == west)
 };
 
+player_dog = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+
+	_rolestring = toLower(str(_player));
+	(_rolestring in dogstringarray)
+};
+
 player_get_dead = {
 	private["_player"];
 	_player = _this select 0;
@@ -2109,6 +2118,7 @@ player_init_arrays = {
 	//player groupChat["role = %1, rolestring = %2,  rolenumber = %3", role, rolestring, rolenumber];
 
 	iscop = [_player] call player_cop;
+	isdog = [_player] call player_dog;
 	isciv = [_player] call player_civilian;
 	isopf = [_player] call player_opfor;
 	isins = [_player] call player_insurgent;
