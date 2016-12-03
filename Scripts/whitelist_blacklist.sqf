@@ -148,7 +148,7 @@ if(!issup) then {
 	};
 };
 if(!isStaff) then {
-	if(rolenumber == 96 || player == ins3) then {
+	if((rolenumber == 96) || (rolenumber == 67)) then {
 		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
 		failMission "END1";
