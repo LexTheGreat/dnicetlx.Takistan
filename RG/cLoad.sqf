@@ -65,14 +65,14 @@ switch (playerSide) do
 		[player, _uid, "FactoryWest", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerWest", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerWest", "STRING"] call sendToServer;
-		[] spawn { 
+		[] spawn {
 			sleep 5;
 			_uid = getPlayerUID player;
 			[player, _uid, "BackWepPlayerWest", "ARRAY"] call sendToServer;
 			[player, _uid, "BackMagPlayerWest", "ARRAY"] call sendToServer;
 		};
 	};
-	
+
 	case east:
 	{
 		[player, _uid, "moneyAccountEast", "NUMBER"] call sendToServer;
@@ -84,14 +84,14 @@ switch (playerSide) do
 		[player, _uid, "FactoryEast", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerEast", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerEast", "STRING"] call sendToServer;
-		[] spawn { 
+		[] spawn {
 			sleep 5;
 			_uid = getPlayerUID player;
 			[player, _uid, "BackWepPlayerEast", "ARRAY"] call sendToServer;
 			[player, _uid, "BackMagPlayerEast", "ARRAY"] call sendToServer;
 		};
 	};
-	
+
 	case resistance:
 	{
 		[player, _uid, "moneyAccountRes", "NUMBER"] call sendToServer;
@@ -103,14 +103,14 @@ switch (playerSide) do
 		[player, _uid, "FactoryRes", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerRes", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerRes", "STRING"] call sendToServer;
-		[] spawn { 
+		[] spawn {
 			sleep 5;
 			_uid = getPlayerUID player;
 			[player, _uid, "BackWepPlayerRes", "ARRAY"] call sendToServer;
 			[player, _uid, "BackMagPlayerRes", "ARRAY"] call sendToServer;
 		};
 	};
-	
+
 	case civilian:
 	{
 		[player, _uid, "moneyAccountCiv", "NUMBER"] call sendToServer;
@@ -122,7 +122,7 @@ switch (playerSide) do
 		[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
-		[] spawn { 
+		[] spawn {
 			sleep 5;
 			_uid = getPlayerUID player;
 			[player, _uid, "BackWepPlayerCiv", "ARRAY"] call sendToServer;
@@ -184,8 +184,8 @@ server globalchat "VIP supporter ACCOUNT DETECTED: VIP supporter License Added";
 
 if ((ispmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
 			server globalchat "PMC ACCOUNT DETECTED: PMC License Added"};
-			
-			
+
+
 // Custom License
 mgslicense = [
 	"76561198068079024",
@@ -313,6 +313,14 @@ if((getPlayerUID player) in wolflicense) then {
 
 if (!isNull Cop5) then {
 	if (player == Cop5) then {
+		removeAllWeapons player;
+		player addWeapon "ItemMap";
+		[player, "Pastor", false] spawn C_change;
+	};
+};
+
+if (!isNull ins3) then {
+	if (player == ins3) then {
 		removeAllWeapons player;
 		player addWeapon "ItemMap";
 		[player, "Pastor", false] spawn C_change;

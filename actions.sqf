@@ -18,6 +18,19 @@ if (_role == Cop5) then {
 };
 
 
+if (_role == ins3) then {
+	if(isNil "BiteCoolDown") then { BiteCoolDown = true; };
+	if(isNil "BarkCoolDown") then { BarkCoolDown = true; };
+	if(isNil "SniffCoolDown") then { SniffCoolDown = true; };
+	// todo, change this! Should remove after load
+	lexisgreat = player addAction ["Bite", "noscript.sqf", ' if(!BiteCoolDown) then { 	systemChat "[Dog][Bite]: You must wait to Bite."; } else { 	BiteCoolDown = false; 	_men = nearestobjects [getpos player, ["CAManBase"], 10] - [player]; 	_man = _men select 0; 	player switchmove "Dog_StopV2"; 	if((isPlayer _man) and ((player distance _man) <= 10)) then { 		format[''%1 switchmove "AdthPpneMstpSlowWrflDf_1";'',_man] call broadcast; 		sleep M_punch; 		format["if (player == %2) then { [%1, %2, %3] spawn stun_hands_hit; };", player, _man, 20] call broadcast; 	} else { systemChat "[Dog][Bite]: It is to far away, or it is not a player!"; }; 	sleep 1; 	BiteCoolDown = true; }; '];
+	lexisgreat2 = player addAction ["Bark", "noscript.sqf", 'if(!BarkCoolDown) then { systemChat "[Dog][Bark]: You must wait to Bark."; } else { BarkCoolDown = false; _soundSource = createSoundSource ["Sound_Dog", position player, [], 0]; sleep 1; _soundSource attachto [player, [0,0,0]]; sleep 1; deletevehicle _soundSource; sleep 1; BarkCoolDown = true; };'];
+	strideyisbetter1= player addAction ["= Commit Jihad =", "noscript.sqf", ''];
+	lexisgreat3 = player addAction ["= Sniff Actions =", "noscript.sqf", ''];
+	lexisgreat4 = player addAction ["Sniff Humans", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Humans."; } else { SniffCoolDown = false; _men = nearestobjects [getpos player, ["CAManBase"], 250] - [player]; systemChat format["== Sniffing... =="]; { if(isPlayer _x) then { systemChat format["[Dog]: %1, Distance: %2", name _x, player distance _x]; }; } forEach _men; sleep 1; SniffCoolDown = true; };'];
+
+};
+
 //====================================== HQ BOMB ======================================================
 action1 =	_role addaction ["Defuse Bomb","noscript.sqf",'if(planting)exitwith{};planting=true;player playmove "AinvPknlMstpSlayWrflDnon_medic";sleep 4;waituntil {animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};planting=false;if(!alive player)exitwith{};bombactive=false;publicvariable "bombactive";"hint ""The bomb has been defused!"";server globalchat ""The bomb has been defused!"";playsound ""fanfare"";" call broadcast;',1,false,true,"","player distance HQ <= 1 and iscop and bombactive and !planting"];
 action2 =	_role addaction ["Plant Bomb","noscript.sqf",'if(planting)exitwith{};planting=true;publicvariable "planting";player playmove "AinvPknlMstpSlayWrflDnon_medic";sleep 4;waituntil {animationstate player != "AinvPknlMstpSlayWrflDnon_medic"};planting=false;publicvariable "planting";if(!alive player)exitwith{};bombactive=true;publicvariable "bombactive";',1,false,true,"","player distance HQ <= 5 and !bombactive and !planting and isciv"];
