@@ -2108,7 +2108,7 @@ player_init_arrays = {
 	dogstringarray =
 	[
 	"ins3", "cop5"
-	]
+	];
 
 
 	role = _player;
