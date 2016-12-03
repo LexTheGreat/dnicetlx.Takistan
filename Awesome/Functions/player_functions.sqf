@@ -2096,6 +2096,11 @@ player_init_arrays = {
 		"civ61","civ62","civ63","civ64"
 	];
 
+	dogstringarray =
+	[
+	"ins3", "cop5"
+	]
+
 
 	role = _player;
 	rolestring = toLower(str(_player));
