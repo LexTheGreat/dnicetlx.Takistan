@@ -650,7 +650,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop5";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop5 - Police Dog (Experimental, Developer/Staff, CLOSED)";
+					description="Cop5 - Police Dog (Experimental)";
 				};
 			};
 		};
@@ -7709,7 +7709,7 @@ class Mission
 					skill=0.60000002;
 					text="ins3";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Ins3 - Terrorist Dog (Experimental, Developer/Staff, CLOSED)";
+					description="Ins3 - Terrorist Dog (Experimental)";
 				};
 			};
 		};
