@@ -173,6 +173,6 @@ if (_role == Cop5 || _role == ins3) then {
 	_role RemoveAction lexisgreat2;
 	_role RemoveAction lexisgreat3;
 	_role RemoveAction lexisgreat4;
-	if (_role == ins3) then { _role RemoveAction lexisgreat5; }
-	if (_role == ins3) then { _role RemoveAction strideyisnotbetter1; }
+	if (_role == Cop5) then { _role RemoveAction lexisgreat5; };
+	if (_role == ins3) then { _role RemoveAction strideyisnotbetter1; };
 };
