@@ -5,7 +5,7 @@ private["_role"];
 _role = player;
 
 
-if (_role == Cop5 || _role == ins3) then {
+if ([player] call player_dog) then {
 	if(isNil "BiteCoolDown") then { BiteCoolDown = true; };
 	if(isNil "BarkCoolDown") then { BarkCoolDown = true; };
 	if(isNil "SniffCoolDown") then { SniffCoolDown = true; };
