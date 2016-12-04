@@ -49,7 +49,8 @@ A_LIST_MODS	=
 	"76561198176287367", // Jay
 	"76561198095702747", // Irish
 	"76561198159209074", // Deutsch Flieger
-	"76561198044511240" // Comrade Blackei
+	"76561198044511240", // Comrade Blackei
+	"76561198092131123" // JacksonS
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
