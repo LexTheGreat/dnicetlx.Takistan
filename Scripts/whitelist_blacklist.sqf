@@ -26,7 +26,7 @@ A_LIST_SNADMINS	=
 [
 	"76561198101924418", // Lex_the_great
 	"76561198124176578", // 1st Lt Monkey
-	"76561198095702747"  // Gio
+	"76561198093358722"  // Gio
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -47,7 +47,9 @@ A_LIST_MODS	=
 
 	"76561198101924418", // Lex_the_great
 	"76561198176287367", // Jay
-	"76561198095702747" // Irish
+	"76561198095702747", // Irish
+	"76561198159209074", // Deutsch Flieger
+	"76561198044511240" // Comrade Blackei
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
