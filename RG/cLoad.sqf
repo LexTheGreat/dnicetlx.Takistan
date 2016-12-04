@@ -314,10 +314,10 @@ if((getPlayerUID player) in wolflicense) then {
 if ([player] call player_dog) then {
 	server globalchat "Warning: You are going to loose all your gear!";
 	server globalchat "Warning: Dog's can't carry weapons!";
-	
+
 	removeAllWeapons player;
 	player addWeapon "ItemMap";
-	player addweapon "NVGoggles"
+	player addweapon "NVGoggles";
 	if (side player == west) then {
 		[player, "Pastor", false] spawn C_change;
 	} else {
