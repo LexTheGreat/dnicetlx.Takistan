@@ -43,6 +43,18 @@ keyboard_animation_handler = {
 	true
 };
 
+keyboard_earplugs_handler = {
+	if(!INV_shortcuts) exitWith { false };
+	if (soundVolume == 1) then {
+		1 fadeSound 0.5;
+		titletext["You put earplugs in!", "PLAIN DOWN"];
+	} else {
+		1 fadeSound 1;
+		titletext["You took earplugs out!", "PLAIN DOWN"];
+	};
+	true
+};
+
 keyboard_tlr_keys_handler = {
 	private["_key_spam"];
 	_key_spam = false;
@@ -559,14 +571,12 @@ KeyUp_handler = {
 				_handled = [] call keyboard_squads_handler;
 			};
 		};
-		/*case DIK_6: {
-
-			_handled = [] call keyboard_squads_handler;
-		};*/
 		case DIK_6: {
 			_handled = [] call keyboard_retributions_handler;
 		};
-
+		case DIK_7: {
+			_handled = [] call keyboard_earplugs_handler;
+		};
 		case DIK_SPACE:	{
 				if (not(_ctrl)) exitWith {_handled = false;};
 				_handled = [] call keyboard_lock_unlock_handler;
