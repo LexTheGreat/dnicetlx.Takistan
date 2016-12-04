@@ -311,18 +311,16 @@ if((getPlayerUID player) in wolflicense) then {
 	server globalchat "Wolfgang License Added";
 };
 
-if (!isNull Cop5) then {
-	if (player == Cop5) then {
-		removeAllWeapons player;
-		player addWeapon "ItemMap";
+if ([player] call player_dog) then {
+	server globalchat "Warning: You are going to loose all your gear!";
+	server globalchat "Warning: Dog's can't carry weapons!";
+	
+	removeAllWeapons player;
+	player addWeapon "ItemMap";
+	player addweapon "NVGoggles"
+	if (side player == west) then {
 		[player, "Pastor", false] spawn C_change;
-	};
-};
-
-if (!isNull ins3) then {
-	if (player == ins3) then {
-		removeAllWeapons player;
-		player addWeapon "ItemMap";
+	} else {
 		[player, "Fin", false] spawn C_change;
 	};
 };
