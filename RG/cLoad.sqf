@@ -323,6 +323,6 @@ if (!isNull ins3) then {
 	if (player == ins3) then {
 		removeAllWeapons player;
 		player addWeapon "ItemMap";
-		[player, "Pastor", false] spawn C_change;
+		[player, "Fin", false] spawn C_change;
 	};
 };
