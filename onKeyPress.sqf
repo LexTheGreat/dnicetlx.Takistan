@@ -7,7 +7,7 @@ agony_allowed_actions = ["Chat", "NextChannel", "PrevChannel"];
 
 keyboard_get_stunned_allowed_keys = {
 	private["_keys"];
-	
+
 	_keys = [];
 	{
 		private["_action"];
@@ -19,7 +19,7 @@ keyboard_get_stunned_allowed_keys = {
 
 keyboard_get_agony_allowed_keys = {
 	private["_keys"];
-	
+
 	_keys = [];
 	{
 		private["_action"];
@@ -37,7 +37,7 @@ keyboard_animation_handler = {
 	if(!INV_shortcuts) exitWith { false };
 	if(arrested) exitWith{ false };
 	if (([player, (vehicle player)] call mounted_player_inside)) exitWith { false };
-	
+
 	if(dialog) exitWith {closeDialog 0;};
 	[] execVM "animdlgopen.sqf";
 	true
@@ -53,7 +53,7 @@ keyboard_tlr_keys_handler = {
 		_key_spam = true;
 	};};
 	if (_key_spam) exitWith {};
-	
+
 	if (INV_shortcuts) then {
 		titletext["TLR keys off", "PLAIN DOWN"];
 		call A_actionsremove;
@@ -62,9 +62,9 @@ keyboard_tlr_keys_handler = {
 	else {
 		titletext["TLR keys on", "PLAIN DOWN"];
 		call A_actions;
-		INV_shortcuts = true; 
+		INV_shortcuts = true;
 	};
-	
+
 	handling_tlr_toggle = false;
 	true
 };
@@ -74,16 +74,16 @@ keyboard_lock_unlock_handler = {
 	private["_vcls", "_vcl"];
 	_vcls = nearestobjects [getpos player, ["LandVehicle", "Air", "ship"], 25];
 	_vcl = _vcls select 0;
-	
+
 	if (vehicle player != player) then {
 		_vcl = vehicle player;
 	};
-	
+
 	if (not([player, _vcl] call vehicle_owner)) exitWith {
 		player groupchat "You do not have the keys to this vehicle.";
 		true
 	};
-	
+
 	["schluessel", _vcl, 0] execVM "keys.sqf";
 	true;
 };
@@ -95,43 +95,43 @@ keyboard_trunk_handler = {
 	private["_vcls", "_vcl"];
 	_vcls = nearestobjects [getpos player, ["LandVehicle", "Air", "ship", "TKOrdnanceBox_EP1"], 25];
 	_vcl = _vcls select 0;
-	
+
 	if !(alive _vcl) exitwith {
 			player groupchat "Vehicle is destroyed.";
 		};
 
-	
+
 	private["_inside_vehicle"];
 	_inside_vehicle = not((vehicle player) == player);
 	if (_inside_vehicle) exitWith {
 		player groupChat format["You must be outside the vehicle to use the trunk"];
 	};
-	
+
 	private["_vehicle"];
 	_vehicle = cursorTarget;
 	if (isNil "_vehicle") exitWith {false};
 	if (typeName _vehicle != "OBJECT") exitWith {false};
 	if (not(_vehicle isKindOf "LandVehicle" || _vehicle isKindOf "Air" || _vehicle iskindOf "Ship" || _vehicle isKindOf "TKOrdnanceBox_EP1")) exitWith {false};
-	
+
 	private["_distance"];
 	_distance = _vehicle distance player;;
 	if (_distance > 10 ) exitWith {false};
 	if (_distance > 5 ) exitWith {
 		player groupChat format["You need to be closer to the vehicle to use the trunk"];
 	};
-	
-	
-	
+
+
+
 	if(not([player, _vehicle] call vehicle_owner)) exitWith {
 		player groupchat "You do not have the keys to this vehicle.";
 		false
 	};
-	
-	if (([_vehicle] call trunk_in_use)) exitWith { 
+
+	if (([_vehicle] call trunk_in_use)) exitWith {
 		player groupChat format["This vehicle's trunk is being used by %1", ([_vehicle] call trunk_user)];
 		false
 	};
-	
+
 	[_vehicle] call trunk_open;
 	[player, _vehicle] call interact_vehicle_storage_menu;
 	true
@@ -154,7 +154,7 @@ keyboard_agony_check = {
 keyboard_interact_handler = {
 	private["_ctrl"];
 	_ctrl = _this select 0;
-	
+
 	if (!INV_shortcuts) exitWith {false};
 	if (keyblock) exitWith {false};
 	if (dialog ) exitWith {closeDialog 0; false};
@@ -176,10 +176,10 @@ keyboard_interact_handler = {
 
 		_handled = [player, _atm] call interact_atm;
 		if (_handled) exitWith {};
-		
+
 		_handled = [player, _civ] call interact_human;
 		if (_handled) exitWith {};
-		
+
 		_handled = [player, _civ] call interact_ai;
 		if (_handled) exitWith {};
 	};
@@ -203,13 +203,13 @@ keyboard_interact_handler = {
 		};
 
 		if(locked _vcl) exitWith { false };
-		
+
 		private["_entered"];
 		_entered = [player, _vcl, false] call player_enter_vehicle;
-		
+
 		if (_entered) exitWith {
 			 [] spawn {
-				keyblock=true; 
+				keyblock=true;
 				sleep 1;
 				keyblock=false;
 			};
@@ -223,21 +223,24 @@ keyboard_interact_handler = {
 
 	if(_vcl != player) exitWith {
 		if(locked _vcl) exitWith {
-			player groupchat "The vehicle is locked. Disembark by pressing Control + E"; 
-			false 
+			player groupchat "The vehicle is locked. Disembark by pressing Control + E";
+			false
 		};
 		if(speed _vcl > 30) exitWith {
-			player groupchat "The vehicle is moving too fast"; 
-			false 
+			player groupchat "The vehicle is moving too fast";
+			false
 		};
 		[player, _vcl, false] call player_exit_vehicle;
 		true
 	};
-	
+
 	true
 };
 
 keyboard_breakout_vehicle_handler = {
+	private["_ctrl"];
+	_ctrl = _this select 0;
+	if(!_ctrl) exitWith {false};
 	if(!INV_shortcuts) exitWith {false};
 	if (keyblock) exitWith {false};
 	[player, (vehicle player)] spawn interact_vehicle_breakout;
@@ -294,7 +297,7 @@ keyboard_surrender_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(keyblock || vehicle player != player) exitWith {false};
 	keyblock=true; [] spawn {
-		sleep 2; 
+		sleep 2;
 		keyblock=false;
 	};
 	player playmove "amovpercmstpssurwnondnon";
@@ -302,11 +305,11 @@ keyboard_surrender_handler = {
 };
 
 keyboard_switch_normal_handler = {
-	if(!INV_shortcuts) exitWith {false};	
+	if(!INV_shortcuts) exitWith {false};
 	if(keyblock) exitWith {false};
-	keyblock=true; 
+	keyblock=true;
 	[] spawn {
-		sleep 2; 
+		sleep 2;
 		keyblock=false;
 	};
 	format ["%1 switchmove ""%2"";", player, "normal"] call broadcast;
@@ -343,17 +346,17 @@ keyboard_cop_menu_handler = {
 	if(dialog) exitWith {closeDialog 0; false};
 	if (not(iscop or isopf)) exitWith {false};
 	if ([player] call player_get_dead) exitWith {};
-	
+
 	private["_inVehicle"];
 	_inVehicle = (vehicle player != player);
-	
+
 	if (not(_inVehicle)) then {
 		[0,0,0,["copmenulite"]] execVM "maindialogs.sqf";
 	}
 	else {
 		[0,0,0,["copmenu"]] execVM "maindialogs.sqf";
 	};
-	
+
 	true
 };
 
@@ -361,13 +364,13 @@ keyboard_cop_menu_handler = {
 keyboard_an2_faster_handler = {
 	private["_vcl", "_lvl", "_vel", "_spd"];
 	_vcl = vehicle player;
-	
-	if (not(_vcl iskindof "An2_Base_EP1")) exitWith { false }; 
-	
+
+	if (not(_vcl iskindof "An2_Base_EP1")) exitWith { false };
+
 	_vel = velocity _vcl;
 	_spd = speed _vcl;
 	_vcl setVelocity [(_vel select 0) * 1.001, (_vel select 1) * 1.001, (_vel select 2) * 0.99];
-			
+
 	false
 };
 
@@ -375,9 +378,9 @@ keyboard_an2_faster_handler = {
 keyboard_forward_tuning_handler = {
 	private["_vcl", "_lvl", "_vel", "_spd"];
 	_vcl = vehicle player;
-	
+
 	if (not(isEngineOn _vcl)) exitWith { false };
-	
+
 	if(_vcl iskindof "Motorcycle") then {
 		_vel = velocity _vcl;
 		_spd = speed _vcl;
@@ -387,7 +390,7 @@ keyboard_forward_tuning_handler = {
 	_lvl = 0;
 	_lvl = _vcl getvariable ["tuning", 0];
 	if (_lvl == 0) exitWith {false};
-	
+
 	if( _vcl iskindof "LandVehicle") then {
 		_vel = velocity _vcl;
 		_spd = speed _vcl;
@@ -409,19 +412,19 @@ keyboard_forward_tuning_handler = {
 			};
 		};
 	};
-	
+
 	false
 };
 
 keyboard_vehicle_nitro_handler = {
 	private["_nos", "_vcl", "_spd", "_vel"];
 	_vcl = vehicle player;
-	
+
 	_nos = 0;
 	_nos = _vcl getvariable ["nitro", 0];
 	if (_nos == 0) exitWith { false };
 	if (not(isEngineOn _vcl)) exitWith { false };
-		
+
 	_vel  = velocity _vcl;
 	_spd  = speed _vcl;
 	_fuel = fuel _vcl;
@@ -450,12 +453,12 @@ keyboard_gear_button_handler = {
 				};
 				[] spawn { call onActionSaver;};
 				esc_ctr = 15;
-				[] spawn { 
+				[] spawn {
 					while { esc_ctr > 0} do {
 						sleep 1;
 						esc_ctr = esc_ctr - 1;
 					};
-				};				
+				};
 			};
 	true
 };
@@ -479,19 +482,19 @@ KeyUp_handler = {
 	_shift  = _this select 2;
 	_ctrl	= _this select 3;
 	_alt	= _this select 4;
-	
+
 	//afkTime = time;
-	
+
 	_handled = false;
-	
-	
+
+
 	if (voice_stop) exitWith {
 		true
 	};
 	if (_key in(actionKeys "LookAround")) then {
 		lookingAround = false;
 	};
-	
+
 	if (((call keyboard_stunned_check) || (call keyboard_restrained_check)) && !([_key] call keyboard_adminCheck)) exitWith {
 		//player groupChat "Stun checker run";
 		!(_key in (call keyboard_get_stunned_allowed_keys))
@@ -503,10 +506,10 @@ KeyUp_handler = {
 	if ((animationState player) == "shaftoe_c0briefing_otazky_loop6") then {
 		player setPosATL (player getVariable "animation_position");
 	};
-	
+
 	private["_inVehicle"];
 	_inVehicle = ((vehicle player) != player);
-	
+
 	switch _key do {
 		case DIK_F4: {
 			if(_alt) exitWith { player groupChat "No rage quitting allowed you n00b"; _handled = false; };
@@ -527,8 +530,8 @@ KeyUp_handler = {
 		case DIK_T: {
 			_handled = [] call keyboard_trunk_handler;
 		};
-		case DIK_E: {			
-				_handled = [] call keyboard_breakout_vehicle_handler;
+		case DIK_E: {
+				_handled = [_ctrl] call keyboard_breakout_vehicle_handler;
 				_handled = [_ctrl] call keyboard_interact_handler;
 			};
 		case DIK_GRAVE: {
@@ -563,7 +566,7 @@ KeyUp_handler = {
 		case DIK_6: {
 			_handled = [] call keyboard_retributions_handler;
 		};
-		
+
 		case DIK_SPACE:	{
 				if (not(_ctrl)) exitWith {_handled = false;};
 				_handled = [] call keyboard_lock_unlock_handler;
@@ -573,17 +576,17 @@ KeyUp_handler = {
 			if (not(_ctrl)) exitWith {_handled = false;};
 			_handled = [] call keyboard_admin_menu_handler;
 		};
-		
+
 		case DIK_L:	{
 			_handled = [] call keyboard_lock_unlock_handler;
 		};
-		
-		case DIK_F: 
+
+		case DIK_F:
 		{
 		_only_cop_car_classes = ["UAZ_UNARMED_UN_EP1","LadaLM"];
-		
+
 			if (not(_ctrl)) exitWith {_handled = false;};
-			
+
 			if(_inVehicle) then
 			{
 				if (iscop or isopf) then
@@ -601,23 +604,23 @@ KeyUp_handler = {
 						_handled = [] call keyboard_cop_siren_handler;
 					};
 				};
-			
+
 			}
 			else // not in vehicle
 			{
 				_handled = [] call keyboard_stun_handler;
 			};
 		};
-	
+
 	}; //end of switch key
 	if (_inVehicle && _key == DIK_E) exitWith {
 		_inVehicle
 	};
-	
+
 	if (_key in keyboard_overlapping_keys) exitWith {
 		false;
 	};
-	
+
 	_handled
 };
 
@@ -628,38 +631,38 @@ KeyDown_handler = {
 	//player groupChat format["KeyDown_handler %1", _this];
 	private["_handled"];
 	_handled = false;
-	
+
 	_disp	= _this select 0;
 	_key    = _this select 1;
 	_shift  = _this select 2;
 	_ctrl	= _this select 3;
 	_alt	= _this select 4;
-	
+
 	if (voice_stop) exitWith {
 		true
 	};
-	
+
 	if (_key in(actionKeys "LookAround")) then {
 		lookingAround = true;
 	};
-	
+
 	if (((call keyboard_stunned_check) || (call keyboard_restrained_check)) && !([_key] call keyboard_adminCheck)) exitWith {
 		!(_key in (call keyboard_get_stunned_allowed_keys))
 	};
-	
+
 	if (call keyboard_agony_check && !([_key] call keyboard_adminCheck)) exitwith {
 		!(_key in (call keyboard_get_agony_allowed_keys))
 	};
-	
+
 	//Fix for exploit using cross-arms animation, that allows players to glitch through walls
 	if ((animationState player) == "shaftoe_c0briefing_otazky_loop6") then {
 		player setPosATL (player getVariable "animation_position");
 	};
-	
+
 	private["_inVehicle", "_isDriver"];
 	_inVehicle = ((vehicle player) != player);
 	_isDriver = ((driver (vehicle player)) == player);
-		
+
 	switch _key do {
 		case DIK_F4: {
 			if(_alt) exitWith { _handled = false };
@@ -700,24 +703,24 @@ KeyDown_handler = {
 		case DIK_U:{
 			_handled = INV_shortcuts;
 		};
-	
+
 		case DIK_L:	{
 			_handled = INV_shortcuts;
 			//_handled = [] call keyboard_lock_unlock_handler;
 		};
-		
+
 		case DIK_V: {
 			if (not(_ctrl)) exitWith {_handled = false;};
 			if (!(iscop or isopf)) exitWith {_handled = false;};
 			_handled = [] call keyboard_cop_speed_gun_handler;
 		};
-		
+
 		case DIK_H: {
 			if (not(_ctrl)) exitWith {_handled = false;};
 			if (not((iscop or isopf) && _inVehicle && _isDriver)) exitWith {_handled = false;};
 			_handled = [] call keyboard_cop_horn_handler;
 		};
-		
+
 		case DIK_W: {
 			if(!_inVehicle) exitWith { false };
 			_handled = [] call keyboard_forward_tuning_handler;
@@ -727,23 +730,23 @@ KeyDown_handler = {
 			if(!_inVehicle) exitWith { false };
 			_handled = [] call keyboard_an2_faster_handler;
 		};
-		
+
 		case DIK_LSHIFT: {
 			if(!_inVehicle) exitWith { false };
 			_handled = [] call keyboard_vehicle_nitro_handler;
 		};
 	};
 
-	
+
 	if (_inVehicle && _key == DIK_E) exitWith {
 		_inVehicle
 	};
-	
+
 	if (_key in keyboard_overlapping_keys) exitWith {
 		//player globalChat "overlapping key";
 		false
 	};
-	
+
 	_handled
 };
 

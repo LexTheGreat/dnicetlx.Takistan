@@ -10,7 +10,7 @@ _uid = getPlayerUID player;
 A_LIST_DEVS     =
 [
 	"76561198101924418", // Lex_the_great
-	"76561198124176578", // 1st Lt Monkey
+	"76561198124176578" // 1st Lt Monkey
 	//"76561198065161712" //Stridey. Please comment out!!
 ];
 
