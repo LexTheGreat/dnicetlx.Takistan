@@ -136,7 +136,7 @@ Clothes =
 ["CZ_SOLID",				"FR_Ohara",						"Solid Snake",						    west, 			"BIS",			iscop,		500000,		["mgslicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_BOONIE",				"FR_AC",						"Jarhead",						    west, 			"BIS",			iscop,		500000,		["jarlicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_BONG",					"GER_Soldier_MG_EP1",			"Bong Lord",						    west, 			"BIS",			iscop,		500000,		["bonglicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
-["CZ_COLE",					"US_Delta_Force_Undercover_Takistani06_EP1",			"The Original Bond",						    west, 			"BIS",			iscop,		500000,		["colelicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
+["CZ_COLE",					"US_Delta_Force_Undercover_Takistani06_EP1",			"The Original Bond",						    west, 			"BIS",			isopf,		500000,		["colelicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_RECK",					"GER_Soldier_TL_EP1",			"The Recker",						    west, 			"BIS",			iscop,		500000,		["recklicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_NORD",					"US_Delta_Force_Marksman_EP1",			"Martin the Nord",						    west, 			"BIS",			iscop,		500000,		["nordlicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
 ["CZ_SHEP",					"GER_Soldier_TL_EP1",			"Shep Herder",						    west, 			"BIS",			iscop,		500000,		["sheplicense"],		[],		["light", "full"],		[0,1,2,3,4,5]	],
@@ -405,7 +405,6 @@ CSL_UN_1 =
 "CZ_SF_RF",
 "CZ_BOONIE",
 "CZ_BONG",
-"CZ_COLE",
 "CZ_RECK",
 "CZ_NORD",
 "CZ_SHEP",
@@ -457,7 +456,8 @@ CSL_OPF_1 =
 "OPF_RU_SO",
 "OPF_DRUNK",
 "OPF_WOLF",
-"OPF_INS_SAB"
+"OPF_INS_SAB",
+"CZ_COLE"
 ];
 
 CSL_SECRET_KSK =
