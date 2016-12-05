@@ -11,7 +11,11 @@ A_LIST_DEVS     =
 [
 	"76561198101924418", // Lex_the_great
 	"76561198124176578" // 1st Lt Monkey
-	//"76561198065161712" //Stridey. Please comment out!!
+];
+
+A_LIST_TESTERS =
+[
+	"76561198065161712" //Stridey.
 ];
 
 // Directors and Deputy Directors
@@ -55,6 +59,7 @@ A_LIST_MODS	=
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
+isTester = (getPlayerUID player) in A_LIST_TESTERS;
 isAdminDev = (getPlayerUID player) in A_LIST_DERPS;
 isSnAdmin = (getPlayerUID player) in A_LIST_SNADMINS;
 
@@ -150,7 +155,7 @@ if(!issup) then {
 		failMission "END1";
 	};
 };
-if(!isStaff) then {
+if(!(isStaff || isTester)) then {
 	if((rolenumber == 96) || (rolenumber == 67)) then {
 		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
