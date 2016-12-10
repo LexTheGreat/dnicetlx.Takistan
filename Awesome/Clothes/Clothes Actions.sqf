@@ -195,7 +195,7 @@ C_change = {
 	_inventory = [player] call player_get_inventory;
 	["player_rejoin_camera_complete"] call player_wait;
 
-	_privateStor = [player, "private_storage"] call player_get_array
+	_privateStor = [player, "private_storage"] call player_get_array;
 	if (isNil "_privateStor") then { _privateStor = []; }; if (typeName _privateStor != "ARRAY") then { _privateStor = []; };
 
 	_vehicleList = player getVariable "vehicles_list";
