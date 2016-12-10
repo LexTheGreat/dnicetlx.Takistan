@@ -1358,10 +1358,10 @@ GovStunGear_Mags = ["15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd
 GovStunGear_Weap  = ["ItemGPS","M9", "Binocular", "NVGoggles"];
 
 BluforGear_Weap = GovStunGear_Weap + ["M4A1"];
-BluforGear_Mags = GovStunGear_Mags + ["Rnd_20_Stanag", "Rnd_20_Stanag", "Rnd_20_Stanag"];
+BluforGear_Mags = GovStunGear_Mags + ["20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag"];
 
 OpforGear_Weap = GovStunGear_Weap + ["FN_FAL"];
-OpforGear_Mags = GovStunGear_Mags + ["Rnd_762x51_FNFAL", "Rnd_762x51_FNFAL", "Rnd_762x51_FNFAL"];
+OpforGear_Mags = GovStunGear_Mags + ["20Rnd_762x51_FNFAL", "20Rnd_762x51_FNFAL", "20Rnd_762x51_FNFAL"];
 
 player_set_gear = {
 	//player groupChat format["player_set_gear %1", _this];
