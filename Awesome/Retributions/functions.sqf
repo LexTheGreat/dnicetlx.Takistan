@@ -875,9 +875,9 @@ track_death = {
 		
 		if ((_victim_side == "Cop" && ((_vicPos distance getMarkerPos "opf_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_delta" > 800)))||(_victim_side == "Opfor" && ((_vicPos distance getMarkerPos "blu_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_bravo" > 800) && (_vicPos distance getMarkerPos "checkpoint_alpha" > 800)))) then { 
 			_warCrime = true;
-			[_dp] call tk_penalty;
-			[_dp] call time_penalty;
-			[_dp] call remove_licenses;
+			//[_dp] call tk_penalty;
+			//[_dp] call time_penalty;
+			//[_dp] call remove_licenses;
 		};
 	};
 	if (_warCrime) exitWith {
