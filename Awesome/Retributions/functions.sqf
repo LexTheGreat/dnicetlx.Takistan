@@ -837,6 +837,7 @@ track_death = {
 	if ((_victim_side == "Civilian") and (!(_victim_armed) or !(_victim_criminal))) exitWith {
 		[_dp] call time_penalty;
 		[_dp] call remove_licenses;
+		/*
 		if (_killer_side == "Cop"||_killer_side == "Opfor") then {
 			//[_killer, "unarmedcivskilled", 1] call player_update_scalar;
 			format['
@@ -861,6 +862,7 @@ track_death = {
 			};
 			', _killer] call broadcast;
 		};
+		*/
 		[_dp, format["aggravated-crime%1", _qualifier], _bounty] call death_set_wanted; 
 	};
 	
@@ -1058,7 +1060,7 @@ get_death_message = {
 	if (respawnButtonPressed) exitWith {
 		nmchk = true;
 		["SUICIDE LOGGER", _victim_name, "respawn"] call fn_LogToServer;
-		format["%1 commited suicide, by clicking on respawn", _victim_name];
+		format["%1 committed suicide, by clicking on respawn", _victim_name];
 	};
 	
 	if (_suicide) exitWith {
