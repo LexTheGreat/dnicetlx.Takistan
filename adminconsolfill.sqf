@@ -660,7 +660,7 @@ _array = [];
            [
 			
 			["---------------------------------", {}],
-		    ["****** Devlopment Commands ******",	{}],
+		    ["****** Development Commands ******",	{}],
 			["Runcode self", {
 				//[_inputText, owner player] call broadcast_client;
 			format['
