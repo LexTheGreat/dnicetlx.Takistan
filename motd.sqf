@@ -4,7 +4,7 @@ custom_motd = nil;
 while {true} do {
 	{server globalChat format["[MoTD] %1", _x]} forEach [
 			"Report Any Bugs on our site TLX-gaming.enjin.com",
-			"All Blufor, Opfor and Independents are required to be on Teamspeak"
+			"All Blufor, Opfor, Independents and PMCs are required to be on Teamspeak"
 		];
 	
 	if (not(isNil "custom_motd")) then { if (typeName custom_motd == "STRING") then { if (custom_motd != "") then {

@@ -9,7 +9,8 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198101924418" // Lex_the_great
+	"76561198101924418", // Lex_the_great
+	"76561198124176578" // 1st Lt Monkey
 ];
 
 A_LIST_TESTERS =
@@ -21,15 +22,16 @@ A_LIST_TESTERS =
 
 A_LIST_DERPS	=
 [
-	"76561198124176578", // 1st Lt Monkey
-	"76561198093358722"  // Gio
+	"76561198101924418" // Lex_the_great
 ];
 
 // Senior Admins
 
 A_LIST_SNADMINS	=
 [
-	"76561198101924418" // Lex_the_great
+	"76561198101924418", // Lex_the_great
+	"76561198124176578", // 1st Lt Monkey
+	"76561198093358722"  // Gio
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -38,8 +40,6 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198053580599", // Martin
-	"76561198134796571", // Bacon
 	"76561198101924418" // Lex_the_great
 ];
 
@@ -51,11 +51,10 @@ A_LIST_MODS	=
 [
 
 	"76561198101924418", // Lex_the_great
+	"76561198176287367", // Jay
 	"76561198095702747", // Irish
 	"76561198159209074", // Deutsch Flieger
 	"76561198044511240", // Comrade Blackei
-	"76561198211441867", // Kevlar
-	"76561198161493575", // Ivan
 	"76561198092131123" // JacksonS
 ];
 

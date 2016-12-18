@@ -143,6 +143,7 @@ supporters1 	  = [
 					"76561198058705691", //MrDiddlez
 					"76561198092131123", //JacksonS
 					"76561198035501607", //bagabuga / Dylan
+					"76561198065161712", //Strideynet
 					"76561198031702276", //xStrike
 					"76561198021266045", //theonematrix9
 					"76561197977670019", //Abdul-Kadir Raheem
@@ -384,7 +385,6 @@ supporters4  	  = [
 supportersVIP     = [
 				"245049094", // Fyodor
 				"76561198106962111", // Wilson (Vukan)
-				"76561198065161712", //Strideynet
 				"76561198018896118", // 72nd Talfi/Willigsire
 				"76561198132366940", // LIL PWMZORER
 				"76561198068079024", //SolidSnake
@@ -464,7 +464,6 @@ supportersVIP     = [
 				"76561198134919635", //Lordwookie
 				"76561198041119029", //Sgt. Ryan
 				"76561198082805000", //Russian Bear
-				"76561198121131750", //Matthew1
 				"76561198089072949"  //KAAAAAAYLE
 
 			];
