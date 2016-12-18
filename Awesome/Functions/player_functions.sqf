@@ -1354,14 +1354,19 @@ player_get_gear = {
 	_gear
 };
 
-GovStunGear_Mags = ["15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD"];
-GovStunGear_Weap  = ["ItemGPS","M9", "Binocular", "NVGoggles"];
 
-BluforGear_Weap = GovStunGear_Weap + ["M4A1"];
-BluforGear_Mags = GovStunGear_Mags + ["20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag"];
+CopStartGear_Mags =
+[
+    "15Rnd_9x19_M9SD",
+	"15Rnd_9x19_M9SD",
+	"15Rnd_9x19_M9SD",
+	"15Rnd_9x19_M9SD"
+];
 
-OpforGear_Weap = GovStunGear_Weap + ["FN_FAL"];
-OpforGear_Mags = GovStunGear_Mags + ["20Rnd_762x51_FNFAL", "20Rnd_762x51_FNFAL", "20Rnd_762x51_FNFAL"];
+CopStartGear_Weap  = [
+"ItemGPS",
+"M9"
+];
 
 player_set_gear = {
 	//player groupChat format["player_set_gear %1", _this];
@@ -1394,16 +1399,9 @@ player_set_gear = {
 	if (typeName _backpack_magazines != "ARRAY") exitWith {};
 
 
-	if ((count _weapons) == 0 && (count _magazines) == 0) then {
-		if ([_player] call player_cop) then {
-			_magazines = BluforGear_Mags;
-			_weapons = BluforGear_Weap;
-		} else {
-			if ([_player] call player_opfor) then {
-				_magazines = OpforGear_Mags;
-				_weapons = OpforGear_Weap;	
-			};
-		};
+	if ((count _weapons) == 0 && (count _magazines) == 0 && (([_player] call player_cop) || ([_player] call player_opfor))) then {
+		_magazines = CopStartGear_Mags;
+		_weapons = CopStartGear_Weap;
 	};
 
 	{_player addMagazine _x} forEach _magazines;

@@ -189,50 +189,44 @@ C_change_load = {
 
 // Replacing unit with new class
 C_change = {
-	private["_bankaccount", "_OldLicenses", "_inventory", "_vehicleList", "_privateStor"];
+	private["_bankaccount", "_OldLicenses", "_inventory"];
 	_bankaccount = [player] call get_bank_valuez;
 	_OldLicenses = INV_LicenseOwner;
 	_inventory = [player] call player_get_inventory;
 	["player_rejoin_camera_complete"] call player_wait;
-
-	_privateStor = [player, "private_storage"] call player_get_array;
-	if (isNil "_privateStor") then { _privateStor = []; }; if (typeName _privateStor != "ARRAY") then { _privateStor = []; };
-
-	_vehicleList = player getVariable "vehicles_list";
-	if (isNil "_vehicleList") then { _vehicleList = []; }; if (typeName _vehicleList != "ARRAY") then { _vehicleList = []; };
-
+	
 	if (C_changing) exitwith {player groupchat "C ERROR: already changing";};
 	C_changing = true;
-
+	
 	private ["_class", "_oldUnit", "_rating", "_score", "_rank", "_damage", "_dummyUnit", "_newUnit", "_Gleader", "_x", "_c", "_uid", "_exit"];
-
+	
 	private["_first_time"];
 	_uid = getPlayerUID player;
 	_oldUnit = _this select 0;
 	_class = _this select 1;
 	_first_time = _this select 2;
-
+	
 	if (not(_first_time)) then {
 		titleText ["Changing Clothes", "BLACK OUT", 1];
 		sleep 1.5;
 	};
-
+	
 	private["_gear"];
 	_gear = [_oldUnit] call player_get_gear;
-
+	
 	private["_position_atl", "_direction"];
 	_position_atl = getPosATL _oldUnit;
 	_direction = getDir _oldUnit;
-
+	
 	private["_failed_change"];
 	_failed_change = {
-		C_changing = false;
-		C_change_fail = true;
+		C_changing = false; 
+		C_change_fail = true; 
 		titleText ["Clothes - Failed", "BLACK IN", 0];
 	};
-
+	
 	if (not([_oldUnit] call player_human)) exitWith { call _failed_change;};
-
+	
 	if ((_class in pmc_skin_list) && not(ispmc)) exitWith {
 		player groupchat "You cannot access PMC Shops: You are not whitelisted!";
 		call _failed_change;
@@ -284,29 +278,26 @@ C_change = {
 				processInitCommands;
 			};
 	}forEach (_this select 3);
-
+	
 	[_newUnit] joinSilent _group;
 	addSwitchableUnit _newUnit;
 	selectPlayer _newUnit;
 	_group selectLeader _newUnit;
 	[_oldUnit] call C_delete;
-
+	
 	_newUnit setRank _rank;
 	_newUnit addscore _score;
 	if(!isNil "_damage") then {
 		_newUnit setdamage _damage;
 	};
-
+	
 	[_newUnit] call player_reset_gear;
 	[_newUnit] call player_reset_side_inventory;
 	[_newUnit, _gear] call player_set_gear;
 	[_newUnit, _inventory] call player_set_inventory;
-
-	_newUnit setVariable ["vehicles_list", _vehicleList, true];
-	[_newUnit,'private_storage', _privateStor] call player_set_array;
 	_newUnit setPosATL _position_atl;
 	_newUnit setDir _direction;
-
+	
 	//set the leader
 	if (_class == C_original_c) then {
 		C_haschanged = false;
