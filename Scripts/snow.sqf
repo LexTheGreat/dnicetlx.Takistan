@@ -1,5 +1,7 @@
 //Snow Storm
 //Modified by Audio Rejectz, all credits go to original creators JW - Snow script / BI - Wind & Dust particles
+snowday = true;
+
 "filmGrain" ppEffectEnable true;
 "colorCorrections" ppEffectEnable true;
 "filmGrain" ppEffectAdjust [0.02, 1, 1, 0.1, 1, false];
@@ -10,10 +12,10 @@
 "colorCorrections" ppEffectCommit 1;
 "colorCorrections" ppEffectEnable true;
  
-setviewdistance 2000;
-bis_fog = 0.7;
+//setviewdistance 2000;
+bis_fog = 0.1;
  
-0 setovercast .7;
+0 setovercast .1;
 0 setrain 0;
 0 setfog bis_fog;
 /*[] spawn {
@@ -27,11 +29,11 @@ while {true} do {
 [] spawn {
 _delay = 3;
 sleep 0.01;
-while {true} do {
+while {snowday} do {
 //_delay setovercast 0.9;
 0 setrain 0;
 _delay setfog bis_fog;
-setviewdistance 2000;
+//setviewdistance 2000;
 sleep _delay ;
 };
 };
@@ -40,7 +42,7 @@ sleep _delay ;
 [] spawn {
 waituntil {isplayer player};
 setwind [0.201112,0.204166,true];
-while {true} do {
+while {snowday} do {
 _ran = ceil random 5;
 playsound format ["wind_%1",_ran];
 _obj = vehicle player;
@@ -112,7 +114,7 @@ _fog3 setParticleCircle [0.001, [0, 0, -0.12]];
 _fog3 setDropInterval 0.01;
  
  
-while {true} do
+while {snowday} do
 {
 _a = 0;
 while { _a < _density } do
