@@ -751,6 +751,11 @@ _array = [];
 			["Clean Server", {
 				handle = [] execVM "clean.sqf";
 			}],
+			
+			["ESP", {
+-				handle = [] execVM "Awesome\Admin\Lesp.sqf";
+				["ADMIN LOGGER", str (name player), "toggled ESP"] call fn_LogToServer;
+-			}],
 
 			["MapMarkers", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
