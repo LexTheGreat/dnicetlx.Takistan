@@ -820,9 +820,9 @@ track_death = {
 		//no punishment here for suicide
 	};
 	
-	if (_killer_side == "Cop"||_killer_side == "Opfor") then {
-		[_victim] call player_reset_warrants;
-	};
+	//if (_killer_side == "Cop"||_killer_side == "Opfor") then { -- Reset Warrants if anyone kills you. NLR
+	[_victim] call player_reset_warrants;
+	//};
 	
 	private["_armed_str"];
 	_armed_str = if (_victim_armed) then { ", armed" } else {", unarmed"};
@@ -837,9 +837,8 @@ track_death = {
 	if ((_victim_side == "Civilian") and (!(_victim_armed) or !(_victim_criminal))) exitWith {
 		[_dp] call time_penalty;
 		[_dp] call remove_licenses;
-		/*
-		if (_killer_side == "Cop"||_killer_side == "Opfor") then {
-			//[_killer, "unarmedcivskilled", 1] call player_update_scalar;
+		/*if (_killer_side == "Cop"||_killer_side == "Opfor") then {
+			[_killer, "unarmedcivskilled", 1] call player_update_scalar;
 			format['
 			[] spawn
             {
@@ -861,8 +860,7 @@ track_death = {
 			};
 			};
 			', _killer] call broadcast;
-		};
-		*/
+		};*/
 		[_dp, format["aggravated-crime%1", _qualifier], _bounty] call death_set_wanted; 
 	};
 	
@@ -877,13 +875,12 @@ track_death = {
 		
 		if ((_victim_side == "Cop" && ((_vicPos distance getMarkerPos "opf_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_delta" > 800)))||(_victim_side == "Opfor" && ((_vicPos distance getMarkerPos "blu_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_bravo" > 800) && (_vicPos distance getMarkerPos "checkpoint_alpha" > 800)))) then { 
 			_warCrime = true;
-			//[_dp] call tk_penalty;
-			//[_dp] call time_penalty;
-			//[_dp] call remove_licenses;
+			/*[_dp] call tk_penalty;
+			[_dp] call time_penalty;
+			[_dp] call remove_licenses;*/
 		};
 	};
-	if (_warCrime) exitWith {
-	};
+	if (_warCrime) exitWith {};
 	if (_victim_criminal and (_killer_side == "Cop")) then {
 		[_dp] call collect_criminal_reward;
 	};
@@ -940,6 +937,7 @@ victim = {
 	
 	if (not([_killer] call player_exists)) then {
 		//hmm, do nothing ...
+		// TODO Check if killer is a vech, if so check to see if it was vdm or from a gun. If gun check and see who is on it.
 	}
 	else { if (not([_killer] call player_human)) then {
 		[_victim] call player_reset_warrants;
@@ -1060,7 +1058,7 @@ get_death_message = {
 	if (respawnButtonPressed) exitWith {
 		nmchk = true;
 		["SUICIDE LOGGER", _victim_name, "respawn"] call fn_LogToServer;
-		format["%1 committed suicide, by clicking on respawn", _victim_name];
+		format["%1 commited suicide, by clicking on respawn", _victim_name];
 	};
 	
 	if (_suicide) exitWith {

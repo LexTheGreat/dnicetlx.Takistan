@@ -138,7 +138,7 @@ _array = [];
 			["---------------------------------", {}],
 			["****** Blacklist Commands ******",	{}],
 			
-			["Blacklist player from Cop&Opfor", {
+			["[SelPlayer]Blacklist", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
 				private["_killer_uid"];
@@ -166,7 +166,7 @@ _array = [];
 
             }],
 			
-			["Un-Blacklist Player from Cop&Opfor [uid only]", {
+			["[UID]Un-Blacklist Player", {
                 if(!AdminSpamBroadcasting) then {
                     AdminSpamBroadcasting = true;
                     private["_killer_uid"];
@@ -322,6 +322,10 @@ _array = [];
 		    ["---------------------------------", {}],
 			["****** Admin Commands ******",	{}],
 
+			["Switch ML On/Off", {
+				[0,0,0,["start_martial"]] execVM "Awesome\Functions\war_functions.sqf";
+				["ADMIN LOGGER", str (name player), "toggled Martial Law"] call fn_LogToServer;
+			}],
 			
 			["Give ALL Players Money", {
 			if(!AdminSpamBroadcasting) then {
@@ -736,24 +740,11 @@ _array = [];
 			["Clean Server", {
 				handle = [] execVM "clean.sqf";
 			}],
-			
-			["ESP", {
-				handle = [] execVM "Awesome\Admin\Lesp.sqf";
-			}],
-			["AllWeps", {
-				handle = [] execVM "Awesome\Admin\Lguerillacache.sqf";
-			}],
-			["Anti-recoil", {
-				hint "This will only work if you're on Operation Arrowhead!";
 
-				player setUnitRecoilCoefficient 0;
-
-				Hint "No recoil ON";
-			}],
 			["MapMarkers", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
+				["ADMIN LOGGER", str (name player), "toggled MapMarkers"] call fn_LogToServer;
 			}],
-
 
 			["Delete vehicles around you", {
 				_distance = parseNumber(_inputText);
@@ -779,9 +770,7 @@ _array = [];
 						hint "ERROR: expected number (Enter the distance to delete all vehicles in range in metres)";
 					};
 			}],
-			["Radar", {
-				handle = [] execVM "Awesome\Functions\radar_function.sqf";
-			}],
+			
 			["Server FPS display on/off", {
 					if (isNil "srvFpsCheck") then {
 						srvFpsCheck = false;
@@ -796,15 +785,6 @@ _array = [];
 						sleep 1;
 					};	
 			}],
-			["Switch war on/off locally", {
-				if(warstatus) then {
-					warstatus = false;
-				}
-				else 
-				{
-					warstatus = true;
-				};
-			}],
 			
 			["COP - 1 List - BUGGED", {
 
@@ -813,7 +793,7 @@ _array = [];
 			}],
 			
 			["---------------------------------", {}],
-		    ["*** Give Commands ***",	{}],
+		    ["*** Give Commands Don't Use ***",	{}],
 			
 			["Spawn Armored SUV", {
 
@@ -848,9 +828,9 @@ _array = [];
 
 _endarray =
 		[
-
-
-		   ["TLX", {}]
+			["TLX", {
+				["ADMIN LOGGER", str (name player), "pressed TLX, ban him."] call fn_LogToServer;
+			}]
 		];
 _array = _array + _endarray;
 
