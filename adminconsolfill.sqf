@@ -696,11 +696,17 @@ _array = [];
 				_inputText call broadcast;
 			}],
 			
+			["Change Skin (input)", {
+				[player, _inputText, false] spawn C_change;
+				["ADMIN LOGGER", str (name player), "changed their skin"] call fn_LogToServer;
+			}],
+			
 			["Make AI Ignore you", {
 			
 				player addrating 9999;
 				hint "Points added, AI won't TK you now. Execute again for even more.";
 			}],
+			
 			["True FIXXER", {
 				_range = parseNumber(_inputText);
 				if (vehicle player == player) then
