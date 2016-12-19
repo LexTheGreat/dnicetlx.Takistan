@@ -662,7 +662,16 @@ _array = [];
 			}],
 
 			["10 Satchel Charges", {
-				handle = [] execVM "boomboom.sqf";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
 			}],
 
 			["5 Marijuana", {
