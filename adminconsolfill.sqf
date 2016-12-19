@@ -327,6 +327,11 @@ _array = [];
 				["ADMIN LOGGER", str (name player), "toggled Martial Law"] call fn_LogToServer;
 			}],
 			
+			["Reset Warrants (Select)", {
+				[_selectedplayer] call player_reset_warrants;
+				["ADMIN LOGGER", name (_selectedplayer), "had their warrants reset by", str (name player)] call fn_LogToServer;
+			}],
+			
 			["Give ALL Players Money", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
