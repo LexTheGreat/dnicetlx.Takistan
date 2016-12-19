@@ -332,6 +332,12 @@ _array = [];
 				["ADMIN LOGGER", name (_selectedplayer), "had their warrants reset by", str (name player)] call fn_LogToServer;
 			}],
 			
+			["Prison Release (Select)", {
+				[_selectedplayer] call player_prison_reset;
+				[_selectedplayer] call player_prison_release;
+				["ADMIN LOGGER", name (_selectedplayer), "was released from prison by", str (name player)] call fn_LogToServer;
+			}],
+			
 			["Give ALL Players Money", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
