@@ -18,7 +18,7 @@ private ["_h"];
 
 
 debug = false;
-shouldSnow = false;
+shouldSnow = true;
 
 
 //////////////////////////
@@ -59,9 +59,10 @@ CIVILIAN setFriend [RESISTANCE, 0];
 
 //server globalChat "debug is true";
 if(!debug)then{
-if (isClient) then {
-	["camera"] execVM "introcam.sqf";["text"] execVM "introcam.sqf";
-	};};
+	if (isClient) then {
+		["camera"] execVM "introcam.sqf";["text"] execVM "introcam.sqf";
+	};
+};
 
 _h = [] execVM "Awesome\Scripts\optimize_1.sqf";
 waitUntil{scriptDone _h};
@@ -90,9 +91,9 @@ call compile preprocessfile "triggers.sqf";
 
 if (isClient) then {
 	[] execVM "briefing.sqf";
-	if (shouldSnow) then {
-		[] execVM "Scripts\snow.sqf";
-	};
+	snowWorking = false;
+	snowday = false;
+	snowToggle = true;
 };
 
 // initializes Fixes

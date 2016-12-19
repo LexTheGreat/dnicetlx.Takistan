@@ -1401,10 +1401,9 @@ player_set_gear = {
 		} else {
 			if ([_player] call player_opfor) then {
 				_magazines = OpforGear_Mags;
-				_weapons = OpforGear_Weap;
+				_weapons = OpforGear_Weap;	
 			};
 		};*/
-		
 	};
 
 	{_player addMagazine _x} forEach _magazines;

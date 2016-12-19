@@ -176,3 +176,5 @@ if ([player] call player_dog) then {
 	if (_role == Cop5) then { _role RemoveAction lexisgreat5; };
 	if (_role == ins3) then { _role RemoveAction strideyisnotbetter1; };
 };
+_role RemoveAction lexisgreat6;
+_role RemoveAction lexisgreat7;
