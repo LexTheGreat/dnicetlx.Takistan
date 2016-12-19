@@ -252,7 +252,7 @@ class_AboutDialog={
 class_civcamdialog={
     class_submit={
         _action={
-            [0,1,2,["civcam", call compile lbData [1, lbCurSel 1], sliderPosition 2]] execVM "copcams.sqf";
+            [0,1,2,["civcam", call compile lbData [1, lbCurSel 1], sliderPosition 2]] execVM "cop_fnc\copcams.sqf";
             closeDialog 0
         };
     };
@@ -508,7 +508,7 @@ class_CopMenu={
     class_button3={
         _action={
             closedialog 0;
-            [0,1,2,["jailcam"]] execVM "copcams.sqf";
+            [0,1,2,["jailcam"]] execVM "cop_fnc\copcams.sqf";
         };
     };
     class_button4={
