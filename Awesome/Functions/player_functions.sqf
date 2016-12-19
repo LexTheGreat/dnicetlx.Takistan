@@ -790,7 +790,7 @@ player_prison_loop_opf = { _this spawn {
 			[_player, false] call player_set_arrest;
 			[_player, "jailtimeleft", 0] call player_set_scalar;
 			[_player, 0] call player_set_bail;
-			[_player, "(prison-break)", 20000] call player_update_warrants;
+			[_player, "(prison-break)", 200000] call player_update_warrants;
 		};
 
 		//PLAYER HAS SERVED HIS FULL SENTNECE
