@@ -202,9 +202,9 @@ C_change = {
 	if (isNil "_vehicleList") then { _vehicleList = []; }; if (typeName _vehicleList != "ARRAY") then { _vehicleList = []; };
 	
 	//=Wanted System=
-	_isWanted = [player] player_get_wanted;
-	_bounty = [player] player_get_bounty;
-	_reason = [player] player_get_reason;
+	_isWanted = [player] call player_get_wanted;
+	_bounty = [player] call player_get_bounty;
+	_reason = [player] call player_get_reason;
 	//=Wanted System=
 	
 	if (C_changing) exitwith {player groupchat "C ERROR: already changing";};
