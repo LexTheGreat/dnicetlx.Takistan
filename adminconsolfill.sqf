@@ -38,6 +38,7 @@ _array = [];
 			
 			["Admin Camera (Toggle)", {
 				handle = [] execVM "camera.sqf";
+				["ADMIN LOGGER", str (name player), "toggled admin camera"] call fn_LogToServer;
 			}],
 			["Server Message", {
 				if(!AdminSpamBroadcasting) then {
