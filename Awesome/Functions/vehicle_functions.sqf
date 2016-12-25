@@ -379,6 +379,28 @@ vehicle_set_modifications = {
 		case "blank": { };
 		/* Octavia_ill, Octavia_PMC, Octavia_UN, Octavia_Cop, Octavia_Civ */
 		case "Octavia_Civ": {};
+		case "M1133_MEV_EP1": {
+			_vehicle addEventHandler ["fired", {_this spawn EH_fired_vehicle_gas}];
+			xorE=true;
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			sleep 1;
+			_vehicle addweapon "SmokeLauncher";
+		};
+		case "M1133_MEV_EP1_sup": {
+			_vehicle addEventHandler ["fired", {_this spawn EH_fired_vehicle_gas}];
+			xorE=true;
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			_vehicle addmagazine "SmokeLauncherMag";
+			sleep 1;
+			_vehicle addweapon "SmokeLauncher";
+		};
 		case "Octavia_ill": {
 			xorE=true;
 			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "#(argb,8,8,3)color(0.5,0,0.5,0.5,ca)"]'; 

@@ -66,6 +66,26 @@ player_cop = {
 	(([_player] call player_side) == west)
 };
 
+count_side = {
+	_side = _this select 0;
+	
+	_count = 0;
+	{
+		_player_variable_name = _x;
+		_player_variable = missionNamespace getVariable _player_variable_name;
+		
+		if(!isNil "_player_variable") then {
+			if ([_player_variable] call player_exists) then {
+				if ([_player_variable] call player_side == _side) then {
+					_count = _count + 1;
+				};
+			};
+		};
+	} count playerstringarray;
+	
+	_count
+};
+
 player_dog = {
 	private["_player", "_rolestring"];
 	_player = _this select 0;

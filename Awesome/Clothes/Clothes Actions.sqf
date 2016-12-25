@@ -334,6 +334,7 @@ C_change = {
 	
 	role = _newUnit;
 	_newUnit addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	_newUnit addEventHandler ["GetIn", {_this spawn A_fnc_EH_getin}];
 	_newUnit addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
 	_newUnit addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	_newUnit addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];

@@ -15,7 +15,7 @@ liafu = true;
 // Distance checks
 ///////////////
 
-_bullet = nearestObject  [getpos player, _ammo];
+_bullet = nearestObject [getpos player, _ammo];
 
 if (_unit distance (getmarkerpos "cop_safe") < 30) exitwith {
 	

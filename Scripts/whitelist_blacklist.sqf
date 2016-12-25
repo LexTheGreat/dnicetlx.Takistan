@@ -56,7 +56,8 @@ A_LIST_MODS	=
 	"76561198044511240", // Comrade Blackei
 	"76561198211441867", // Kevlar
 	"76561198161493575", // Ivan
-	"76561198092131123" // JacksonS
+	"76561198134919635", // Wookie
+	"76561198092131123"  // JacksonS
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;

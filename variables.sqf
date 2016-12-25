@@ -70,7 +70,7 @@ stunshotsmax           = 4;
 
 stunloop               = false;
 
-MaxStunTime            = 20;
+MaxStunTime            = 40;
 
 StunActiveTime         = 0;
 StunTimePerHit         = 10;

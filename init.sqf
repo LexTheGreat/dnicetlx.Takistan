@@ -196,6 +196,8 @@ publicvariable "station9robbed";
 if(isClient) then {
 	A_fnc_EH_hDamage		= compile (preprocessFileLineNumbers "Awesome\EH\Eh_handledamage.sqf");
 	A_fnc_EH_fired			= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired.sqf");
+	A_fnc_EH_getin			= compile (preprocessfileLineNumbers "Awesome\EH\EH_getin.sqf");
+	EH_fired_vehicle_gas		= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired_vehicle_gas.sqf");
 	A_fnc_EH_wa				= compile (preprocessfileLineNumbers "Awesome\EH\EH_weaponassembled.sqf");
 	[] execVM "RG\cLoad.sqf";
 	server globalChat "Loading - Please Wait";
@@ -217,6 +219,7 @@ if(isClient) then {
 	player removeAllEventHandlers "handleDamage";
 	player removeAllEventHandlers "WeaponAssembled";
 	player addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	player addEventHandler ["GetIn", {_this spawn A_fnc_EH_getin}];
 	player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
 	player addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	[] execVM "onKeyPress.sqf";
