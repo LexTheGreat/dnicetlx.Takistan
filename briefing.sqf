@@ -148,7 +148,7 @@ player createDiaryRecord ["bugs",
 "
 Please report bugs to the Website or TS!<br/>
 Website: TLX-gaming.enjin.com <br/>
-Teamspeak: glx.ts.nfoservers.com<br/>
+Teamspeak: ts.tlx-gaming.net<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
