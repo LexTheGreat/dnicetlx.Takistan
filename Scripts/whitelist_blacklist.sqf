@@ -29,7 +29,8 @@ A_LIST_DERPS	=
 
 A_LIST_SNADMINS	=
 [
-	"76561198101924418" // Lex_the_great
+	"76561198101924418", // Lex_the_great
+	"76561198094294502" // Unknown
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -55,8 +56,7 @@ A_LIST_MODS	=
 	"76561198159209074", // Deutsch Flieger
 	"76561198044511240", // Comrade Blackei
 	"76561198211441867", // Kevlar
-	"76561198161493575", // Ivan
-	"76561198092131123" // JacksonS
+	"76561198161493575" // Ivan
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
