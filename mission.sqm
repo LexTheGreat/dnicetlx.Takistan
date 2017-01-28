@@ -51027,7 +51027,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=449;
+		items=450;
 		class Item0
 		{
 			position[]={6122.7437,83.040001,11568.63};
@@ -51178,7 +51178,7 @@ class Mission
 		};
 		class Item20
 		{
-			position[]={5759.5371,74.294739,9877.0078};
+			position[]={5694.9673,74.32,9861.3975};
 			name="taximarker15";
 			type="Empty";
 		};
@@ -55251,6 +55251,19 @@ class Mission
 			type="mil_objective";
 			colorName="ColorWhite";
 			angle=-6.0350699;
+		};
+		class Item449
+		{
+			position[]={5652.3364,74.37532,9925.4932};
+			name="houseLocation1";
+			text="Housing Location.";
+			markerType="ELLIPSE";
+			type="Empty";
+			colorName="ColorBlue";
+			fillName="Border";
+			a=200;
+			b=200;
+			drawBorder=1;
 		};
 	};
 	class Sensors

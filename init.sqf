@@ -225,6 +225,7 @@ if(isClient) then {
 	[] execVM "AC\antidupe.sqf";
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
 	[] execVM "lockgear.sqf";
+	[] execVM "Awesome\Houses\homeinit.sqf";
 	server globalChat "Loading Fully Complete";
 };
 /*

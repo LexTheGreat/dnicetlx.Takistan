@@ -1,7 +1,6 @@
 // This script initiali/zes the Real Estate market in takistan
 
-
-home_initial_buying_price = 150000;
+home_initial_buying_price = 100000000;
 home_initial_selling_price = round(home_initial_buying_price  * 0.8);
 
 //meta-data for accessing the HOME pseudo object
@@ -17,6 +16,10 @@ home_info_action = 8;
 home_buying_price = 9;
 home_selling_price = 10;
 home_walls = 11;
+home_marker = 12;
+home_lightSwitch = 13;
+home_lightObject = 14;
+home_lightAction = 15;
 
 //meta-data for accessing the WALL pseudo object
 home_wall_type = 0;
@@ -40,60 +43,91 @@ homes_msg =
 
 if (isServer) then
 {
-
-//static definition of the location of the homes, and the location of the walls for each home
-homes_list = 
-[
-    [ "Home1",       
-      [ 5565.1235, 9332.3623, 2.99821],
-      "", "",
-      false,        
-      objNull,
-      -1, -1, -1,
-      home_initial_buying_price, home_initial_selling_price,
-      [[ "Concrete_Wall_EP1", [3.5, 4.2, 0], 0],
-       [ "Concrete_Wall_EP1", [-3.5, 2.65, 0], 0],
-       [ "Concrete_Wall_EP1", [-4.5, -4.35, 0], 0]]
-    ],
-    [ "Home2",       
-      [5524.93, 9350.08,3.06506],
-      "", "",
-      false,        
-      objNull,
-      -1, -1, -1,
-      home_initial_buying_price, home_initial_selling_price,
-      [[ "Concrete_Wall_EP1", [1.4, 1.2, 0], 0],
-       [ "Concrete_Wall_EP1", [2.0, -3.5, 0], 0]]
-    ],
-    [ "Home3",       
-      [5532.32,9327.52,0.955223],
-      "", "",
-      false,        
-      objNull,
-      -1, -1, -1,
-      home_initial_buying_price, home_initial_selling_price,
-      [
-       [ "Concrete_Wall_EP1", [-2.90, 8.2, 0], 0],
-       [ "Concrete_Wall_EP1", [3.1, 4.4, 0], 90],
-       [ "Concrete_Wall_EP1", [-9.55, 4.2, 0], 0],
-       [ "Concrete_Wall_EP1", [-2.35, 5.2, 0], 0]]
-    ],
-    [ "Home4",       
-      [5561.06,9354.53,0.834846],
-      "",
-      "",
-      false,        
-      objNull,
-      -1, -1, -1,
-      home_initial_buying_price, home_initial_selling_price,
-      [
-       [ "Concrete_Wall_EP1", [-3,-3.8, 0], 90],
-       [ "Concrete_Wall_EP1", [1.3,-7.9, 0], 90],
-       [ "Concrete_Wall_EP1", [4,3.1, 0], 0],
-       [ "Concrete_Wall_EP1", [-7.2,-0.5, 0], 0]
-      ]
-    ]
-];
+		/*[ "Home1",       
+		  [ 5565.1235, 9332.3623, 2.99821],
+		  "", "",
+		  false,        
+		  objNull,
+		  -1, -1, -1,
+		  home_initial_buying_price, home_initial_selling_price,
+		  [[ "Concrete_Wall_EP1", [3.5, 4.2, 0], 0],
+		   [ "Concrete_Wall_EP1", [-3.5, 2.65, 0], 0],
+		   [ "Concrete_Wall_EP1", [-4.5, -4.35, 0], 0]]
+		],
+		[ "Home2",       
+		  [5524.93, 9350.08,3.06506],
+		  "", "",
+		  false,        
+		  objNull,
+		  -1, -1, -1,
+		  home_initial_buying_price, home_initial_selling_price,
+		  [[ "Concrete_Wall_EP1", [1.4, 1.2, 0], 0],
+		   [ "Concrete_Wall_EP1", [2.0, -3.5, 0], 0]]
+		],
+		[ "Home3",       
+		  [5532.32,9327.52,0.955223],
+		  "", "",
+		  false,        
+		  objNull,
+		  -1, -1, -1,
+		  home_initial_buying_price, home_initial_selling_price,
+		  [
+		   [ "Concrete_Wall_EP1", [-2.90, 8.2, 0], 0],
+		   [ "Concrete_Wall_EP1", [3.1, 4.4, 0], 90],
+		   [ "Concrete_Wall_EP1", [-9.55, 4.2, 0], 0],
+		   [ "Concrete_Wall_EP1", [-2.35, 5.2, 0], 0]]
+		],
+		[ "Home4",       
+		  [5561.06,9354.53,0.834846],
+		  "",
+		  "",
+		  false,        
+		  objNull,
+		  -1, -1, -1,
+		  home_initial_buying_price, home_initial_selling_price,
+		  [
+		   [ "Concrete_Wall_EP1", [-3,-3.8, 0], 90],
+		   [ "Concrete_Wall_EP1", [1.3,-7.9, 0], 90],
+		   [ "Concrete_Wall_EP1", [4,3.1, 0], 0],
+		   [ "Concrete_Wall_EP1", [-7.2,-0.5, 0], 0]
+		  ]
+		]*/
+	homes_list = [];
+	
+	private["_locations"];
+	
+	_houseCount = 0;
+	
+	_houses = [];
+	_houses = _houses + nearestObjects [getMarkerPos "houseLocation1", ["House"], 300];
+	
+	{
+		if (!isNil "_x") then {
+			_pos = getPos _x;
+			_houseCount = _houseCount + 1;
+			
+			_lp = createVehicle ["#lightpoint", (getposatl _x),[],0,""] ; // Create light
+			_lp setLightColor [255,255,255]; // Set its colour
+			_lp setLightBrightness 0; // Set its brightness
+			_lp lightAttachObject [_x, [1,1,1]]; // Position it within house
+			
+			homes_list = homes_list + [
+				[ format["Home%1", _houseCount],       
+				  _pos,
+				  "", "",
+				  false,        
+				  _x,
+				  -1, -1, -1,
+				  home_initial_buying_price, home_initial_selling_price,
+				  [],
+				  createMarker [format["Home%1Marker", _houseCount],[_pos select 0, _pos select 1]],
+				  false,
+				  _lp,
+				  -1
+				]
+			];
+		};
+	} count _houses;
 };
 
 //this is needed to identify the animation names for home doors
@@ -111,16 +145,16 @@ home_closeDoor =
     _home = _this select 0;
     _home_object = _home select home_object;
     
-    {_home_object animate [format ["%1", _x], 0]} foreach home_doors_zeroes;
-    {_home_object animate [format ["%1", _x], 1]} foreach home_doors_ones;
+    {_home_object animate [format ["%1", _x], 0]} count home_doors_zeroes;
+    {_home_object animate [format ["%1", _x], 1]} count home_doors_ones;
 };
     
 home_openDoor =
 {
     _home = _this select 0;
     _home_object = _home select home_object;
-    {_home_object animate [format ["%1", _x], 1]} foreach home_doors_zeroes;
-    {_home_object animate [format ["%1", _x], 0]} foreach home_doors_ones;
+    {_home_object animate [format ["%1", _x], 1]} count home_doors_zeroes;
+    {_home_object animate [format ["%1", _x], 0]} count home_doors_ones;
 };
 
     
@@ -128,20 +162,37 @@ home_isDoorOpening =
 {
     _home = _this select 0;
     _home_object = _home select home_object;
-    
+	
     _opening = false;
     
     {
         if((_home_object animationPhase format ["%1", _x]) > 0)
         exitWith { _opening = true;};
-    } foreach home_doors_zeroes;
+    } count home_doors_zeroes;
     
     {
         if((_home_object animationPhase format ["%1", _x]) < 1)
         exitWith { _opening = true;};
-    } foreach home_doors_ones;
+    } count home_doors_ones;
     
     _opening
+};
+
+home_toggleLightSwitch = {
+	_home = _this select 0;
+
+	_home_lightObject = _home select home_lightObject;
+	_home_lightSwitch = _home select home_lightSwitch;
+	
+	if (_home_lightSwitch) then {
+		_home set [home_lightSwitch, false];
+		_home_lightObject setLightBrightness 0;
+	} else {
+		_home set [home_lightSwitch, true];
+		_home_lightObject setLightBrightness 0.01;
+	};
+	
+	[_home] call home_updateActions;
 };
 
 home_unlock = 
@@ -190,11 +241,15 @@ home_buy =
     _home set [home_locked, false];
     player groupChat format["You bought this house for $%1", _home select home_buying_price];
     
-    [_home] call home_updateActions;    
+	_marker = _home select home_marker;
+	_marker setMarkerShape "ICON";
+	_marker setMarkerType "hd_dot";
+	_marker setMarkerText format["%1's House.",_owner_name];
+	
+    [_home] call home_updateActions;
     
     homes_msg = [_owner_name, "all", "update_home", _home];
     publicVariable "homes_msg";
-    
 };
 
 home_sell =
@@ -207,6 +262,8 @@ home_sell =
     _home set [home_owner_name, ""];
     _home set [home_locked, false];
     player groupChat format["You sold this house for $%1", _home select home_selling_price];
+	
+	format["%1", _home select home_marker] setMarkerText format[""];
 
     [_home] call home_updateActions;
     
@@ -264,16 +321,19 @@ home_isOwnerConnected =
     _owner_uid = _home select home_owner_uid;
     _owner_name = _home select home_owner_name;
     _connected = false;
-    {
-        _unit = call compile format ["%1", _x];
-        
-        if (((getPlayerUID _unit) == _owner_uid) && (name _unit == _owner_name)) exitWith 
-        {
-            _connected = true;
-        };
-        
-    } forEach playerstringarray;
-    
+	{
+		_player_variable_name = _x;
+		_player_variable = missionNamespace getVariable _player_variable_name;
+		
+		if(!isNil "_player_variable") then {
+			if ([_player_variable] call player_exists) then {
+				if (((getPlayerUID _player_variable) == _owner_uid) && (name _player_variable == _owner_name)) exitWith 
+				{
+					_connected = true;
+				};
+			};
+		};
+	} count playerstringarray;
     
     _connected
 };
@@ -319,6 +379,8 @@ home_updateActions =
 {
     _home = _this select 0;
     _home_object = _home select home_object;
+	
+	if(_home_object == nil) exitWith { player sideChat "Home is nil?"; };
     
     if ((_home select home_ownership_action) >= 0) then
     {
@@ -340,6 +402,13 @@ home_updateActions =
         _home_object removeAction _action;
         _home set [home_info_action, -1];
     };
+	
+	if ((_home select home_lightAction) >= 0) then
+    {
+        _action = _home select home_lightAction;
+        _home_object removeAction _action;
+        _home set [home_lightAction, -1];
+    };
     
     _cur_key = [_home] call home_getKey;
     _my_key = [] call home_myKey;
@@ -350,14 +419,15 @@ home_updateActions =
         _action_id = _home_object addAction ["House information", "Awesome\Houses\homeactions.sqf", ["info", _home], 1];
         _home set [home_info_action, _action_id];
     };
-    
 
     // if no owner, then home is for salae
     if (_cur_key == "_" or _cur_key == "") then
     {
-        _action_id = _home_object addAction [format["Buy this house ($%1)", _home select home_buying_price], "Awesome\Houses\homeactions.sqf", ["buy", _home], 1];
-        _home set [home_ownership_action, _action_id];
-        _home set [home_locked, false];
+		if (isciv) then {
+			_action_id = _home_object addAction [format["Buy this house ($%1)", _home select home_buying_price], "Awesome\Houses\homeactions.sqf", ["buy", _home], 1];
+			_home set [home_ownership_action, _action_id];
+			_home set [home_locked, false];
+		};
     }
     else
     {
@@ -369,7 +439,10 @@ home_updateActions =
             _action_id = _home_object addAction [format["Sell this house ($%1)", _home select home_selling_price], "Awesome\Houses\homeactions.sqf", ["sell", _home], 1];
             _home set [home_ownership_action, _action_id];
             _home_locked = _home select home_locked;
-            
+			
+			_action_id = _home_object addAction ["Toggle Lights", "Awesome\Houses\homeactions.sqf", ["lightswitch", _home], 1];
+			_home set [home_lightAction, _action_id];
+			
             if (_home_locked) then
             {
                 _action_id = _home_object addAction ["Unlock house", "Awesome\Houses\homeactions.sqf", ["unlock", _home], 1];
@@ -380,7 +453,12 @@ home_updateActions =
                 _action_id = _home_object addAction ["Lock house", "Awesome\Houses\homeactions.sqf", ["lock", _home], 1];
                 _home set [home_locking_action, _action_id];
             };
-        };
+        } else {
+			if (isopf || iscop) then {
+				_action_id = _home_object addAction ["Raid house", "Awesome\Houses\homeactions.sqf", ["unlock", _home], 1];
+                _home set [home_locking_action, _action_id];
+			};
+		};
     };
     _home
 };
@@ -404,7 +482,7 @@ _HomeWatch =
                 };
             };
             
-        } forEach homes_list;
+        } count homes_list;
         sleep 1;
     };
 };
@@ -416,12 +494,14 @@ _HomeLogic =
 {    
     _home = _this select 0;
     
-    _x = _home select home_x;
-    _y = _home select home_y;
-    _z = _home select home_z;
+	_pos = _home select home_position;
+	
+    _x = _pos select 0;
+    _y = _pos select 1;
+    _z = _pos select 2;
     
     _home_object = _home select home_object;
-    _home set [home_object, _home_object];
+    //_home set [home_object, _home_object];
     
     _home_walls = _home select home_walls;
     
@@ -438,7 +518,7 @@ _HomeLogic =
         _wall = createVehicle [_home_wall_type,  [_home_object_pos, _home_wall_pos] call home_addPositions, [], 0, "CAN_COLLIDE"];
         _wall setDir ([_home_object_dir, _home_wall_dir] call home_addDirections)
         
-    }forEach _home_walls;
+    }count _home_walls;
 
     
     
@@ -489,7 +569,7 @@ _HomeLogic =
                    homes_msg = [_myself, _msg_from, "update_home", _c_home];
                    //server globalChat format["SEND: %1", homes_msg];
                    publicVariable "homes_msg";
-               } forEach homes_list;           
+               } count homes_list;           
            }
            else { if (_msg_type == "update_home") then
            {
@@ -527,8 +607,8 @@ _HomeLogic =
                 {
                     _home set [home_ownership_action, -1];
                     _home set [home_locking_action, -1];
-                    _home set [home_object, objNull];
-                    [_home] call home_setObject;
+                    //_home set [home_object, objNull];
+                    //[_home] call home_setObject;
                     
                     server setVariable [_home_name, [_home] call home_updateActions];
                 }
@@ -555,8 +635,9 @@ _main =
         for [{_i = 0}, {_i < _homes_count}, {_i=_i+1}] do
         {    
             _home = homes_list select _i;
-            _home_object = [_home] call home_setObject;
+            //_home_object = [_home] call home_setObject;
             _home_name = _home select home_name;
+			
             server setVariable [_home_name, _home];
             
             [_home] spawn _homeLogic;
