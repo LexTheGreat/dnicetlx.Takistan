@@ -32,4 +32,3 @@ if(([player, "ziptie"] call INV_GetItemAmount) < 1 && (([player, "ziptie_sup"] c
 [player, 'ziptie',-1] call INV_AddInventoryItem;
 [player, 'ziptie_sup',-1] call INV_AddInventoryItem;
 (format['server globalchat "%3 was zip tied by %2";if (rolestring == "%1") then {execVM "Unziptie.sqf";}', _civ, name _player, name _civ]) call broadcast;
-

@@ -16,10 +16,7 @@ onActionSaver = compile preprocessfile "RG\iSave.sqf";
 private ["_h"];
 /////////////////////////////////////////
 
-
 debug = false;
-shouldSnow = true;
-
 
 //////////////////////////
 server globalChat "Initializing Xtreme Takistan Life.......";
@@ -93,7 +90,8 @@ if (isClient) then {
 	[] execVM "briefing.sqf";
 	snowWorking = false;
 	snowday = false;
-	snowToggle = true;
+	// T/F for snow options
+	snowToggle = false;
 };
 
 // initializes Fixes

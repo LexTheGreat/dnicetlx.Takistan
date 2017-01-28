@@ -66,6 +66,24 @@ player_cop = {
 	(([_player] call player_side) == west)
 };
 
+player_dog = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+
+	_rolestring = toLower(str(_player));
+	(_rolestring in dogstringarray)
+};
+
+player_pmc = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+
+	_rolestring = toLower(str(_player));
+	(_rolestring in pmcstringarray)
+};
+
 count_side = {
 	_side = _this select 0;
 	
@@ -84,15 +102,6 @@ count_side = {
 	} count playerstringarray;
 	
 	_count
-};
-
-player_dog = {
-	private["_player", "_rolestring"];
-	_player = _this select 0;
-	if (isNil "_player") exitWith { };
-
-	_rolestring = toLower(str(_player));
-	(_rolestring in dogstringarray)
 };
 
 player_get_dead = {
@@ -2126,10 +2135,17 @@ player_init_arrays = {
 		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
 		"civ61","civ62","civ63","civ64"
 	];
-
+	
+	supporterslots = []; // TODO Add all slots move over to new system.
+	
 	dogstringarray =
 	[
-	"ins3", "cop5"
+		"ins3", "cop5"
+	];
+	
+	pmcstringarray =
+	[
+		"civ60", "civ61", "civ62", "civ63", "civ64"
 	];
 
 
@@ -2144,6 +2160,7 @@ player_init_arrays = {
 	isciv = [_player] call player_civilian;
 	isopf = [_player] call player_opfor;
 	isins = [_player] call player_insurgent;
+	ispmc = [_player] call player_pmc;
 
 	_player addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];
 	_player addMPEventHandler ["MPRespawn", { _this call player_handle_mprespawn }];

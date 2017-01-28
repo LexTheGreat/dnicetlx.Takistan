@@ -491,9 +491,14 @@ check_restrains = {
 	if (iscop or isopf) exitWith {};
 	if (not(alive player)) exitWith {};
 	
-	private["_physicallyRestrained", "_logicallyRestrained"];
+	private["_physicallyRestrained", "_logicallyRestrained", "_isstunned"];
 	_physicallyRestrained = ((animationState player) ==  "civillying01");
 	_logicallyRestrained = [player, "restrained"] call player_get_bool;
+	_isstunned = [player, "isstunned"] call player_get_bool;
+	
+	if(vehicle player != player && _isstunned) then { // Eject restrained players
+	    player action ["Eject", vehicle player];
+	};
 	
 	if (_logicallyRestrained && not(_physicallyRestrained)) then {
 		format['%1 switchMove "civillying01";', player] call broadcast;
@@ -507,7 +512,7 @@ check_restrains = {
 		if(vehicle player != player) then { // Eject restrained players
 	    	player action ["Eject", vehicle player];
 	    };
-		if (not([player, 50] call player_near_cops) && not([player, 50] call player_near_opf)) then {
+		if (not([player, 50] call player_near_cops) && not([player, 50] call player_near_opf) && not([player, 50] call player_near_civilians)) then {
 			[player, "restrained", false] call player_set_bool;
 			player groupChat format["You have managed to unrestrain yourself!"];
 		};

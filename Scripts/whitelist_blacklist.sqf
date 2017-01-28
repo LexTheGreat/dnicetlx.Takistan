@@ -116,9 +116,9 @@ pmcblacklist = [
 "76561198083392018" //jpf
 ];
 
-issup = true; // ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
-isvip = true; // ((_uid in supportersVIP));
-ispmc = ((_uid in pmcwhitelist) or (isStaff) or (issup));
+issup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
+isvip = ((_uid in supportersVIP));
+// ispmc = ((_uid in pmcwhitelist) or (isStaff) or (issup)); BEtter way
 
 _side = playerSide;
 if((_uid in copblacklist) && (_side == west)) then {
@@ -137,10 +137,13 @@ if((_uid in insblacklist) && (_side == resistance)) then {
 	sleep 7;
 	failMission "END1";};
 
-if((!ispmc) && (isciv) && rolenumber >= 60) then {
-	player groupChat "You cannot join a PMC slot without supporter privileges!";
-	sleep 7;
-	failMission "END1";};
+if(ispmc && !issup) then {
+	player groupChat "!!!!WARNING!!!!";
+	player groupChat "PMC requires you to have [PMC] in your name. You are required to be on teamspeak, with police training!";
+	player groupChat "This message is because you are not a supporter. Supporters don't need the police training to play as PMC.";
+	//sleep 7;
+	// failMission "END1";
+};
 if((!isAdmins) && rolenumber == 72) then {
 	player groupChat "You cannot join a Admin slot without being an admin!";
 	sleep 7;

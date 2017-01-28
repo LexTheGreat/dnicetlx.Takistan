@@ -137,7 +137,7 @@ interact_ai = {
 
 	if((_target in pmc_shop_list)) exitWith {
 		if !(ispmc) exitWith {
-			hint "You cannot access PMC Shops: You are not whitelisted!";
+			hint "You cannot access PMC Shops: You are not PMC!";
 			false
 		};
 		[_id] call shop_open_dialog;

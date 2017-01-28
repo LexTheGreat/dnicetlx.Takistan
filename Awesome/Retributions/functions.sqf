@@ -1004,8 +1004,8 @@ track_retributions = {
 	
 	//player groupChat format["JUST: %1", _justified];
 	if ((_victim_side == "Civilian") && !_justified) exitWith {
-		[_killer, "DM"] call add_killer;
-		player_unfair_killed = true;
+		// [_killer, "DM"] call add_killer; // Disabled, only can comp for teamkill.
+		player_unfair_killed = false;
 	};
 	
 	if (_teamkill) exitWith {
