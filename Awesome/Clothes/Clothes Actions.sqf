@@ -239,7 +239,7 @@ C_change = {
 	
 	if (not([_oldUnit] call player_human)) exitWith { call _failed_change;};
 	
-	if ((_class in pmc_skin_list) && not(ispmc)) exitWith {
+	if ((_class in pmc_skin_list) && not(isPmc)) exitWith {
 		player groupchat "You cannot access PMC Shops: You are not PMC!";
 		call _failed_change;
 	};

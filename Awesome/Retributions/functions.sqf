@@ -748,7 +748,7 @@ tk_jail_cop = {
 	if (isNil "_killer") exitWith {};
 	
 	if (_killer != player) exitWith{};
-	if (not([_killer] call player_cop)) exitWith {};
+	if (not([_killer] call player_blufor)) exitWith {};
 	
 	//if (not ((_victim distance copbase1) < 400 || (_killer distance copbase1) < 400 || copskilled > 3)) exitWith {};
 	[_killer, "roeprisontime", CopInPrisonTime] call player_set_scalar;
@@ -950,7 +950,7 @@ victim = {
 			_message = format["%1 was killed by the Takistan Liberation Army!", _victim_name];
 		};
 
-		if([_killer] call player_cop) exitWith {
+		if([_killer] call player_blufor) exitWith {
 			_message = format["%1 was killed by the UN Stabilization Forces!", _victim_name];
 		};
 

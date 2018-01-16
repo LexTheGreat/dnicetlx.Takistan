@@ -57,7 +57,7 @@ Copyright (C) 2011  Matthew Simms
 
 
 
-			((RPP_display_ui select 0) displayCtrl 1) ctrlSetStructuredText parseText format["<t align='right' size='1.15'><t shadow='1'shadowColor='#000000'><t color='#347c17'>Health: <t color='%2'>%1 <t color='#ff8400'><br/>Server Uptime: %3 Min <br/><t color='%4'>%5<br/><t color='#E8E06F'> Teamspeak: glx.ts.nfoservers.com</t></t>", _health, _healthtextcol, (round(time/60)),_warcol,_war];
+			((RPP_display_ui select 0) displayCtrl 1) ctrlSetStructuredText parseText format["<t align='right' size='1.15'><t shadow='1'shadowColor='#000000'><t color='#347c17'>Health: <t color='%2'>%1 <t color='#ff8400'><br/>Server Uptime: %3 Min <br/><t color='%4'>%5<br/><t color='#E8E06F'> Website: tlx-gaming.com</t></t>", _health, _healthtextcol, (round(time/60)),_warcol,_war];
 			sleep 1;
 	};
 };

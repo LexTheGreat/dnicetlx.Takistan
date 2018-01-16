@@ -38,7 +38,7 @@ _Tear_gas =
 						};
 					};
 				};
-			} count playerstringarray;
+			} count PlayerStringArray;
 		};
 	};
 };

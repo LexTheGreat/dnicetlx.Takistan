@@ -7,7 +7,7 @@ if (_art == "ClientWahlc") then {
 	if (WahlChief) exitWith { player groupChat "You just voted."; };
 	_spielernum   = call compile (_this select 1);
 	format["if (isServer) then {[0,1,2,[""ServerChief"", %1, %2]] execVM ""chief.sqf"";};", _spielernum, rolenumber] call broadcast;
-	player groupChat format[localize "STRS_chief_votedfor", (playerstringarray select _spielernum)];
+	player groupChat format[localize "STRS_chief_votedfor", (PlayerStringArray select _spielernum)];
 	WahlChief = true;
 	sleep 15;
 	WahlChief = false;

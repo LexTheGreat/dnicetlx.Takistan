@@ -22,7 +22,7 @@ player_get_player_by_name = {
 		};
         
 		if (_exit) exitWith {};    
-	} foreach playerstringarray;
+	} foreach PlayerStringArray;
 	_player
 };
 

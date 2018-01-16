@@ -78,4 +78,4 @@ broadcast_setup = {
 	};
 };
 
-[rolenumber, (count playerstringarray)] call broadcast_setup;
+[rolenumber, (count PlayerStringArray)] call broadcast_setup;

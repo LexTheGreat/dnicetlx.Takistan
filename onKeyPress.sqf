@@ -154,7 +154,7 @@ keyboard_stunned_check = {
 };
 
 keyboard_restrained_check = {
-	//if (iscop or isopf) exitWith {false};
+	//if (isGov) exitWith {false};
 	[player, "restrained"] call player_get_bool
 };
 
@@ -331,14 +331,14 @@ keyboard_switch_normal_handler = {
 keyboard_gangs_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(isciv) || isins || isopf) exitWith {false};
+	if (not(isCiv) || isIns || isOpf) exitWith {false};
 	[0,0,0,["gangmenu"]] execVM "maindialogs.sqf";
 	true
 };
 keyboard_squads_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(iscop) || isins || isopf) exitWith {false};
+	if (not(isBlu) || isIns || isOpf) exitWith {false};
 	[0,0,0,["squadmenu"]] execVM "maindialogs.sqf";
 	true
 };
@@ -356,7 +356,7 @@ keyboard_admin_menu_handler = {
 keyboard_cop_menu_handler = {
 	if(!INV_shortcuts) exitWith {false};
 	if(dialog) exitWith {closeDialog 0; false};
-	if (not(iscop or isopf)) exitWith {false};
+	if (not(isGov)) exitWith {false};
 	if ([player] call player_get_dead) exitWith {};
 
 	private["_inVehicle"];
@@ -564,10 +564,10 @@ KeyUp_handler = {
 			_handled = [] call keyboard_switch_normal_handler;
 		};
 		case DIK_5: {
-			if(isciv) then{
+			if(isCiv) then{
 				_handled = [] call keyboard_gangs_handler;
 			};
-			if(iscop) then{
+			if(isBlu) then{
 				_handled = [] call keyboard_squads_handler;
 			};
 		};
@@ -599,7 +599,7 @@ KeyUp_handler = {
 
 			if(_inVehicle) then
 			{
-				if (iscop or isopf) then
+				if (isGov) then
 				{
 					_handled = [] call keyboard_cop_siren_handler;
 				}
@@ -721,13 +721,13 @@ KeyDown_handler = {
 
 		case DIK_V: {
 			if (not(_ctrl)) exitWith {_handled = false;};
-			if (!(iscop or isopf)) exitWith {_handled = false;};
+			if (!(isGov)) exitWith {_handled = false;};
 			_handled = [] call keyboard_cop_speed_gun_handler;
 		};
 
 		case DIK_H: {
 			if (not(_ctrl)) exitWith {_handled = false;};
-			if (not((iscop or isopf) && _inVehicle && _isDriver)) exitWith {_handled = false;};
+			if (not((isGov) && _inVehicle && _isDriver)) exitWith {_handled = false;};
 			_handled = [] call keyboard_cop_horn_handler;
 		};
 

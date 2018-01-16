@@ -165,7 +165,7 @@ if(_art == "clientloop") then {
 		};
 	};
 
-	while {isciv} do {
+	while {isCiv} do {
 		for "_c" from 0 to (count gangsarray - 1) do {
 			_gangarray = gangsarray select _c;
 			_gang	   = _gangarray select 0;

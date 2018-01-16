@@ -333,7 +333,7 @@ home_isOwnerConnected =
 				};
 			};
 		};
-	} count playerstringarray;
+	} count PlayerStringArray;
     
     _connected
 };
@@ -423,7 +423,7 @@ home_updateActions =
     // if no owner, then home is for salae
     if (_cur_key == "_" or _cur_key == "") then
     {
-		if (isciv) then {
+		if (isCiv) then {
 			_action_id = _home_object addAction [format["Buy this house ($%1)", _home select home_buying_price], "Awesome\Houses\homeactions.sqf", ["buy", _home], 1];
 			_home set [home_ownership_action, _action_id];
 			_home set [home_locked, false];
@@ -454,7 +454,7 @@ home_updateActions =
                 _home set [home_locking_action, _action_id];
             };
         } else {
-			if (isopf || iscop) then {
+			if (isOpf || isBlu) then {
 				_action_id = _home_object addAction ["Raid house", "Awesome\Houses\homeactions.sqf", ["unlock", _home], 1];
                 _home set [home_locking_action, _action_id];
 			};

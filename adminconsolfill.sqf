@@ -9,8 +9,8 @@ _c = 0;
 _player_variable_name = "";
 _player_variable = "";
 
-for [{_c=0}, {_c < (count playerstringarray)}, {_c=_c+1}] do {
-	_player_variable_name = playerstringarray select _c;
+for [{_c=0}, {_c < (count PlayerStringArray)}, {_c=_c+1}] do {
+	_player_variable_name = PlayerStringArray select _c;
 	_player_variable = missionNamespace getVariable _player_variable_name;
 
 	if(!isNil "_player_variable") then {
@@ -534,7 +534,7 @@ _array = [];
 			format['
             [] spawn
                     {
-                        if (!isciv) exitWith {};
+                        if (!isCiv) exitWith {};
 						player setPosASL %1;
 						liafu = true;
 						player commandChat "An admin has teleported you";
@@ -547,7 +547,7 @@ _array = [];
 				format['
 					[] spawn
 					{
-						if (!isciv) exitWith {};
+						if (!isCiv) exitWith {};
 						removeAllWeapons player;
 						[player, [["keychain",[49]],["handy",[49]],["treefixer",[49]]]] call player_set_inventory;
 						player commandChat "An admin has removed all your weapons and inventory";
@@ -587,7 +587,7 @@ _array = [];
 			["Select Chief", {
 				private["_chiefString"];
 				chiefNumber = parseNumber(_inputText) + 94;
-				_chiefString  = (playerstringarray select chiefNumber);
+				_chiefString  = (PlayerStringArray select chiefNumber);
 				publicVariable "chiefNumber";
 				format["hint format[localize ""STRS_chief_new"", ""%3"", %2]; 
 				if (%5 == %1) then {

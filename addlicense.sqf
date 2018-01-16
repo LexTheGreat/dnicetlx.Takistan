@@ -24,7 +24,7 @@ if (_art == "add") then
 	/*
 	if(		(_license in pmc_shop_list)	) then {
 					
-			if (	(iscop || isopf || isins)	) then {_exit = true; player groupchat "You cannot access PMC Licenses: Not a civilian";};
+			if (	(isGov || isIns)	) then {_exit = true; player groupchat "You cannot access PMC Licenses: Not a civilian";};
 							
 			if (!_exit) then {
 					_uid = getPlayerUID player;

@@ -1,9 +1,9 @@
-startmoneh = 100000;
-supportermoneh = 3000000;
-silvermoneh = 6000000;
-goldmoneh = 12000000;
-platinummoneh = 25000000;
-vipmoneh = 50000000;
+startmoneh = 1000000;
+supportermoneh = 1000000;
+silvermoneh = 1000000;
+goldmoneh = 1000000;
+platinummoneh = 1000000;
+vipmoneh = 1000000;
 //adminmoneh = 80000000;
 
 /*if (isStaff) then {
@@ -56,7 +56,7 @@ switch (playerSide) do
 {
 	case west:
 	{
-		[player, _uid, "moneyAccountWest", "NUMBER"] call sendToServer;
+		[player, _uid, "moneyAccountWest", "SCALAR"] call sendToServer;
 		[player, _uid, "MagazinesPlayerWest", "ARRAY"] call sendToServer;
 		[player, _uid, "WeaponsPlayerWest", "ARRAY"] call sendToServer;
 		[player, _uid, "LicensesWest", "ARRAY"] call sendToServer;
@@ -75,7 +75,7 @@ switch (playerSide) do
 
 	case east:
 	{
-		[player, _uid, "moneyAccountEast", "NUMBER"] call sendToServer;
+		[player, _uid, "moneyAccountEast", "SCALAR"] call sendToServer;
 		[player, _uid, "MagazinesPlayerEast", "ARRAY"] call sendToServer;
 		[player, _uid, "WeaponsPlayerEast", "ARRAY"] call sendToServer;
 		[player, _uid, "LicensesEast", "ARRAY"] call sendToServer;
@@ -94,7 +94,7 @@ switch (playerSide) do
 
 	case resistance:
 	{
-		[player, _uid, "moneyAccountRes", "NUMBER"] call sendToServer;
+		[player, _uid, "moneyAccountRes", "SCALAR"] call sendToServer;
 		[player, _uid, "MagazinesPlayerRes", "ARRAY"] call sendToServer;
 		[player, _uid, "WeaponsPlayerRes", "ARRAY"] call sendToServer;
 		[player, _uid, "LicensesRes", "ARRAY"] call sendToServer;
@@ -113,7 +113,7 @@ switch (playerSide) do
 
 	case civilian:
 	{
-		[player, _uid, "moneyAccountCiv", "NUMBER"] call sendToServer;
+		[player, _uid, "moneyAccountCiv", "SCALAR"] call sendToServer;
 		[player, _uid, "MagazinesPlayerCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "WeaponsPlayerCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "LicensesCiv", "ARRAY"] call sendToServer;
@@ -174,15 +174,15 @@ if (isNil "bankstatsareloaded") then {
 };
 statsLoaded = 1;
 
-if ((issup) && !("supporter" call INV_HasLicense)) then {
+if ((isSup) && !("supporter" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["supporter"];
 server globalchat "supporter ACCOUNT DETECTED: supporter License Added";};
 
-if ((isvip) && !("viplicense" call INV_HasLicense)) then {
+if ((isVip) && !("viplicense" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["viplicense"];
 server globalchat "VIP supporter ACCOUNT DETECTED: VIP supporter License Added";};
 
-if ((ispmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
+if ((isPmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
 			server globalchat "PMC ACCOUNT DETECTED: PMC License Added"};
 
 
@@ -314,7 +314,7 @@ if((getPlayerUID player) in wolflicense) then {
 	server globalchat "Wolfgang License Added";
 };
 
-if ([player] call player_dog) then {
+if (isDog) then {
 	server globalchat "Warning: You are going to loose all your gear!";
 	server globalchat "Warning: Dog's can't carry weapons!";
 

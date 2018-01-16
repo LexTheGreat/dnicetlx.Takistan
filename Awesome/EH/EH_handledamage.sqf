@@ -43,7 +43,7 @@ _reduce = false;
 
 private "_weapon";
 _weapon = currentWeapon _source;
-if ([_source] call player_opfor or [_source] call player_cop) then {
+if ([_source] call player_opfor or [_source] call player_blufor) then {
 	if (_projectile == "B_9x19_SD") then {
 		sleep 1;
 		private["_stunq"];

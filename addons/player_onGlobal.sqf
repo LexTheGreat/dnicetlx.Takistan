@@ -6,7 +6,7 @@ private["_display","_channelDisplay","_text1","_channel","_micDisplay","_mic1"];
 				_text1 = ctrlText (_micDisplay displayCtrl 101);
 				_mic1 = '\ca\ui\textures\mikrak.paa';
                 _channel = ctrlText (_channelDisplay displayCtrl 101);
-                if(((_channel == "Side channel" || _channel == "Command channel") && isciv) || _channel == "Global channel" && _text1 == _mic1) then {
+                if(((_channel == "Side channel" || _channel == "Command channel") && isCiv) || _channel == "Global channel" && _text1 == _mic1) then {
 						if(!(isNil "global_voice_warnings")) exitWith { };
 						global_voice_warnings = 0;
 						voice_stop = true;
@@ -25,7 +25,7 @@ private["_display","_channelDisplay","_text1","_channel","_micDisplay","_mic1"];
 								};
 							}
 							else {
-								if((_channel == "Side channel" || _channel == "Command channel") && _text1 == _mic1 && isciv) then {
+								if((_channel == "Side channel" || _channel == "Command channel") && _text1 == _mic1 && isCiv) then {
 								player commandchat format ["GET OFF CIVI SIDE/COMM VOICE %1 OR YOU'LL BE KICKED ",name player];
 								hint format["STAY OFF SIDE VOICE %1",name player];
 								sleep 0.5;

@@ -210,7 +210,7 @@ check_inventory = {
 };
 
 cop_stun_gun_modify = {
-	if (!(iscop or isopf)) exitWith {};
+	if (!(isGov)) exitWith {};
 	//if (isNil "weaponsloaded") exitWith {};
 	//if (not(weaponsloaded)) exitWith {};
 	if((player ammo (currentWeapon player)) <= stunshotsmax) exitWith {};
@@ -278,7 +278,7 @@ check_actions = {
 
 
 check_factory_actions = {
-	if (iscop or isopf) exitwith{};
+	if (isGov) exitwith{};
 	private["_player"];
 	_player = player;
 	private["_vehicle", "_in_vehicle"];
@@ -342,12 +342,12 @@ bases_check_teleport_marker = 3;
 bases_check_teleport_message = 4;
 
 bases_checks = [
-	["isins", "ins_area_1", 20, "telehesnotins", "You were teleported out of the Insurgent base!"],
-	["ispmc", "pmc_area_1", 20, "telehesnotpmc", "You were teleported out of the PMC base!"],
-	["isopf", "opfor_area_1", 20, "telehesnottla", "You were teleported out of the TLA base!"],
-	["iscop", "blufor_area_1", 20, "telehesnotcop", "You were teleported out of the Police base!"]	
+	["isIns", "ins_area_1", 20, "telehesnotins", "You were teleported out of the Insurgent base!"],
+	["isPmc", "pmc_area_1", 20, "telehesnotpmc", "You were teleported out of the PMC base!"],
+	["isOpf", "opfor_area_1", 20, "telehesnottla", "You were teleported out of the TLA base!"],
+	["isBlu", "blufor_area_1", 20, "telehesnotcop", "You were teleported out of the Police base!"]	
 ];
-if(!isciv) then {
+if(!isCiv) then {
 	(bases_checks select 3) set [1, "blufor_area_2"];
 };
 check_bases = {
@@ -488,7 +488,7 @@ check_droppable_items = {
 };
 
 check_restrains = {
-	if (iscop or isopf) exitWith {};
+	if (isGov) exitWith {};
 	if (not(alive player)) exitWith {};
 	
 	private["_physicallyRestrained", "_logicallyRestrained", "_isstunned"];
@@ -549,7 +549,7 @@ _supWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 	
 	
 	_pWeps = currentWeapon player;
-	if(!isvip) then {
+	if(!isVip) then {
 		if(["_TWS", _pWeps] call KK_fnc_inString) then {
 			[player, 10] call jail_player_punish;
 		}
@@ -561,7 +561,7 @@ _supWepArray = ["Pecheneg","MG36","MG36_camo","ksvk","SVD_NSPU_EP1", "M110_NVG_E
 			} count _vipWepArray;
 		};
 	};
-	if(!ispmc) then {
+	if(!isSup) then {
 		{
 			
 			if(_x == _pWeps) then {
@@ -621,7 +621,7 @@ client_loop = {
 		call mayor_unarmer;
 		player removeAllEventHandlers "handleDamage";
 		player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
-		if(!isciv) then {
+		if(!isCiv) then {
 			call check_checkpoints;
 		};
 		sleep 0.5;

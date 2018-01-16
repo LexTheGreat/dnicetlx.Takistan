@@ -170,8 +170,8 @@ while {true} do
 	//_debug_str = format ['_counter2=%1', _counter2];
 	//hint _debug_str;
 	
-	"if(alive player and isciv and player distance convoytruck <= 250)then{titleText [""The Government is operating in this area! Turn back or you will be shot!"", ""plain down""]};" call broadcast;
-	"if(alive player and !iscop and player distance convoytruck <= 180)then{player addRating -10000;};" call broadcast;
+	"if(alive player and isCiv and player distance convoytruck <= 250)then{titleText [""The Government is operating in this area! Turn back or you will be shot!"", ""plain down""]};" call broadcast;
+	"if(alive player and !isBlu and player distance convoytruck <= 180)then{player addRating -10000;};" call broadcast;
         "convoy" setmarkerpos getpos convoytruck;
 	if (!alive convoyguard1) then
 		{
@@ -200,8 +200,8 @@ while {true} do
 		{
 		removeAllWeapons convoysoldier;
 		_added = true;
-		//stealgovmoney = convoytruck addAction ["Steal Government salaries", "stealgovmoney.sqf",[""],1,false,true,"","isciv and (call INV_isArmed)"];
-		"if (iscop) then {server sidechat ""The governemnt convoy driver is dead get in his truck and drive it to the base"";};" call broadcast;
+		//stealgovmoney = convoytruck addAction ["Steal Government salaries", "stealgovmoney.sqf",[""],1,false,true,"","isCiv and (call INV_isArmed)"];
+		"if (isBlu) then {server sidechat ""The governemnt convoy driver is dead get in his truck and drive it to the base"";};" call broadcast;
 		convoytruck setVehicleLock "unlocked";
 		unassignVehicle convoyguard1;
 		unassignVehicle convoyguard2;
@@ -228,7 +228,7 @@ while {true} do
 
 	if (convoytruck distance getmarkerpos "policebase" < 150) exitwith 
 		{   
-		"if (iscop) then {[player, govconvoybonus] call transaction_bank; player sidechat format[""you received $%1 for successfully escorting the convoy"", govconvoybonus];};" call broadcast;
+		"if (isBlu) then {[player, govconvoybonus] call transaction_bank; player sidechat format[""you received $%1 for successfully escorting the convoy"", govconvoybonus];};" call broadcast;
 		_sidewon = "Cops";
 		};
 	

@@ -25,7 +25,7 @@ zone_capture = {
 	
     _curOwner = [_zone] call zone_getOwner;
 	
-    if(peacecomps && !isins && _curOwner == civilian) exitWith {
+    if(peacecomps && !isIns && _curOwner == civilian) exitWith {
         hint "Your side can only neutralize when it's not war, and not fully capture!";
     };
 	if(!([player] call player_armed)) exitWith {

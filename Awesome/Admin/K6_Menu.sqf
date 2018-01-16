@@ -9,8 +9,8 @@ _c = 0;
 _player_variable_name = "";
 _Findex = -1;
 
-for [{_c=0}, {_c < (count playerstringarray)}, {_c=_c+1}] do {
-	_player_variable_name = playerstringarray select _c;
+for [{_c=0}, {_c < (count PlayerStringArray)}, {_c=_c+1}] do {
+	_player_variable_name = PlayerStringArray select _c;
 	_player_variable = missionNamespace getVariable _player_variable_name;
 	
 	if ([_player_variable] call player_exists) then {

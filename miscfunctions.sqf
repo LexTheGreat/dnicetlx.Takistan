@@ -71,17 +71,17 @@ DialogPlayerList = {
   
 	private["_c"];
 	_c = 0;
-	while { _c <  (count playerstringarray) } do {
+	while { _c <  (count PlayerStringArray) } do {
 		private["_player_variable_name", "_player_variable"];
 		
-		_player_variable_name = playerstringarray select _c;
+		_player_variable_name = PlayerStringArray select _c;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		
 		if(!isNil "_player_variable") then {
 			if (not([_player_variable] call player_exists)) exitWith {};
 			private["_is_civ", "_is_cop", "_is_ins", "_is_opf"];
 			_is_civ = [_player_variable] call player_civilian;
-			_is_cop = [_player_variable] call player_cop;
+			_is_cop = [_player_variable] call player_blufor;
 			_is_ins = [_player_variable] call player_insurgent;
 			_is_opf = [_player_variable] call player_opfor;
 			

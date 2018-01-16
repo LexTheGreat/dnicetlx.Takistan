@@ -35,8 +35,8 @@ if (_art == "ausrauben") then {
 	if (alive player && _cont) then {
 		_stolenTotal = 0;
 		
-		for [{_c=0}, {_c < (count playerstringarray)}, {_c=_c+1;}] do {
-			_player_variable_name = playerstringarray select _c;
+		for [{_c=0}, {_c < (count PlayerStringArray)}, {_c=_c+1;}] do {
+			_player_variable_name = PlayerStringArray select _c;
 			_player_variable = missionNamespace getVariable _player_variable_name;
 
 			if(!isNil "_player_variable") then {

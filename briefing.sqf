@@ -132,11 +132,11 @@ player createDiaryRecord ["credits",
 [
 "Staff and TS3",
 "
-Owner: [TLX] Lex_The_Great<br/>
-TS3 Info;<br/>
-Address: On right hand side :)<br/>
-Mission build: 1.4.6<br/>
-Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Strideynet<br/>
+Owner: [TLX] Giovanni<br/>
+Discord Info:<br/>
+Address: https://discord.gg/rWsDd2h or visit our website for a link<br/>
+Mission build: 1.4.7<br/>
+Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Giovanni, [TLX] Strideynet<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
 ]
@@ -146,9 +146,9 @@ player createDiaryRecord ["bugs",
 [
 "Boogies",
 "
-Please report bugs to the Website or TS!<br/>
-Website: TLX-gaming.enjin.com <br/>
-Teamspeak: glx.ts.nfoservers.com<br/>
+Please report bugs on Discord!<br/>
+Website: tlx-gaming.com <br/>
+Discord: https://discord.gg/rWsDd2h or visit our website for a link<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
@@ -219,6 +219,11 @@ player createDiaryRecord ["changelog",
 "Takistan Life Xtreme",
 "
 <br/>
+Jan 15, 2018<br/>
+The server returns once again! 1.4.7<br/>
+Fixed: bank account not loading<br/>
+<br/>
+<br/>
 Dec 2, 2016<br/>
 SERVER RETURNS! 1.4.2<br/>
 Edited: Several parts of outdated text<br/>
@@ -276,8 +281,7 @@ player createDiaryRecord ["rules",
 [
 "Where to find our most up to date rules",
 "
-Go on our website at TLX-Gaming.enjin.com to find our most up to date rules list. <br/>
-Here is a direct link to it: http://tlx-gaming.enjin.com/rules
+Go on our website at tlx-gaming.com to find our most up to date rules list.
 <br/>
 
 "

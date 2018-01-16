@@ -14,7 +14,7 @@ interact_human = {
 	civ_variable_name = str(_target);
 	civ_player_variable  = _target;
 
-	if (([_player] call player_cop) && (not([_target] call player_cop) || ischief)) exitWith {
+	if (([_player] call player_blufor) && (not([_target] call player_blufor) || ischief)) exitWith {
 		if (not(createDialog "civmenu")) exitWith { hint "Dialog Error!";};
 		true;
 	};
@@ -49,7 +49,7 @@ interact_ai = {
 	private["_id"];
 	_id = _target call INV_GetShopNum;
 
-	if(([_player] call player_cop) and (_target in drugsellarray)) exitWith {
+	if(([_player] call player_blufor) and (_target in drugsellarray)) exitWith {
 		[_id] spawn shop_drug_search;
 		true;
 	};
@@ -81,7 +81,7 @@ interact_ai = {
 	// Disallows
 	/*
 	if((_target in sup_shop_list)) exitWith {
-		if (not(issup or isvip)) exitWith {
+		if (not(isSup or isVip)) exitWith {
 			hint "You are not a supporter!";
 			false
 		};
@@ -89,7 +89,7 @@ interact_ai = {
 		true
 	};
 	if((_target in vipsup_shop_list)) exitWith {
-		if (not(issup or isvip)) exitWith {
+		if (not(isSup or isVip)) exitWith {
 			hint "You are not a vip supporter!";
 			false
 		};
@@ -98,7 +98,7 @@ interact_ai = {
 	};
 	*/
 	if((_target in blusup_shop_list)) exitWith {
-		if (not([_player] call player_cop)) exitWith {
+		if (not([_player] call player_blufor)) exitWith {
 			hint "You cannot access Blufor supporter Shops: Not a Cop";
 			false
 		};
@@ -136,7 +136,7 @@ interact_ai = {
 	_uid = getPlayerUID player;
 
 	if((_target in pmc_shop_list)) exitWith {
-		if !(ispmc) exitWith {
+		if !(isPmc) exitWith {
 			hint "You cannot access PMC Shops: You are not PMC!";
 			false
 		};
@@ -308,10 +308,10 @@ interact_pay_bail = {
 	player groupChat format ["You paid $%1 in bail", strM(_bail)];
 	private["_message"];
 	_message = format["Prisoner %1-%2 paid $%3 in bail", _player, (name _player), strM(_bail)];
-	format['if(not(iscop)) then {server globalChat toString(%1);};', toArray(_message)] call broadcast;
+	format['if(not(isBlu)) then {server globalChat toString(%1);};', toArray(_message)] call broadcast;
 
 	_message = format["You got $%1 because prisoner %2-%3 paid %4 in bail", _cop_bail, _player, (name _player), strM(_bail)];
-	format['if (iscop) then {server globalChat toString(%1);};', toArray(_message)] call broadcast;
+	format['if (isBlu) then {server globalChat toString(%1);};', toArray(_message)] call broadcast;
 };
 
 interact_toggle_restrains = {
@@ -1035,9 +1035,9 @@ interact_inventory_menu = {
 
 	private["_c"];
 	_c = 0;
-	while { _c < (count playerstringarray) } do {
+	while { _c < (count PlayerStringArray) } do {
 		private["_player_variable_name", "_player_variable"];
-		_player_variable_name = playerstringarray select _c;
+		_player_variable_name = PlayerStringArray select _c;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		//player groupChat format["_player_variable_name = %1", _player_variable_name];
 		if (!isNil "_player_variable") then {
@@ -1231,7 +1231,7 @@ interact_rob_inventory = {
 
 
 	private["_near_cops"];
-	if (([player, 40] call player_near_cops) && not([_target] call player_cop)) then {
+	if (([player, 40] call player_near_cops) && not([_target] call player_blufor)) then {
 		player groupChat format["You cannot rob %1-%2, there is a cop near", _target, (name _target)];
 	};
 
@@ -1499,7 +1499,7 @@ interact_ticket_distribute = {
 	if (not([_target] call player_human)) exitWith {};
 	if (_amount <= 0) exitWith {};
 
-	if (not(iscop)) exitWith {
+	if (not(isBlu)) exitWith {
 		_message = format["%1-%2 paid %3-%4's ticket of $%5", _target, (name _target), _player, (name _player), strM(_amount)];
 		server globalChat _message;
 	};

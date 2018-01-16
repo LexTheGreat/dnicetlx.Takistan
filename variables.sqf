@@ -306,7 +306,7 @@ coppatrolarray  =
 
 
 
-if (iscop or isopf) then {
+if (isGov) then {
     [player, 'handy', 1] call INV_SetItemAmount;
     RadioTextMsg_1 = "Put your fucking hands up!";
     RadioTextMsg_2 = "Pull over and stay in your vehicle!";
@@ -378,7 +378,7 @@ chiefExtraPay            = 25000;
 
 private["_i"];
 _i = 0;
-while { _i < (count playerstringarray) } do {
+while { _i < (count PlayerStringArray) } do {
 	WahlArrayc = WahlArrayc + [ [] ];
 	_i = _i + 1;
 };

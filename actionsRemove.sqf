@@ -168,7 +168,7 @@ _role RemoveAction bluforZoneAction;
 A_running = false;
 
 
-if ([player] call player_dog) then {
+if (isDog) then {
 	_role RemoveAction lexisgreat;
 	_role RemoveAction lexisgreat2;
 	_role RemoveAction lexisgreat3;

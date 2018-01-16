@@ -640,21 +640,21 @@ shop_buy_item_validate_data = {
 	
 	_player_money =  ([player, 'money'] call INV_GetItemAmount);
 	
-	if (_needsLicense && isciv && !(_license_1 call INV_HasLicense)) exitWith {
+	if (_needsLicense && isCiv && !(_license_1 call INV_HasLicense)) exitWith {
 		[format["This item requires %1", (_license_1 call INV_GetLicenseName)], _quiet] call shop_set_status_message; nil
 	};
 	
-	if (_needsLicense && iscop && !(_license_2 call INV_HasLicense)) exitWith {
+	if (_needsLicense && isBlu && !(_license_2 call INV_HasLicense)) exitWith {
 		[format["This item requires %1", (_license_2 call INV_GetLicenseName)], _quiet] call shop_set_status_message; nil
 	};
-	if (_needsLicense && isopf && !(_license_3 call INV_HasLicense)) exitWith {
+	if (_needsLicense && isOpf && !(_license_3 call INV_HasLicense)) exitWith {
 		[format["This item requires %1", (_license_3 call INV_GetLicenseName)], _quiet] call shop_set_status_message; nil
 	};
-	if (_needsLicense && isins && !(_license_4 call INV_HasLicense)) exitWith {
+	if (_needsLicense && isIns && !(_license_4 call INV_HasLicense)) exitWith {
 		[format["This item requires %1", (_license_4 call INV_GetLicenseName)], _quiet] call shop_set_status_message; nil
 	};
 	
-	if (_isIllegal && (iscop or isopf) ) exitWith {
+	if (_isIllegal && (isGov) ) exitWith {
 		["The selected item is illegal, you are not allowed to buy it", _quiet]  call shop_set_status_message; nil
 	};
 	
@@ -897,7 +897,7 @@ shop_sell_item_validate_data = {
 		["You are trying to sell more than the current demand for this item", _quiet] call shop_set_status_message; nil
 	};
 	
-	if (_isIllegal && (iscop or isopf)) exitWith {
+	if (_isIllegal && (isGov)) exitWith {
 		 ["The selected item is illegal, you are not allowed to sell it", _quiet]  call shop_set_status_message; nil
 	};
     
@@ -1459,7 +1459,7 @@ shop_get_player_by_uid = {
 		if (_cuid == _uid) exitWith {
 			_player = _cplayer;
 		};
-	} foreach playerstringarray;
+	} foreach PlayerStringArray;
 	
 	_player
 };
