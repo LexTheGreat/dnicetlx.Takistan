@@ -2145,7 +2145,7 @@ player_init_arrays = {
 	PMCSlots = ["civ60", "civ61", "civ62", "civ63", "civ64"];
 	/* Ranked Slots */
 	AdmSlots = DogSlots + [];
-	SupSlots = PMCSlots + [];
+	SupSlots = [];
 	VipSlots = [];
 	
 	/* System */
