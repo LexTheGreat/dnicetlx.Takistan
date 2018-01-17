@@ -1698,7 +1698,7 @@ player_exit_vehicle = {
 	else {
 		private["_engine_state"];
 		_engine_state =  isEngineOn _vehicle;
-		_player action ["Eject", _vehicle];
+		_player action ["GetOut", _vehicle];
 		_vehicle engineOn _engine_state;
 	};
 
