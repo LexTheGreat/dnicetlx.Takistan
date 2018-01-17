@@ -135,7 +135,7 @@ player createDiaryRecord ["credits",
 Owner: [TLX] Giovanni<br/>
 Discord Info:<br/>
 Address: https://discord.gg/rWsDd2h or visit our website for a link<br/>
-Mission build: 1.4.7<br/>
+Mission build: 1.5.2<br/>
 Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Giovanni, [TLX] Strideynet<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
@@ -218,6 +218,16 @@ player createDiaryRecord ["changelog",
 [
 "Takistan Life Xtreme",
 "
+<br/>
+Jan 15, 2018<br/>
+Various fixes here and there 1.5.2<br/>
+Edited: PMC slots are now open to the public
+Edited: Objectgeddon delay extended to 60 min
+Fixed: some players don't get starting money
+Fixed: all arrested players getting charged as bank robbers
+Fixed: typo in suicide messages
+<br/>
+<br/>
 <br/>
 Jan 15, 2018<br/>
 The server returns once again! 1.4.7<br/>
