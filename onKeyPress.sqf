@@ -67,12 +67,12 @@ keyboard_tlr_keys_handler = {
 	if (_key_spam) exitWith {};
 
 	if (INV_shortcuts) then {
-		titletext["TLR keys off", "PLAIN DOWN"];
+		titletext["TLX keys off", "PLAIN DOWN"];
 		call A_actionsremove;
 		INV_shortcuts = false;
 	}
 	else {
-		titletext["TLR keys on", "PLAIN DOWN"];
+		titletext["TLX keys on", "PLAIN DOWN"];
 		call A_actions;
 		INV_shortcuts = true;
 	};
