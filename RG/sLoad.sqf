@@ -15,6 +15,7 @@ _loadFromDBClient =
 	{
 		if(!isNil '_varValue') then {
 		if(_varName == 'moneyAccountWest') then {
+                player commandChat format ['Bank account West found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
 				bankstatsareloaded = true;
 		};
@@ -40,7 +41,7 @@ _loadFromDBClient =
 	{
 		if(!isNil '_varValue') then {
 		if(_varName == 'moneyAccountEast') then {
-			
+                player commandChat format ['Bank account East found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
 				bankstatsareloaded = true;
 			
@@ -67,7 +68,7 @@ _loadFromDBClient =
 	{
 		if(!isNil '_varValue') then {
 		if(_varName == 'moneyAccountRes') then {
-			
+                player commandChat format ['Bank account Resistance found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
 				bankstatsareloaded = true;
 		};
@@ -93,7 +94,7 @@ _loadFromDBClient =
 	{
 		if(!isNil '_varValue') then {
 		if(_varName == 'moneyAccountCiv') then {
-			
+                player commandChat format ['Bank account Civilian found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
 				bankstatsareloaded = true;
 			
