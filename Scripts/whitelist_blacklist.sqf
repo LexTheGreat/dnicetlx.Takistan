@@ -9,27 +9,23 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198101924418" // Lex_the_great
+	"76561198093358722" // Giovanni
 ];
 
 A_LIST_TESTERS =
 [
-	"76561198065161712" //Stridey.
+	"76561198065161712" //Stridey
 ];
 
 // Directors and Deputy Directors
 
-A_LIST_DERPS	=
-[
-	"76561198124176578", // 1st Lt Monkey
-	"76561198093358722"  // Gio
-];
+A_LIST_DERPS	= [];
 
 // Senior Admins
 
 A_LIST_SNADMINS	=
 [
-	"76561198101924418" // Lex_the_great
+	"76561198134919635" // Wookie
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -38,27 +34,14 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198053580599", // Martin
-	"76561198134796571", // Bacon
-	"76561198101924418" // Lex_the_great
+	"76561198071078533" // Rogue
 ];
 
 // Remember the Array format! No comma on last item in array!
 
 // Moderators
 
-A_LIST_MODS	=
-[
-
-	"76561198101924418", // Lex_the_great
-	"76561198095702747", // Irish
-	"76561198159209074", // Deutsch Flieger
-	"76561198044511240", // Comrade Blackei
-	"76561198211441867", // Kevlar
-	"76561198161493575", // Ivan
-	"76561198134919635", // Wookie
-	"76561198092131123"  // JacksonS
-];
+A_LIST_MODS	= [];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
 isTester = (getPlayerUID player) in A_LIST_TESTERS;
