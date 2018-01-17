@@ -9,7 +9,7 @@ if (_art == "ausrauben") then {
 
 	call compile format["local_cash = robpool%1", _safe];
 
-	if([west] call count_side < 5)exitwith{player groupchat "Robbing the bank requires 5 cops to be online."};
+	if([west] call count_side < 3)exitwith{player groupchat "Robbing the bank requires 3 cops to be online."};
 	if(local_cash < 50000 and !debug)exitwith{player groupchat "This safe is bricked."};
 
 	if(!robenable and !debug)exitwith{player groupchat "you are already robbing the bank"};
