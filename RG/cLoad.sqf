@@ -170,7 +170,7 @@ player groupChat "Player Stats Loading Complete. If your stats have not yet load
 hint "Loading COMPLETE!";
 sleep 10;
 if (isNil "bankstatsareloaded") then {
-        player groupChat "No bank account stats found. Setting default starting money."
+        player groupChat "No bank account stats found. Setting default starting money.";
 		[player, startmoneh] call set_bank_valuez;
 };
 statsLoaded = 1;
