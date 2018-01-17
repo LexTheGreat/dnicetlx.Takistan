@@ -2,18 +2,19 @@ private["_loadFromDBClient", "_sendToServer"];
 
 _loadFromDBClient =
 "
-	private['_array','_varName','_varValue', '_uid'];
+	private['_array','_varName','_varValue', '_uid', '_success'];
 	_array = _this;
 	_uid = _array select 0;
 	if((getplayerUID player) != _uid) exitWith {};
 	player commandChat format ['Stats found, Loading... please wait'];
 	_varName = _array select 1;
 	_varValue = _array select 2;
+    _success = _array select 3;
 	
 	
 	if(playerSide == west) then
 	{
-		if(!isNil '_varValue') then {
+		if(!isNil '_varValue' and (_success == true)) then {
 		if(_varName == 'moneyAccountWest') then {
                 player commandChat format ['Bank account West found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
@@ -39,7 +40,7 @@ _loadFromDBClient =
 	};
 	if(playerSide == east) then
 	{
-		if(!isNil '_varValue') then {
+		if(!isNil '_varValue' and (_success == true)) then {
 		if(_varName == 'moneyAccountEast') then {
                 player commandChat format ['Bank account East found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
@@ -66,7 +67,7 @@ _loadFromDBClient =
 	};
 	if(playerSide == resistance) then
 	{
-		if(!isNil '_varValue') then {
+		if(!isNil '_varValue' and (_success == true)) then {
 		if(_varName == 'moneyAccountRes') then {
                 player commandChat format ['Bank account Resistance found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
@@ -92,7 +93,7 @@ _loadFromDBClient =
 	};
 	if(playerSide == civilian) then
 	{
-		if(!isNil '_varValue') then {
+		if(!isNil '_varValue' and (_success == true)) then {
 		if(_varName == 'moneyAccountCiv') then {
                 player commandChat format ['Bank account Civilian found. Loading!'];
 				[player, _varValue] call set_bank_valuez; 
