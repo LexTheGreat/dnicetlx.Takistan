@@ -34,7 +34,8 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198071078533" // Rogue
+	"76561198071078533", // Rogue
+    "76561198044511240" // Comrade
 ];
 
 // Remember the Array format! No comma on last item in array!
