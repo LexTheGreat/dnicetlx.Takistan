@@ -1,7 +1,7 @@
 private ["_itemsToClear","_obj","_rad","_delay"];
 _obj = getMarkerPos "cleanermark"; // get spawn - might as well
 _rad = 8000;  //  radius outwards from center point to clear items.
-_delay = 800; // amount of time in-between clean-ups
+_delay = 2400; // amount of time in-between clean-ups
  
 while {true} do
 {
