@@ -104,7 +104,7 @@ if (_art == "opfer") then {
 	_safe say "Bank_alarm";
 	copbase1 say "Bank_alarm";
 
-	server globalchat format["Someone is rob'n the bank!"];
+	server globalchat format["Someone is robbing the bank!"];
 
 	private["_bank_account", "_verlust", "_verlustA", "_verlustB"];
 	_bank_account = [player] call get_bank_valuez;
