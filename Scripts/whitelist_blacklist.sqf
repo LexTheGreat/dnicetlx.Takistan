@@ -35,14 +35,21 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"76561198071078533", // Rogue
-    "76561198044511240" // Comrade
+	"76561198044511240" // Comrade
 ];
 
 // Remember the Array format! No comma on last item in array!
 
 // Moderators
 
-A_LIST_MODS	= [];
+A_LIST_MODS	= 
+[
+	"76561198101499715", // Rex
+	"76561198159209074", // Steven
+	"76561198075570847", // KenP
+	"76561198110382331", // Beans
+	"76561198174971281" // Elementz
+];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
 isTester = (getPlayerUID player) in A_LIST_TESTERS;

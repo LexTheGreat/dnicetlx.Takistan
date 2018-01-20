@@ -186,7 +186,8 @@ supporters1 	  = [
 					"76561198075570847", //KenP
 					"76561198129817887", //Rhys
 					"76561198083392018", //jpf
-					"76561198044511240"  //Comrade
+					"76561198044511240",  //Comrade
+					"76561198174971281" //AmiXEleMenTz
 		    ];
 
 // Remember the Array format! No comma on last item in array!
