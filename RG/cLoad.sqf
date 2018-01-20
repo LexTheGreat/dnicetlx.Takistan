@@ -130,41 +130,8 @@ switch (playerSide) do
 		};
 	};
 };
-//if(playerSide == west) then
-//{
-//};
-//sleep 1;
-//hint "Stats Loading 50%";
-//call loadFromDBClient;
-//player groupChat "Loading. . . .";
-//if(playerSide == east) then
-//{
 
-//};
-//sleep 1;
-//hint "Stats Loading 40%";
-//player groupChat "Loading. . . .";
-//if(playerSide == resistance) then
-//{
-
-//};
-//sleep 1;
-//hint "Stats Loading 80%";
-//player groupChat "Loading. . . . .";
-//if(playerSide == civilian) then
-//{
-
-//};
-//call A_actions;
-//sleep 1;
-//hint "Stats Loading 100%";
-//player groupChat "Loading. . . . . .";
-
-//===========================================================================
-
-//sleep 1;
-//END
-sleep 4;
+sleep 8;
 player groupChat "Player Stats Loading Complete. If your stats have not yet loaded please relog immediately or risk losing your previous stats";
 
 hint "Loading COMPLETE!";
