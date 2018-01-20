@@ -2148,11 +2148,15 @@ player_init_arrays = {
 	SupSlots = [];
 	VipSlots = [];
 	
+	/* References */
+	BluRankReferenceArray = ["cop1"];
+	OpfRankReferenceArray = ["opf1"];
+	OpfRadarReferenceArray = ["opf2"];
+	
 	/* System */
 	role = _player;
 	rolestring = toLower(str(_player));
 	rolenumber = (PlayerStringArray find rolestring) + 1;
-	//player groupChat["role = %1, rolestring = %2,  rolenumber = %3", role, rolestring, rolenumber];
 
 	/* IsVars */
 	isBlu = (rolestring in BluStringArray); //[_player] call player_blufor;
@@ -2165,8 +2169,9 @@ player_init_arrays = {
 	
 	isGov = isBlu || isOpf;
 
-	//isBluforRanked = (rolestring in bRankReferenceArray); TODO
-	//isOpforRanked = (rolestring in oRankReferenceArray);
+	isBluforRanked = (rolestring in BluRankReferenceArray);
+	isOpforRanked = (rolestring in OpfRankReferenceArray);
+	isOpforRadar = (rolestring in OpfRadarReferenceArray);
 	
 	isSupSlot = (rolestring in SupSlots);
 	isVipSlot = (rolestring in VipSlots);
