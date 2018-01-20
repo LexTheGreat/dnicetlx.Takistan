@@ -314,7 +314,7 @@ _array = [];
           _array = _array + _newarray;
         };
 
-    if (isSnAdmin || isAdminDev || isDeveloper) then
+    if (isAdmin || isSnAdmin || isAdminDev || isDeveloper) then
         {
            _newarray =
            [
