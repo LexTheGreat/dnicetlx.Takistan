@@ -135,6 +135,8 @@ player createDiaryRecord ["credits",
 Owner: [TLX] Giovanni<br/>
 Discord Info:<br/>
 Address: https://discord.gg/rWsDd2h or visit our website for a link<br/>
+Teamspeak Info:<br/>
+Address: ts.tlx-gaming.com<br/>
 Mission build: 1.5.2<br/>
 Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Giovanni, [TLX] Strideynet<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
@@ -146,8 +148,9 @@ player createDiaryRecord ["bugs",
 [
 "Boogies",
 "
-Please report bugs on Discord!<br/>
-Website: tlx-gaming.com <br/>
+Please report bugs on Discord or submit a bug report!<br/>
+Website: tlx-gaming.com<br/>
+Bug report: tlx-gaming.com/bugreport<br/>
 Discord: https://discord.gg/rWsDd2h or visit our website for a link<br/>
 <br/>
 <br/>
