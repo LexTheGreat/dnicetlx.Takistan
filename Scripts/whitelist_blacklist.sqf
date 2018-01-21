@@ -46,9 +46,9 @@ A_LIST_MODS	=
 [
 	"76561198101499715", // Rex
 	"76561198159209074", // Steven
-	"76561198075570847", // KenP
 	"76561198110382331", // Beans
-	"76561198174971281" // Elementz
+	"76561198174971281", // Elementz
+	"76561198069000590" // Elliot Wood
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -81,14 +81,12 @@ pmcwhitelist = [
 // Blacklisting
 if(isNil "copblacklist") then {
 	copblacklist = [
-	"76561198040462947", //Son of the Bitch
-	"76561198095037617", //Goldenpotaters
-	"76561198150297021"//Envy
+	
 	];
 };
 if(isNil "opfblacklist") then {
 	opfblacklist = [
-	"76561198040462947" //Son of the Bitch
+	
 	];
 };
 if(isNil "opfcmdblacklist") then {
@@ -102,9 +100,7 @@ if(isNil "insblacklist") then {
 	];
 };
 pmcblacklist = [
-"76561198203570236", //Austin
-"76561198177166307", //Dark Arrow
-"76561198083392018" //jpf
+
 ];
 
 isSup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
