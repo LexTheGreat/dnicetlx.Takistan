@@ -177,29 +177,29 @@ civilian_salary_handout = {
 
             if (isStaff) then
             {
-                    _admincashbonus                                 = 100000;
+                    _admincashbonus = 50000;
             };
             if (_uid in supporters1) then
             {
-                    _supportercashbonus                               = 100000;
+                    _supportercashbonus = 20000;
             };
             if (_uid in supporters2) then
             {
-                    _supportercashbonus                               = 300000;
+                    _supportercashbonus = 40000;
             };
             if (_uid in supporters3) then
             {
-                    _supportercashbonus                               = 500000;
+                    _supportercashbonus = 60000;
             };
             if (_uid in supporters4) then
             {
-                    _supportercashbonus                               = 750000;
+                    _supportercashbonus = 80000;
             };
             if (_uid in supportersVIP) then
             {
-                    _supportercashbonus                               = 1000000;
+                    _supportercashbonus = 100000;
             };
-            _income = _admincashbonus; // + _supportercashbonus;
+            _income = _admincashbonus + _supportercashbonus;
 			
 			// Disabled for bonus
 			/*if(!isCiv) then {

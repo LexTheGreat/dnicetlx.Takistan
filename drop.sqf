@@ -16,6 +16,10 @@ if (_amount <= 0) exitwith {
 	//format["hint ""%1 has dropped %2!"";", (name player), _amount] call broadcast;
 };
 
+if (_item == "MONEY") then {
+	["DROP MONEY LOGGER", str (name player), _amount] call fn_LogToServer;
+};
+
 //player commandChat format ["%1 and %2", _item, _amount];
 if (_item == "MONEY" && _amount < 1000) exitWith {
 	player groupChat "You cant drop less than 1,000 dollars";

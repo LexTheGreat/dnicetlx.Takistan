@@ -111,6 +111,7 @@ _loadFromDBClient =
 					if(_varName == 'InventoryCiv') then {[player, _varValue] call player_set_inventory;};
 					if(_varName == 'privateStorageCiv') then {[player, 'private_storage', _varValue] call player_set_array;};
 					if(_varName == 'FactoryCiv') then {INV_Fabrikowner = _varValue;};
+					if(_varName == 'WarrantsCiv') then {[_varValue] call player_load_warrants;};
 					if(_varName == 'positionPlayerCiv') then {player setPosATL _varValue;};
 					if(_varName == 'BackWepPlayerCiv') then {  {unitBackpack player addWeaponCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};
 					if(_varName == 'BackMagPlayerCiv') then {{unitBackpack player addMagazineCargoGlobal [(_varValue select 0) select _forEachIndex, (_varValue select 1) select _forEachIndex];} forEach (_varValue select 0);};

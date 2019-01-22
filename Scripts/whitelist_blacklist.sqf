@@ -9,23 +9,28 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198093358722" // Giovanni
+	"76561198101924418", // Lex_the_great
+	"76561198102009531", // SlingShot
+	"76561198263021522", // Isaac
+	"76561198065317401" // Smidge Griffkin
 ];
 
 A_LIST_TESTERS =
 [
-	"76561198065161712" //Stridey
+	"76561198101924418" // Lex_the_great
 ];
 
 // Directors and Deputy Directors
 
-A_LIST_DERPS	= [];
+A_LIST_DERPS	= [ 
+	"76561198101924418" // Lex_the_great
+];
 
 // Senior Admins
 
 A_LIST_SNADMINS	=
 [
-	"76561198101924418", // Lex_the_great
+	"76561198101924418" // Lex_the_great
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -34,8 +39,8 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198071078533", // Rogue
-	"76561198044511240" // Comrade
+	"76561198101924418", // Lex_the_great
+	"76561198062613863" // Maverick
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -45,6 +50,11 @@ A_LIST_ADMINS	=
 A_LIST_MODS	= 
 [
 	"76561198101924418", // Lex_the_great
+	"76561198068357272", // Kane
+	"76561198261609103", // Jake Thompson
+	"76561198040099429", // Supersahen
+	"76561198352708616", // TheDevilApe
+	"76561198044975942" // JumpyWiz
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -62,10 +72,7 @@ isStaff = (isAdminDev || isSnAdmin || isAdmin || isMod || isDeveloper);
 
 // Whitelisting
 pmcwhitelist = [
-"169460806", //TLXGOD
-"245049094", // Fyodor
-"251317574", //KillerKris
-"254861574" //KillaCali3
+
 ];
 
 

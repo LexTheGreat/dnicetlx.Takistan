@@ -20,10 +20,19 @@ if (_action_name == "buy" ) then {
 };
 
 if (_action_name == "sell") then {
+	if (isNil "handling_tlr_toggle") then {
+		handling_tlr_toggle = false;
+	};
+	if (handling_tlr_toggle) exitWith {titletext["TLXCOOLDOWN", "PLAIN DOWN"];};
+	handling_tlr_toggle = true;
+	
     _moneh  = [player, 'money'] call INV_GetItemAmount;
     _cost = (_home select home_selling_price);
 
+	if (!debug) then {
     [player, 'money', (_cost)] call INV_AddInventoryItem;
+	};
+		
     [_home] call home_sell;
 	
     if(true) exitWith{};

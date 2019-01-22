@@ -49,10 +49,19 @@ while {true} do
 		
 		case civilian:
 		{
-			[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)], ["InventoryCiv", ([player] call player_get_inventory)], ["positionPlayerCiv", ASLtoATL (getPosASL player)], ["BackpackPlayerCiv", typeOf unitBackpack player], ["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+			[_uid, ["moneyAccountCiv", ([player] call get_bank_valuez)],
+			["InventoryCiv", ([player] call player_get_inventory)],
+			["positionPlayerCiv", ASLtoATL (getPosASL player)], ["BackpackPlayerCiv", typeOf unitBackpack player],
+			["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
 			[_uid, "MagazinesPlayerCiv", magazines player] call fn_SaveToServer; sleep 0.1;
+			[_uid, "WarrantsCiv", [] call player_save_warrants] call fn_SaveToServer;
 			if(count INV_LicenseOwner > 0) then {
-				[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["LicensesCiv", INV_LicenseOwner], ["WeaponsPlayerCiv", weapons player], ["FactoryCiv", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
+				[	_uid,
+					["privateStorageCiv", ([player, "private_storage"] call player_get_array)],
+					["LicensesCiv", INV_LicenseOwner],
+					["WeaponsPlayerCiv", weapons player],
+					["FactoryCiv", INV_Fabrikowner]
+				] call fn_SaveAggToServer; sleep 0.1;
 			}
 			else {
 				[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerCiv", weapons player]] call fn_SaveAggToServer; sleep 0.1;

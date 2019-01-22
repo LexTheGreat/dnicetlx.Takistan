@@ -101,6 +101,56 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 			}],
+			["Force Player on TS (Select)", {
+				if(!AdminSpamBroadcasting) then {
+					AdminSpamBroadcasting = true;
+					private["_variableName"];
+					_variableName = (vehicleVarName _selectedplayer);
+					if (isNil "_variableName") exitWith{};
+					if (_variableName == "") exitWith {};
+
+					hint format["Forcing %1 on TS...", _variableName];
+					format['
+						[] spawn {
+							if (player != %1) exitWith {};
+							execvm "Scripts\blackscreen_loop.sqf"
+						}
+					', _selectedplayer] call broadcast;
+
+					["ADMIN LOGGER", name (_selectedplayer), " was forced on ts by ", str (name player)] call fn_LogToServer;
+
+					sleep 5;
+					AdminSpamBroadcasting = false;
+				} else {
+					player commandchat "STOP SPAMMING COMMANDS";
+				};
+
+			}],
+			["Stop Force Player on TS (Select)", {
+				if(!AdminSpamBroadcasting) then {
+					AdminSpamBroadcasting = true;
+					private["_variableName"];
+					_variableName = (vehicleVarName _selectedplayer);
+					if (isNil "_variableName") exitWith{};
+					if (_variableName == "") exitWith {};
+
+					hint format["Stoped forcing %1 on TS...", _variableName];
+					format['
+						[] spawn {
+							if (player != %1) exitWith {};
+							execVM "Scripts\blackscreen_stop.sqf"
+						}
+					', _selectedplayer] call broadcast;
+
+					["ADMIN LOGGER", name (_selectedplayer), " was stopped being forced on TS by ", str (name player)] call fn_LogToServer;
+
+					sleep 5;
+					AdminSpamBroadcasting = false;
+				} else {
+					player commandchat "STOP SPAMMING COMMANDS";
+				};
+
+			}],
 			
 			/*["MapMarkers - DNA", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
@@ -716,7 +766,6 @@ _array = [];
 				player addrating 9999;
 				hint "Points added, AI won't TK you now. Execute again for even more.";
 			}],
-			
 			["True FIXXER", {
 				_range = parseNumber(_inputText);
 				if (vehicle player == player) then

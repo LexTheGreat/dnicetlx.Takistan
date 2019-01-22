@@ -562,7 +562,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop1";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop1 Police Dispatch - Radar (Supporter SLOT)";
+					description="Cop1 Police Dispatch - Radar";
 				};
 			};
 		};
@@ -584,7 +584,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop2";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop2 - Delta Force (Supporter SLOT)";
+					description="Cop2 - Delta Force";
 				};
 			};
 		};
@@ -606,7 +606,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop3";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop3 - Delta Force (Supporter SLOT)";
+					description="Cop3 - Delta Force";
 				};
 			};
 		};
@@ -628,7 +628,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop4";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop4 - Delta Force (Supporter SLOT)";
+					description="Cop4 - Delta Force";
 				};
 			};
 		};
@@ -1309,7 +1309,7 @@ class Mission
 					skill=0.60000002;
 					text="ins7";
 					init="removeallweapons this;this disableAI ""move""; this disableAI ""anim""; this allowdamage false; removeallweapons this;";
-					description="Chechen Fighter (Supporter SLOT)";
+					description="Chechen Fighter";
 				};
 			};
 		};
@@ -1878,7 +1878,7 @@ class Mission
 					skill=0.60000002;
 					text="ins8";
 					init="removeallweapons this;this disableAI ""move""; this disableAI ""anim""; this allowdamage false; removeallweapons this;";
-					description="Chechen Fighter  (Supporter SLOT)";
+					description="Chechen Fighter";
 				};
 			};
 		};
@@ -1924,7 +1924,7 @@ class Mission
 					skill=0.60000002;
 					text="opf2";
 					init="removeallweapons this;";
-					description="TLA Commander - Radar (Supporter SLOT)";
+					description="TLA Commander - Radar";
 				};
 			};
 		};
@@ -1947,7 +1947,7 @@ class Mission
 					skill=0.60000002;
 					text="opf3";
 					init="removeallweapons this;";
-					description="TLA Officer (Supporter SLOT)";
+					description="TLA Officer";
 				};
 			};
 		};
@@ -1970,7 +1970,7 @@ class Mission
 					skill=0.60000002;
 					text="opf4";
 					init="removeallweapons this;";
-					description="TLA Officer (Supporter SLOT)";
+					description="TLA Officer";
 				};
 			};
 		};
@@ -1993,7 +1993,7 @@ class Mission
 					skill=0.60000002;
 					text="opf5";
 					init="removeallweapons this;";
-					description="Spetsnaz Officer (Supporter SLOT)";
+					description="Spetsnaz Officer";
 				};
 			};
 		};
@@ -2016,7 +2016,7 @@ class Mission
 					skill=0.60000002;
 					text="opf6";
 					init="removeallweapons this;";
-					description="Spetsnaz Officer (Supporter SLOT)";
+					description="Spetsnaz Officer";
 				};
 			};
 		};
@@ -4907,8 +4907,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins9";
-					init="removeallweapons this; subslot = true;";
-					description="Chechen Officer (Supporter SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5514,8 +5514,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins10";
-					init="removeallweapons this; vipslot = true;";
-					description="Chechen Officer (VIP SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5537,8 +5537,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins11";
-					init="removeallweapons this; vipslot = true;";
-					description="Chechen Officer (VIP SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5561,7 +5561,7 @@ class Mission
 					skill=0.60000002;
 					text="ins12";
 					init="removeallweapons this; adminslot = true;";
-					description="Chechen Leader (ADMIN SLOT)";
+					description="Chechen Leader (Staff Slot)";
 				};
 			};
 		};
@@ -46337,7 +46337,7 @@ class Mission
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
 			text="pmcgate1";
-			init="this allowdamage false;";
+			init="this allowdamage false; this setVariable [""Raised"", false, true];";
 		};
 		class Item3780
 		{
@@ -48970,7 +48970,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate7";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4024
 		{
@@ -48981,7 +48981,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate9";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4025
 		{
@@ -48992,7 +48992,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate8";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4026
 		{
@@ -49003,7 +49003,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate10";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4027
 		{
@@ -49014,7 +49014,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate11";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4028
 		{
@@ -49025,7 +49025,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate12";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4029
 		{
@@ -49036,7 +49036,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate1";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4030
 		{
@@ -49047,7 +49047,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate3";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4031
 		{
@@ -49058,7 +49058,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate2";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4032
 		{
@@ -49069,7 +49069,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate6";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4033
 		{
@@ -49080,7 +49080,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate4";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4034
 		{
@@ -49091,7 +49091,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate5";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4035
 		{
@@ -49102,7 +49102,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate14";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4036
 		{
@@ -49113,7 +49113,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate13";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4037
 		{
@@ -49124,7 +49124,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate15";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4038
 		{
@@ -49135,7 +49135,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate18";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4039
 		{
@@ -49146,7 +49146,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate16";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4040
 		{
@@ -49157,7 +49157,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate17";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4041
 		{
@@ -50679,7 +50679,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=450;
+		items=448;
 		class Item0
 		{
 			position[]={6122.7437,83.040001,11568.63};
@@ -52254,17 +52254,6 @@ class Mission
 		};
 		class Item176
 		{
-			position[]={6814.1079,120.84625,8862.5508};
-			name="range_area";
-			markerType="ELLIPSE";
-			type="Empty";
-			colorName="ColorRed";
-			fillName="FDiagonal";
-			a=60;
-			b=60;
-		};
-		class Item177
-		{
 			position[]={1386.7866,216.98119,3538.5566};
 			name="northhq";
 			text="northhq";
@@ -52274,7 +52263,7 @@ class Mission
 			a=450;
 			b=450;
 		};
-		class Item178
+		class Item177
 		{
 			position[]={8386.0908,296.04001,1887.2656};
 			name="southhq";
@@ -52286,7 +52275,7 @@ class Mission
 			b=60;
 			angle=59.059101;
 		};
-		class Item179
+		class Item178
 		{
 			position[]={40.611027,114.31905,12677.889};
 			name="workplacekey";
@@ -52296,7 +52285,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item180
+		class Item179
 		{
 			position[]={5363.1938,146.99925,6287.3223};
 			name="Liquor_1_1";
@@ -52306,7 +52295,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item181
+		class Item180
 		{
 			position[]={8431.0186,330.52905,2533.9414};
 			name="Liquor_1";
@@ -52316,7 +52305,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item182
+		class Item181
 		{
 			position[]={5164.7246,145.39751,6051.5522};
 			name="carshop_2_1_1";
@@ -52326,7 +52315,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item183
+		class Item182
 		{
 			position[]={6357.1558,64.504425,11308.576};
 			name="tuning3";
@@ -52335,7 +52324,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item184
+		class Item183
 		{
 			position[]={3098.8823,65.212173,9977.9678};
 			name="carshop_2_1_1_1";
@@ -52345,7 +52334,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item185
+		class Item184
 		{
 			position[]={5595.4609,81.919998,8915.2012};
 			name="carshop_2_1_1_1_1";
@@ -52355,7 +52344,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item186
+		class Item185
 		{
 			position[]={5698.8643,85.44487,8976.5156};
 			name="carshop_2_1_1_2";
@@ -52365,7 +52354,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item187
+		class Item186
 		{
 			position[]={2036.4875,279.90854,7609.7451};
 			name="carshop_8";
@@ -52375,7 +52364,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item188
+		class Item187
 		{
 			position[]={8202.2402,296.02716,2143.2654};
 			name="truckshop_1";
@@ -52385,7 +52374,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item189
+		class Item188
 		{
 			position[]={3112.2791,60.418495,9921.4053};
 			name="Equip_1_1_1";
@@ -52394,7 +52383,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item190
+		class Item189
 		{
 			position[]={3130.7891,60.350616,9915.1455};
 			name="atmmarker_3_2_2";
@@ -52403,7 +52392,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item191
+		class Item190
 		{
 			position[]={8462.6016,309.24902,2481.5898};
 			name="Equip_6";
@@ -52412,7 +52401,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item192
+		class Item191
 		{
 			position[]={2738.2878,274.96143,7340.3804};
 			name="marifield";
@@ -52422,7 +52411,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item193
+		class Item192
 		{
 			position[]={2738.9011,274.81854,7341.1714};
 			name="mari_field";
@@ -52432,7 +52421,7 @@ class Mission
 			a=30;
 			b=30;
 		};
-		class Item194
+		class Item193
 		{
 			position[]={501.3468,249.95319,2754.3315};
 			name="heroinfield2";
@@ -52442,7 +52431,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item195
+		class Item194
 		{
 			position[]={500.84796,249.99695,2754.0405};
 			name="heroin_field_2";
@@ -52452,7 +52441,7 @@ class Mission
 			a=30;
 			b=30;
 		};
-		class Item196
+		class Item195
 		{
 			position[]={6374.5146,63.882954,11326.898};
 			name="Equip_1_1_1_3";
@@ -52461,7 +52450,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item197
+		class Item196
 		{
 			position[]={6166.7871,59.943741,11189.552};
 			name="jailarea";
@@ -52473,13 +52462,13 @@ class Mission
 			b=22;
 			angle=123.54513;
 		};
-		class Item198
+		class Item197
 		{
 			position[]={6053.8208,83.040001,11837.987};
 			name="conv3_wp9";
 			type="Empty";
 		};
-		class Item199
+		class Item198
 		{
 			position[]={5654.6846,82.086136,8894.3867};
 			name="mosquearea";
@@ -52491,7 +52480,7 @@ class Mission
 			b=105;
 			drawBorder=1;
 		};
-		class Item200
+		class Item199
 		{
 			position[]={5654.5903,82.08622,8894.2852};
 			name="mosquearea_1";
@@ -52504,7 +52493,7 @@ class Mission
 			angle=-278.71799;
 			drawBorder=1;
 		};
-		class Item201
+		class Item200
 		{
 			position[]={5654.2871,82.086502,8897.9814};
 			name="nokillzone_mkr_1";
@@ -52514,7 +52503,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item202
+		class Item201
 		{
 			position[]={1789.9501,145.85393,11933.732};
 			name="fishmongermarker";
@@ -52524,7 +52513,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item203
+		class Item202
 		{
 			position[]={8252.1123,182.76755,7809.1377};
 			name="station9";
@@ -52534,7 +52523,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item204
+		class Item203
 		{
 			position[]={9847.6309,116.94141,11511.662};
 			name="boarmeatsellermarker";
@@ -52544,7 +52533,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item205
+		class Item204
 		{
 			position[]={8484.666,308.02203,2485.3789};
 			name="yetanotherlicensemkr";
@@ -52554,7 +52543,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item206
+		class Item205
 		{
 			position[]={8392.1113,296.04001,1878.8818};
 			name="respawn_east";
@@ -52562,7 +52551,7 @@ class Mission
 			a=0.69999999;
 			b=0.69999999;
 		};
-		class Item207
+		class Item206
 		{
 			position[]={2474.4329,192.24727,5023.2944};
 			name="Hashishmarker";
@@ -52573,7 +52562,7 @@ class Mission
 			b=0.60000002;
 			angle=9.1290817;
 		};
-		class Item208
+		class Item207
 		{
 			position[]={1391.6705,216.4536,3528.5515};
 			name="atminsmkr";
@@ -52581,7 +52570,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=88.578598;
 		};
-		class Item209
+		class Item208
 		{
 			position[]={43.404419,253.34087,12010.219};
 			name="checkpointkey";
@@ -52590,25 +52579,25 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item210
+		class Item209
 		{
 			position[]={2519.6199,195.83067,5122.54};
 			name="telehesnotins";
 			type="Empty";
 		};
-		class Item211
+		class Item210
 		{
 			position[]={8246.6543,296.04001,1839.9072};
 			name="telehesnottla";
 			type="Empty";
 		};
-		class Item212
+		class Item211
 		{
 			position[]={6139.8809,77.324867,11422.016};
 			name="telehesnotCop";
 			type="Empty";
 		};
-		class Item213
+		class Item212
 		{
 			position[]={5654.6851,82.086136,8894.5098};
 			name="mosquearea_2";
@@ -52620,7 +52609,7 @@ class Mission
 			b=104.9;
 			drawBorder=1;
 		};
-		class Item214
+		class Item213
 		{
 			position[]={5654.6841,82.086136,8894.3857};
 			name="mosquearea_3";
@@ -52632,7 +52621,7 @@ class Mission
 			b=104.8;
 			drawBorder=1;
 		};
-		class Item215
+		class Item214
 		{
 			position[]={2062.821,276.22836,7627.9702};
 			name="passport_1";
@@ -52641,7 +52630,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item216
+		class Item215
 		{
 			position[]={5725.6255,81.874954,8893.9746};
 			name="carpartsmkr";
@@ -52650,7 +52639,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item217
+		class Item216
 		{
 			position[]={-950.07214,67.448486,20385.215};
 			name="dontgoheremkr";
@@ -52661,7 +52650,7 @@ class Mission
 			a=1500;
 			b=1000;
 		};
-		class Item218
+		class Item217
 		{
 			position[]={-951.59265,68.182983,20377.176};
 			name="gamelogicmkrwarning";
@@ -52669,7 +52658,7 @@ class Mission
 			type="mil_warning";
 			colorName="ColorRed";
 		};
-		class Item219
+		class Item218
 		{
 			position[]={5945.5029,127.31097,7345.4995};
 			name="atmmarker_3_2";
@@ -52678,7 +52667,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item220
+		class Item219
 		{
 			position[]={5718.041,82.136734,8927.9502};
 			name="CS_civ1m";
@@ -52687,31 +52676,31 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item221
+		class Item220
 		{
 			position[]={-495.78793,43.708927,20397.363};
 			name="C_SPAWN_WEST";
 			type="Empty";
 		};
-		class Item222
+		class Item221
 		{
 			position[]={-480.0018,44.348083,20397.412};
 			name="C_SPAWN_EAST";
 			type="Empty";
 		};
-		class Item223
+		class Item222
 		{
 			position[]={-493.64536,43.86932,20381.033};
 			name="C_SPAWN_GUER";
 			type="Empty";
 		};
-		class Item224
+		class Item223
 		{
 			position[]={-475.96957,44.335396,20380.484};
 			name="C_SPAWN_CIV";
 			type="Empty";
 		};
-		class Item225
+		class Item224
 		{
 			position[]={5923.916,83.040001,11863.912};
 			name="CS_PMC1m";
@@ -52721,7 +52710,7 @@ class Mission
 			b=0.5;
 			angle=8.1806135;
 		};
-		class Item226
+		class Item225
 		{
 			position[]={6085.2319,83.040001,11526.783};
 			name="CS_UN1m";
@@ -52731,7 +52720,7 @@ class Mission
 			b=0.5;
 			angle=193.73511;
 		};
-		class Item227
+		class Item226
 		{
 			position[]={1385.8894,217.01331,3539.3914};
 			name="CS_ins1";
@@ -52739,7 +52728,7 @@ class Mission
 			colorName="ColorWhite";
 			angle=-6.0350699;
 		};
-		class Item228
+		class Item227
 		{
 			position[]={8344.7959,296.04001,1861.7415};
 			name="CS_opf1m";
@@ -52748,7 +52737,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item229
+		class Item228
 		{
 			position[]={10453.55,261.69305,6298.5361};
 			name="atmmarker_3_2_1";
@@ -52757,7 +52746,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item230
+		class Item229
 		{
 			position[]={42.05872,174.34293,12309.944};
 			name="Deliverykey";
@@ -52767,7 +52756,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item231
+		class Item230
 		{
 			position[]={40.456455,241.79761,12060.037};
 			name="carparkkey";
@@ -52777,7 +52766,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item232
+		class Item231
 		{
 			position[]={500.37073,153.73866,12498.628};
 			name="KeyArea2";
@@ -52789,7 +52778,7 @@ class Mission
 			b=502;
 			drawBorder=1;
 		};
-		class Item233
+		class Item232
 		{
 			position[]={42.954914,101.20773,13051.165};
 			name="Mapkey";
@@ -52799,7 +52788,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item234
+		class Item233
 		{
 			position[]={41.762585,180.48271,12357.669};
 			name="equipkey";
@@ -52809,7 +52798,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item235
+		class Item234
 		{
 			position[]={44.092747,174.42143,12405.188};
 			name="ATMkey";
@@ -52819,7 +52808,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item236
+		class Item235
 		{
 			position[]={42.469082,150.45131,12494.602};
 			name="shopkey";
@@ -52829,7 +52818,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item237
+		class Item236
 		{
 			position[]={6246.0835,65.353065,11313.594};
 			name="SHOPS";
@@ -52838,7 +52827,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item238
+		class Item237
 		{
 			position[]={42.38726,136.25903,12539.867};
 			name="tuningkey";
@@ -52848,7 +52837,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item239
+		class Item238
 		{
 			position[]={42.818878,119.04603,12631.924};
 			name="gasstationkey";
@@ -52858,7 +52847,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item240
+		class Item239
 		{
 			position[]={3877.5029,385.35959,6240.9116};
 			name="border16";
@@ -52870,7 +52859,7 @@ class Mission
 			b=20;
 			angle=127.57;
 		};
-		class Item241
+		class Item240
 		{
 			position[]={46.306,98.232437,12783.966};
 			name="shopkey2";
@@ -52880,7 +52869,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item242
+		class Item241
 		{
 			position[]={47.546902,89.79023,12842.001};
 			name="factorykey";
@@ -52890,7 +52879,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item243
+		class Item242
 		{
 			position[]={3428.3562,268.33823,5021.2861};
 			name="border17";
@@ -52902,7 +52891,7 @@ class Mission
 			b=20;
 			angle=86.777397;
 		};
-		class Item244
+		class Item243
 		{
 			position[]={3193.689,294.5881,3898.3923};
 			name="border18";
@@ -52914,7 +52903,7 @@ class Mission
 			b=20;
 			angle=116.883;
 		};
-		class Item245
+		class Item244
 		{
 			position[]={3835.1453,367.08685,6252.02};
 			name="border16_1";
@@ -52926,7 +52915,7 @@ class Mission
 			b=20;
 			angle=127.57;
 		};
-		class Item246
+		class Item245
 		{
 			position[]={3390.0063,290.75156,5037.9814};
 			name="border17_1";
@@ -52938,7 +52927,7 @@ class Mission
 			b=20;
 			angle=86.777397;
 		};
-		class Item247
+		class Item246
 		{
 			position[]={3155.644,313.2876,3912.0344};
 			name="border18_1";
@@ -52950,7 +52939,7 @@ class Mission
 			b=20;
 			angle=116.883;
 		};
-		class Item248
+		class Item247
 		{
 			position[]={49.065769,83.393486,12900.211};
 			name="jobkey";
@@ -52960,7 +52949,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item249
+		class Item248
 		{
 			position[]={51.258465,83.976662,12952.845};
 			name="LIPkey";
@@ -52970,7 +52959,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item250
+		class Item249
 		{
 			position[]={42.853539,105.9976,12731.677};
 			name="terrorshopkey";
@@ -52980,7 +52969,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item251
+		class Item250
 		{
 			position[]={8385.5,299.58734,1897.4631};
 			name="bmshopmarker";
@@ -52989,7 +52978,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item252
+		class Item251
 		{
 			position[]={6082.5005,86.089569,11517.598};
 			name="policebase";
@@ -53000,7 +52989,7 @@ class Mission
 			b=0.5;
 			angle=-45.1119;
 		};
-		class Item253
+		class Item252
 		{
 			position[]={81.003258,195.54033,12201.025};
 			name="Resourcekey";
@@ -53010,7 +52999,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item254
+		class Item253
 		{
 			position[]={40.937492,186.33701,12201.188};
 			name="Resourcekey_1";
@@ -53019,7 +53008,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item255
+		class Item254
 		{
 			position[]={8387.6787,299.33273,1889.7985};
 			name="stlahq";
@@ -53028,7 +53017,7 @@ class Mission
 			colorName="ColorRed";
 			b=0.60000002;
 		};
-		class Item256
+		class Item255
 		{
 			position[]={1395.7423,216.73935,3544.7891};
 			name="inscampmkr";
@@ -53036,7 +53025,7 @@ class Mission
 			type="Faction_INDFOR_EP1";
 			b=0.60000002;
 		};
-		class Item257
+		class Item256
 		{
 			position[]={42.237228,171.51199,12255.046};
 			name="clotheskey";
@@ -53046,7 +53035,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item258
+		class Item257
 		{
 			position[]={6443.4556,194.77258,7470.0181};
 			name="border6";
@@ -53058,7 +53047,7 @@ class Mission
 			b=20;
 			angle=-2.30126;
 		};
-		class Item259
+		class Item258
 		{
 			position[]={5461.4492,318.37469,7551.6621};
 			name="border7";
@@ -53070,7 +53059,7 @@ class Mission
 			b=20;
 			angle=-168.201;
 		};
-		class Item260
+		class Item259
 		{
 			position[]={3925.5142,202.439,8144.6855};
 			name="border9";
@@ -53082,7 +53071,7 @@ class Mission
 			b=20;
 			angle=-157.437;
 		};
-		class Item261
+		class Item260
 		{
 			position[]={4674.269,386.52301,7807.1475};
 			name="border8";
@@ -53094,7 +53083,7 @@ class Mission
 			b=20;
 			angle=-152.96001;
 		};
-		class Item262
+		class Item261
 		{
 			position[]={3055.8711,271.08569,8614.9053};
 			name="border10";
@@ -53106,7 +53095,7 @@ class Mission
 			b=20;
 			angle=34.164299;
 		};
-		class Item263
+		class Item262
 		{
 			position[]={7358.8325,301.8548,7234.4937};
 			name="border5";
@@ -53118,7 +53107,7 @@ class Mission
 			b=20;
 			angle=31.237301;
 		};
-		class Item264
+		class Item263
 		{
 			position[]={1449.9348,520.03107,9618.8857};
 			name="border11";
@@ -53130,7 +53119,7 @@ class Mission
 			b=20;
 			angle=-148.73199;
 		};
-		class Item265
+		class Item264
 		{
 			position[]={-683.27228,579.20972,10660.438};
 			name="border12";
@@ -53142,7 +53131,7 @@ class Mission
 			b=20;
 			angle=198.601;
 		};
-		class Item266
+		class Item265
 		{
 			position[]={8685.9814,373.64868,6249.3257};
 			name="border3";
@@ -53154,7 +53143,7 @@ class Mission
 			b=20;
 			angle=38.681999;
 		};
-		class Item267
+		class Item266
 		{
 			position[]={9555.5869,332.05954,5832.377};
 			name="border2";
@@ -53166,7 +53155,7 @@ class Mission
 			b=20;
 			angle=12.6948;
 		};
-		class Item268
+		class Item267
 		{
 			position[]={11623.255,516.85211,5505.8398};
 			name="border1";
@@ -53178,7 +53167,7 @@ class Mission
 			b=20;
 			angle=187.854;
 		};
-		class Item269
+		class Item268
 		{
 			position[]={8041.0498,429.22388,6768.5361};
 			name="border4";
@@ -53190,7 +53179,7 @@ class Mission
 			b=20;
 			angle=38.573601;
 		};
-		class Item270
+		class Item269
 		{
 			position[]={-692.30591,579.50018,10622.008};
 			name="border12_1";
@@ -53202,7 +53191,7 @@ class Mission
 			b=20;
 			angle=198.601;
 		};
-		class Item271
+		class Item270
 		{
 			position[]={1450.415,524.35266,9576.043};
 			name="border11_1";
@@ -53214,7 +53203,7 @@ class Mission
 			b=20;
 			angle=-148.73199;
 		};
-		class Item272
+		class Item271
 		{
 			position[]={3930.3289,210.22913,8100.4482};
 			name="border9_1";
@@ -53226,7 +53215,7 @@ class Mission
 			b=20;
 			angle=-157.437;
 		};
-		class Item273
+		class Item272
 		{
 			position[]={4674.2744,380.62836,7766.6606};
 			name="border8_1";
@@ -53238,7 +53227,7 @@ class Mission
 			b=20;
 			angle=-152.96001;
 		};
-		class Item274
+		class Item273
 		{
 			position[]={5459.2568,342.53125,7510.957};
 			name="border7_1";
@@ -53250,7 +53239,7 @@ class Mission
 			b=20;
 			angle=-168.201;
 		};
-		class Item275
+		class Item274
 		{
 			position[]={6444.0532,179.80029,7430.1343};
 			name="border6_1";
@@ -53262,7 +53251,7 @@ class Mission
 			b=20;
 			angle=-2.30126;
 		};
-		class Item276
+		class Item275
 		{
 			position[]={7340.8862,307.45819,7199.4829};
 			name="border5_1";
@@ -53274,7 +53263,7 @@ class Mission
 			b=20;
 			angle=31.237301;
 		};
-		class Item277
+		class Item276
 		{
 			position[]={8662.3604,372.32233,6220.0688};
 			name="border3_1";
@@ -53286,7 +53275,7 @@ class Mission
 			b=20;
 			angle=38.681999;
 		};
-		class Item278
+		class Item277
 		{
 			position[]={8017.4224,439.18774,6739.2793};
 			name="border4_1";
@@ -53298,7 +53287,7 @@ class Mission
 			b=20;
 			angle=38.573601;
 		};
-		class Item279
+		class Item278
 		{
 			position[]={9533.8945,343.83115,5802.2881};
 			name="border2_1";
@@ -53310,7 +53299,7 @@ class Mission
 			b=20;
 			angle=12.6948;
 		};
-		class Item280
+		class Item279
 		{
 			position[]={11601.563,538.87286,5475.751};
 			name="border1_1";
@@ -53322,7 +53311,7 @@ class Mission
 			b=20;
 			angle=187.854;
 		};
-		class Item281
+		class Item280
 		{
 			position[]={4677.3813,477.13553,7244.6357};
 			name="border14";
@@ -53334,7 +53323,7 @@ class Mission
 			b=20;
 			angle=130.21411;
 		};
-		class Item282
+		class Item281
 		{
 			position[]={4635.7554,485.49213,7255.0654};
 			name="border14_1";
@@ -53346,7 +53335,7 @@ class Mission
 			b=20;
 			angle=130.214;
 		};
-		class Item283
+		class Item282
 		{
 			position[]={12505.796,587.54633,5854.0879};
 			name="northtklabel";
@@ -53356,7 +53345,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item284
+		class Item283
 		{
 			position[]={-747.55127,592.70325,10947.006};
 			name="northtklabel2";
@@ -53366,7 +53355,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item285
+		class Item284
 		{
 			position[]={2132.3354,504.32626,1542.8955};
 			name="border19";
@@ -53378,7 +53367,7 @@ class Mission
 			b=20;
 			angle=113.13993;
 		};
-		class Item286
+		class Item285
 		{
 			position[]={2207.0374,579.73877,1832.2023};
 			name="border19_1";
@@ -53390,42 +53379,42 @@ class Mission
 			b=20;
 			angle=113.13953;
 		};
-		class Item287
+		class Item286
 		{
 			position[]={3926.668,455.72968,6644.4097};
 			name="hunting5";
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item288
+		class Item287
 		{
 			position[]={1318.4202,466.04135,7422.5493};
 			name="hunting4";
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item289
+		class Item288
 		{
 			position[]={10859.825,726.37238,4255.8413};
 			name="hunting3";
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item290
+		class Item289
 		{
 			position[]={10180.497,362.88113,6886.8604};
 			name="hunting2";
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item291
+		class Item290
 		{
 			position[]={1810.7946,217.584,11312.894};
 			name="hunting1";
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item292
+		class Item291
 		{
 			position[]={43.125992,211.00269,12156.611};
 			name="huntingkey";
@@ -53433,7 +53422,7 @@ class Mission
 			type="waypoint";
 			colorName="ColorBlack";
 		};
-		class Item293
+		class Item292
 		{
 			position[]={1802.1466,146.55878,11887.245};
 			name="boarmeatsellermarker_1";
@@ -53443,7 +53432,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item294
+		class Item293
 		{
 			position[]={5392.2568,143.57068,6308.021};
 			name="carpark4_m";
@@ -53452,7 +53441,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item295
+		class Item294
 		{
 			position[]={6345.0151,60.371521,11262.105};
 			name="CS_civ1m_1";
@@ -53461,7 +53450,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item296
+		class Item295
 		{
 			position[]={42.085472,125.62791,12585.577};
 			name="paintshopkey";
@@ -53471,7 +53460,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item297
+		class Item296
 		{
 			position[]={6059.4077,83.040001,11575.361};
 			name="car_paint_shop_2m";
@@ -53480,7 +53469,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item298
+		class Item297
 		{
 			position[]={4344.8594,155.89365,8983.1084};
 			name="car_paint_shop_3m";
@@ -53489,7 +53478,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item299
+		class Item298
 		{
 			position[]={5612.1641,81.910004,8887.2598};
 			name="car_paint_shop_4m";
@@ -53498,7 +53487,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item300
+		class Item299
 		{
 			position[]={5168.5361,145.38548,6042.3369};
 			name="car_paint_shop_5m";
@@ -53507,7 +53496,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item301
+		class Item300
 		{
 			position[]={8045.2651,296.04001,1991.2983};
 			name="car_paint_shop_6m";
@@ -53516,7 +53505,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item302
+		class Item301
 		{
 			position[]={43.368229,165.32388,12449.444};
 			name="fort_shop_key";
@@ -53525,7 +53514,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item303
+		class Item302
 		{
 			position[]={5963.6284,83.040001,11865.475};
 			name="fort_shop_2m";
@@ -53535,7 +53524,7 @@ class Mission
 			b=0.60000002;
 			angle=135.79686;
 		};
-		class Item304
+		class Item303
 		{
 			position[]={3473.9736,64.968689,9972.4102};
 			name="fort_shop_3m";
@@ -53544,7 +53533,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item305
+		class Item304
 		{
 			position[]={12825.614,125.07441,10954.646};
 			name="fort_shop_4m";
@@ -53553,7 +53542,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item306
+		class Item305
 		{
 			position[]={8311.7529,296.04001,1866.7521};
 			name="fort_shop_5m";
@@ -53562,7 +53551,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item307
+		class Item306
 		{
 			position[]={1399.6782,216.27805,3508.218};
 			name="fort_shop_6m";
@@ -53572,7 +53561,7 @@ class Mission
 			b=0.60000002;
 			angle=11.714422;
 		};
-		class Item308
+		class Item307
 		{
 			position[]={1.5971531,278.27853,11921.577};
 			name="Rules_1";
@@ -53582,7 +53571,7 @@ class Mission
 			a=0;
 			b=0;
 		};
-		class Item309
+		class Item308
 		{
 			position[]={8366.71,296.04001,1868.1206};
 			name="Helimarker2";
@@ -53590,7 +53579,7 @@ class Mission
 			colorName="ColorRed";
 			angle=6.3491001;
 		};
-		class Item310
+		class Item309
 		{
 			position[]={1348.7639,219.12494,3455.6233};
 			name="Helimarker3";
@@ -53599,7 +53588,7 @@ class Mission
 			colorName="ColorWhite";
 			angle=-0.843355;
 		};
-		class Item311
+		class Item310
 		{
 			position[]={5558.3994,78.178413,9265.6084};
 			name="oilFactory_1";
@@ -53609,7 +53598,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item312
+		class Item311
 		{
 			position[]={10124.618,347.32156,2359.2605};
 			name="oilFactory_2";
@@ -53619,7 +53608,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item313
+		class Item312
 		{
 			position[]={3209.9978,329.09311,3534.5596};
 			name="vipareaname_1";
@@ -53629,7 +53618,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item314
+		class Item313
 		{
 			position[]={3207.1038,329.02029,3531.4102};
 			name="dealerarea";
@@ -53639,7 +53628,7 @@ class Mission
 			a=100;
 			b=100;
 		};
-		class Item315
+		class Item314
 		{
 			position[]={12837.314,126.24729,10938.466};
 			name="CS_civ1m_2";
@@ -53649,7 +53638,7 @@ class Mission
 			b=0.5;
 			angle=-4.1435199;
 		};
-		class Item316
+		class Item315
 		{
 			position[]={2051.5493,277.75049,7619.2734};
 			name="atmmarker_3_3";
@@ -53658,7 +53647,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item317
+		class Item316
 		{
 			position[]={7994.2314,296.54001,1914.0771};
 			name="AircraftFactory";
@@ -53668,7 +53657,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item318
+		class Item317
 		{
 			position[]={4714.9248,151.14714,9195.9805};
 			name="civ_supporter_area";
@@ -53678,7 +53667,7 @@ class Mission
 			a=90;
 			b=90;
 		};
-		class Item319
+		class Item318
 		{
 			position[]={4715.2544,151.1391,9196.0322};
 			name="civ_supporter_area_flag";
@@ -53688,7 +53677,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item320
+		class Item319
 		{
 			position[]={4714.6006,151.07024,9201.5459};
 			name="supporteratm1marker";
@@ -53697,7 +53686,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item321
+		class Item320
 		{
 			position[]={4714.5771,151.98444,9168.2979};
 			name="servicepointmarker4";
@@ -53705,7 +53694,7 @@ class Mission
 			type="selector_selectable";
 			colorName="ColorYellow";
 		};
-		class Item322
+		class Item321
 		{
 			position[]={6030.5981,73.847687,10443.17};
 			name="atmmarker_cam";
@@ -53714,7 +53703,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item323
+		class Item322
 		{
 			position[]={6041.8467,67.140221,10443.684};
 			name="vipmarker";
@@ -53722,13 +53711,13 @@ class Mission
 			type="mil_box";
 			colorName="ColorRed";
 		};
-		class Item324
+		class Item323
 		{
 			position[]={4553.5688,150.61665,9185.1123};
 			name="telehesnotsupciv";
 			type="Empty";
 		};
-		class Item325
+		class Item324
 		{
 			position[]={7039.0493,44.538719,12446.961};
 			name="road_interstate1_1";
@@ -53739,7 +53728,7 @@ class Mission
 			b=0.5;
 			angle=189;
 		};
-		class Item326
+		class Item325
 		{
 			position[]={5729.3589,83.040001,11379.469};
 			name="servicepointmarker1";
@@ -53747,7 +53736,7 @@ class Mission
 			type="selector_selectable";
 			colorName="ColorBlue";
 		};
-		class Item327
+		class Item326
 		{
 			position[]={5769.7925,304.33771,5557.3911};
 			name="resourcesellmarker_2";
@@ -53757,7 +53746,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item328
+		class Item327
 		{
 			position[]={8128.1758,296.04001,1904.3517};
 			name="servicepointmarker1_2";
@@ -53765,7 +53754,7 @@ class Mission
 			type="selector_selectable";
 			colorName="ColorBlue";
 		};
-		class Item329
+		class Item328
 		{
 			position[]={5161.8657,217.12839,5216.6455};
 			name="gangmarker3";
@@ -53775,7 +53764,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item330
+		class Item329
 		{
 			position[]={5158.5391,217.49144,5213.7568};
 			name="gangarea3";
@@ -53786,20 +53775,20 @@ class Mission
 			a=80;
 			b=80;
 		};
-		class Item331
+		class Item330
 		{
 			position[]={5316.79,97.348045,10287.932};
 			name="patrolpoint8";
 			type="Empty";
 		};
-		class Item332
+		class Item331
 		{
 			position[]={9110.7295,232.90108,5984.7788};
 			name="patrolpoint5";
 			type="Empty";
 			angle=-34.769402;
 		};
-		class Item333
+		class Item332
 		{
 			position[]={9056.7422,236.38821,5927.356};
 			name="checkpoint_delta";
@@ -53808,7 +53797,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item334
+		class Item333
 		{
 			position[]={9555.5811,332.04407,5832.4751};
 			name="border2_2";
@@ -53820,7 +53809,7 @@ class Mission
 			b=20;
 			angle=12.6948;
 		};
-		class Item335
+		class Item334
 		{
 			position[]={11623.249,516.82104,5505.938};
 			name="border1_2";
@@ -53832,7 +53821,7 @@ class Mission
 			b=20;
 			angle=187.854;
 		};
-		class Item336
+		class Item335
 		{
 			position[]={9533.8887,343.81644,5802.3862};
 			name="border2_1_1";
@@ -53844,7 +53833,7 @@ class Mission
 			b=20;
 			angle=12.6948;
 		};
-		class Item337
+		class Item336
 		{
 			position[]={11601.558,538.83417,5475.8491};
 			name="border1_1_1";
@@ -53856,7 +53845,7 @@ class Mission
 			b=20;
 			angle=187.854;
 		};
-		class Item338
+		class Item337
 		{
 			position[]={5945.5986,127.31061,7345.481};
 			name="atmmarker_3_2_3";
@@ -53865,7 +53854,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item339
+		class Item338
 		{
 			position[]={5943.8813,123.38837,7430.5708};
 			name="checkpoint_alpha";
@@ -53874,7 +53863,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item340
+		class Item339
 		{
 			position[]={6443.5508,194.75613,7469.9995};
 			name="border6_2";
@@ -53886,7 +53875,7 @@ class Mission
 			b=20;
 			angle=-2.30126;
 		};
-		class Item341
+		class Item340
 		{
 			position[]={7358.9277,301.85162,7234.4751};
 			name="border5_2";
@@ -53898,7 +53887,7 @@ class Mission
 			b=20;
 			angle=31.237301;
 		};
-		class Item342
+		class Item341
 		{
 			position[]={8686.0742,373.63464,6249.3071};
 			name="border3_2";
@@ -53910,7 +53899,7 @@ class Mission
 			b=20;
 			angle=38.681999;
 		};
-		class Item343
+		class Item342
 		{
 			position[]={8041.1455,429.22775,6768.5171};
 			name="border4_2";
@@ -53922,7 +53911,7 @@ class Mission
 			b=20;
 			angle=38.573601;
 		};
-		class Item344
+		class Item343
 		{
 			position[]={6444.1484,179.78406,7430.1157};
 			name="border6_1_1";
@@ -53934,7 +53923,7 @@ class Mission
 			b=20;
 			angle=-2.30126;
 		};
-		class Item345
+		class Item344
 		{
 			position[]={7340.9824,307.46484,7199.4644};
 			name="border5_1_1";
@@ -53946,7 +53935,7 @@ class Mission
 			b=20;
 			angle=31.237301;
 		};
-		class Item346
+		class Item345
 		{
 			position[]={8662.4531,372.30804,6220.0503};
 			name="border3_1_1";
@@ -53958,7 +53947,7 @@ class Mission
 			b=20;
 			angle=38.681999;
 		};
-		class Item347
+		class Item346
 		{
 			position[]={8017.5176,439.19382,6739.2603};
 			name="border4_1_1";
@@ -53970,7 +53959,7 @@ class Mission
 			b=20;
 			angle=38.573601;
 		};
-		class Item348
+		class Item347
 		{
 			position[]={7513.498,297.71375,7090.689};
 			name="borderbreach2";
@@ -53978,14 +53967,14 @@ class Mission
 			type="mil_join";
 			colorName="ColorRed";
 		};
-		class Item349
+		class Item348
 		{
 			position[]={7513.9053,293.36719,7111.9868};
 			name="patrolpoint17";
 			type="Empty";
 			angle=-136.623;
 		};
-		class Item350
+		class Item349
 		{
 			position[]={3455.6362,161.97401,8317.1523};
 			name="checkpoint_bravo";
@@ -53994,7 +53983,7 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 		};
-		class Item351
+		class Item350
 		{
 			position[]={5461.3706,318.36746,7551.6851};
 			name="border7_2";
@@ -54006,7 +53995,7 @@ class Mission
 			b=20;
 			angle=-168.201;
 		};
-		class Item352
+		class Item351
 		{
 			position[]={3925.4348,202.41528,8144.7085};
 			name="border9_2";
@@ -54018,7 +54007,7 @@ class Mission
 			b=20;
 			angle=-157.437;
 		};
-		class Item353
+		class Item352
 		{
 			position[]={4674.1909,386.57373,7807.1704};
 			name="border8_2";
@@ -54030,7 +54019,7 @@ class Mission
 			b=20;
 			angle=-152.96001;
 		};
-		class Item354
+		class Item353
 		{
 			position[]={5459.1782,342.5285,7510.98};
 			name="border7_1_1";
@@ -54042,7 +54031,7 @@ class Mission
 			b=20;
 			angle=-168.201;
 		};
-		class Item355
+		class Item354
 		{
 			position[]={4288.98,241.6519,7975.9009};
 			name="borderbreach1";
@@ -54050,14 +54039,14 @@ class Mission
 			type="mil_join";
 			colorName="ColorRed";
 		};
-		class Item356
+		class Item355
 		{
 			position[]={4295.7271,239.2108,7995.394};
 			name="patrolpoint18";
 			type="Empty";
 			angle=-136.623;
 		};
-		class Item357
+		class Item356
 		{
 			position[]={3043.1328,274.70554,8623.876};
 			name="border10_1";
@@ -54069,7 +54058,7 @@ class Mission
 			b=20;
 			angle=34.164299;
 		};
-		class Item358
+		class Item357
 		{
 			position[]={3040.2173,271.77649,8577.7021};
 			name="test";
@@ -54081,7 +54070,7 @@ class Mission
 			b=20;
 			angle=34.164299;
 		};
-		class Item359
+		class Item358
 		{
 			position[]={5959.4775,83.090118,11321.695};
 			name="cop_supporter_area";
@@ -54091,7 +54080,7 @@ class Mission
 			a=90;
 			b=90;
 		};
-		class Item360
+		class Item359
 		{
 			position[]={5958.5625,83.092926,11320.858};
 			name="cop_supporter_area_flag";
@@ -54101,7 +54090,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item361
+		class Item360
 		{
 			position[]={5957.9087,83.088264,11326.372};
 			name="supporteratm1marker_1";
@@ -54111,7 +54100,7 @@ class Mission
 			b=0.80000001;
 			angle=355;
 		};
-		class Item362
+		class Item361
 		{
 			position[]={5924.2651,83.068619,11281.38};
 			name="servicepointmarker4_1";
@@ -54119,7 +54108,7 @@ class Mission
 			type="selector_selectable";
 			colorName="ColorYellow";
 		};
-		class Item363
+		class Item362
 		{
 			position[]={1851.1604,210.67754,3887.864};
 			name="ind_supporter_area";
@@ -54130,7 +54119,7 @@ class Mission
 			b=45;
 			angle=125.06313;
 		};
-		class Item364
+		class Item363
 		{
 			position[]={1846.5311,214.48929,3884.3723};
 			name="ind_supporter_area_flag";
@@ -54139,7 +54128,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=125.06313;
 		};
-		class Item365
+		class Item364
 		{
 			position[]={1846.778,210.73755,3892.9556};
 			name="supporteratm1marker_1_1";
@@ -54147,7 +54136,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=1441.64;
 		};
-		class Item366
+		class Item365
 		{
 			position[]={1652.4962,211.09007,3688.2703};
 			name="servicepointmarker4_1_1";
@@ -54155,19 +54144,19 @@ class Mission
 			type="n_service";
 			colorName="ColorWhite";
 		};
-		class Item367
+		class Item366
 		{
 			position[]={5960.7515,83.040001,11431.673};
 			name="telehesnotsupcop";
 			type="Empty";
 		};
-		class Item368
+		class Item367
 		{
 			position[]={2511.481,195.61203,5122.333};
 			name="telehesnotsupind";
 			type="Empty";
 		};
-		class Item369
+		class Item368
 		{
 			position[]={8026.1558,296.04001,1655.2704};
 			name="opf_supporter_area";
@@ -54177,7 +54166,7 @@ class Mission
 			a=90;
 			b=90;
 		};
-		class Item370
+		class Item369
 		{
 			position[]={8026.4849,296.04001,1655.3221};
 			name="opf_supporter_area_flag";
@@ -54187,7 +54176,7 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item371
+		class Item370
 		{
 			position[]={8028.1201,296.16525,1640.4884};
 			name="supporteratm1marker_1_1_1";
@@ -54197,7 +54186,7 @@ class Mission
 			b=0.80000001;
 			angle=355;
 		};
-		class Item372
+		class Item371
 		{
 			position[]={8040.6431,296.03497,1666.0405};
 			name="servicepointmarker4_1_1_1";
@@ -54206,13 +54195,13 @@ class Mission
 			colorName="ColorYellow";
 			angle=100.40764;
 		};
-		class Item373
+		class Item372
 		{
 			position[]={7925.999,296.04001,1741.3993};
 			name="telehesnotsupopf";
 			type="Empty";
 		};
-		class Item374
+		class Item373
 		{
 			position[]={6309.1943,60.932144,11038.201};
 			name="atmmarker";
@@ -54222,7 +54211,7 @@ class Mission
 			b=0.80000001;
 			angle=99.216301;
 		};
-		class Item375
+		class Item374
 		{
 			position[]={6301.2373,60.786213,11049.989};
 			name="newstation";
@@ -54230,7 +54219,7 @@ class Mission
 			type="mil_box";
 			colorName="ColorYellow";
 		};
-		class Item376
+		class Item375
 		{
 			position[]={6088.2383,82.873993,11491.137};
 			name="shoprob_1_1_1";
@@ -54240,7 +54229,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item377
+		class Item376
 		{
 			position[]={6114.4961,83.040001,11510.646};
 			name="shoprob_1_1_1_1";
@@ -54250,7 +54239,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item378
+		class Item377
 		{
 			position[]={6124.7285,83.040001,11567.859};
 			name="shoprob_1_1_1_2";
@@ -54260,7 +54249,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item379
+		class Item378
 		{
 			position[]={6154.77,83.040001,11580.662};
 			name="shoprob_1_1_1_2_1";
@@ -54270,7 +54259,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item380
+		class Item379
 		{
 			position[]={6041.0435,67.120949,10442.077};
 			name="vip_supporter_area";
@@ -54280,7 +54269,7 @@ class Mission
 			b=50;
 			angle=-148.57899;
 		};
-		class Item381
+		class Item380
 		{
 			position[]={6299.5527,323.7084,5048.7085};
 			name="atmmarker_cam_1";
@@ -54290,7 +54279,7 @@ class Mission
 			b=0.80000001;
 			angle=15.497465;
 		};
-		class Item382
+		class Item381
 		{
 			position[]={6297.5933,323.66086,5045.8887};
 			name="vipmarker_2";
@@ -54298,7 +54287,7 @@ class Mission
 			type="mil_box";
 			colorName="ColorRed";
 		};
-		class Item383
+		class Item382
 		{
 			position[]={6297.8398,323.69489,5045.499};
 			name="vip_supporter_area_1";
@@ -54308,7 +54297,7 @@ class Mission
 			b=40;
 			angle=-148.57899;
 		};
-		class Item384
+		class Item383
 		{
 			position[]={6021.5801,66.900002,10409.228};
 			name="fort_shop_2m_1";
@@ -54318,7 +54307,7 @@ class Mission
 			b=0.60000002;
 			angle=-76.875061;
 		};
-		class Item385
+		class Item384
 		{
 			position[]={6116.4897,83.040001,11527.472};
 			name="police_area";
@@ -54330,7 +54319,7 @@ class Mission
 			b=38;
 			angle=133.85699;
 		};
-		class Item386
+		class Item385
 		{
 			position[]={6111.7827,83.040001,11531.187};
 			name="police_area_1";
@@ -54344,7 +54333,7 @@ class Mission
 			angle=133.85699;
 			drawBorder=1;
 		};
-		class Item387
+		class Item386
 		{
 			position[]={1386.3997,216.94301,3536.0884};
 			name="northhq_1";
@@ -54357,7 +54346,7 @@ class Mission
 			b=1000;
 			drawBorder=1;
 		};
-		class Item388
+		class Item387
 		{
 			position[]={8386.6943,296.04001,1887.5426};
 			name="opf_supporter_area_1";
@@ -54369,7 +54358,7 @@ class Mission
 			b=150;
 			drawBorder=1;
 		};
-		class Item389
+		class Item388
 		{
 			position[]={8362.0742,310.12314,1739.074};
 			name="safe1";
@@ -54377,7 +54366,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item390
+		class Item389
 		{
 			position[]={1864.3309,329.73764,4414.4438};
 			name="safe1_1";
@@ -54385,7 +54374,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item391
+		class Item390
 		{
 			position[]={6210.8545,83.042633,11588.95};
 			name="safe1_2";
@@ -54393,7 +54382,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item392
+		class Item391
 		{
 			position[]={8200.5127,296.04001,1790.2742};
 			name="prisonspawn_opf";
@@ -54404,14 +54393,14 @@ class Mission
 			b=0;
 			angle=1.75712;
 		};
-		class Item393
+		class Item392
 		{
 			position[]={8222.75,296.04001,1824.6587};
 			name="jail_freemarker_opf";
 			type="Empty";
 			angle=-248.436;
 		};
-		class Item394
+		class Item393
 		{
 			position[]={6169.04,83.040001,11611.138};
 			name="fort_shop_2m_1_1";
@@ -54421,7 +54410,7 @@ class Mission
 			b=0.60000002;
 			angle=-179.29402;
 		};
-		class Item395
+		class Item394
 		{
 			position[]={6067.061,65.926605,10853.148};
 			name="hospital_1";
@@ -54432,7 +54421,7 @@ class Mission
 			b=0;
 			angle=145.70016;
 		};
-		class Item396
+		class Item395
 		{
 			position[]={6127.7046,83.035675,11528.44};
 			name="squadmanager";
@@ -54443,7 +54432,7 @@ class Mission
 			b=1.3;
 			angle=-270.94974;
 		};
-		class Item397
+		class Item396
 		{
 			position[]={6133.4458,83.038528,11534.721};
 			name="checkpointshop";
@@ -54454,33 +54443,33 @@ class Mission
 			b=1.3;
 			angle=-270.95001;
 		};
-		class Item398
+		class Item397
 		{
 			position[]={5230.5059,143.02725,6116.1602};
 			name="taximarker20_1";
 			type="Empty";
 		};
-		class Item399
+		class Item398
 		{
 			position[]={2157.7527,148.01624,11675.334};
 			name="patrolpoint10_1";
 			type="Empty";
 			angle=25.172237;
 		};
-		class Item400
+		class Item399
 		{
 			position[]={5205.0723,144.6205,6032.1592};
 			name="taximarker20_2";
 			type="Empty";
 			angle=118.58039;
 		};
-		class Item401
+		class Item400
 		{
 			position[]={5263.7129,144.1385,6090.7295};
 			name="taximarker20_3";
 			type="Empty";
 		};
-		class Item402
+		class Item401
 		{
 			position[]={-761.09625,446.65329,3838.9722};
 			name="ins_flag";
@@ -54490,7 +54479,7 @@ class Mission
 			a=2;
 			b=1.3;
 		};
-		class Item403
+		class Item402
 		{
 			position[]={13603.747,719.25061,4489.3105};
 			name="tla_flag";
@@ -54500,7 +54489,7 @@ class Mission
 			a=2;
 			b=1.3;
 		};
-		class Item404
+		class Item403
 		{
 			position[]={6110.208,83.040001,11624.827};
 			name="shoprob_1_1_1_2_1_1_1";
@@ -54510,7 +54499,7 @@ class Mission
 			a=1.3;
 			b=1.3;
 		};
-		class Item405
+		class Item404
 		{
 			position[]={5422.5327,95.64315,10373.726};
 			name="hell_road";
@@ -54520,13 +54509,13 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
-		class Item406
+		class Item405
 		{
 			position[]={5803.1196,83.040001,11699.131};
 			name="telehesnotpmc";
 			type="Empty";
 		};
-		class Item407
+		class Item406
 		{
 			position[]={6113.7246,83.040001,11526.577};
 			name="cop_safe";
@@ -54535,19 +54524,19 @@ class Mission
 			b=0.69999999;
 			angle=473.40201;
 		};
-		class Item408
+		class Item407
 		{
 			position[]={5951.0449,83.040001,11882.15};
 			name="respawn_pmc";
 			type="Empty";
 		};
-		class Item409
+		class Item408
 		{
 			position[]={5195.1567,145.39999,6077.3735};
 			name="respawn_southciv";
 			type="Empty";
 		};
-		class Item410
+		class Item409
 		{
 			position[]={6752.5513,290.92062,6152.9126};
 			name="Alcohol_Distillery";
@@ -54557,7 +54546,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item411
+		class Item410
 		{
 			position[]={7152.4697,80.278236,11386.612};
 			name="Ring_Factory";
@@ -54567,13 +54556,13 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item412
+		class Item411
 		{
 			position[]={7214.9082,231.44028,8156.5879};
 			name="cleanermark";
 			type="Empty";
 		};
-		class Item413
+		class Item412
 		{
 			position[]={6221.6177,60.522205,11131.292};
 			name="checkpoint_rasman";
@@ -54583,17 +54572,7 @@ class Mission
 			b=0.80000001;
 			angle=-0.040755481;
 		};
-		class Item414
-		{
-			position[]={6804.4434,124.41903,8844.8555};
-			name="safezone_1";
-			text="SAFE ZONE";
-			type="mil_warning";
-			colorName="ColorGreen";
-			a=0.5;
-			b=0.5;
-		};
-		class Item415
+		class Item413
 		{
 			position[]={12753.923,119.66364,10826.56};
 			name="safezone_1_1";
@@ -54603,7 +54582,7 @@ class Mission
 			a=0.5;
 			b=0.5;
 		};
-		class Item416
+		class Item414
 		{
 			position[]={5216.3535,145.3815,6082.5679};
 			name="atmmarker_3_2_3_1";
@@ -54613,7 +54592,7 @@ class Mission
 			b=0.80000001;
 			angle=350;
 		};
-		class Item417
+		class Item415
 		{
 			position[]={7481.7363,314.95615,2590.0698};
 			name="opf_radar_site";
@@ -54626,7 +54605,7 @@ class Mission
 			b=4000;
 			drawBorder=1;
 		};
-		class Item418
+		class Item416
 		{
 			position[]={6184.0005,73.305786,11414.891};
 			name="blu_radar_site";
@@ -54639,7 +54618,7 @@ class Mission
 			b=4000;
 			drawBorder=1;
 		};
-		class Item419
+		class Item417
 		{
 			position[]={10915.128,410.30298,595.98511};
 			name="opf_radar_text";
@@ -54649,7 +54628,7 @@ class Mission
 			a=1.2;
 			b=1.2;
 		};
-		class Item420
+		class Item418
 		{
 			position[]={9552.5117,100.23344,13562.181};
 			name="blu_radar_text";
@@ -54659,7 +54638,7 @@ class Mission
 			a=1.2;
 			b=1.2;
 		};
-		class Item421
+		class Item419
 		{
 			position[]={6173.811,310.60635,5667.707};
 			name="opforZone";
@@ -54669,7 +54648,7 @@ class Mission
 			a=250;
 			b=250;
 		};
-		class Item422
+		class Item420
 		{
 			position[]={6174.4009,306.68259,5661.2925};
 			name="opforFlag";
@@ -54677,7 +54656,7 @@ class Mission
 			a=0.89999998;
 			b=0.60000002;
 		};
-		class Item423
+		class Item421
 		{
 			position[]={1533.0049,230.25671,5663.165};
 			name="indepZone";
@@ -54687,7 +54666,7 @@ class Mission
 			a=250;
 			b=250;
 		};
-		class Item424
+		class Item422
 		{
 			position[]={1532.7264,230.26013,5662.0356};
 			name="indepFlag";
@@ -54695,7 +54674,7 @@ class Mission
 			a=0.89999998;
 			b=0.60000002;
 		};
-		class Item425
+		class Item423
 		{
 			position[]={3674.7781,81.741959,11084.195};
 			name="bluforZone";
@@ -54705,7 +54684,7 @@ class Mission
 			a=250;
 			b=250;
 		};
-		class Item426
+		class Item424
 		{
 			position[]={3676.6416,81.715523,11085.131};
 			name="bluforFlag";
@@ -54713,28 +54692,28 @@ class Mission
 			a=0.89999998;
 			b=0.60000002;
 		};
-		class Item427
+		class Item425
 		{
 			position[]={3865.3232,63.290359,11245.657};
 			name="cap_text1";
 			text="Capture Zone";
 			type="mil_dot";
 		};
-		class Item428
+		class Item426
 		{
 			position[]={1747.1119,268.07925,5793.4165};
 			name="cap_text1_1";
 			text="Capture Zone";
 			type="mil_dot";
 		};
-		class Item429
+		class Item427
 		{
 			position[]={6347.5454,337.52838,5846.0649};
 			name="cap_text1_1_1";
 			text="Capture Zone";
 			type="mil_dot";
 		};
-		class Item430
+		class Item428
 		{
 			position[]={613.495,486.42911,4170.4917};
 			name="safe1_1_1";
@@ -54742,7 +54721,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item431
+		class Item429
 		{
 			position[]={1998.3036,356.55368,2745.1797};
 			name="no_camp_text";
@@ -54750,7 +54729,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item432
+		class Item430
 		{
 			position[]={5943.0957,83.040001,11868.608};
 			name="pmcsafezone";
@@ -54761,7 +54740,7 @@ class Mission
 			b=50;
 			angle=-23.991726;
 		};
-		class Item433
+		class Item431
 		{
 			position[]={5169.0186,145.39183,6055.1025};
 			name="safezonesouth";
@@ -54773,7 +54752,7 @@ class Mission
 			b=100;
 			drawBorder=1;
 		};
-		class Item434
+		class Item432
 		{
 			position[]={5175.4209,145.38135,6073.5723};
 			name="safezonesouthlb";
@@ -54781,14 +54760,14 @@ class Mission
 			type="mil_end";
 			colorName="ColorGreen";
 		};
-		class Item435
+		class Item433
 		{
 			position[]={5445.7573,139.81291,6313.3682};
 			name="Checkpoint Feruz Abad";
 			text="Checkpoint Feruz Abad";
 			type="mil_join";
 		};
-		class Item436
+		class Item434
 		{
 			position[]={5199.6582,145.39999,6059.5464};
 			name="passport_2";
@@ -54798,7 +54777,7 @@ class Mission
 			b=0.60000002;
 			angle=50;
 		};
-		class Item437
+		class Item435
 		{
 			position[]={5214.5322,145.39024,6081.2847};
 			name="MAINBAINK_1";
@@ -54807,7 +54786,7 @@ class Mission
 			colorName="ColorWhite";
 			b=0.60000002;
 		};
-		class Item438
+		class Item436
 		{
 			position[]={5114.8467,145.39999,6058.7695};
 			name="opforfob";
@@ -54818,14 +54797,14 @@ class Mission
 			b=40;
 			angle=-13;
 		};
-		class Item439
+		class Item437
 		{
 			position[]={3382.4048,176.52774,5526.2666};
 			name="Checkpoint Stalin";
 			text="Checkpoint Stalin";
 			type="mil_join";
 		};
-		class Item440
+		class Item438
 		{
 			position[]={1860.2609,209.9241,3909.9595};
 			name="Helimarker3_1";
@@ -54833,7 +54812,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=168.58678;
 		};
-		class Item441
+		class Item439
 		{
 			position[]={1851.1925,210.68893,3887.4229};
 			name="insmark";
@@ -54846,7 +54825,7 @@ class Mission
 			angle=125.06313;
 			drawBorder=1;
 		};
-		class Item442
+		class Item440
 		{
 			position[]={1389.2051,217.68391,3482.4929};
 			name="InsHeavy";
@@ -54854,7 +54833,7 @@ class Mission
 			type="n_armor";
 			colorName="ColorWhite";
 		};
-		class Item443
+		class Item441
 		{
 			position[]={1406.5524,221.45911,3490.2131};
 			name="InsLight";
@@ -54862,7 +54841,7 @@ class Mission
 			type="n_motor_inf";
 			colorName="ColorWhite";
 		};
-		class Item444
+		class Item442
 		{
 			position[]={1399.6956,216.27852,3508.2024};
 			name="InsFort";
@@ -54870,7 +54849,7 @@ class Mission
 			type="Strongpoint";
 			colorName="ColorWhite";
 		};
-		class Item445
+		class Item443
 		{
 			position[]={1022.532,369.3031,3622.6104};
 			name="InsAir";
@@ -54879,7 +54858,7 @@ class Mission
 			colorName="ColorWhite";
 			angle=-4.4025073;
 		};
-		class Item446
+		class Item444
 		{
 			position[]={1851.1686,210.62302,3889.7441};
 			name="DonorHeli";
@@ -54888,7 +54867,7 @@ class Mission
 			colorName="ColorWhite";
 			angle=-0.843355;
 		};
-		class Item447
+		class Item445
 		{
 			position[]={1849.4209,211.00024,3879.2375};
 			name="InsDonorHeavy";
@@ -54896,7 +54875,7 @@ class Mission
 			type="n_armor";
 			colorName="ColorWhite";
 		};
-		class Item448
+		class Item446
 		{
 			position[]={1835.9069,211.67841,3876.5037};
 			name="CS_ins1_1";
@@ -54904,7 +54883,7 @@ class Mission
 			colorName="ColorWhite";
 			angle=-6.0350699;
 		};
-		class Item449
+		class Item447
 		{
 			position[]={5652.3364,74.37532,9925.4932};
 			name="houseLocation1";

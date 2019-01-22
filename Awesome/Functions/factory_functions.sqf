@@ -1286,7 +1286,7 @@ factory_production_menu = { _this spawn {
 
 	private["_player", "_factory_id", "_item"];
 
-	buttonSetAction [factory_enqueue_button_id, format['[%1, "%2", (lbData [factory_enqueue_list_id, (lbCurSel factory_enqueue_list_id)]), ([(ctrlText factory_amount_field_id)] call parse_number)] call factory_item_enqueue;', _player, _factory_id]];
+	buttonSetAction [factory_enqueue_button_id, format['if ([ctrlText factory_amount_field_id] call parse_number < 0) then {[ctrlText factory_amount_field_id] call factory_dupe_log;}; [%1, "%2", (lbData [factory_enqueue_list_id, (lbCurSel factory_enqueue_list_id)]), ([(ctrlText factory_amount_field_id)] call parse_number)] call factory_item_enqueue;', _player, _factory_id]];
 	buttonSetAction [factory_create_button_id, format['[%1, "%2", (lbData [factory_enqueue_list_id, (lbCurSel factory_enqueue_list_id)]), ([(ctrlText factory_amount_field_id)] call parse_number)] call factory_item_create;', _player, _factory_id]];
 	buttonSetAction [factory_dequeue_button_id, format['[%1, "%2", (lbData [factory_dequeue_list_id, (lbCurSel factory_dequeue_list_id)]), (lbCurSel factory_dequeue_list_id)] call factory_item_dequeue;', _player, _factory_id]];
 };};
@@ -1430,6 +1430,14 @@ factory_buy = {
 
 	player groupChat format["%1-%2, you bought this factory for $%3", _player, (name _player), strM(_factory_cost)];
 	[_player] call factory_remove_actions;
+};
+
+factory_dupe_log = {
+	private ["_duper","_dupeid","_side","_amount"];
+	_duper = str (name player);
+	_dupeid = str (getPlayerUID player);
+	_amount = _this select 0;
+	["FACTORY DUPING LOGGER", _dupeid, _duper, _side, _amount] call fn_LogToServer;
 };
 //player groupChat "Compiling Setup";
 factory_setup = {

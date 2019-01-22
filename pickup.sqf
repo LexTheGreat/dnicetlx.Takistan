@@ -35,6 +35,9 @@ if(primaryweapon player == "" and secondaryweapon player == "")then{player playm
 
 player groupchat format["You picked up %1 %2", _amount, _name];
 
+if (_item == "MONEY") then {
+	["PICKUP MONEY LOGGER", str (name player), _amount] call fn_LogToServer;
+};
 if(_amount < _tamount) then {
 	_amount = _tamount - _amount;
 	_object setvariable ["droparray", [([_amount] call encode_number), _item], true];

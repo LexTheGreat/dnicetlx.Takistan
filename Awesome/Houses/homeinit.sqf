@@ -1,6 +1,6 @@
 // This script initiali/zes the Real Estate market in takistan
 
-home_initial_buying_price = 100000000;
+home_initial_buying_price = 5000000;
 home_initial_selling_price = round(home_initial_buying_price  * 0.8);
 
 //meta-data for accessing the HOME pseudo object
@@ -109,7 +109,7 @@ if (isServer) then
 			_lp = createVehicle ["#lightpoint", (getposatl _x),[],0,""] ; // Create light
 			_lp setLightColor [255,255,255]; // Set its colour
 			_lp setLightBrightness 0; // Set its brightness
-			_lp lightAttachObject [_x, [1,1,1]]; // Position it within house
+			_lp lightAttachObject [_x, [0,0,2]]; // Position it within house
 			
 			homes_list = homes_list + [
 				[ format["Home%1", _houseCount],       
@@ -185,11 +185,13 @@ home_toggleLightSwitch = {
 	_home_lightSwitch = _home select home_lightSwitch;
 	
 	if (_home_lightSwitch) then {
+		systemChat "Light Off";
 		_home set [home_lightSwitch, false];
 		_home_lightObject setLightBrightness 0;
 	} else {
+		systemChat "Light On";
 		_home set [home_lightSwitch, true];
-		_home_lightObject setLightBrightness 0.01;
+		_home_lightObject setLightBrightness 0.5;
 	};
 	
 	[_home] call home_updateActions;
@@ -254,7 +256,6 @@ home_buy =
 
 home_sell =
 {
-     //hint format["%1", _this];
     _home = _this select 0;
     _owner_name = name player;
     
@@ -269,6 +270,11 @@ home_sell =
     
     homes_msg = [_owner_name, "all", "update_home", _home];
     publicVariable "homes_msg";
+	
+	[] spawn {
+		sleep 5; 
+		handling_tlr_toggle = false;
+	};
 };
 
 home_addPositions =

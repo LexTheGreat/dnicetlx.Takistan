@@ -14,29 +14,29 @@ vipmoneh = 1000000;
 private["_uid"];
 _uid = getPlayerUID player;
 
-if (_uid in supporters1) then {
-    startmoneh = supportermoneh;
-}
-else { if (_uid in supporters2) then {
-    startmoneh = silvermoneh;
-	INV_CarryingCapacity = 100;
-}
-else { if (_uid in supporters3) then {
-    startmoneh = goldmoneh;
-	INV_CarryingCapacity = 200;
-}
-else { if (_uid in supporters4) then {
-	INV_CarryingCapacity = 300;
-    startmoneh = platinummoneh;
-}
-else { if (_uid in supportersVIP) then {
-    startmoneh = VIPmoneh;
-	INV_CarryingCapacity = 500;
-};};};};};
+// if (_uid in supporters1) then {
+    // startmoneh = supportermoneh;
+// }
+// else { if (_uid in supporters2) then {
+    // startmoneh = silvermoneh;
+	// INV_CarryingCapacity = 100;
+// }
+// else { if (_uid in supporters3) then {
+    // startmoneh = goldmoneh;
+	// INV_CarryingCapacity = 200;
+// }
+// else { if (_uid in supporters4) then {
+	// INV_CarryingCapacity = 300;
+    // startmoneh = platinummoneh;
+// }
+// else { if (_uid in supportersVIP) then {
+    // startmoneh = VIPmoneh;
+	// INV_CarryingCapacity = 500;
+// };};};};};
 
-if (isAdmins) then {
-	INV_CarryingCapacity = 1000;
-};
+// if (isAdmins) then {
+	// INV_CarryingCapacity = 1000;
+// };
 
 //sleep 1;
 //player groupChat "Initializing Loading Player Stats If your stats has not yet loaded after this process please relog.";
@@ -119,6 +119,7 @@ switch (playerSide) do
 		[player, _uid, "LicensesCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "InventoryCiv", "ARRAY"] call sendToServer;
     	[player, _uid, "privateStorageCiv", "ARRAY"] call sendToServer;
+		[player, _uid, "WarrantsCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
@@ -179,7 +180,8 @@ bonglicense = [
 	"76561198155614911",
 	"76561198118377646",
 	"76561198094294502",
-	"76561198154237291"
+	"76561198154237291",
+	"76561198133995263"
 ];
 SSLicense = [
 	"76561198084473560",
@@ -294,4 +296,13 @@ if (isDog) then {
 	} else {
 		[player, "Fin", false] spawn C_change;
 	};
+};
+
+// Logging
+if ([player] call player_get_factory_money > 1000000) then {
+	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN FACTORY STORAGE"] call fn_LogToServer;
+};
+
+if ([player] call player_get_private_storage_money > 1000000) then {
+	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN PRIVATE STORAGE"] call fn_LogToServer;
 };

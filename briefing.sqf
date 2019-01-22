@@ -145,9 +145,10 @@ player createDiaryRecord ["bugs",
 [
 "Boogies",
 "
-Please report bugs to the Website or TS!<br/>
-Website: TLX-gaming.enjin.com <br/>
-Teamspeak: ts.tlx-gaming.net<br/>
+Please report bugs on Discord or submit a bug report!<br/>
+Website: tlx-gaming.com<br/>
+Bug report: tlx-gaming.com/bugreport<br/>
+Discord: https://discord.gg/rWsDd2h or visit our website for a link<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>

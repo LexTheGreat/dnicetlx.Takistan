@@ -398,6 +398,39 @@ player_reset_warrants = {
 	};
 };
 
+player_save_warrants = {
+	private ["_reasons","_bounty"];
+
+	_warrant = [];
+	_reasons = [player] call player_get_reason;
+	_bounty = [player] call player_get_bounty;
+	_warrant = [_bounty,_reasons];
+	_warrant
+};
+
+player_load_warrants = {
+	private ["_warrants","_bounty","_reasons"];
+	_warrants = _this select 0;
+
+	if (isNil "_warrants") exitWith {};
+	if !(count _warrants > 0) exitWith {};
+
+	_bounty = _warrants select 0;
+	_reasons = _warrants select 1;
+
+	if !(count _reasons > 0) exitWith {};
+
+	if (isNil "_bounty") exitWith {};
+	if (isNil "_reasons") exitWith {};
+
+	{
+		[player,_x,0] call player_update_warrants;
+	} foreach _reasons;
+
+	[player,_bounty] call player_update_bounty;
+
+};
+
 player_armed = {
 	private["_player"];
 	_player = _this select 0;
@@ -636,6 +669,7 @@ player_rob_station = {
 	if (isNil "_station") exitWith {};
 	if (typeName _station != "SCALAR") exitWith {};
 
+	if ([west] call count_side < 3) exitwith { player groupchat "Robbing the bank requires 3 cops to be online." };
 	if (not([_player] call player_armed)) exitwith {
 		player groupchat "You need a gun to rob the station!";
 	};
@@ -819,7 +853,7 @@ player_prison_loop_opf = { _this spawn {
 			[_player, false] call player_set_arrest;
 			[_player, "jailtimeleft", 0] call player_set_scalar;
 			[_player, 0] call player_set_bail;
-			[_player, "(prison-break)", 200000] call player_update_warrants;
+			[_player, "(prison-break)", 20000] call player_update_warrants;
 		};
 
 		//PLAYER HAS SERVED HIS FULL SENTNECE

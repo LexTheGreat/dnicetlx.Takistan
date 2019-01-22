@@ -56,28 +56,33 @@ keyboard_earplugs_handler = {
 };
 
 keyboard_tlr_keys_handler = {
-	private["_key_spam"];
-	_key_spam = false;
 	if (isNil "handling_tlr_toggle") then {
-		handling_tlr_toggle = true;
-	}
-	else { if ( handling_tlr_toggle) then {
-		_key_spam = true;
-	};};
-	if (_key_spam) exitWith {};
-
+		handling_tlr_toggle = false;
+	};
+	if (handling_tlr_toggle) exitWith {titletext["TLXCOOLDOWN", "PLAIN DOWN"];};
+	
+	handling_tlr_toggle = true;
 	if (INV_shortcuts) then {
 		titletext["TLX keys off", "PLAIN DOWN"];
 		call A_actionsremove;
 		INV_shortcuts = false;
+		
+		handling_tlr_toggle = false;
 	}
 	else {
 		titletext["TLX keys on", "PLAIN DOWN"];
 		call A_actions;
 		INV_shortcuts = true;
+		
+		[] spawn {
+			homes_msg = [name player, "server", "request_homes",""];
+			publicVariable "homes_msg";
+			sleep 5;
+			handling_tlr_toggle = false;
+	};
 	};
 
-	handling_tlr_toggle = false;
+	
 	true
 };
 

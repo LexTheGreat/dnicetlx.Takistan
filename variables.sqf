@@ -629,3 +629,4 @@ if (isClient) then {
 	server_to_client_sync = player;
 	publicVariableServer "server_to_client_sync";
 };
+blackscreenLoopRunning = false;

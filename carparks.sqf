@@ -2,7 +2,7 @@ INV_CanUseInventory     = true;
 INV_CanUseItem          = true;
 INV_CanDropItem         = true;
 INV_CanGiveItem         = true;
-INV_CarryingCapacity	= 60;
+INV_CarryingCapacity	= 120;
 
 INV_TaxesPaid	= 0;
 

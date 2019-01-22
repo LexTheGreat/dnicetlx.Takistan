@@ -821,7 +821,7 @@ interact_deposit_other = {
 	if (typeName _amount != "SCALAR") exitWith {};
 	if (_amount <= 0) exitWith {};
 	if (_amount >= 10000000) exitWith { player groupChat "You cant send more than 10M at once through the ATM"; };
-	if (_amount >= 2000000) then { ["BANKSEND LOGGER", getPlayerUID _player, _player, name _player, "has sent", strM(_amount), " to ", getPlayerUID _target, _target, name _target] call fn_LogToServer; };
+	["BANKSEND LOGGER", getPlayerUID _player, _player, name _player, "has sent", strM(_amount), " to ", getPlayerUID _target, _target, name _target] call fn_LogToServer;
 
 	private["_player_variable", "_player_variable_name", "_bank_amount"];
 	private["_tax_fee", "_total_due"];
@@ -1490,22 +1490,23 @@ interact_ticket = {
 
 
 interact_ticket_distribute = {
-	private["_player", "_target", "_amount"];
+	private["_player", "_target", "_amount", "_side"];
 	_player = _this select 0;
 	_target = _this select 1;
 	_amount = _this select 2;
+	_side = side _player;
 
 	if (not([_player] call player_human)) exitWith {};
 	if (not([_target] call player_human)) exitWith {};
 	if (_amount <= 0) exitWith {};
 
-	if (not(isBlu)) exitWith {
+	if (side player != _side) exitWith {
 		_message = format["%1-%2 paid %3-%4's ticket of $%5", _target, (name _target), _player, (name _player), strM(_amount)];
 		server globalChat _message;
 	};
 
 	private["_cop_count", "_cop_money"];
-	_cop_count = playersNumber west;
+	_cop_count = playersNumber _side;
 	_cop_money = round(_amount / _cop_count);
 	player groupChat format["You got $%1 because %2-%3 paid %4-%5's ticket of $%6", _cop_money, _target, (name _target), _player, (name _player), strM(_amount)];
 	[player, _cop_money] call transaction_bank;
@@ -2099,6 +2100,9 @@ interact_vehicle_storage = {
 			player groupChat format["The total weight of the items exceed the vehicle's capacity"];
 		};
 		player groupChat format["You put %1 item(s) into the vehicle", strM(_amount)];
+		if (_item == "MONEY") then {
+			["TRUNK LOGGER", "MONEY ADDED", str (name player), _amount, _vehicle] call fn_LogToServer;
+		};
 		_valid = true;
 	}
 	else {
@@ -2112,6 +2116,9 @@ interact_vehicle_storage = {
 		};
 
 		player groupChat format["You took %1 item(s) out of the vehicle", strM(abs(_amount))];
+		if (_item == "MONEY") then {
+			["TRUNK LOGGER", "MONEY REMOVED", str (name player), _amount, _vehicle] call fn_LogToServer;
+		};
 		_valid = true;
 	};
 
@@ -2192,6 +2199,10 @@ interact_factory_storage = {
 		if (_p_max_weight > 0 && (_items_weight + _p_cur_weight) > _p_max_weight) exitWith {
 			player groupChat format["The total weight of the items exceed the your carrying capacity"];
 		};
+		
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["FACTORY STORAGE LOGGER", "MONEY REMOVAL", str (name player), _amount] call fn_LogToServer;
+		};
 		_valid =  true;
 	};
 
@@ -2257,6 +2268,10 @@ interact_generic_storage = {
 			player groupChat format["The total weight of the items exceed the storage's capacity"];
 		};
 
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["STORAGE LOGGER", "MONEY ADDED", str (name player), _amount] call fn_LogToServer;
+		};
+
 		_valid = true;
 	}
 	else {
@@ -2268,6 +2283,11 @@ interact_generic_storage = {
 		if (_p_max_weight > 0 && (_items_weight + _p_cur_weight) > _p_max_weight) exitWith {
 			player groupChat format["The total weight of the items exceed the your carrying capacity"];
 		};
+		
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["STORAGE LOGGER", "MONEY REMOVED", str (name player), _amount] call fn_LogToServer;
+		};
+
 		_valid = true;
 	};
 
