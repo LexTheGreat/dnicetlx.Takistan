@@ -1901,7 +1901,7 @@ class Mission
 					skill=0.60000002;
 					text="opf1";
 					init="removeallweapons this;";
-					description="TLA Leader (Supporter SLOT)";
+					description="TLA Leader (Supporter Slot)";
 				};
 			};
 		};
