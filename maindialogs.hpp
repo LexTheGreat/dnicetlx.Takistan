@@ -1197,7 +1197,7 @@ class CopMenu {
 		w = 0.20; h = 0.04;
 
 		text = "Jailcam";
-		action = "closedialog 0; [0,1,2,[""jailcam""]] execVM ""copcams.sqf"";";
+		action = "closedialog 0; [0,1,2,[""jailcam""]] execVM ""cop_fnc\copcams.sqf"";";
 	};
 
 	class button4 : RscButton {

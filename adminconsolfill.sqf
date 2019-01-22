@@ -38,6 +38,7 @@ _array = [];
 			
 			["Admin Camera (Toggle)", {
 				handle = [] execVM "camera.sqf";
+				["ADMIN LOGGER", str (name player), "toggled admin camera"] call fn_LogToServer;
 			}],
 			["Server Message", {
 				if(!AdminSpamBroadcasting) then {
@@ -325,6 +326,22 @@ _array = [];
 			["Switch ML On/Off", {
 				[0,0,0,["start_martial"]] execVM "Awesome\Functions\war_functions.sqf";
 				["ADMIN LOGGER", str (name player), "toggled Martial Law"] call fn_LogToServer;
+			}],
+			
+			["Add Warrant (Select + input reason)", {
+				[_selectedplayer, _inputText, 0] call player_update_warrants;
+				["ADMIN LOGGER", name (_selectedplayer), "had a warrant added by", str (name player)] call fn_LogToServer;
+			}],
+			
+			["Reset Warrants (Select)", {
+				[_selectedplayer] call player_reset_warrants;
+				["ADMIN LOGGER", name (_selectedplayer), "had their warrants reset by", str (name player)] call fn_LogToServer;
+			}],
+			
+			["Prison Release (Select)", {
+				[_selectedplayer] call player_prison_reset;
+				[_selectedplayer] call player_prison_release;
+				["ADMIN LOGGER", name (_selectedplayer), "was released from prison by", str (name player)] call fn_LogToServer;
 			}],
 			
 			["Give ALL Players Money", {
@@ -646,7 +663,16 @@ _array = [];
 			}],
 
 			["10 Satchel Charges", {
-				handle = [] execVM "boomboom.sqf";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
+				player addMagazine "PipeBomb";
 			}],
 
 			["5 Marijuana", {
@@ -680,11 +706,17 @@ _array = [];
 				_inputText call broadcast;
 			}],
 			
+			["Change Skin (input)", {
+				[player, _inputText, false] spawn C_change;
+				["ADMIN LOGGER", str (name player), "changed their skin"] call fn_LogToServer;
+			}],
+			
 			["Make AI Ignore you", {
 			
 				player addrating 9999;
 				hint "Points added, AI won't TK you now. Execute again for even more.";
 			}],
+			
 			["True FIXXER", {
 				_range = parseNumber(_inputText);
 				if (vehicle player == player) then
@@ -740,6 +772,11 @@ _array = [];
 			["Clean Server", {
 				handle = [] execVM "clean.sqf";
 			}],
+			
+			["ESP", {
+-				handle = [] execVM "Awesome\Admin\Lesp.sqf";
+				["ADMIN LOGGER", str (name player), "toggled ESP"] call fn_LogToServer;
+-			}],
 
 			["MapMarkers", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";

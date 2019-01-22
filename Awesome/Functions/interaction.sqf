@@ -657,7 +657,7 @@ interact_civilian_camera = {_this spawn {
 
 	if (not(createDialog "MainCamDialog")) exitWith {hint "Dialog Error!";};
 
-	[0,0,0,["camcontrol",_camera,[10,30]]] execVM "copcams.sqf";
+	[0,0,0,["camcontrol",_camera,[10,30]]] execVM "cop_fnc\copcams.sqf";
 
 	_camera cameraEffect ["internal", "back"];
 	_camera camSetPos [(getPosATL vehicle _target select 0),(getPosATL vehicle _target select 1),10];

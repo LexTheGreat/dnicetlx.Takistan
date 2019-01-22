@@ -132,9 +132,6 @@ player createDiaryRecord ["credits",
 [
 "Staff and TS3",
 "
-Owner: [TLX] Giovanni<br/>
-Discord Info:<br/>
-Address: https://discord.gg/rWsDd2h or visit our website for a link<br/>
 Teamspeak Info:<br/>
 Address: ts.tlx-gaming.com<br/>
 Mission build: 1.5.2<br/>
@@ -148,10 +145,9 @@ player createDiaryRecord ["bugs",
 [
 "Boogies",
 "
-Please report bugs on Discord or submit a bug report!<br/>
-Website: tlx-gaming.com<br/>
-Bug report: tlx-gaming.com/bugreport<br/>
-Discord: https://discord.gg/rWsDd2h or visit our website for a link<br/>
+Please report bugs to the Website or TS!<br/>
+Website: TLX-gaming.enjin.com <br/>
+Teamspeak: ts.tlx-gaming.net<br/>
 <br/>
 <br/>
 We look forward to playing with you!<br/>
