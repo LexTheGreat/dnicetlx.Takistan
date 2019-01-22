@@ -16,10 +16,7 @@ onActionSaver = compile preprocessfile "RG\iSave.sqf";
 private ["_h"];
 /////////////////////////////////////////
 
-
 debug = false;
-shouldSnow = false;
-
 
 //////////////////////////
 server globalChat "Initializing Xtreme Takistan Life.......";
@@ -59,9 +56,10 @@ CIVILIAN setFriend [RESISTANCE, 0];
 
 //server globalChat "debug is true";
 if(!debug)then{
-if (isClient) then {
-	["camera"] execVM "introcam.sqf";["text"] execVM "introcam.sqf";
-	};};
+	if (isClient) then {
+		["camera"] execVM "introcam.sqf";["text"] execVM "introcam.sqf";
+	};
+};
 
 _h = [] execVM "Awesome\Scripts\optimize_1.sqf";
 waitUntil{scriptDone _h};
@@ -90,9 +88,10 @@ call compile preprocessfile "triggers.sqf";
 
 if (isClient) then {
 	[] execVM "briefing.sqf";
-	if (shouldSnow) then {
-		[] execVM "Scripts\snow.sqf";
-	};
+	snowWorking = false;
+	snowday = false;
+	// T/F for snow options
+	snowToggle = false;
 };
 
 // initializes Fixes
@@ -195,6 +194,8 @@ publicvariable "station9robbed";
 if(isClient) then {
 	A_fnc_EH_hDamage		= compile (preprocessFileLineNumbers "Awesome\EH\Eh_handledamage.sqf");
 	A_fnc_EH_fired			= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired.sqf");
+	A_fnc_EH_getin			= compile (preprocessfileLineNumbers "Awesome\EH\EH_getin.sqf");
+	EH_fired_vehicle_gas		= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired_vehicle_gas.sqf");
 	A_fnc_EH_wa				= compile (preprocessfileLineNumbers "Awesome\EH\EH_weaponassembled.sqf");
 	[] execVM "RG\cLoad.sqf";
 	server globalChat "Loading - Please Wait";
@@ -216,6 +217,7 @@ if(isClient) then {
 	player removeAllEventHandlers "handleDamage";
 	player removeAllEventHandlers "WeaponAssembled";
 	player addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	player addEventHandler ["GetIn", {_this spawn A_fnc_EH_getin}];
 	player addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
 	player addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	[] execVM "onKeyPress.sqf";
@@ -223,6 +225,7 @@ if(isClient) then {
 	[] execVM "AC\antidupe.sqf";
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
 	[] execVM "lockgear.sqf";
+	[] execVM "Awesome\Houses\homeinit.sqf";
 	server globalChat "Loading Fully Complete";
 };
 /*

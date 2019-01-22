@@ -9,7 +9,7 @@ _home   = _arguments select 1;
 if (_action_name == "buy" ) then {
     _moneh  = [player, 'money'] call INV_GetItemAmount;
     _cost = (_home select home_buying_price);
-    if (_moneh < _cost) 
+    if (_moneh < _cost && !debug) 
         exitWith {player groupChat "Not enough money in your inventory to buy this house";};
 	
     [player, 'money', -(_cost)] call INV_AddInventoryItem;
@@ -44,5 +44,11 @@ if (_action_name == "unlock") then
 if (_action_name == "info") then
 {
     [_home] call home_info;
+    if(true) exitWith{};
+};
+
+if (_action_name == "lightswitch") then
+{
+    [_home] call home_toggleLightSwitch;
     if(true) exitWith{};
 };

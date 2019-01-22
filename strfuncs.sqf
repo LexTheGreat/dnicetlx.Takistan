@@ -190,7 +190,7 @@ for [{_i = _start}, {_i < _end}, {_i=_i+1}] do {_re = _re + [_arr select _i];};
 
 };
 
-dnicestr_IsInStr = {( ([(_this select 0), (_this select 1)] call dnicestr_Pos) > -1 )};
+dnicestr_isInstr = {( ([(_this select 0), (_this select 1)] call dnicestr_Pos) > -1 )};
 
 dnicestr_Pos =
 

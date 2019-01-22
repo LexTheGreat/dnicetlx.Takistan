@@ -61,7 +61,7 @@ if (_art == "spielerliste") then {
 	(_DFML displayCtrl 1)	lbAdd format ["%1: %2",    localize "STRS_statdialog_deaths", ([player, "deadtime"] call player_get_scalar)];
 	(_DFML displayCtrl 1)	lbAdd format ["%1: %2 seconds",    "Dead-Wait time", round(_dead_wait_time)];
 	
-	if ( isciv ) then { (_DFML displayCtrl 1) lbAdd format ["%1: %2",    "Demerit points", demerits]};
+	if ( isCiv ) then { (_DFML displayCtrl 1) lbAdd format ["%1: %2",    "Demerit points", demerits]};
 
 	(_DFML displayCtrl 1)	lbAdd _trennlinie;
 	(_DFML displayCtrl 1)	lbAdd localize "STRS_statdialog_licenselist";
@@ -89,7 +89,7 @@ if (_art == "spielerliste") then {
 	(_DFML displayCtrl 1)	lbAdd localize "STRS_statdialog_regierung";
 	
 	if (not(MayorNumber == -1)) then {
-		(_DFML displayCtrl 1)	lbAdd (playerstringarray select MayorNumber);
+		(_DFML displayCtrl 1)	lbAdd (PlayerStringArray select MayorNumber);
 	};
 	
 	_next_president_election = server getVariable "next_president_election";
@@ -105,7 +105,7 @@ if (_art == "spielerliste") then {
 	(_DFML displayCtrl 1)	lbAdd localize "STRS_statdialog_chief";
 	
 	if (not(chiefNumber == -1)) then {
-		(_DFML displayCtrl 1)	lbAdd (playerstringarray select chiefNumber);
+		(_DFML displayCtrl 1)	lbAdd (PlayerStringArray select chiefNumber);
 	};
 	
 	_next_chief_election = server getVariable "next_chief_election";
@@ -242,9 +242,9 @@ if (_art == "spielerliste") then {
 
 	private ["_i"];
 	_i = 0;
-	while { _i < (count playerstringarray) } do {
+	while { _i < (count PlayerStringArray) } do {
 		private["_player", "_player_variable_name"];
-		_player_variable_name = playerstringarray select _i;
+		_player_variable_name = PlayerStringArray select _i;
 		_player = missionNamespace getVariable _player_variable_name;
 		
 		if(!isNil "_player") then {
@@ -267,7 +267,7 @@ if (_art == "spielerliste") then {
 			};
 			_index = (_DFML displayCtrl 1) lbAdd _label_text;
 			private["_wanted"];
-			if (not([_player] call player_cop) && ([_player] call player_get_bounty) > 0) then {
+			if (not([_player] call player_blufor) && ([_player] call player_get_bounty) > 0) then {
 				(_DFML displayCtrl 1) lbSetColor [_index, [1, 0, 0, 1]];
 			};
 		};
@@ -280,12 +280,12 @@ if (_art == "spielerliste") then {
 	
 	private["_i"];
 	_i = 0;
-	while { _i < (count playerstringarray) } do {
+	while { _i < (count PlayerStringArray) } do {
 		private["_player_variable_name", "_player_variable"];
-		_player_variable_name = playerstringarray select _i;
+		_player_variable_name = PlayerStringArray select _i;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		if (!isNil "_player_variable") then {
-		if (not([_player_variable] call player_cop) && ([_player_variable] call player_get_wanted)) then {
+		if (not([_player_variable] call player_blufor) && ([_player_variable] call player_get_wanted)) then {
 			private["_bounty", "_reasons"];
 			_reasons = [_player_variable] call player_get_reason; 
 			_bounty = [_player_variable] call player_get_bounty;
@@ -405,12 +405,12 @@ if (_art == "coplog") then {
 	(_DFML displayCtrl 1)	lbAdd "C U R R E N T  W A R R A N T S:";
 	(_DFML displayCtrl 1)	lbAdd _trennlinie;
 	_i = 0;
-	while { _i < (count playerstringarray) } do {
+	while { _i < (count PlayerStringArray) } do {
 		private["_player_variable_name", "_player_variable"];
-		_player_variable_name = playerstringarray select _i;
+		_player_variable_name = PlayerStringArray select _i;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		
-		if (not([_player_variable] call player_cop) && ([_player_variable] call player_get_wanted)) then {
+		if (not([_player_variable] call player_blufor) && ([_player_variable] call player_get_wanted)) then {
 			private["_bounty", "_reasons"];
 			_reasons = [_player_variable] call player_get_reason; 
 			_bounty = [_player_variable] call player_get_bounty;
@@ -456,15 +456,15 @@ if (_art == "chief") then {
 	_player_variable_name = "";
 	_index = -1;
 
-	for [{_c=0}, {_c < (count playerstringarray)}, {_c=_c+1}] do {
+	for [{_c=0}, {_c < (count PlayerStringArray)}, {_c=_c+1}] do {
 		private["_player_variable_name", "_player_variable"];
-		_player_variable_name = playerstringarray select _c;
+		_player_variable_name = PlayerStringArray select _c;
 		_player_variable = missionNamespace getVariable _player_variable_name;
 		if(!isNil "_player_variable") then {
 		if (([_player_variable] call player_exists)) then {
-			private["_player_cop"];
-			_player_cop = [_player_variable] call player_cop;
-			if (not(_player_cop)) exitWith {};
+			private["_player_blufor"];
+			_player_blufor = [_player_variable] call player_blufor;
+			if (not(_player_blufor)) exitWith {};
 			
 			private["_player_name"];
 			_player_name = (name _player_variable);
@@ -607,7 +607,7 @@ if (_art == "squad_manage") then {
 	_i = 0;
 	while { _i < (count _members) } do {
 		_member = (_members select _i);
-		_obj = if(not([_obj] call player_cop)) then {"notingame"} else { _obj };
+		_obj = if(not([_obj] call player_blufor)) then {"notingame"} else { _obj };
 		_index = lbAdd [102, (format ["%1 (%2)", _member, _obj])];
 		lbSetData [102, _index, (format ["%1", _obj])];
 		_i = _i + 1;

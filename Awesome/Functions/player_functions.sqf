@@ -39,11 +39,11 @@ player_side = {
 	([_player] call player_ai_side)
 };
 
-player_civilian = {
+player_blufor = {
 	private["_player"];
 	_player = _this select 0;
-	//player groupchat format ["%1", _player];
-	(([_player] call player_side) == civilian)
+	if (isNil "_player") exitWith { };
+	(([_player] call player_side) == west)
 };
 
 player_opfor = {
@@ -53,17 +53,17 @@ player_opfor = {
 	(([_player] call player_side) == east)
 };
 
+player_civilian = {
+	private["_player"];
+	_player = _this select 0;
+	//player groupchat format ["%1", _player];
+	(([_player] call player_side) == civilian)
+};
+
 player_insurgent = {
 	private["_player"];
 	_player = _this select 0;
 	(([_player] call player_side) == resistance)
-};
-
-player_cop = {
-	private["_player"];
-	_player = _this select 0;
-	if (isNil "_player") exitWith { };
-	(([_player] call player_side) == west)
 };
 
 player_dog = {
@@ -73,6 +73,35 @@ player_dog = {
 
 	_rolestring = toLower(str(_player));
 	(_rolestring in dogstringarray)
+};
+
+player_pmc = {
+	private["_player", "_rolestring"];
+	_player = _this select 0;
+	if (isNil "_player") exitWith { };
+
+	_rolestring = toLower(str(_player));
+	(_rolestring in pmcstringarray)
+};
+
+count_side = {
+	_side = _this select 0;
+	
+	_count = 0;
+	{
+		_player_variable_name = _x;
+		_player_variable = missionNamespace getVariable _player_variable_name;
+		
+		if(!isNil "_player_variable") then {
+			if ([_player_variable] call player_exists) then {
+				if ([_player_variable] call player_side == _side) then {
+					_count = _count + 1;
+				};
+			};
+		};
+	} count PlayerStringArray;
+	
+	_count
 };
 
 player_get_dead = {
@@ -364,7 +393,7 @@ player_reset_warrants = {
 	[_player, false] call player_set_wanted;
 	[_player, 0] call player_set_bounty;
 	[_player, []] call player_set_reason;
-	if (isciv && ister) then {
+	if (isCiv && ister) then {
 		ister = false;
 	};
 };
@@ -909,7 +938,7 @@ player_prison_loop = { _this spawn {
 		//PLAYER HAS PAID THE FULL BAIL
 		if (_bail_left <= 0 && _time_left > 0 ) exitWith {
 			private["_message"];
-			_message = format["%1-%2 has been relased from prison, after paying bail", _player, _player_name];
+			_message = format["%1-%2 has been released from prison, after paying bail", _player, _player_name];
 			format['server globalChat toString(%1);', toArray(_message)] call broadcast;
 			[_player] call player_prison_reset;
 			[_player] call player_prison_release;
@@ -1040,7 +1069,7 @@ players_object_near = {
 				_near_players = _near_players + [_player_variable];
 			};
 		};};
-	} forEach playerstringarray;
+	} forEach PlayerStringArray;
 
 	_near_players
 };
@@ -1054,7 +1083,7 @@ player_get_index = {
 
 	private["_player_index"];
 
-	_player_index = (playerstringarray find (str(_player)));
+	_player_index = (PlayerStringArray find (str(_player)));
 	_player_index
 };
 
@@ -1165,7 +1194,7 @@ player_lookup_uid = {
 			};
 		};
 		if (not(isNil "_player")) exitWith {};
-	} forEach playerstringarray;
+	} forEach PlayerStringArray;
 
 	_player
 };
@@ -1196,7 +1225,7 @@ player_lookup_name = {
 			};
 		};};
 		if (not(isNil "_player")) exitWith {};
-	} forEach playerstringarray;
+	} forEach PlayerStringArray;
 	_player
 };
 
@@ -1355,7 +1384,7 @@ player_get_gear = {
 };
 
 GovStunGear_Mags = ["15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD","15Rnd_9x19_M9SD"];
-GovStunGear_Weap  = ["ItemGPS","M9", "Binocular", "NVGoggles"];
+GovStunGear_Weap  = ["ItemGPS", "M9", "Binocular", "NVGoggles"];
 
 BluforGear_Weap = GovStunGear_Weap + ["M4A1"];
 BluforGear_Mags = GovStunGear_Mags + ["20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag", "20Rnd_556x45_Stanag"];
@@ -1395,7 +1424,7 @@ player_set_gear = {
 
 
 	if ((count _weapons) == 0 && (count _magazines) == 0) then {
-		if ([_player] call player_cop) then {
+		/*if ([_player] call player_blufor) then {
 			_magazines = BluforGear_Mags;
 			_weapons = BluforGear_Weap;
 		} else {
@@ -1403,7 +1432,7 @@ player_set_gear = {
 				_magazines = OpforGear_Mags;
 				_weapons = OpforGear_Weap;	
 			};
-		};
+		};*/
 	};
 
 	{_player addMagazine _x} forEach _magazines;
@@ -1669,7 +1698,7 @@ player_exit_vehicle = {
 	else {
 		private["_engine_state"];
 		_engine_state =  isEngineOn _vehicle;
-		_player action ["Eject", _vehicle];
+		_player action ["GetOut", _vehicle];
 		_vehicle engineOn _engine_state;
 	};
 
@@ -2078,25 +2107,8 @@ player_init_arrays = {
 	private["_player"];
 	_player = player;
 
-	/*,"ins5","ins6","ins7","ins8",*/
-	playerstringarray =
-	[
-		"civ1","civ2","civ3","civ4","civ5","civ6","civ7","civ8","civ9","civ10",
-		"civ11","civ12","civ13","civ14","civ15","civ16","civ17","civ18","civ19","civ20",
-		"civ21","civ22","civ23","civ24","civ25","civ26","civ27","civ28","civ29","civ30",
-		"civ31","civ32","civ33","civ34","civ35","civ36","civ37","civ38","civ39","civ40",
-		"civ41","civ42","civ43","civ44","civ45","civ46","civ47","civ48","civ49","civ50",
-		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
-		"civ61","civ62","civ63","civ64",
-		"ins1","ins2","ins3","ins4","ins9","ins10",
-		"ins11","ins12",
-		"opf1","opf2","opf3","opf4","opf5","opf6","opf7","opf8","opf9","opf10",
-		"opf11","opf12","opf13","opf14","opf15","opf16","opf17","opf18","opf19",
-		"cop1","cop2","cop3","cop4","cop5","cop6","cop7","cop8","cop9","cop10",
-		"cop11","cop12","cop13","cop14","cop15","cop16","cop17","cop18","cop19","cop20"
-	];
-
-	civstringarray =
+	/* Factions */
+	CivStringArray =
 	[
 		"civ1","civ2","civ3","civ4","civ5","civ6","civ7","civ8","civ9","civ10",
 		"civ11","civ12","civ13","civ14","civ15","civ16","civ17","civ18","civ19","civ20",
@@ -2105,25 +2117,65 @@ player_init_arrays = {
 		"civ41","civ42","civ43","civ44","civ45","civ46","civ47","civ48","civ49","civ50",
 		"civ51","civ52","civ53","civ54","civ55","civ56","civ57","civ58","civ59","civ60",
 		"civ61","civ62","civ63","civ64"
-	];
+	]; // 1	- 64
 
-	dogstringarray =
+	BluStringArray =
 	[
-	"ins3", "cop5"
+		"cop1","cop2","cop3","cop4","cop5","cop6","cop7","cop8","cop9","cop10",
+		"cop11","cop12","cop13","cop14","cop15","cop16","cop17","cop18","cop19","cop20"
 	];
 
+	OpfStringArray =
+	[
+		"opf1","opf2","opf3","opf4","opf5","opf6","opf7","opf8","opf9","opf10",
+		"opf11","opf12","opf13","opf14","opf15","opf16","opf17","opf18","opf19"
+	];
 
+	InsStringArray =
+	[
+		"ins1","ins2","ins3","ins4","ins9","ins10",
+		"ins11","ins12"
+	];
+	
+	PlayerStringArray = CivStringArray + BluStringArray + OpfStringArray + InsStringArray;
+	/* End Factions */
+	
+	/* Slots */
+	DogSlots = ["ins3", "cop5"];
+	PMCSlots = ["civ60", "civ61", "civ62", "civ63", "civ64"];
+	/* Ranked Slots */
+	AdmSlots = DogSlots + [];
+	SupSlots = [];
+	VipSlots = [];
+	
+	/* References */
+	BluRankReferenceArray = ["cop1"];
+	OpfRankReferenceArray = ["opf1"];
+	OpfRadarReferenceArray = ["opf2"];
+	
+	/* System */
 	role = _player;
 	rolestring = toLower(str(_player));
-	rolenumber = (playerstringarray find rolestring) + 1;
+	rolenumber = (PlayerStringArray find rolestring) + 1;
 
-	//player groupChat["role = %1, rolestring = %2,  rolenumber = %3", role, rolestring, rolenumber];
+	/* IsVars */
+	isBlu = (rolestring in BluStringArray); //[_player] call player_blufor;
+	isOpf = (rolestring in OpfStringArray); //[_player] call player_opfor;
+	isIns = (rolestring in InsStringArray); //[_player] call player_insurgent;
+	isCiv = (rolestring in CivStringArray); //[_player] call player_civilian;
+	
+	isDog = (rolestring in DogSlots); //[_player] call player_dog;
+	isPmc = (rolestring in PMCSlots); //[_player] call player_pmc;
+	
+	isGov = isBlu || isOpf;
 
-	iscop = [_player] call player_cop;
-	isdog = [_player] call player_dog;
-	isciv = [_player] call player_civilian;
-	isopf = [_player] call player_opfor;
-	isins = [_player] call player_insurgent;
+	isBluforRanked = (rolestring in BluRankReferenceArray);
+	isOpforRanked = (rolestring in OpfRankReferenceArray);
+	isOpforRadar = (rolestring in OpfRadarReferenceArray);
+	
+	isSupSlot = (rolestring in SupSlots);
+	isVipSlot = (rolestring in VipSlots);
+	isAdmSlot = (rolestring in AdmSlots);
 
 	_player addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];
 	_player addMPEventHandler ["MPRespawn", { _this call player_handle_mprespawn }];
@@ -2455,7 +2507,7 @@ player_reset_prison = {
 	_player = _this select 0;
 	if (not([_player] call player_human)) exitWith {};
 
-	if (([_player, "restrained"] call player_get_bool) && not(iscop or isopf)) then {
+	if (([_player, "restrained"] call player_get_bool) && not(isGov)) then {
 		private["_message"];
 		_message = format["%1-%2 aborted while restrained, he has been sent to prison", _player, (name _player)];
 		format['server globalChat toString(%1);', toArray(_message)] call broadcast;
@@ -2464,7 +2516,7 @@ player_reset_prison = {
 		[_player, 100] call player_prison_bail;
 		[_player] call player_prison_convict;
 	}
-	else { if (([_player] call player_get_arrest) && not(iscop or isopf))then {
+	else { if (([_player] call player_get_arrest) && not(isGov))then {
 		private["_message"];
 		_message = format["%1-%2 has been sent to prison to complete his previous sentence", _player, (name _player)];
 		format['server globalChat toString(%1);', toArray(_message)] call broadcast;
@@ -2495,7 +2547,7 @@ player_spawn = { _this spawn {
 				_respawn_marker = "respawn_southciv";
 				_diff_slot = true;
 			};
-			if(isciv && rolenumber >= 60) then {
+			if(isCiv && rolenumber >= 60) then {
 				_respawn_marker = "respawn_pmc";
 				_diff_slot = true;
 			};
@@ -2509,7 +2561,7 @@ player_spawn = { _this spawn {
 		[_player] call player_intro_text;
 	};
 
-	if (not(_first_time) && (([_player] call player_cop) || ([_player] call player_opfor))) then {
+	if (not(_first_time) && (([_player] call player_blufor) || ([_player] call player_opfor))) then {
 		[_player] call player_load_side_gear;
 	};
 
@@ -2561,7 +2613,7 @@ player_drop_inventory = {
 	_player = _this select 0;
 	if (not([_player] call player_exists)) exitWith {};
 
-	if ([_player] call player_cop || [_player] call player_opfor ) then {
+	if ([_player] call player_blufor || [_player] call player_opfor ) then {
 		private["_amount"];
 		_amount = ([player, "money"] call INV_GetItemAmount);
 		if (_amount <= 0) exitWith {};
@@ -2668,7 +2720,7 @@ player_init_civilian_stats = {
 player_init_cop_stats = {
 	private["_player"];
 	_player = _this select 0;
-	if (not([_player] call player_cop)) exitWith {};
+	if (not([_player] call player_blufor)) exitWith {};
 
 	private["_gasmask_on"];
 	_gasmask_on = ([player, "gasmask_on"] call INV_GetItemAmount > 0);
@@ -2702,7 +2754,7 @@ player_init_stats = {
 	[_player, "restrained", false] call player_set_bool;
 	[_player, "extradeadtime", 0] call player_set_scalar;
 
-	if (iscop or isopf) then {
+	if (isGov) then {
 		[_player, "sidemarkers", true] call player_set_bool;
 	};
 

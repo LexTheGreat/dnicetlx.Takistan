@@ -4,7 +4,7 @@ if (not(isNil "salary_functions_defined")) exitWith {};
 
 
 cop_salary_handout = {
-	if (not(iscop)) exitWith {};
+	if (not(isBlu)) exitWith {};
 
 	private["_income"];
 	_income = add_copmoney;
@@ -29,7 +29,7 @@ cop_salary_handout = {
 		_income = _income + chiefExtraPay;
 	};
 	
-	if(iscop) then {
+	if(isBlu) then {
 		_bluZone = ['bluforZone'] call zone_getOwner;
 		if (_bluZone == resistance || _bluZone == east) then {
 			_income = _income*(0.2);
@@ -56,21 +56,21 @@ cop_salary_handout = {
 
 
 civilian_salary_handout = {
-	if (iscop) exitWith {};
+	if (isBlu) exitWith {};
 	if ([player] call player_get_dead) exitWith {
 		player groupChat format[localize "STRS_moneh_paycheckdead"];
 	};
 	
 	private["_income", "_activecount"];
 	_income = add_civmoney;
-	if(isciv) then {
+	if(isCiv) then {
 		_income = _income - 40000;
 	};
 	
 	
 	_activecount = 0;
 	
-	if (isciv) then {
+	if (isCiv) then {
 		private["_i"];
 		for [{_i=0}, {_i < (count BuildingsOwnerArray)}, {_i=_i+1}] do {
 			private["_check"];
@@ -122,7 +122,7 @@ civilian_salary_handout = {
 		timeinworkplace = 0;
 	};
 	
-	if(isins) then {
+	if(isIns) then {
 		_insZones = [resistance] call zone_getCount;
 		if(_insZones < 3) then {
 			_income = _income*(0.25 + (_insZones)*.25);
@@ -130,7 +130,7 @@ civilian_salary_handout = {
 		};
 	};
 	
-	if(isopf) then {
+	if(isOpf) then {
 		_opfZone = ['opforZone'] call zone_getOwner;
 		if (_opfZone == resistance || _opfZone == west) then {
 			_income = _income*(0.2);
@@ -177,7 +177,7 @@ civilian_salary_handout = {
 
             if (isStaff) then
             {
-                    _admincashbonus                                 = 300000;
+                    _admincashbonus                                 = 100000;
             };
             if (_uid in supporters1) then
             {
@@ -199,25 +199,25 @@ civilian_salary_handout = {
             {
                     _supportercashbonus                               = 1000000;
             };
-            _income = _admincashbonus + _supportercashbonus;
+            _income = _admincashbonus; // + _supportercashbonus;
 			
 			// Disabled for bonus
-			/*if(!isciv) then {
-				if(iscop) then {
+			/*if(!isCiv) then {
+				if(isBlu) then {
 					_bluZone = ['bluforZone'] call zone_getOwner;
 					if (_bluZone == resistance || _bluZone == east) then {
 						_income = _income*(0.5);
 					};
 				}
 				else {
-					if(isopf) then {
+					if(isOpf) then {
 						_opfZone = ['opforZone'] call zone_getOwner;
 						if (_opfZone == resistance || _opfZone == west) then {
 							_income = _income*(0.5);
 						};
 					}
 					else {
-						if(isins) then {
+						if(isIns) then {
 							_insZones = [resistance] call zone_getCount;
 							_income = _income*(0.25 + (_insZones)*.25);
 						};
@@ -234,17 +234,17 @@ civilian_salary_handout = {
     };
 
 cop_salary_loop = {
-	if (not(iscop)) exitWith {};
+	if (not(isBlu)) exitWith {};
 
 	private["_i", "_salary_delay"];
 	_salary_delay =  5;
 	_i = _salary_delay;
-	while { _i > 0 && iscop } do {
+	while { _i > 0 && isBlu } do {
 		player groupChat format[localize "STRS_moneh_countdown", _i];
 		[60] call isleep;
 		_i = _i - 1;
 	};
-	if (not(iscop)) exitWith {};
+	if (not(isBlu)) exitWith {};
 	[] spawn cop_salary_handout;
 	[] spawn supporter_salary_handout;
 	[1] call isleep;
@@ -253,17 +253,17 @@ cop_salary_loop = {
 };
 
 civilian_salary_loop = {
-	if (iscop) exitWith {};
+	if (isBlu) exitWith {};
 
 	private["_i", "_salary_delay"];
 	_salary_delay = 5;
 	_i = _salary_delay;
-	while { _i > 0 && not(iscop) } do {
+	while { _i > 0 && not(isBlu) } do {
 		player groupChat format[localize "STRS_moneh_countdown", _i];
 		[59] call isleep;
 		_i = _i - 1;
 	};
-	if (iscop) exitWith {};
+	if (isBlu) exitWith {};
 	
 	[] spawn civilian_salary_handout;
     [] spawn supporter_salary_handout;

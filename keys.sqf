@@ -80,7 +80,7 @@ if (_action == "schluesseluebergabe") then {
 	private["_player_number", "_player_variable_name", "_player_variable"];
 	
     _player_number = call compile INV_InventarGiveReceiver;
-    _player_variable_name = playerstringarray select _player_number;
+    _player_variable_name = PlayerStringArray select _player_number;
     _player_variable = missionNamespace getVariable _player_variable_name;
 	
     

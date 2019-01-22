@@ -202,9 +202,9 @@ C_change = {
 	if (isNil "_vehicleList") then { _vehicleList = []; }; if (typeName _vehicleList != "ARRAY") then { _vehicleList = []; };
 	
 	//=Wanted System=
-	_isWanted = [player] player_get_wanted;
-	_bounty = [player] player_get_bounty;
-	_reason = [player] player_get_reason;
+	_isWanted = [player] call player_get_wanted;
+	_bounty = [player] call player_get_bounty;
+	_reason = [player] call player_get_reason;
 	//=Wanted System=
 	
 	if (C_changing) exitwith {player groupchat "C ERROR: already changing";};
@@ -239,8 +239,8 @@ C_change = {
 	
 	if (not([_oldUnit] call player_human)) exitWith { call _failed_change;};
 	
-	if ((_class in pmc_skin_list) && not(ispmc)) exitWith {
-		player groupchat "You cannot access PMC Shops: You are not whitelisted!";
+	if ((_class in pmc_skin_list) && not(isPmc)) exitWith {
+		player groupchat "You cannot access PMC Shops: You are not PMC!";
 		call _failed_change;
 	};
 
@@ -334,6 +334,7 @@ C_change = {
 	
 	role = _newUnit;
 	_newUnit addEventHandler ["fired", {_this spawn A_fnc_EH_fired}];
+	_newUnit addEventHandler ["GetIn", {_this spawn A_fnc_EH_getin}];
 	_newUnit addEventHandler ["handleDamage", {_this call A_fnc_EH_hDamage}];
 	_newUnit addEventHandler ["WeaponAssembled", {_this spawn A_fnc_EH_wa}];
 	_newUnit addMPEventHandler ["MPKilled", { _this call player_handle_mpkilled }];

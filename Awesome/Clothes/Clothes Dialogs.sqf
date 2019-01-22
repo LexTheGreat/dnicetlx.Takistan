@@ -13,10 +13,10 @@ _shopalic		= C_shoparray select 4;
 C_List = [];
 C_tstorage = [];
 
-if (isciv) then { C_tstorage = C_storage_civ; };
-if (iscop) then { C_tstorage = C_storage_west; };
-if (isopf) then { C_tstorage = C_storage_east; };
-if (isins) then { C_tstorage = C_storage_guer; };
+if (isCiv) then { C_tstorage = C_storage_civ; };
+if (isBlu) then { C_tstorage = C_storage_west; };
+if (isOpf) then { C_tstorage = C_storage_east; };
+if (isIns) then { C_tstorage = C_storage_guer; };
 
 
 _exit = false;

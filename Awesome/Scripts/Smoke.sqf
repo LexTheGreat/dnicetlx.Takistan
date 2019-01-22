@@ -1,6 +1,7 @@
 _bullet			= _this select 1;
 _this			= _this select 0;
 
+
 _unit 			= _this select 0;
 _weapon			= _this select 1;
 _muzzle			= _this select 2;
@@ -9,46 +10,37 @@ _ammo			= _this select 4;
 _magazine		= _this select 5;
 _projectile		= _this select 6;
 
-
 if ( (typeName _bullet) != "OBJECT") exitwith {};
-
 
 _Tear_gas =
 {
 	_pos = _this select 0;
 	_timenow = time;
-	_array = [];
-	while{time < (_timenow + 20) || (!(isnull _pos))}do
-		{
-			sleep 1;
-			if(!(isnull _pos))then
-				{
-					if(count(nearestObjects [_pos, ["Man"], 20]) > 0)then
-						{
-
-							{
-								_x setVariable ["flashed",true, true];
-								_array set [count _array,_x];
-
-							} foreach nearestObjects [_pos, ["Man"], 20];
-						
-						}else{
-						
-							{
-								_unit = _x;
-								_unit setVariable ["flashed",false, true];
-								{
-									if(_x == _unit)then
-										{
-											_array = _array - [_x];
-										};
-								} foreach _array;
+	while{time < (_timenow + 20) || (!(isnull _pos))}do{
+		sleep 1;
+		if(!(isnull _pos))then {
+			{
+				_player_variable_name = _x;
+				_player_variable = missionNamespace getVariable _player_variable_name;
 				
-							}foreach _array;
-						
+				if(!isNil "_player_variable") then {
+					if ([_player_variable] call player_exists) then {
+						if (_pos distance (getPos _player_variable) <= 10) then {
+							private["_player_name"];
+							_player_name = (name _player_variable);
+							
+							_hasMask = _player_variable getvariable ["gasmask", false];
+							if (!_hasMask) then {
+								_player_variable setVariable ["flashed", true, true];
+							} else {
+								_player_variable setVariable ["flashed", false, true];
+							};
 						};
+					};
 				};
+			} count PlayerStringArray;
 		};
+	};
 };
 
 
@@ -69,4 +61,8 @@ switch (_ammo) do
     {
 		[_bullet] spawn _Tear_gas;
     };   
+	case "SmokeShellVehicle":
+	{
+		[_bullet] spawn _Tear_gas;
+	};
 };

@@ -6,7 +6,7 @@ _owner  = _this select 1;
 if(_killer == _owner) exitWith {};
 
 private["_killer_cop"];
-_killer_cop = [_killer] call player_cop;
+_killer_cop = [_killer] call player_blufor;
 if(_killer_cop) exitWith {};
 
 private["_message"];

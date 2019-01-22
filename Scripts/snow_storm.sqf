@@ -13,7 +13,7 @@ snowday = true;
 "colorCorrections" ppEffectEnable true;
  
 //setviewdistance 2000;
-bis_fog = 0.1;
+bis_fog = 0;
  
 0 setovercast .1;
 0 setrain 0;
@@ -79,11 +79,11 @@ _d = 15;
 _h = 12;
 _h1 = 8;
 _h2 = 4;
-_density = 20000;
+_density = 10000;
  
  
  
-_fog1 = "#particlesource" createVehicleLocal _pos;
+/*_fog1 = "#particlesource" createVehicleLocal _pos;
 _fog1 setParticleParams [
 ["\Ca\Data\ParticleEffects\Universal\universal.p3d" , 16, 12, 13, 0], "", "Billboard", 1, 10,
 [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0,
@@ -111,7 +111,7 @@ _fog3 setParticleParams [
 ];
 _fog3 setParticleRandom [3, [55, 55, 0.2], [0, 0, -0.1], 2, 0.45, [0, 0, 0, 0.1], 0, 0];
 _fog3 setParticleCircle [0.001, [0, 0, -0.12]];
-_fog3 setDropInterval 0.01;
+_fog3 setDropInterval 0.01;*/
  
  
 while {snowday} do
@@ -120,9 +120,9 @@ _a = 0;
 while { _a < _density } do
 {
 _pos = position player;
-_fog1 setpos _pos;
+/*_fog1 setpos _pos;
 _fog2 setpos _pos;
-_fog3 setpos _pos;
+_fog3 setpos _pos;*/
 0 setRain 0;
  
 _dpos = [((_pos select 0) + (_d - (random (2*_d))) + ((velocity vehicle player select 0)*1)),((_pos select 1) + (_d - (random (2*_d))) + ((velocity vehicle player select 0)*1)),((_pos select 2) + _h)];

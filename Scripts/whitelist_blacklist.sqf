@@ -9,28 +9,23 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198101924418" // Lex_the_great
+	"76561198093358722" // Giovanni
 ];
 
 A_LIST_TESTERS =
 [
-	"76561198065161712" //Stridey.
+	"76561198065161712" //Stridey
 ];
 
 // Directors and Deputy Directors
 
-A_LIST_DERPS	=
-[
-	"76561198124176578", // 1st Lt Monkey
-	"76561198093358722"  // Gio
-];
+A_LIST_DERPS	= [];
 
 // Senior Admins
 
 A_LIST_SNADMINS	=
 [
 	"76561198101924418", // Lex_the_great
-	"76561198094294502" // Unknown
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -39,24 +34,17 @@ A_LIST_SNADMINS	=
 
 A_LIST_ADMINS	=
 [
-	"76561198053580599", // Martin
-	"76561198134796571", // Bacon
-	"76561198101924418" // Lex_the_great
+	"76561198071078533", // Rogue
+	"76561198044511240" // Comrade
 ];
 
 // Remember the Array format! No comma on last item in array!
 
 // Moderators
 
-A_LIST_MODS	=
+A_LIST_MODS	= 
 [
-
 	"76561198101924418", // Lex_the_great
-	"76561198095702747", // Irish
-	"76561198159209074", // Deutsch Flieger
-	"76561198044511240", // Comrade Blackei
-	"76561198211441867", // Kevlar
-	"76561198161493575" // Ivan
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
@@ -81,7 +69,7 @@ pmcwhitelist = [
 ];
 
 
-//if (!(_uid in isStaff) && (call player_cop;) && (    )) then {call kick_whitelist};
+//if (!(_uid in isStaff) && (call player_blufor;) && (    )) then {call kick_whitelist};
 
 
 // Remember the Array format! No comma on last item in array!
@@ -89,14 +77,12 @@ pmcwhitelist = [
 // Blacklisting
 if(isNil "copblacklist") then {
 	copblacklist = [
-	"76561198040462947", //Son of the Bitch
-	"76561198095037617", //Goldenpotaters
-	"76561198150297021"//Envy
+	
 	];
 };
 if(isNil "opfblacklist") then {
 	opfblacklist = [
-	"76561198040462947" //Son of the Bitch
+	
 	];
 };
 if(isNil "opfcmdblacklist") then {
@@ -110,14 +96,12 @@ if(isNil "insblacklist") then {
 	];
 };
 pmcblacklist = [
-"76561198203570236", //Austin
-"76561198177166307", //Dark Arrow
-"76561198083392018" //jpf
+
 ];
 
-issup = true; // ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
-isvip = true; // ((_uid in supportersVIP));
-ispmc = ((_uid in pmcwhitelist) or (isStaff) or (issup));
+isSup = ((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4) || (_uid in supportersVIP));
+isVip = ((_uid in supportersVIP));
+// isPmc = ((_uid in pmcwhitelist) or (isStaff) or (isSup)); BEtter way
 
 _side = playerSide;
 if((_uid in copblacklist) && (_side == west)) then {
@@ -136,37 +120,38 @@ if((_uid in insblacklist) && (_side == resistance)) then {
 	sleep 7;
 	failMission "END1";};
 
-if((!ispmc) && (isciv) && rolenumber >= 60) then {
-	player groupChat "You cannot join a PMC slot without supporter privileges!";
-	sleep 7;
-	failMission "END1";};
-if((!isAdmins) && rolenumber == 72) then {
+if(isPmc && !isSup) then {
+	player groupChat "!!!!WARNING!!!!";
+	player groupChat "PMC requires you to have [PMC] in your name. You are required to be on teamspeak, with police training!";
+	player groupChat "This message is because you are not a supporter. Supporters don't need the police training to play as PMC.";
+	//sleep 7;
+	// failMission "END1";
+};
+if((!isAdmins) && isAdmSlot) then {
 	player groupChat "You cannot join a Admin slot without being an admin!";
 	sleep 7;
 	failMission "END1";};
-if((!isvip) && rolenumber == 71) then {
+if((!isVip) && isVipSlot) then {
 	player groupChat "You cannot join a VIP slot without VIP privileges!";
 	sleep 7;
 	failMission "END1";};
 _notAllowed = false;
-if(!issup) then {
-	if((rolenumber == 70) ||(rolenumber >= 73 && rolenumber <= 78)||(rolenumber >= 92 && rolenumber <= 95)) then {
-		player groupChat "You cannot join a supporter slot without supporter privileges!";
-		sleep 7;
-		failMission "END1";
-	};
+if(!isSup && isSupSlot) then {
+	player groupChat "You cannot join a supporter slot without supporter privileges!";
+	sleep 7;
+	failMission "END1";
 };
 if(!(isStaff || isTester)) then {
-	if((rolenumber == 96) || (rolenumber == 67)) then {
+	if(isAdmSlot) then {
 		player groupChat "You cannot join a Developer slot without Developer privileges!";
 		sleep 7;
 		failMission "END1";
 	};
 };
-if(_uid in opfcmdblacklist) then {
+/*if(_uid in opfcmdblacklist) then {
 	if (rolenumber >= 73 && rolenumber <= 74) then {
 		player groupChat "You are Blacklisted from Opfor Command Slots!";
 		sleep 7;
 		failMission "END1";
 	};
-};
+};*/

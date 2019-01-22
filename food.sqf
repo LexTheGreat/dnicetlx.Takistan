@@ -104,7 +104,7 @@ if (_art == "use") then {
 
     if (_amount >= _anzahl) then {
         [player, _item, -(_anzahl)] call INV_AddInventoryItem;
-        if(_item == "Donut" and isciv)exitwith{player groupchat "the donut turns to ash in your mouth..."};
+        if(_item == "Donut" and isCiv)exitwith{player groupchat "the donut turns to ash in your mouth..."};
         INV_hunger = INV_hunger - (_hungerStillen*_anzahl);
         if (INV_hunger < 0) then {INV_hunger = 0};
         player groupChat format[localize "STRS_inv_item_nahrung_gegessen", strN((round (100-INV_hunger)))];

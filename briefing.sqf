@@ -132,11 +132,10 @@ player createDiaryRecord ["credits",
 [
 "Staff and TS3",
 "
-Owner: [TLX] Lex_The_Great<br/>
-TS3 Info;<br/>
-Address: On right hand side :)<br/>
-Mission build: 1.4.6<br/>
-Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Strideynet<br/>
+Teamspeak Info:<br/>
+Address: ts.tlx-gaming.com<br/>
+Mission build: 1.5.2<br/>
+Current version developed by: D-Nice, [TLX] Lex_The_Great, [TLX] Giovanni, [TLX] Strideynet<br/>
 Also special thanks to all the developers who made Takistan Life Revolution to what it is today<br/>
 "
 ]
@@ -219,6 +218,21 @@ player createDiaryRecord ["changelog",
 "Takistan Life Xtreme",
 "
 <br/>
+Jan 15, 2018<br/>
+Various fixes here and there 1.5.2<br/>
+Edited: PMC slots are now open to the public
+Edited: Objectgeddon delay extended to 60 min
+Fixed: some players don't get starting money
+Fixed: all arrested players getting charged as bank robbers
+Fixed: typo in suicide messages
+<br/>
+<br/>
+<br/>
+Jan 15, 2018<br/>
+The server returns once again! 1.4.7<br/>
+Fixed: bank account not loading<br/>
+<br/>
+<br/>
 Dec 2, 2016<br/>
 SERVER RETURNS! 1.4.2<br/>
 Edited: Several parts of outdated text<br/>
@@ -276,8 +290,7 @@ player createDiaryRecord ["rules",
 [
 "Where to find our most up to date rules",
 "
-Go on our website at TLX-Gaming.enjin.com to find our most up to date rules list. <br/>
-Here is a direct link to it: http://tlx-gaming.enjin.com/rules
+Go on our website at tlx-gaming.com to find our most up to date rules list.
 <br/>
 
 "

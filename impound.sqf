@@ -72,13 +72,13 @@ if(_art == "buy")then {
 		player groupchat "You do not have enough money"
 	};
 
-	if(iscop and count (nearestobjects [getpos ccarspawn,["Ship","car","motorcycle","truck"], 3]) > 0)exitwith{player groupchat "There is a vehicle blocking the spawn! Call a cop to have it impounded."};
+	if(isBlu and count (nearestobjects [getpos ccarspawn,["Ship","car","motorcycle","truck"], 3]) > 0)exitwith{player groupchat "There is a vehicle blocking the spawn! Call a cop to have it impounded."};
 
 	[player, "money", -impoundpay] call INV_AddInventoryItem;
 
 	_vcl = call compile format["%1", _vcl];
 
-	if(isciv)then {
+	if(isCiv)then {
 		_vcl setpos [(getPosATL impoundarea2 select 0)-(random 10)+(random 10), (getPosATL impoundarea2 select 1)-(random 10)+(random 10), getPosATL impoundarea2 select 2];
 		_vcl setdir getdir impoundarea2;
 	} else {

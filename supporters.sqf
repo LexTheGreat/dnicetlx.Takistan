@@ -181,19 +181,20 @@ supporters1 	  = [
 					"76561198047739809", //Dieter
 					"76561198157505040",  //StarBoSs
 					"76561198130599452", //Ashton
-					"76561198096310527", //larsp_000
 					"76561198132937105", //Cas
 					"76561198112625726", //Lucas
 					"76561198075570847", //KenP
 					"76561198129817887", //Rhys
 					"76561198083392018", //jpf
-					"76561198044511240"  //Comrade
+					"76561198044511240",  //Comrade
+					"76561198174971281" //AmiXEleMenTz
 		    ];
 
 // Remember the Array format! No comma on last item in array!
 
 supporters2 	  = [
 					"76561198124725504", //KillaCali3
+					"76561198096310527", //larsp_000
 					"76561198062863149",//Spencer (donated by wade)
 					"76561198054194000", //S. Wade //add as mod
 					"76561198064255265",//DaveHoboMofo

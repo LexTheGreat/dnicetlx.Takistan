@@ -57,9 +57,9 @@ marker_side_init = {
 	private["_i", "_local_markers"];
 	_local_markers = [];
 	_i = 0;
-	while { _i < (count playerstringarray) } do {
+	while { _i < (count PlayerStringArray) } do {
 		private["_player_variable_name", "_player_variable"];
-		_player_variable_name = playerstringarray select _i;
+		_player_variable_name = PlayerStringArray select _i;
 	
 		private["_local_marker", "_local_marker_text", "_local_marker_name", "_local_marker_location"];
 		_local_marker_name = _player_variable_name;
@@ -135,7 +135,7 @@ marker_side_loop = {
 	[] spawn marker_side_loop; 
 };
 
-if (!isciv) then {
+if (!isCiv) then {
 	[] spawn marker_side_loop;
 };
 

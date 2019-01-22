@@ -6,10 +6,10 @@ waitUntil {!isNil "statsLoaded"};
 _side = str (playerSide);
 _sup = "Regular";
 //["Connection Tracker",  _side, _duper, " = connected"] call fn_LogToServer;
-if (issup) then {
+if (isSup) then {
 	_sup = "Supporter";
 };
-if (isvip) then {
+if (isVip) then {
 	_sup = "VIP";
 };
 _sup = str (_sup);

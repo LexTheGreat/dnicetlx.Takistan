@@ -8,10 +8,10 @@ SpeedGun_init = {
 SpeedGun_loop = {
 	private["_vehicle", "_bool", "_target", "_string", "_speed", "_speedS"];
 
-	if (!(iscop or isopf)) exitWith {};
+	if (!(isGov)) exitWith {};
 	waitUntil {!isNil "SG_ON"};
 	while {true} do {
-		if (SG_ON && (iscop or isopf) && INV_shortcuts) then {
+		if (SG_ON && (isGov) && INV_shortcuts) then {
 			/*(_vehicle = vehicle player;*/
 			_bool	= call holster_pistol_in_hands;
 				

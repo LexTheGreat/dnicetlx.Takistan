@@ -1421,10 +1421,10 @@ factory_buy = {
 	INV_Fabrikowner = INV_Fabrikowner + [ _factory_id ];
 	//["INV_Fabrikowner", INV_Fabrikowner] spawn stats_client_save;
 	_uid = getplayerUID player;
-	if(isciv) then {
+	if(isCiv) then {
 		[_uid, "FactoryCiv", INV_Fabrikowner] call fn_SaveToServer;
 	};
-	if (isins) then {
+	if (isIns) then {
 		[_uid, "FactoryRes", INV_Fabrikowner] call fn_SaveToServer;
 	};
 

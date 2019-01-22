@@ -27,7 +27,7 @@ if (_art == "serverloop") then {
 			private["_k"];
 			for [{_k=0}, {_k < count(WahlArrayc)}, {_k=_k+1}] do {
 				private["_player_variable_name", "_player_variable"];
-				_player_variable_name = playerstringarray select _k;
+				_player_variable_name = PlayerStringArray select _k;
 				_player_variable = missionNamespace getVariable _player_variable_name;
 				if(!isNil "_player_variable") then {
 				if (not([_player_variable] call player_exists)) then { 
@@ -43,7 +43,7 @@ if (_art == "serverloop") then {
 		private["_x"];
 		for [{_x=0}, {_x < count(WahlArrayc)}, {_x=_x+1}] do {
 			private["_player_variable", "_player_variable_name"];
-			_player_variable_name = (playerstringarray select _x);
+			_player_variable_name = (PlayerStringArray select _x);
 			_player_variable = missionNamespace getVariable _player_variable_name;
 			
 			if(!isNil "_player_variable") then {
@@ -61,7 +61,7 @@ if (_art == "serverloop") then {
 		} 
 		else {
 			_currentchief = _MaxPos;
-			_chiefString  = (playerstringarray select _currentchief);
+			_chiefString  = (PlayerStringArray select _currentchief);
 			format["hint format[localize ""STRS_chief_new"", ""%3"", %2]; if ((rolenumber-1) == %1) then {ischief = true;} else {ischief = false;};", _MaxPos, _MaxStimmen, _chiefString] call broadcast;	
 		};};
 		

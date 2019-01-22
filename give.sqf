@@ -18,7 +18,7 @@ if (_action == "uebergabe") then {
 	private["_player_number", "_player_variable_name", "_player_variable"];
 	
 	_player_number   = call compile (_this select 3);
-	_player_variable_name = playerstringarray select _player_number;
+	_player_variable_name = PlayerStringArray select _player_number;
 	_player_variable =  missionNamespace getVariable _player_variable_name;
 	
 	if (not([_player_variable] call player_exists)) exitWith {
