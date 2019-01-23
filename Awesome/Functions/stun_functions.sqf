@@ -85,7 +85,7 @@ stun_shot_far = {
 	
 	if ([_unit, "isstunned"] call player_get_bool) exitwith {stunning = false;};
 	
-	liafu = true;
+	liafu2 = true;
 
 	[_unit, _shooter] spawn stun_broadcast;
 	
@@ -784,7 +784,7 @@ stun_effects_full = {
 stun_drop_weapons = {
 	private ["_unit", "_weapons", "_holder", "_pos"];
  
-	 liafu = true;
+	 liafu2 = true;
 	 _unit = _this select 0;
 	 _weapons = weapons _unit;
 	 _weapons = _weapons - nonlethalweapons;

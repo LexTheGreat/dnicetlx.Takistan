@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 /*[alight, 1, 0] call setPitchBank;
 [alight2, 1, 0] call setPitchBank;

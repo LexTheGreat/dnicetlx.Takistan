@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 if(pickingup)exitwith{};
 

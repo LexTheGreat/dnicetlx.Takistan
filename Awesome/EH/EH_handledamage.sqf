@@ -9,7 +9,7 @@ _projectile		= _this select 4;
 private["_distance"];
 _distance 		= 0;
 
-liafu = true;
+liafu2 = true;
 
 if( ((_unit distance getmarkerpos "respawn_west" < 100))  || 
 	((_unit distance getmarkerpos "respawn_east" < 100)) || 

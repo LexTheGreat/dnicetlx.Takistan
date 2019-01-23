@@ -61,7 +61,7 @@ if (_vehiclepos select 2 < 25) exitWith
 	hint "Unable to deploy rapel ropes. Your vehicle is not between 25 and 100 feet altitude above the surface below you.";
 	};
 	
-liafu = true;
+liafu2 = true;
 	
 	
 // ======================================================================================

@@ -403,57 +403,57 @@ vehicle_set_modifications = {
 		};
 		case "Octavia_ill": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "#(argb,8,8,3)color(0.5,0,0.5,0.5,ca)"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0, "#(argb,8,8,3)color(0.5,0,0.5,0.5,ca)"]'; 
 			processInitCommands;
 		};
 		case "Octavia_Cop": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "#(argb,8,8,3)color(0,1,0,0.5,ca)"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0, "#(argb,8,8,3)color(0,1,0,0.5,ca)"]'; 
 			processInitCommands;
 		};
 		case "Octavia_UN": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "#(argb,8,8,3)color(1,1,1,0.5,ca)"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0, "#(argb,8,8,3)color(1,1,1,0.5,ca)"]'; 
 			processInitCommands;
 		};
 		case "Octavia_PMC": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "#(argb,8,8,3)color(0,0,0,1,ca)"]';
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0, "#(argb,8,8,3)color(0,0,0,1,ca)"]';
 			processInitCommands;
 		};
 		case "SUV_UN_EP1_retex": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvpolice.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\suvpolice.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_vip": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_UN_EP1_retex_sup": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvpolice.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\suvpolice.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_sup": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_vip": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\suvsupporter.paa"]'; 
 			processInitCommands;
 		};
 		case "SUV_TK_EP1_news": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0,"images\news_suv.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0,"images\news_suv.paa"]'; 
 			processInitCommands;
 		};
 		case "MH6J_EP1_news": {
 			xorE=true;
-			_vehicle setVehicleInit 'liafu = true; this setObjectTexture [0, "images\news_chopper.paa"]'; 
+			_vehicle setVehicleInit 'liafu2 = true; this setObjectTexture [0, "images\news_chopper.paa"]'; 
 			processInitCommands;
 		};
 		

@@ -37,7 +37,7 @@ for [{_i=0}, {_i < (count huntingarray)},{_i=_i+1}] do {
 				while {true} do {
 						for [{_i=0}, {_i < (count _classes)},{_i=_i+1}] do {
 								
-								liafu = true;
+								liafu2 = true;
 								
 								call compile format["_spawnTime = _spawnTime_%1", _i];
 								

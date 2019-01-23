@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 terrgate setPosATL [(getPosATL terrgate select 0),(getPosATL terrgate select 1),-5];
 sleep 20;

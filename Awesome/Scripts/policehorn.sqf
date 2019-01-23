@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 _vcl  = vehicle player;
 if (isNil "HORN_Playing") then	{ HORN_Playing = false;	};
 _class = typeOf (vehicle (player));

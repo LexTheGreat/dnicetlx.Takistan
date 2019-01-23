@@ -21,13 +21,13 @@ if (_art == "use") then {
 	
 	if (player == ins3) then { "hint localize ""STRS_inv_item_selbstmordbombe_globalmsg_dog"";" call broadcast; } else {"hint localize ""STRS_inv_item_selbstmordbombe_globalmsg"";" call broadcast; };
 	
-	liafu = true;
+	liafu2 = true;
 	for [{_i=5}, {_i >= 0}, {_i=_i-1}] do {
 		titletext [format ["Bombcountdown: -->*%1*<--", _i],"plain"];
 		sleep 1;
 	};
 
 	if (!(alive player)) exitWith {};
-	call compile format ["liafu = true; autobombe%2 = createVehicle [""Bo_GBU12_LGB"", (%1), [], 0, ""NONE""];",(getpos player), (round (random 2000))];
+	call compile format ["liafu2 = true; autobombe%2 = createVehicle [""Bo_GBU12_LGB"", (%1), [], 0, ""NONE""];",(getpos player), (round (random 2000))];
 	[player, _item, -1] call INV_AddInventoryItem;
 };

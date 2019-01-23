@@ -1,5 +1,5 @@
 private ["_radObjects","_artyObjects", "_radPos", "_mapMarking"];
-liafu = true;
+liafu2 = true;
 radarActive = true;
 if (isOpforRadar) then {
 	_radPos = getMarkerPos "opf_radar_site";

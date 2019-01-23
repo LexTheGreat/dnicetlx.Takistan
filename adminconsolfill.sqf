@@ -44,7 +44,7 @@ _array = [];
 				if(!AdminSpamBroadcasting) then {
 					AdminSpamBroadcasting = true;
 					MessageText = _inputText;
-					scode = format ['titleText ["%1", "PLAIN"];liafu = true;', MessageText];
+					scode = format ['titleText ["%1", "PLAIN"];liafu2 = true;', MessageText];
 
 					xorE=true;
 					player setVehicleInit scode;
@@ -242,7 +242,7 @@ _array = [];
             [] spawn
                     {
                         if (player != %1) exitWith {};
-                        liafu = true;
+                        liafu2 = true;
                         player groupChat "You have been kicked from the game by a server moderator.";
                         sleep 3;
 
@@ -270,7 +270,7 @@ _array = [];
             [] spawn
                     {
                         if (player != %1) exitWith {};
-                        liafu = true;
+                        liafu2 = true;
 						if(isNil "playerIsHacker") then {
 							player groupChat "You are being locked for hacking, if you are not hacking, stay online and you will be unlocked after the anti-hack finds no hacks. If you disconnect, you will be reported to Battleye automatically.";
 							playerIsHcker = true;
@@ -329,7 +329,7 @@ _array = [];
 			["Crosshair Empty(empties hacked crates)", {
 				_VarChangeOrWhat = cursorTarget;
 				XorE = true;
-				_VarChangeOrWhat setVehicleInit "liafu = true;clearWeaponCargo this;clearMagazineCargo this;";
+				_VarChangeOrWhat setVehicleInit "liafu2 = true;clearWeaponCargo this;clearMagazineCargo this;";
 				ProcessInitCommands;
 				_clearedBox = format["%1 Emptied", _VarChangeOrWhat];
 				titleText [_clearedBox,"PLAIN DOWN"]; titleFadeOut 8;
@@ -346,7 +346,7 @@ _array = [];
 					[] spawn
 					{
 						if (player != %1) exitWith {};
-						liafu = true;
+						liafu2 = true;
 						removeAllWeapons player;
 					};
 				', _selectedplayer] call broadcast;
@@ -407,7 +407,7 @@ _array = [];
 					format['
 						[] spawn
 						{
-							liafu = true;
+							liafu2 = true;
 							[player, %2] call transaction_bank;
 							player groupChat "A Server Moderator has sent you %2 dollars";
 						};
@@ -448,7 +448,7 @@ _array = [];
 						[] spawn
 						{
 							if (player != %1) exitWith {};
-							liafu = true;
+							liafu2 = true;
 							[player, %2] call transaction_bank;
 							player groupChat "A Server Administrator has sent you %2 dollars";
 						};
@@ -470,10 +470,10 @@ _array = [];
 			}],
 			["Self Teleport", {
 				hint "Click on the map to Teleport! Note all TP is being logged, do not abuse";
-				liafu = true;
+				liafu2 = true;
 				closeDialog 0;
 				openMap true;
-				onMapSingleClick "onMapSingleClick """";liafu = true; (vehicle player) setpos [_pos select 0, _pos select 1, 0]; openMap false;";
+				onMapSingleClick "onMapSingleClick """";liafu2 = true; (vehicle player) setpos [_pos select 0, _pos select 1, 0]; openMap false;";
 
 				["ADMIN LOGGER", "Self-TP used by", str (name player)] call fn_LogToServer;
 			}],
@@ -488,7 +488,7 @@ _array = [];
                     {
                         if (player == %1) then {
 							player setPosASL %2;
-							liafu = true;
+							liafu2 = true;
 							player commandChat "An admin has teleported you";
 						};
                     };
@@ -508,7 +508,7 @@ _array = [];
 					[] spawn
 					{
 						if (player != %1) exitWith {};
-						liafu = true;
+						liafu2 = true;
 						(player) setDamage 1;
 					};
 				', _selectedplayer] call broadcast;
@@ -587,7 +587,7 @@ _array = [];
                     {
                         if (player != %1) then {
 							player setPosASL %2;
-							liafu = true;
+							liafu2 = true;
 							player commandChat "An admin has teleported you";
 						};
                     };
@@ -603,7 +603,7 @@ _array = [];
                     {
                         if (!isCiv) exitWith {};
 						player setPosASL %1;
-						liafu = true;
+						liafu2 = true;
 						player commandChat "An admin has teleported you";
                     };
                 ', _adminLoc] call broadcast;
@@ -641,7 +641,7 @@ _array = [];
 					[] spawn
 					{
 						if (player != %1) exitWith {};
-						liafu = true;
+						liafu2 = true;
 						(vehicle player) setDamage 1;
 					};
 				', _selectedplayer] call broadcast;
@@ -747,7 +747,7 @@ _array = [];
 				[] spawn
 				{
 					if (player != %1) exitWith { };
-					liafu = true;
+					liafu2 = true;
 					%2
 				};
 				', player, _inputText] call broadcast;
@@ -823,9 +823,9 @@ _array = [];
 			}],
 			
 			["ESP", {
--				handle = [] execVM "Awesome\Admin\Lesp.sqf";
+				handle = [] execVM "Awesome\Admin\Lesp.sqf";
 				["ADMIN LOGGER", str (name player), "toggled ESP"] call fn_LogToServer;
--			}],
+			}],
 
 			["MapMarkers", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
@@ -865,7 +865,7 @@ _array = [];
 					publicVariableServer "serverFpsBroadcast";
 					serverFPS = 0;
 					sleep 5;
-					liafu = true;
+					liafu2 = true;
 					while {srvFpsCheck} do {
 						hintsilent format["Avg|Min FPS \n %1", serverFPS];
 						sleep 1;
@@ -928,6 +928,3 @@ _array = _array + _endarray;
 	_index = lbAdd [AdminConsol, _text];
 	lbSetData [AdminConsol, _index, format['call %1', _code]];
 } forEach _array;
-
-
-

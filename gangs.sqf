@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 _this = _this select 3;
 _art  = _this select 0;

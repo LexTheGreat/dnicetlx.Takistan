@@ -3,7 +3,7 @@
 _art  = ((_this select 3) select 0);
 _moneh = [player, 'money'] call INV_GetItemAmount;
 
-liafu = true;
+liafu2 = true;
 
 if (_art == "slave") exitWith {
 
@@ -36,7 +36,7 @@ if (_art == "slave") exitWith {
 
 	call compile format [
 		'
-		_slavename = "%3" createUnit [getmarkerpos "terrorist", group player, "%1slave%2 = this; this setVehicleVarName ""%1slave%2"";liafu = true;"]; 
+		_slavename = "%3" createUnit [getmarkerpos "terrorist", group player, "%1slave%2 = this; this setVehicleVarName ""%1slave%2"";liafu2 = true;"]; 
 		_slavename = %1slave%2;
 		_slavename setpos getmarkerpos "terrorist"
 		', rolestring, _slavenumber, _civ];
@@ -52,7 +52,7 @@ if (_art == "slave") exitWith {
 	currecciv = false;
 
 	processInitCommands;
-	liafu = true;
+	liafu2 = true;
 
 	call compile format ["arbeitergeld%1 = 0;", _arbeiternummer];
 
@@ -71,7 +71,7 @@ if (_art == "slave") exitWith {
 		private["_i"];
 		
 		for [{_i=0}, {_i < 60}, {_i=_i+1}] do {
-			liafu = true;
+			liafu2 = true;
 			if ( (not(alive _slavename)) or (not(alive player))) exitWith {
 				sleep 2; 
 				if (!isnull _slavename) then {

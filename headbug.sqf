@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 if([player, "isstunned"] call player_get_bool) exitWith {};
 

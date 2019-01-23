@@ -11,7 +11,7 @@ if (_art == "use") then {
 	};																							   
 
 	vehicle player setDamage 0.95;
-	liafu = true;
+	liafu2 = true;
 	player groupchat localize "STRS_inv_items_ignite_ignite";
 	[player, _item, -1] call INV_AddInventoryItem;
 };

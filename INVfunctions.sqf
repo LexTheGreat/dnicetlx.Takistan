@@ -3,7 +3,7 @@
 
 INV_Heal = {
 	if(_this == player) exitWith {
-		liafu = true;
+		liafu2 = true;
 
 		format ["%1 switchmove ""AinvPknlMstpSlayWrflDnon_medic"";", player] call broadcast;
 		player groupChat format[localize "STRS_inv_items_medikit_benutzung"];

@@ -44,7 +44,7 @@ if (_art == "init") then {
 		};
 		if (_item == "Vodka" OR _item == "beer2" OR _item == "wiskey") then {
 			while {time < _endeZeit} do {
-				liafu = true;
+				liafu2 = true;
 				if (not(alive player)) exitWith {};
 				//player setdamage ((damage player) - 0.01);
 				if (vehicle player == player) then {

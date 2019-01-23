@@ -25,26 +25,26 @@ class CfgSounds
 
 		class intro
 		{
-			name = "intro";
-			sound[] = {\Awesome\Sound\intro.ogg, .7, 1, .9};
+			name = "intro";                     //Volume, Speed    
+			sound[] = {\Awesome\Sound\intro.ogg, .04, 1};
 			titles[] = {};
 		};
 		class copintro
 		{
 			name = "copintro";
-			sound[] = {\Awesome\Sound\copintro.ogg, .6, 1, .9};
+			sound[] = {\Awesome\Sound\copintro.ogg, .02, 1};
 			titles[] = {};
 		};
 		class opfintro
 		{
 			name = "opfintro";
-			sound[] = {\Awesome\Sound\opfintro.ogg, .5, 1, .9};
+			sound[] = {\Awesome\Sound\opfintro.ogg, .01, 1};
 			titles[] = {};
 		};
 		class indintro
 		{
 			name = "indintro";
-			sound[] = {\Awesome\Sound\indintro.ogg, .6, 1, .9};
+			sound[] = {\Awesome\Sound\indintro.ogg, .03, 1};
 			titles[] = {};
 		};
 		class Bam

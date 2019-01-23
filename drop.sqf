@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 _item   = _this select 0;
 _amount = _this select 1;
@@ -38,7 +38,7 @@ if (_item call INV_GetItemDropable) then {
 		
 		_pos = getPosATL player;
 		_object = createVehicle [_class, _pos, [], 0, "NONE"];
-		liafu = true;
+		liafu2 = true;
 		_object setposASL getposASL player;
 		_object setvariable ["droparray", [([_amount] call encode_number), _item], true];
 	}

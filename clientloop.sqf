@@ -2,7 +2,7 @@
 #define BORDER_INCOME 20000
 if (not(isNil "client_loop_functions_defined")) exitWith {};
 sleep 6;
-liafu = true;
+liafu2 = true;
 //playerIsHacker = false;
 //voiceOnGlobal = false;
 

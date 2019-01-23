@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 hgate setPosATL [(getPosATL hgate select 0),(getPosATL hgate select 1),-5];
 sleep 10;

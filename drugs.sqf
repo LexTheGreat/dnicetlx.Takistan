@@ -73,7 +73,7 @@ if (_art == "use") then {
 	};
 
 	if (_item == "marijuana") then {
-		liafu = true;
+		liafu2 = true;
 		Flare = "SmokeShellGreen" createVehicle position player;
 		if (vehicle player != player) then {
 			Flare attachTo [vehicle player,[0,0,0.]];

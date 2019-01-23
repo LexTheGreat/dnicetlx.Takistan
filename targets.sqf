@@ -185,4 +185,4 @@ xorE=true;
 _this setvehicleinit ' this setVehicleVarName "t135";t135 = this;';
 
 processInitCommands;
-liafu = true;
+liafu2 = true;

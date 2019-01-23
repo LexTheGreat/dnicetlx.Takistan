@@ -10,7 +10,7 @@ IFARRAY =
 
 ];
 
-liafu = true;
+liafu2 = true;
 
 for [{_i=0}, {_i < (count IFARRAY)}, {_i=_i+1}] do
 

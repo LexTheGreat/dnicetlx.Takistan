@@ -6,7 +6,7 @@ if (_selection == "use") then
 {
 player  groupchat "Your Mobile Road Block is Spawning. Please move 10 meters back while it spawns!";
 sleep 5;
-liafu = true;
+liafu2 = true;
 
 _playerpos = getpos player;       //Sign_Checkpoint_TK_EP1
 _theroadblock =  "Land_fortified_nest_small_EP1" createvehicle _playerpos;

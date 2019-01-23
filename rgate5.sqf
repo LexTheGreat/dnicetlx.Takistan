@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 cgate10 setPosATL [(getPosATL cgate10 select 0),(getPosATL cgate10 select 1),0];
 cgate11 setPosATL [(getPosATL cgate11 select 0),(getPosATL cgate11 select 1),0];

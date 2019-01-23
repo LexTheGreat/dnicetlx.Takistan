@@ -59,7 +59,7 @@ if (_art == "getajob_assassin") then {
 
 	VIPtarget = _group createUnit ["Functionary1_EP1", _pos, [], _radius, "FORM"];
 	xorE=true;
-	VIPtarget setvehicleinit 'liafu = true;VIPtarget = this;this setVehicleVarName "VIPtarget";';
+	VIPtarget setvehicleinit 'liafu2 = true;VIPtarget = this;this setVehicleVarName "VIPtarget";';
 	//give vip weapon and clips
 	VIPtarget addweapon "M9";
 	VIPtarget addmagazine "15Rnd_9x19_M9";
@@ -72,7 +72,7 @@ if (_art == "getajob_assassin") then {
 	//creating body guards
 	VIPbodyguard1 = _group createUnit ["Functionary2_EP1", _pos, [], _radius, "FORM"];
 	xorE=true;
-	VIPbodyguard1 setvehicleinit 'liafu = true;VIPbodyguard1 = this;this setVehicleVarName "VIPbodyguard1";';
+	VIPbodyguard1 setvehicleinit 'liafu2 = true;VIPbodyguard1 = this;this setVehicleVarName "VIPbodyguard1";';
 	VIPbodyguard1 addweapon "m9";
 	VIPbodyguard1 addmagazine "15Rnd_9x19_M9";
 	VIPbodyguard1 addmagazine "15Rnd_9x19_M9";
@@ -81,7 +81,7 @@ if (_art == "getajob_assassin") then {
 
 	VIPbodyguard2 = _group createUnit ["Functionary2_EP1", _pos, [], _radius, "FORM"];
 	xorE=true;
-	VIPbodyguard2 setvehicleinit 'liafu = true;VIPbodyguard2 = this;this setVehicleVarName "VIPbodyguard2";';
+	VIPbodyguard2 setvehicleinit 'liafu2 = true;VIPbodyguard2 = this;this setVehicleVarName "VIPbodyguard2";';
 	VIPbodyguard2 addweapon "m9";
 	VIPbodyguard2 addmagazine "15Rnd_9x19_M9";
 	VIPbodyguard2 addmagazine "15Rnd_9x19_M9";
@@ -95,7 +95,7 @@ if (_art == "getajob_assassin") then {
 	xorE=true;
 	assveh setVehicleInit
 	"
-		liafu = true;
+		liafu2 = true;
 		assveh = this;
 		this setVehicleVarName ""assveh"";
 		this setVehicleLock ""locked"";
@@ -217,6 +217,6 @@ if (_art == "getajob_assassin") then {
 	};
 };
 
-liafu = format["%1", (name player)];
+liafu2 = format["%1", (name player)];
 
 // written by eddie vedder

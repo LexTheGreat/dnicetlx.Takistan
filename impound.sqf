@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 _vcl = _this select 0;
 _art = _this select 1;
 
@@ -59,7 +59,7 @@ if(_art == "impound")then {
 	player groupchat format["You received $%1 for impounding this vehicle!", _reward];
 
 	format['hint format[localize "STRS_inventar_impound_gesehen", "%1", "(%2)", %3]', name player, player, _vcl] call broadcast;
-	liafu = true;
+	liafu2 = true;
 	_vcl setdamage 0;
 	_vcl engineOn false;
 	_vcl setvehiclelock "locked";

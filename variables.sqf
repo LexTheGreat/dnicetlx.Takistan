@@ -289,7 +289,6 @@ coppatrolarray  =
 [
     getmarkerpos "patrolpoint1",
     getmarkerpos "patrolpoint2",
-    getmarkerpos "patrolpoint3",
     getmarkerpos "patrolpoint4",
     getmarkerpos "patrolpoint5",
     getmarkerpos "patrolpoint6",

@@ -47,7 +47,7 @@ if (_art == "init") then {
                         if(!(_x isKindOf "Man")) then {
                             _men3 = crew _x;
                             {
-                                _liafu = true;
+                                _liafu2 = true;
 								if(!isNil "_has_admin_camera") then {
                                 _has_admin_camera = _x getVariable "has_admin_camera";};
                                 if ( !(isnil "_has_admin_camera") && _has_admin_camera) then {
@@ -72,7 +72,7 @@ if (_art == "init") then {
                 if(!(_x isKindOf "Man")) then {
 					_men3 = crew _x;
 					{
-						_liafu = true;
+						_liafu2 = true;
 						_x setDamage 1;
 					} forEach _men3;
 				};

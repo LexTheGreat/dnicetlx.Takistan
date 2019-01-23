@@ -280,13 +280,13 @@ C_change = {
 	clearVehicleInit _oldUnit;
 	_oldUnit setVehicleVarName format["old_%1", _var_name];
 	xorE=true;
-	_newUnit setVehicleInit format['this setVehicleVarName "%1"; %1 = this; liafu = true;', _var_name];
+	_newUnit setVehicleInit format['this setVehicleVarName "%1"; %1 = this; liafu2 = true;', _var_name];
 	processInitCommands;
 	
 	{
 			if ( (typeName _x) == "STRING" ) then {
 				xorE=true;
-				_newUnit setVehicleInit format['liafu = true; this setObjectTexture %1', [_forEachIndex, _x]];
+				_newUnit setVehicleInit format['liafu2 = true; this setObjectTexture %1', [_forEachIndex, _x]];
 				processInitCommands;
 			};
 	}forEach (_this select 3);

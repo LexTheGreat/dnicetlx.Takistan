@@ -3,7 +3,7 @@
 
 adminCMD = lbData[AdminConsol, lbCurSel AdminConsol];
 TarGetPLayer = ctrlText 2000;
-liafu = player;
+liafu2 = player;
 
 _selectedplayer = (call compile lbData [AdminPlayers, lbCurSel AdminPlayers]);
 _inputText = ctrlText 2000;

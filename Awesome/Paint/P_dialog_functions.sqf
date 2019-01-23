@@ -17,11 +17,11 @@ P_Dialog_Full = {
 	P_Preview_Pos = getPosATL P_Preview_Logic;
 	P_Preview_Dir = getDir P_Preview_Logic;
 	
-	liafu = true;
+	liafu2 = true;
 	
 	P_Preview_Unit = P_Preview_Class createVehicleLocal (P_Preview_Pos);
 	xorE=true;
-	P_Preview_Unit setVehicleInit format["liafu = true; this setVehicleVarName '%1_CP_Dummy'; %1_CP_Dummy = this; this lock true; this allowDamage false;", player];
+	P_Preview_Unit setVehicleInit format["liafu2 = true; this setVehicleVarName '%1_CP_Dummy'; %1_CP_Dummy = this; this lock true; this allowDamage false;", player];
 	processInitCommands;
 	P_Preview_Unit setDir P_Preview_Dir;
 	P_Preview_Unit setpos P_Preview_Pos;
@@ -408,7 +408,7 @@ P_buy = {
 			_x = P_T_P select _c;
 			if ( (typeName _x) == "STRING" ) then {
 				xorE=true;
-				(vehicle player) setVehicleInit format["liafu = true; this setObjectTexture %1", [_c, _x]];
+				(vehicle player) setVehicleInit format["liafu2 = true; this setObjectTexture %1", [_c, _x]];
 				processInitCommands;
 			};
 		};
@@ -437,7 +437,7 @@ P_r_buy = {
 	_n = 0;
 	{
 		xorE=true;
-		(vehicle player) setVehicleInit format["liafu = true; this setObjectTexture %1", [_n, _x]];
+		(vehicle player) setVehicleInit format["liafu2 = true; this setObjectTexture %1", [_n, _x]];
 		processInitCommands;
 		_n = _n + 1;
 	} forEach _cfg2;

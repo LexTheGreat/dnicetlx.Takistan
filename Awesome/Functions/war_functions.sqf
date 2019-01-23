@@ -13,26 +13,26 @@ if (_art == "start_martial") then
 	};
 	if(martialstatus) then {
 		MessageText = "Martial Law has been lifted in North Takistan ";
-		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=false;', MessageText];
+		scode = format ['titleText ["%1", "PLAIN"];liafu2 = true;martialstatus=false;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
 		processInitCommands;
 		clearVehicleInit player;
 		scode = nil;
 		martialstatus = false;
-		liafu = true;
+		liafu2 = true;
 		publicVariable "martialstatus";
 	}
 	else {
 		MessageText = "Martial Law has been declared in North Takistan \n Civilians, you may be searched and held by the police at will";
-		scode = format ['titleText ["%1", "PLAIN"];liafu = true;martialstatus=true;', MessageText];
+		scode = format ['titleText ["%1", "PLAIN"];liafu2 = true;martialstatus=true;', MessageText];
 		xorE=true;
 		player setVehicleInit scode;
 		processInitCommands;
 		clearVehicleInit player;
 		scode = nil;
 		martialstatus = true;
-		liafu = true;
+		liafu2 = true;
 		publicVariable "martialstatus";
 	};
 };

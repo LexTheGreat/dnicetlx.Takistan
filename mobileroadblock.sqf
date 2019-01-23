@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 // script by eddiev223
 _selection = _this select 0;
@@ -34,7 +34,7 @@ call compile format ["
 _thebuilding%1 =  createVehicle [_thebuilding, [0,0,0], [], 0, 'NONE'];
 _thebuilding%1 setdir getdir player;
 _thebuilding%1 setpos _thenewlocation;
-liafu = true;
+liafu2 = true;
 ",_x];
 };
 

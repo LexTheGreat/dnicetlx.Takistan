@@ -13,7 +13,7 @@ _vehclass = typeof vehicle player;
 _xpos = getpos vehicle player select 0;
 _ypos = getpos vehicle player select 1;
 _zpos = getpos vehicle player select 2;
-liafu = true;l	
+liafu2 = true;l	
 
 	
 	

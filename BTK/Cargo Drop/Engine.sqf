@@ -16,7 +16,7 @@
 
 
 /// Include the Objects Setup
-liafu = true;
+liafu2 = true;
 #include "Settings_Objects.sqf";
 
 
@@ -253,7 +253,7 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeS)) exitWith {
 		DoUnload = false;
 		DoDrop = false;
 		UnloadCargo = false;
-		liafu = true;
+		liafu2 = true;
 		_Object setVariable ["BTK_CargoDrop_ObjectLoaded", false];
 		_Object enableSimulation true;
 

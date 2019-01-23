@@ -1,4 +1,4 @@
-liafu = true;
+liafu2 = true;
 
 _this = _this select 3;
 _art  = _this select 0;
@@ -59,7 +59,7 @@ if (_art == "client") then
 	_starttime   = time;
 
 	call compile format["%1_Sirene_on = true;", _vcl];
-	liafu = true;
+	liafu2 = true;
 	_light1 = "#lightpoint" createVehicleLocal (getpos _vcl);
 	_light1 setLightBrightness _lichtstaerke;
 	_light1 setLightAmbient   [0, 0, 0.3];

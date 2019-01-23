@@ -9,7 +9,7 @@ _ammo			= _this select 4;
 _magazine		= _this select 5;
 _projectile		= _this select 6;
 
-liafu = true;
+liafu2 = true;
 
 ///////////////
 // Distance checks

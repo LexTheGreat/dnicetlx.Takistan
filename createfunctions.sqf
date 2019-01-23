@@ -7,7 +7,7 @@ INV_CreateFort = {
 		_class = _this select 1;
 		_kind = _this select 2;	
 		if (not(alive player)) exitWith {};
-		liafu = true;
+		liafu2 = true;
 		_vehicle = createVehicle [_class, (getPosATL _logic), [], 0, "NONE"];
 		
 		switch _kind do {
@@ -16,7 +16,7 @@ INV_CreateFort = {
 				xorE=true;
 				_vehicle setVehicleInit format[
 				'
-				liafu = true;
+				liafu2 = true;
 				this setVehicleVarName "%1";
 				%1 = this;
 				this lock false;', _vehicle_name];
@@ -49,7 +49,7 @@ INV_CreateWeapon = {
 };
 
 INV_CreateMag = {
-	liafu = true;
+	liafu2 = true;
 	private["_class", "_amount", "_crate"];
 	_class = _this select 0;
 	_amount = _this select 1;
@@ -60,7 +60,7 @@ INV_CreateMag = {
 };
 
 INV_CreatePack = {
-	liafu = true;
+	liafu2 = true;
 	private["_class", "_amount", "_crate"];
 	_class = _this select 0;
 	_amount = _this select 1;
@@ -88,7 +88,7 @@ INV_CreatePack = {
 
 
 INV_CreateItem = {
-	liafu = true;
+	liafu2 = true;
 	private["_object", "_class", "_amount", "_storage"];
 	_object = _this select 0;
 	_class = _this select 1;
