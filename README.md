@@ -1,3 +1,6 @@
+Trello
+https://trello.com/b/6PWgdxfU/takistan-life-xtreme
+
 MIT License
 
 Copyright (c) 2018 LexTheGreat (https://github.com/LexTheGreat/dnicetlx.Takistan)
