@@ -869,17 +869,26 @@ track_death = {
 		[_dp] call time_penalty;
 		[_dp] call remove_licenses;
 	};
-	_warCrime = false;
-	if (peacecomps && ((_victim_side == "Cop" && _killer_side == "Opfor") || (_victim_side == "Opfor" && _killer_side == "Cop"))) then {
+	// TODO Revamp this
+	_warCrime = false; // was true
+	/*if (peacecomps && ((_victim_side == "Cop" && _killer_side == "Opfor") || (_victim_side == "Opfor" && _killer_side == "Cop"))) then {
 		_vicPos = getPos _victim;
+
+		if (_victim_side == "Cop" && (_vicPos distance getMarkerPos "opf_radar_site" <= 4000)) then {
+			_warCrime = false;
+		};
 		
-		if ((_victim_side == "Cop" && ((_vicPos distance getMarkerPos "opf_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_delta" > 800)))||(_victim_side == "Opfor" && ((_vicPos distance getMarkerPos "blu_radar_site" > 4000) && (_vicPos distance getMarkerPos "checkpoint_bravo" > 800) && (_vicPos distance getMarkerPos "checkpoint_alpha" > 800)))) then { 
+		if (_victim_side == "Opfor" && (_vicPos distance getMarkerPos "blu_radar_site" <= 4000)) then {
+			_warCrime = false;
+		};
+		
+		if (_vicPos distance getMarkerPos "checkpoint_bravo" <= 800 || _vicPos distance getMarkerPos "checkpoint_alpha" <= 800) then {
 			_warCrime = true;
-			/*[_dp] call tk_penalty;
-			[_dp] call time_penalty;
-			[_dp] call remove_licenses;*/
 		};
 	};
+	/*[_dp] call tk_penalty;
+	[_dp] call time_penalty;
+	[_dp] call remove_licenses;*/
 	if (_warCrime) exitWith {};
 	if (_victim_criminal and (_killer_side == "Cop")) then {
 		[_dp] call collect_criminal_reward;
