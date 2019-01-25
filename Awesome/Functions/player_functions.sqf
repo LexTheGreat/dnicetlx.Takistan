@@ -2175,7 +2175,7 @@ player_init_arrays = {
 	/* End Factions */
 	
 	/* Slots */
-	DogSlots = ["ins3", "cop5"];
+	DogSlots = ["cop5"];
 	PMCSlots = ["civ60", "civ61", "civ62", "civ63", "civ64"];
 	/* Ranked Slots */
 	AdmSlots = DogSlots + [];
