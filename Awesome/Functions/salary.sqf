@@ -2,6 +2,26 @@
 
 if (not(isNil "salary_functions_defined")) exitWith {};
 
+dl_salary_handout = {
+	if (isCiv) exitWith {};
+	_dlZone = ['dlZone'] call zone_getOwner;
+	_dlZone2 = ['dlZone2'] call zone_getOwner;
+	_bonus = 0;
+
+	if (_dlZone == side player) then {
+		_bonus = _bonus + 25000;
+	};
+	
+	if (_dlZone2 == side player) then {
+		_bonus = _bonus + 25000;
+	};
+	
+	if (_bonus > 0) then {
+		[player, _bonus] call transaction_bank;
+		sleep 2;
+		hint format["You recieved a bonus income of $%1 for owning disputed lands.", _income];
+	};
+};
 
 cop_salary_handout = {
 	if (not(isBlu)) exitWith {};
@@ -34,17 +54,6 @@ cop_salary_handout = {
 		if (_bluZone == resistance || _bluZone == east) then {
 			_income = _income/2;
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
-		};
-		
-		_dlZone = ['dlZone'] call zone_getOwner;
-		_dlZone2 = ['dlZone2'] call zone_getOwner;
-		
-		if (_dlZone2 == west) then {
-			_income = _income + 25000;
-		};
-		
-		if (_dlZone == west) then {
-			_income = _income + 25000;
 		};
 	};
 	
@@ -147,17 +156,6 @@ civilian_salary_handout = {
 			_income = _income/2;
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
 		};
-		
-		_dlZone = ['dlZone'] call zone_getOwner;
-		_dlZone2 = ['dlZone2'] call zone_getOwner;
-		
-		if (_dlZone2 == east) then {
-			_income = _income + 25000;
-		};
-		
-		if (_dlZone == east) then {
-			_income = _income + 25000;
-		};
 	};
 	
 	if ((round(time/60)) <= 14) then {
@@ -188,71 +186,70 @@ civilian_salary_handout = {
 
 	call shop_reset_paid_taxes;
 };
-    supporter_salary_handout = {
-     
-            _uid = getPlayerUID player;
-     
-            _admincashbonus = 0;
-            _supportercashbonus = 0;
-			_income = 0;
+supporter_salary_handout = {
+		_uid = getPlayerUID player;
+ 
+		_admincashbonus = 0;
+		_supportercashbonus = 0;
+		_income = 0;
 
-            if (isStaff) then
-            {
-                    _admincashbonus = 50000;
-            };
-            if (_uid in supporters1) then
-            {
-                    _supportercashbonus = 20000;
-            };
-            if (_uid in supporters2) then
-            {
-                    _supportercashbonus = 40000;
-            };
-            if (_uid in supporters3) then
-            {
-                    _supportercashbonus = 60000;
-            };
-            if (_uid in supporters4) then
-            {
-                    _supportercashbonus = 80000;
-            };
-            if (_uid in supportersVIP) then
-            {
-                    _supportercashbonus = 100000;
-            };
-            _income = _admincashbonus + _supportercashbonus;
-			
-			// Disabled for bonus
-			/*if(!isCiv) then {
-				if(isBlu) then {
-					_bluZone = ['bluforZone'] call zone_getOwner;
-					if (_bluZone == resistance || _bluZone == east) then {
+		if (isStaff) then
+		{
+				_admincashbonus = 50000;
+		};
+		if (_uid in supporters1) then
+		{
+				_supportercashbonus = 20000;
+		};
+		if (_uid in supporters2) then
+		{
+				_supportercashbonus = 40000;
+		};
+		if (_uid in supporters3) then
+		{
+				_supportercashbonus = 60000;
+		};
+		if (_uid in supporters4) then
+		{
+				_supportercashbonus = 80000;
+		};
+		if (_uid in supportersVIP) then
+		{
+				_supportercashbonus = 100000;
+		};
+		_income = _admincashbonus + _supportercashbonus;
+		
+		// Disabled for bonus
+		/*if(!isCiv) then {
+			if(isBlu) then {
+				_bluZone = ['bluforZone'] call zone_getOwner;
+				if (_bluZone == resistance || _bluZone == east) then {
+					_income = _income*(0.5);
+				};
+			}
+			else {
+				if(isOpf) then {
+					_opfZone = ['opforZone'] call zone_getOwner;
+					if (_opfZone == resistance || _opfZone == west) then {
 						_income = _income*(0.5);
 					};
 				}
 				else {
-					if(isOpf) then {
-						_opfZone = ['opforZone'] call zone_getOwner;
-						if (_opfZone == resistance || _opfZone == west) then {
-							_income = _income*(0.5);
-						};
-					}
-					else {
-						if(isIns) then {
-							_insZones = [resistance] call zone_getCount;
-							_income = _income*(0.25 + (_insZones)*.25);
-						};
+					if(isIns) then {
+						_insZones = [resistance] call zone_getCount;
+						_income = _income*(0.25 + (_insZones)*.25);
 					};
 				};
-			};*/
-			
-            if (_income > 0) then
-            {
-                [player, _income] call transaction_bank;
-				sleep 2;
-                hint format["You recieved a bonus income of $%1. Thanks for Supporting TLX!", _income];
-            };
-    };
+			};
+		};*/
+		
+		if (_income > 0) then
+		{
+			[player, _income] call transaction_bank;
+			sleep 2;
+			hint format["You recieved a bonus income of $%1. Thanks for Supporting TLX!", _income];
+		};
+};
 
 cop_salary_loop = {
 	if (not(isBlu)) exitWith {};
@@ -268,6 +265,7 @@ cop_salary_loop = {
 	if (not(isBlu)) exitWith {};
 	[] spawn cop_salary_handout;
 	[] spawn supporter_salary_handout;
+	[] spawn dl_salary_handout;
 	[1] call isleep;
 	sleep 4;
 	[] spawn cop_salary_loop;
@@ -288,6 +286,7 @@ civilian_salary_loop = {
 	
 	[] spawn civilian_salary_handout;
     [] spawn supporter_salary_handout;
+	[] spawn dl_salary_handout;
 	[1] call isleep;
 	sleep 4;
 	[] spawn civilian_salary_loop;
