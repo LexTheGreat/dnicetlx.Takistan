@@ -1,77 +1,79 @@
 zones = ["opforZone", "indepZone", "bluforZone"];
-if(isClient) then {
-capturing = false;
-/*if(!warstatus) then {
-	{
-        _x setMarkerAlphaLocal 0
-    } foreach zones;
-};*/
+dlZones = ["dlZone", "dlZone2"];
 
-zone_capture = {
-    if(capturing) exitWith {
-        hint "Please Wait, you are already capturing!";
-    };
-    
-    private["_curOwner", "_zone", "_zonePole", "_zoneFlag", "_flag", "_capCancelled", "_oldColor"];
-    _zone = _this select 0;
-	_zonePole = _this select 1;
-	_zoneFlag = _this select 2;
-    _flag = format["%1Flag",_zone];
-	_oldColor = getMarkerColor _zone;
-    
-	if (_oldColor == "ColorWhite") exitWith {
-		hint "Someone is already capturing the zone";
-	};
-	
-    _curOwner = [_zone] call zone_getOwner;
-	
-    if(peacecomps && !isIns && _curOwner == civilian) exitWith {
-        hint "Your side can only neutralize when it's not war, and not fully capture!";
-    };
-	if(!([player] call player_armed)) exitWith {
-		hint "You must be armed to capture or neutralize points!";
-	};
-    
-    capturing = true;
-	[_zone, "ColorWhite"] call zone_setCapping;
-	_capCancelled = false;
-    _lockpos = getPosASL player;
-	
-	if (_curOwner == civilian) then {
-		hint "Capturing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
-	}
-	else {
-		hint "Neutralizing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
-	};
-    format ["%1 switchmove 'AinvPknlMstpSlayWrflDnon_medic';", player] call broadcast;
-	sleep 5;
-	for "_i" from 0 to 4 step 1 do {
-		if (animationstate player != "AinvPknlMstpSlayWrflDnon_medic") exitWith {
-			_capCancelled = true;
+if(isClient) then {
+	capturing = false;
+	/*if(!warstatus) then {
+		{
+			_x setMarkerAlphaLocal 0
+		} foreach zones;
+	};*/
+
+	zone_capture = {
+		if(capturing) exitWith {
+			hint "Please Wait, you are already capturing!";
+		};
+		
+		private["_curOwner", "_zone", "_zonePole", "_zoneFlag", "_flag", "_capCancelled", "_oldColor"];
+		_zone = _this select 0;
+		_zonePole = _this select 1;
+		_zoneFlag = _this select 2;
+		_flag = format["%1Flag",_zone];
+		_oldColor = getMarkerColor _zone;
+		_curOwner = [_zone] call zone_getOwner;
+		
+		if (_oldColor == "ColorWhite") exitWith {
+			hint "Someone is already capturing the zone";
+		};
+		
+		if(!([player] call player_armed)) exitWith {
+			hint "You must be armed to capture or neutralize points!";
+		};
+		
+		if(peacecomps && !isIns && _curOwner == civilian && _zone in zones) exitWith {
+			hint "Your side can only neutralize when it's not war, and not fully capture!";
+		};
+		
+		capturing = true;
+		[_zone, "ColorWhite"] call zone_setCapping;
+		_capCancelled = false;
+		_lockpos = getPosASL player;
+		
+		if (_curOwner == civilian) then {
+			hint "Capturing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
+		}
+		else {
+			hint "Neutralizing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
 		};
 		format ["%1 switchmove 'AinvPknlMstpSlayWrflDnon_medic';", player] call broadcast;
 		sleep 5;
+		for "_i" from 0 to 4 step 1 do {
+			if (animationstate player != "AinvPknlMstpSlayWrflDnon_medic") exitWith {
+				_capCancelled = true;
+			};
+			format ["%1 switchmove 'AinvPknlMstpSlayWrflDnon_medic';", player] call broadcast;
+			sleep 5;
+		};
+		capturing = false;
+		// Check if near, if not cancel. Should stop it from cap'n
+		if (getPosASL player distance _lockpos > 1 || _capCancelled) exitWith {
+			[_zone, _oldColor] call zone_setCapping;
+			hint 'Flag Capture Interrupted';
+		};
+		if (_curOwner != civilian) exitWith {
+			[_zone, civilian, _zonePole, _zoneFlag] call zone_setOwner;
+			format["player commandChat '%1 has been neutralized!'; ", _zone] call broadcast;
+		};
+		[_zone, side player, _zonePole, _zoneFlag] call zone_setOwner;
+		format["player commandChat '%2 captured %1!'; ", _zone, side player] call broadcast;
 	};
-    capturing = false;
-    // Check if near, if not cancel. Should stop it from cap'n
-    if (getPosASL player distance _lockpos > 1 || _capCancelled) exitWith {
-		[_zone, _oldColor] call zone_setCapping;
-        hint 'Flag Capture Interrupted';
-    };
-	if (_curOwner != civilian) exitWith {
-		[_zone, civilian, _zonePole, _zoneFlag] call zone_setOwner;
-		format["player commandChat '%1 has been neutralized!'; ", _zone] call broadcast;
-	};
-    [_zone, side player, _zonePole, _zoneFlag] call zone_setOwner;
-    format["player commandChat '%2 captured %1!'; ", _zone, side player] call broadcast;
-};
 
-zone_setCapping = {
-	private["_zonestOwn"];
-	_zonestOwn = _this select 0;
-	_zoneColor = _this select 1;
-	_zonestOwn setMarkerColor _zoneColor;
-};
+	zone_setCapping = {
+		private["_zonestOwn"];
+		_zonestOwn = _this select 0;
+		_zoneColor = _this select 1;
+		_zonestOwn setMarkerColor _zoneColor;
+	};
 };
 
 zone_setOwner = {

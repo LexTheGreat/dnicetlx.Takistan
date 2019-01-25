@@ -162,6 +162,9 @@ _role RemoveAction opforZoneAction;
 _role RemoveAction indepZoneAction;
 _role RemoveAction bluforZoneAction;
 
+_role RemoveAction dlZoneAction;
+_role RemoveAction dlZoneAction2;
+
 [] call clear_new_actions;
 [player] call holster_remove_actions;
 

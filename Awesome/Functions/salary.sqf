@@ -32,8 +32,19 @@ cop_salary_handout = {
 	if(isBlu) then {
 		_bluZone = ['bluforZone'] call zone_getOwner;
 		if (_bluZone == resistance || _bluZone == east) then {
-			_income = _income*(0.2);
+			_income = _income/2;
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
+		};
+		
+		_dlZone = ['dlZone'] call zone_getOwner;
+		_dlZone2 = ['dlZone2'] call zone_getOwner;
+		
+		if (_dlZone2 == west) then {
+			_income = _income + 25000;
+		};
+		
+		if (_dlZone == west) then {
+			_income = _income + 25000;
 		};
 	};
 	
@@ -133,15 +144,25 @@ civilian_salary_handout = {
 	if(isOpf) then {
 		_opfZone = ['opforZone'] call zone_getOwner;
 		if (_opfZone == resistance || _opfZone == west) then {
-			_income = _income*(0.2);
+			_income = _income/2;
 			player commandChat "An enemy force controls a capture zone of your faction, resulting in a 50% income penalty. Retake your faction capture zone.";
+		};
+		
+		_dlZone = ['dlZone'] call zone_getOwner;
+		_dlZone2 = ['dlZone2'] call zone_getOwner;
+		
+		if (_dlZone2 == east) then {
+			_income = _income + 25000;
+		};
+		
+		if (_dlZone == east) then {
+			_income = _income + 25000;
 		};
 	};
 	
 	if ((round(time/60)) <= 14) then {
 		_income = _income + 200000;
 	};
-	
 	
 	_income = if (isNil "_income") then { add_civmoney } else {_income};
 	_income = if (typeName _income != "SCALAR") then { add_civmoney } else { _income };

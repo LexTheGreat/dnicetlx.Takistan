@@ -292,6 +292,10 @@ action125 = _role addaction ["Activate Radar", "Awesome\Functions\radar_function
 opforZoneAction = _role addaction ["Cap/Neutralize Anar City", "noscript.sqf", "['opforZone',opforZoneFlag,'opforFlag'] call zone_capture;",1,false,true,"","!isCiv && player distance opforZoneFlag < 5 && side player != ['opforZone'] call zone_getOwner"];
 indepZoneAction = _role addaction ["Cap/Neutralize Khushab City", "noscript.sqf", "['indepZone',indepZoneFlag,'indepFlag'] call zone_capture;",1,false,true,"","!isCiv && player distance indepZoneFlag < 5 && side player != ['indepZone'] call zone_getOwner"];
 bluforZoneAction = _role addaction ["Cap/Neutralize North Oil Fields", "noscript.sqf", "['bluforZone',bluforZoneFlag,'bluforFlag'] call zone_capture;",1,false,true,"","!isCiv && player distance bluforZoneFlag < 5 && side player != ['bluforZone'] call zone_getOwner"];
+
+dlZoneAction = _role addaction ["Cap Garmsar", "noscript.sqf", "['dlZone',dlZoneFlag,'dlFlag'] call zone_capture;",1,false,true,"","!isCiv && player distance dlZoneFlag < 5 && side player != ['dlZone'] call zone_getOwner"];
+dlZoneAction2 = _role addaction ["Cap Ravanay", "noscript.sqf", "['dlZone2',dlZoneFlag2,'dlFlag2'] call zone_capture;",1,false,true,"","!isCiv && player distance dlZoneFlag2 < 5 && side player != ['dlZone2'] call zone_getOwner"];
+
 //[copbank, ["Access PMC White List", "maindialogs.sqf", ["pmc_whitelist"], 0, false, true, "", "true"]] call add_new_action;
 [player] call holster_add_actions;
 A_running = false;
