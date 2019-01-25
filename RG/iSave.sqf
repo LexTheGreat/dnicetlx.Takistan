@@ -11,7 +11,7 @@ if (!isNil "statsLoaded") then {
 						[_uid, ["moneyAccountWest", ([player] call get_bank_valuez)], ["InventoryWest", ([player] call player_get_inventory)], ["WeaponsPlayerWest", weapons player], ["BackpackPlayerWest", typeOf unitBackpack player], ["BackWepPlayerWest", getWeaponCargo (unitBackpack player)], ["privateStorageWest", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
 
 						if(!savedelay) then {
-							[_uid, ["MagazinesPlayerWest", ((magazines player) - ["15Rnd_9x19_M9SD"])], ["BackMagPlayerWest", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+							[_uid, ["MagazinesPlayerWest", magazines player], ["BackMagPlayerWest", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
 						};
 					};
 					
@@ -20,7 +20,7 @@ if (!isNil "statsLoaded") then {
 						[_uid, ["moneyAccountEast", ([player] call get_bank_valuez)], ["InventoryEast", ([player] call player_get_inventory)], ["WeaponsPlayerEast", weapons player], ["BackpackPlayerEast", typeOf unitBackpack player], ["BackWepPlayerEast", getWeaponCargo (unitBackpack player)], ["privateStorageEast", ([player, "private_storage"] call player_get_array)]] call fn_SaveAggToServer; sleep 0.1;
 
 						if(!savedelay) then {
-							[_uid, ["MagazinesPlayerEast", ((magazines player) - ["15Rnd_9x19_M9SD"])], ["BackMagPlayerEast", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
+							[_uid, ["MagazinesPlayerEast", magazines player], ["BackMagPlayerEast", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
 						};
 						
 					};
