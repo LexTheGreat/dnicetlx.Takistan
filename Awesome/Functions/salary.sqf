@@ -19,7 +19,7 @@ dl_salary_handout = {
 	if (_bonus > 0) then {
 		[player, _bonus] call transaction_bank;
 		sleep 2;
-		hint format["You recieved a bonus income of $%1 for owning disputed lands.", _income];
+		player sideChat format["You recieved a bonus income of $%1 for owning disputed lands.", _bonus];
 	};
 };
 
