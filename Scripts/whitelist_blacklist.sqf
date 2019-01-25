@@ -17,8 +17,7 @@ A_LIST_TESTERS =
 ];
 
 A_LIST_DERPS	= [ 
-	"76561198101924418", // Lex_the_great
-	"76561198065317401" // Smidge Griffkin
+	"76561198065317401"  // Smidge Griffkin
 ];
 
 A_LIST_SNADMINS	=
