@@ -71708,7 +71708,7 @@ class Mission
 			activationBy="ANY";
 			interruptable=1;
 			age="UNKNOWN";
-			name="civ_vip_area_1";
+			name="civ_vip_area_south";
 			class Effects
 			{
 			};
