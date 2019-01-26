@@ -347,6 +347,7 @@ bases_checks = [
 	["isOpf", "opfor_area_1", 20, "telehesnottla", "You were teleported out of the TLA base!"],
 	["isBlu", "blufor_area_1", 20, "telehesnotcop", "You were teleported out of the Police base!"]	
 ];
+
 if(!isCiv) then {
 	(bases_checks select 3) set [1, "blufor_area_2"];
 };
@@ -374,6 +375,49 @@ check_bases = {
 			player groupChat _teleport_message;
 		};
 	} forEach bases_checks;
+};
+
+isInSafeZone = false;
+isInSafeZoneMessage = "";
+safezone_check_trigger_area = 0;
+safezone_check_message = 1;
+safezone_check = [
+	["blufor_area_1", "BLUFOR base"],
+	["cop_supporter_area", "BLUFOR Supporter"],
+	["opfor_area_1", "OPFOR base"],
+	["opf_supporter_area", "OPFOR supporter"],
+	["pmc_area_1", "PMC Base"],
+	["ins_area_1", "INDEP Base"],
+	["ind_supporter_area_trigger", "INDEP supporter"],
+	["civ_safezone", "CIVILIAN spawn"],
+	["civ_safezone_south", "CIVILIAN spawn"],
+	["civ_safezone_terror", "TERROR HIDEOUT"],
+	["civ_supporter_area_trigger", "CIVILIAN supporter"],
+	["civ_vip_area", "VIP north"],
+	["civ_vip_area_south", "VIP south"]
+];
+
+check_safezone = {
+	private["_vehicle", "_temp"];
+	_vehicle = vehicle player;
+	_temp = false;
+	_tempMessage = "";
+
+	{
+		private["_safezone_check", "_trigger_area", "_safezone_message"];
+		_safezone_check = _x;
+		
+		_trigger_area = missionNamespace getVariable (_safezone_check select safezone_check_trigger_area);
+		_safezone_message = _safezone_check select safezone_check_message;
+		
+		if (_vehicle in (list _trigger_area)) exitWith {
+			_temp = true;
+			_tempMessage = _safezone_message;
+		};
+	} forEach safezone_check;
+	
+	isInSafeZone = _temp;
+	isInSafeZoneMessage = _tempMessage;
 };
 
 
@@ -611,6 +655,7 @@ client_loop = {
 		//call check_logics;
 		call check_camera;
 		call check_bases;
+		call check_safezone;
 		call check_static_weapons;
 		call check_respawn_time;
 		call check_smoke_grenade;
