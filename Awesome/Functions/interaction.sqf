@@ -10,6 +10,7 @@ interact_human = {
 
 	if (not([_player] call player_human)) exitWith { false };
 	if (not([_target] call player_human)) exitWith { false };
+	if (isDog) exitWith { false };
 
 	civ_variable_name = str(_target);
 	civ_player_variable  = _target;
