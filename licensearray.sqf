@@ -24,7 +24,7 @@ INV_Licenses =
         ["response_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copresponse",350000],
         ["sobr_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copswat",800000],
         ["air_support_training",[copbank,copbank,copbank,copbank,copbank],localize "STRS_license_copairsupport",525000],
-        ["passport_civilian",[licenseflag3,licenseflag3,licenseflag5,licenseflag5,licenseflag5],"Takistani Passport",35000],
+        ["passport_civilian",[licenseflag3,licenseflag3,licenseflag5,licenseflag5,licenseflag5,southlicense1],"Takistani Passport",35000],
         ["pmc_license_journeyman",[safelicense,safelicense,safelicense,safelicense,safelicense],"PMC Journeyman License",1500000],
         ["pmc_license_defense",[pmcatm,pmcatm,pmcatm,pmcatm,pmcatm],"PMC Defense License",350000],
         ["pmc_license_air",[pmcatm,pmcatm,pmcatm,pmcatm,pmcatm],"PMC Pilot License",850000],
