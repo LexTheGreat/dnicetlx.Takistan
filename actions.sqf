@@ -240,7 +240,7 @@ action109 = _role addaction ["<t color='#FF0000'>G-CAM</t>","gcam.sqf",[],1,fals
 };
 */
 //======================= SUICIDE ====================================================
-action120 = _role addaction ["Shoot yourself","T@Wsuicide.sqf", [""],  0.5, false, true,"", '_in_hands = (call holster_pistol_in_hands); _in_inv = (call holster_pistol_in_inventory); _in_inv && not(_in_hands) && isCiv'];
+//action120 = _role addaction ["Shoot yourself","T@Wsuicide.sqf", [""],  0.5, false, true,"", '_in_hands = (call holster_pistol_in_hands); _in_inv = (call holster_pistol_in_inventory); _in_inv && not(_in_hands) && isCiv'];
 //=======================   Road Gates ==============================================
 /*
 action92 = _role addaction ["Raise Gates","rgate1.sqf",[],1,false,true,"","isBlu and player distance copgate1 <= 5"];
