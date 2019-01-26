@@ -8,6 +8,7 @@ _uid = getPlayerUID player;
 A_LIST_DEVS     =
 [
 	"76561198101924418", // Lex_the_great
+	"76561198294202448", //Conor
 	"76561198263021522"  // Isaac
 ];
 
