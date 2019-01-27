@@ -383,9 +383,9 @@ safezone_check_trigger_area = 0;
 safezone_check_message = 1;
 safezone_check = [
 	["blufor_area_1", "BLUFOR base"],
-	["cop_supporter_area", "BLUFOR Supporter"],
+	["cop_supporter_area_trigger", "BLUFOR Supporter"],
 	["opfor_area_1", "OPFOR base"],
-	["opf_supporter_area", "OPFOR supporter"],
+	["opf_supporter_area_trigger", "OPFOR supporter"],
 	["pmc_area_1", "PMC Base"],
 	["ins_area_1", "INDEP Base"],
 	["ind_supporter_area_trigger", "INDEP supporter"],
@@ -412,7 +412,6 @@ check_safezone = {
 		_trigger_area = missionNamespace getVariable (_safezone_check select safezone_check_trigger_area);
 		_safezone_message = _safezone_check select safezone_check_message;
 		
-		if (isNil _trigger_area) exitWith {};
 		if (_vehicle in (list _trigger_area)) exitWith {
 			_temp = true;
 			_tempMessage = _safezone_message;
