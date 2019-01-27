@@ -215,7 +215,8 @@ supporters1 	  = [
 	"76561198144555471", //Pearse
 	"76561198088942367",	//	ANC
 	"76561198352708616", // TheDevilApe/Zen
-	"76561198179823359"	// Thotkitty
+	"76561198179823359",	// Thotkitty
+	"76561198799203534" // Michael Collins
 ];
 
 // Remember the Array format! No comma on last item in array!
