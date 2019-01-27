@@ -88,14 +88,14 @@ class Mission
 		"a_tvtower",
 		"castructureshouse_housebt",
 		"castructureshouse_a_hospital",
-		"ca_modules_functions",
+		"castructureshouse_a_office01",
 		"castructureshouse_a_office02",
 		"cabuildings",
-		"castructureshouse_a_office01",
 		"castructures_e_housea_a_villa",
 		"ind_expedice",
 		"castructuresland_ind_stack_big",
 		"ind_malykomin",
+		"ca_modules_functions",
 		"warfarebuildings",
 		"caweapons_e",
 		"ca_modules_e_weather",
@@ -3509,7 +3509,7 @@ class Mission
 					azimut=315;
 					id=869;
 					side="LOGIC";
-					vehicle="LocationLogic";
+					vehicle="Land_A_Office01";
 					leader=1;
 					skill=0.60000002;
 					text="bankbldg";
