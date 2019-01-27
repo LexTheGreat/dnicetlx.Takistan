@@ -10,11 +10,9 @@ if (_art == "use") then {
 			_deleted = _deleted + 1;
 		} forEach (nearestObjects [player, ["Suitcase"], 5]);
 
-		player groupChat format[localize "STRS_inv_items_weapondeleted", _deleted];
+		player groupChat format[localize "STRS_inv_items_itemdeleted", _deleted];
 	} else {
-		format ["clearWeaponCargo %1; clearMagazineCargo %1;", (vehicle player)] call broadcast;
-		player groupChat "STRS_inv_items_weaponcargocleared";
-		_deleted = 1;
+		player groupchat "you must be on foot";
 	};
 	if (_deleted > 0) then {
 		[player, _item, -(1)] call INV_AddInventoryItem;
