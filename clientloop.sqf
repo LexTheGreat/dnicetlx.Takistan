@@ -404,12 +404,15 @@ check_safezone = {
 	_tempMessage = "";
 
 	{
+		
 		private["_safezone_check", "_trigger_area", "_safezone_message"];
 		_safezone_check = _x;
+		
 		
 		_trigger_area = missionNamespace getVariable (_safezone_check select safezone_check_trigger_area);
 		_safezone_message = _safezone_check select safezone_check_message;
 		
+		if (isNil _trigger_area) exitWith {};
 		if (_vehicle in (list _trigger_area)) exitWith {
 			_temp = true;
 			_tempMessage = _safezone_message;
