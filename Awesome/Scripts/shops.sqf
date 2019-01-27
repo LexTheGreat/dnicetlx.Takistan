@@ -1210,7 +1210,7 @@ _ihvy =
 		["Ural_ZU23_TK_EP1", -1, -1],
 		["T34_TK_EP1", -1, -1],
 		["T55_TK_EP1", -1, -1],
-		["MAZ_543_SCUD_TK_EP1", -1, -1],
+		//["MAZ_543_SCUD_TK_EP1", -1, -1],
 		["ZU23_TK_EP1", -1, -1],
 		["Igla_AA_pod_TK_EP1", -1, -1]
 	];
