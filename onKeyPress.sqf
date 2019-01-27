@@ -598,7 +598,7 @@ KeyUp_handler = {
 
 		case DIK_F:
 		{
-		_only_cop_car_classes = ["UAZ_UNARMED_UN_EP1","LadaLM"];
+		_only_cop_car_classes = ["UAZ_UNARMED_UN_EP1","LadaLM","HMMWV_Ambulance_CZ_DES_EP1","S1203_ambulance_EP1"];
 
 			if (not(_ctrl)) exitWith {_handled = false;};
 
