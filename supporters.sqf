@@ -6,6 +6,7 @@ _uid = getPlayerUID player;
 // supporters1 = supporters1 + ["76561198067490194"];
 
 supporters1 	  = [
+	"76561197989629475", //MustafaL!kaWeeWee
 	"76561198088854202", //MrTwiggy
 	"76561198120523288", //Keegan
 	"76561198049969467", //WolfSlayer
