@@ -7,7 +7,7 @@ private["_player", "_civ"];
 	
 	if (_player != player) exitWith {};
 
-if(animationstate _civ == "civilsitting03" or animationstate _civ == "civilsitting02" or animationstate _civ == "civilsitting01" or animationstate _civ == "civilsitting") exitwith
+if(animationstate _civ in ["civillying01","civilsitting03","civilsitting02","civilsitting01","civilsitting"]) exitwith
 
 {
 
