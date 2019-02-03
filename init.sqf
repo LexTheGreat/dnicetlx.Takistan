@@ -91,7 +91,7 @@ if (isClient) then {
 	snowWorking = false;
 	snowday = false;
 	// T/F for snow options
-	snowToggle = true;
+	snowToggle = false;
 };
 
 // initializes Fixes
