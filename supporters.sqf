@@ -202,7 +202,6 @@ supporters1 	  = [
 	"76561198091669641", // Korean
 	"76561198041072844", // Complexity
 	"76561198060363106", // Steinerr
-	"76561198261609103", // Jake Thompson
 	"76561198118946558", // Gregory Porter
 	"76561198076888539", // King
 	"76561198056681023", //Kim Jong Fun
@@ -530,5 +529,6 @@ supportersVIP     = [
 	"76561198141845131", // Han Solo
 	"76561198062613863", // Maverick
 	"76561198065317401", // Smidge Griffkin
-	"76561198093358722" // Giovanni
+	"76561198093358722", // Giovanni
+	"76561198261609103" // Jake Thompson
 ];
