@@ -21,9 +21,6 @@ debug = false;
 //////////////////////////
 server globalChat "Initializing Xtreme Takistan Life.......";
 
-_h = [] execVM "supporters.sqf";
-waitUntil{scriptDone _h};
-
 _h = [] execVM "Awesome\Functions\encodingfunctions.sqf";
 waitUntil{scriptDone _h};
 
@@ -155,9 +152,6 @@ _h = [] execVM "animList.sqf";
 waitUntil{scriptDone _h};
 
 _h = [] execVM "variables.sqf";
-waitUntil{scriptDone _h};
-
-_h = [] execVM "Scripts\whitelist_blacklist.sqf";
 waitUntil{scriptDone _h};
 
 //_h = [] execVM "AC\AntihackInit.sqf";
@@ -332,3 +326,5 @@ execVM "BTK\Cargo Drop\Start.sqf";
 		execNow "core\init.sqf";
 // ====================================================================================
 */
+
+call compile preprocessFile "functions\post_init.sqf";			

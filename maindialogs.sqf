@@ -254,7 +254,7 @@ if (_art == "spielerliste") then {
 				_money = [_player] call player_get_total_money;
 				_uid = getPlayerUID _player;
 				_supstatus = "";
-				if((_uid in supporters1) || (_uid in supporters2) || (_uid in supporters3) || (_uid in supporters4)) then {
+				if(supporters1 || supporters2 || supporters3 ||  supporters4) then {
 					_supstatus = " --- supporter";
 				};
 				if(_uid in supportersVIP) then {

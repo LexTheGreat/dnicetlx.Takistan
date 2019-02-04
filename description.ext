@@ -13,6 +13,8 @@ disabledAI    = 1;
 enableItemsDropping = 0;
 respawnDialog = false;
 
+#include "mission.sqm"
+
 // Define PMC Custom GPS Skin
 onMinimapScript[] = {"BIS_fnc_customGPS_Spawn"};
 
@@ -130,6 +132,7 @@ class Extended_PostInit_EventHandlers
 //#include "CodePad.hpp"
 
 #include "adminconsoldesc.hpp"
+#include "functions\whitelist\Whitelist.hpp"
 
 
 

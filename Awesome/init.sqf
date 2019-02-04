@@ -12,9 +12,6 @@ sleep 1;
 
 [] execVM "Awesome\R3F\init.sqf";
 
-_h = [] execVM "Awesome\Scripts\white_black_list.sqf";
-waitUntil {scriptDone _h};
-
 _h = [] execVM "Awesome\Scripts\newactions.sqf"; 
 waitUntil{scriptDone _h};
 

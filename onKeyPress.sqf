@@ -591,6 +591,10 @@ KeyUp_handler = {
 			if (not(_ctrl)) exitWith {_handled = false;};
 			_handled = [] call keyboard_admin_menu_handler;
 		};
+		case DIK_F11: {
+			if (not(_ctrl)) exitWith {_handled = false;};
+			_handled = [] call whitelist_open;	
+		};
 
 		case DIK_L:	{
 			_handled = [] call keyboard_lock_unlock_handler;

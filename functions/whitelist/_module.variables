@@ -1,0 +1,42 @@
+﻿
+whitelist_data = [
+["Developer","isDeveloper",{isDeveloper}],
+["Tester","isTester",{isDeveloper}],
+["Administrator Developer","isAdminDev",{isDeveloper}],
+["Senior Administrator","isSnAdmin",{isDeveloper or isSnAdmin}],
+["Administrator","isAdmin",{isDeveloper or isSnAdmin}],
+["Moderator","isMod",{isDeveloper or isSnAdmin}],
+["Supporter #1","supporters1",{isDeveloper or isSnAdmin}],
+["Supporter #2","supporters2",{isDeveloper or isSnAdmin}],
+["Supporter #3","supporters3",{isDeveloper or isSnAdmin}],
+["Supporter #4","supporters4",{isDeveloper or isSnAdmin}],
+["Supporter VIP","supportersVIP",{isDeveloper or isSnAdmin}],
+
+
+["Colonel","Colonel",{isDeveloper}],
+["Major","Major",{isDeveloper or Colonel}],
+["Captain","Captain",{isDeveloper or Colonel or Major}],
+["Lieutenant","Lieutenant",{isDeveloper or Colonel or Major}],
+["Sergeant Major","Sergeant_Major",{isDeveloper or Colonel or Major}],
+["Staff_Sergeant","Staff_Sergeant",{isDeveloper or Colonel or Major or Captain}],
+["Sergeant","Sergeant",{isDeveloper or Colonel or Major or Captain or Lieutenant}],
+["Corporal","Corporal",{isDeveloper or Colonel or Major or Captain or Lieutenant}],
+["Private","Private1",{isDeveloper or Colonel or Major or Captain or Lieutenant}],
+["Recruit","Recruit",{isDeveloper or Colonel or Major or Captain or Lieutenant}],
+
+["Polkovnik","Polkovnik",{isDeveloper}],
+["Mayor","Mayor",{isDeveloper}],
+["Kapitan","Kapitan",{isDeveloper}],
+["Starshiy Leytenant","Starshiy_Leytenant",{isDeveloper}],
+["Leytenant","Leytenant",{isDeveloper}],
+["Mladshiy","Mladshiy",{isDeveloper}],
+["Mladshiy Leytenant","Mladshiy_Leytenant",{isDeveloper}],
+["Starshina","Starshina",{isDeveloper}],
+["Starshiy serzhant","Starshiy_serzhant",{isDeveloper}],
+["Serzhant","Serzhant",{isDeveloper}],
+["Mladshiy Serzhant","Mladshiy_Serzhant",{isDeveloper}],
+["Ryadovoy","Ryadovoy",{isDeveloper}],
+["Verbovat","Verbovat",{isDeveloper}]
+
+];
+

@@ -187,8 +187,6 @@ civilian_salary_handout = {
 	call shop_reset_paid_taxes;
 };
 supporter_salary_handout = {
-		_uid = getPlayerUID player;
- 
 		_admincashbonus = 0;
 		_supportercashbonus = 0;
 		_income = 0;
@@ -197,23 +195,23 @@ supporter_salary_handout = {
 		{
 				_admincashbonus = 50000;
 		};
-		if (_uid in supporters1) then
+		if (supporters1) then
 		{
 				_supportercashbonus = 20000;
 		};
-		if (_uid in supporters2) then
+		if (supporters2) then
 		{
 				_supportercashbonus = 40000;
 		};
-		if (_uid in supporters3) then
+		if (supporters3) then
 		{
 				_supportercashbonus = 60000;
 		};
-		if (_uid in supporters4) then
+		if (supporters4) then
 		{
 				_supportercashbonus = 80000;
 		};
-		if (_uid in supportersVIP) then
+		if (supportersVIP) then
 		{
 				_supportercashbonus = 100000;
 		};
