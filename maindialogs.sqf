@@ -254,12 +254,15 @@ if (_art == "spielerliste") then {
 				_money = [_player] call player_get_total_money;
 				_uid = getPlayerUID _player;
 				_supstatus = "";
+				/*
+				TODO, new whitelist system sets this to vars not a list. Needs to be done in a diff way.
 				if(supporters1 || supporters2 || supporters3 ||  supporters4) then {
 					_supstatus = " --- supporter";
 				};
 				if(_uid in supportersVIP) then {
 					_supstatus = " --- VIP";
 				};
+				*/
 				_label_text = format ["%1: %2 |-| $%3%4", _player, (name _player), strM(_money), _supstatus];
 			}
 			else {
