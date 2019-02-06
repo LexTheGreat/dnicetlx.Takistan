@@ -390,7 +390,7 @@ safezone_check = [
 	["ins_area_1", "INDEP Base"],
 	["ind_supporter_area_trigger", "INDEP supporter"],
 	["civ_safezone", "CIVILIAN spawn"],
-	["civ_safezone_south", "CIVILIAN spawn"],
+	["civ_safezone_1", "CIVILIAN spawn"],
 	["civ_safezone_terror", "TERROR HIDEOUT"],
 	["civ_supporter_area_trigger", "CIVILIAN supporter"],
 	["civ_vip_area", "VIP north"],
