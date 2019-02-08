@@ -298,6 +298,8 @@ if (isDog) then {
 	};
 };
 
+["BANK LOAD", str (name player), " HAS ", [player] call player_get_total_money, " IN TOTAL"] call fn_LogToServer;
+
 // Logging
 if ([player] call player_get_factory_money > 1000000) then {
 	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN FACTORY STORAGE"] call fn_LogToServer;
