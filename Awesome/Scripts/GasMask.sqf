@@ -23,7 +23,7 @@ _work = false;
 switch _mask do {
 	case true: {
 		player setvariable ["gasmask", false, true];
-		player groupchat "You took off your gasmask and it has been added to your inventory";
+		player groupchat "You took off your gas mask and it has been added to your inventory";
 		[player, _item, -1] call INV_AddInventoryItem;
 		[player, "gasmask", 1] call INV_AddInventoryItem;
 		_work = true;
@@ -31,7 +31,7 @@ switch _mask do {
 		
 	case false:{
 		player setvariable ["gasmask", true, true];
-		player groupchat "You put on a gask mask, you will now be protected from tear gas";
+		player groupchat "You put on a gas mask, you will now be protected from tear gas";
 		[player, _item, -1] call INV_AddInventoryItem;
 		[player, "gasmask_on", 1] call INV_AddInventoryItem;
 		_work = true;
@@ -40,7 +40,7 @@ switch _mask do {
 
 if (!_work) then {
 	player setvariable ["gasmask", true, true];
-	player groupchat "You put on a gask mask, you will now be protected from tear gas";
+	player groupchat "You put on a gas mask, you will now be protected from tear gas";
 	[player, _item, -1] call INV_AddInventoryItem;
 	[player, "gasmask_on", 1] call INV_AddInventoryItem;
 };
