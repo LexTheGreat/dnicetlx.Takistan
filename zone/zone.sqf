@@ -40,10 +40,10 @@ if(isClient) then {
 		_lockpos = getPosASL player;
 		
 		if (_curOwner == civilian) then {
-			hint "Capturing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
+			hint "Capturing! Wait 30s \n You can cancel capping by pressing 4 with TLX keys on";
 		}
 		else {
-			hint "Neutralizing! Wait 30s \n You can cancel capping by pressing 4 with TLR keys on";
+			hint "Neutralizing! Wait 30s \n You can cancel capping by pressing 4 with TLX keys on";
 		};
 		format ["%1 switchmove 'AinvPknlMstpSlayWrflDnon_medic';", player] call broadcast;
 		sleep 5;
