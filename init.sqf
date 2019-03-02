@@ -19,7 +19,7 @@ private ["_h"];
 debug = false;
 
 //////////////////////////
-server globalChat "Initializing Xtreme Takistan Life.......";
+server globalChat "Initializing Takistan Life Xtreme.......";
 
 _h = [] execVM "Awesome\Functions\encodingfunctions.sqf";
 waitUntil{scriptDone _h};
