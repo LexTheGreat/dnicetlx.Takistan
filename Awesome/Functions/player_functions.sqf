@@ -86,12 +86,12 @@ player_pmc = {
 
 count_side = {
 	_side = _this select 0;
-	
+
 	_count = 0;
 	{
 		_player_variable_name = _x;
 		_player_variable = missionNamespace getVariable _player_variable_name;
-		
+
 		if(!isNil "_player_variable") then {
 			if ([_player_variable] call player_exists) then {
 				if ([_player_variable] call player_side == _side) then {
@@ -100,7 +100,7 @@ count_side = {
 			};
 		};
 	} count PlayerStringArray;
-	
+
 	_count
 };
 
@@ -1464,7 +1464,7 @@ player_set_gear = {
 		} else {
 			if ([_player] call player_opfor) then {
 				_magazines = OpforGear_Mags;
-				_weapons = OpforGear_Weap;	
+				_weapons = OpforGear_Weap;
 			};
 		};*/
 	};
@@ -2170,23 +2170,23 @@ player_init_arrays = {
 		"ins1","ins2","ins3","ins4","ins9","ins10",
 		"ins11","ins12"
 	];
-	
+
 	PlayerStringArray = CivStringArray + BluStringArray + OpfStringArray + InsStringArray;
 	/* End Factions */
-	
+
 	/* Slots */
 	DogSlots = ["cop5"];
 	PMCSlots = ["civ60", "civ61", "civ62", "civ63", "civ64"];
 	/* Ranked Slots */
-	AdmSlots = DogSlots + ["ins1", "ins2", "ins3"];
+	AdmSlots = DogSlots + ["ins4", "ins9", "ins10"];
 	SupSlots = [];
 	VipSlots = [];
-	
+
 	/* References */
 	BluRankReferenceArray = ["cop1"];
 	OpfRankReferenceArray = ["opf1"];
 	OpfRadarReferenceArray = ["opf2"];
-	
+
 	/* System */
 	role = _player;
 	rolestring = toLower(str(_player));
@@ -2197,16 +2197,16 @@ player_init_arrays = {
 	isOpf = (rolestring in OpfStringArray); //[_player] call player_opfor;
 	isIns = (rolestring in InsStringArray); //[_player] call player_insurgent;
 	isCiv = (rolestring in CivStringArray); //[_player] call player_civilian;
-	
+
 	isDog = (rolestring in DogSlots); //[_player] call player_dog;
 	isPmc = (rolestring in PMCSlots); //[_player] call player_pmc;
-	
+
 	isGov = isBlu || isOpf;
 
 	isBluforRanked = (rolestring in BluRankReferenceArray);
 	isOpforRanked = (rolestring in OpfRankReferenceArray);
 	isOpforRadar = (rolestring in OpfRadarReferenceArray);
-	
+
 	isSupSlot = (rolestring in SupSlots);
 	isVipSlot = (rolestring in VipSlots);
 	isAdmSlot = (rolestring in AdmSlots);

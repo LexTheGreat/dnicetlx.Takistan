@@ -1265,7 +1265,7 @@ class Mission
 					skill=0.60000002;
 					text="ins4";
 					init="removeallweapons this;";
-					description="Mujahid";
+					description="Mujahid - Staff Slot";
 				};
 			};
 		};
@@ -4909,7 +4909,7 @@ class Mission
 					skill=0.60000002;
 					text="ins9";
 					init="removeallweapons this;";
-					description="Chechen Officer";
+					description="Chechen Officer - Staff Slot";
 				};
 			};
 		};
@@ -5516,7 +5516,7 @@ class Mission
 					skill=0.60000002;
 					text="ins10";
 					init="removeallweapons this;";
-					description="Chechen Officer";
+					description="Chechen Officer - Staff Slot";
 				};
 			};
 		};
