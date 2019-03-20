@@ -1,3 +1,5 @@
+Retired, succeeded by TLX 2.0
+
 Trello
 https://trello.com/b/6PWgdxfU/takistan-life-xtreme
 
